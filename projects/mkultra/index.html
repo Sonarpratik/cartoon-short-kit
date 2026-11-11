@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKUltra · scene review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#141c25;color:#f1eee5;font:15px system-ui;display:grid;justify-items:center;gap:12px;padding:20px}
+h1{font-size:18px;font-weight:500;margin:0}#screen{height:78vh;aspect-ratio:9/16;background:#233643;position:relative;overflow:hidden}#screen canvas{width:100%;height:100%;display:block}
+footer{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center}button,select{padding:8px 12px;background:#e8caa4;border:0;border-radius:4px;color:#192430;font:inherit}input{width:min(420px,50vw)}#status{max-width:800px;margin:0;color:#bbc7cd;font-size:13px}
+</style>
+<h1>MKUltra · scene review</h1><div id="screen"></div>
+<footer><button id="play">Play narration</button><select id="scene"></select><input id="frame" type="range" min="0" value="0"><output id="time"></output></footer>
+<p id="status">Loading project…</p><audio id="voice" src="/input/voice.mp3" preload="auto"></audio>
+<script type="module" src="/src/player.ts"></script></html>

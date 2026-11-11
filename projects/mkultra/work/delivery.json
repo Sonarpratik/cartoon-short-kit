@@ -1,0 +1,61 @@
+{
+  "status": "complete",
+  "revision": "v6",
+  "approval": "User explicitly requested generation of the latest scenes.",
+  "video": "out/final.mp4",
+  "sha256": "71c67ef8c6bccf31bff4ac9e5f9a0b51ae2fe38690e07b4a50a9b7e37fa8b003",
+  "previousVideo": "out/final-previous.mp4",
+  "latestSourceStatus": "Latest v6 scenes rendered, encoded and verified.",
+  "latestReview": "review/overview_v6.jpg",
+  "specs": {
+    "file": "out/final.mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "decodedFrames": 1034,
+    "videoDuration": 34.46666666666667,
+    "narrationDuration": 34.4555,
+    "durationDifferenceSeconds": 0.01116666666666788,
+    "integratedLUFS": -14.13,
+    "truePeakDbTP": -1.24,
+    "finalCommonAudioAdjustmentDb": 0,
+    "blackFrames": [],
+    "whiteFrames": [],
+    "freezeDetectorEvents": [],
+    "unplannedLargeChanges": [],
+    "reviewComparisons": [
+      {
+        "scene": "S01",
+        "frame": 24,
+        "meanPixelDifferenceVsApprovedReview": 4.45078706741333
+      },
+      {
+        "scene": "S03",
+        "frame": 208,
+        "meanPixelDifferenceVsApprovedReview": 4.356088161468506
+      },
+      {
+        "scene": "S04",
+        "frame": 419,
+        "meanPixelDifferenceVsApprovedReview": 4.30949068069458
+      },
+      {
+        "scene": "S05",
+        "frame": 509,
+        "meanPixelDifferenceVsApprovedReview": 4.322152614593506
+      },
+      {
+        "scene": "S07",
+        "frame": 809,
+        "meanPixelDifferenceVsApprovedReview": 4.342916488647461
+      },
+      {
+        "scene": "S08",
+        "frame": 902,
+        "meanPixelDifferenceVsApprovedReview": 4.387685298919678
+      }
+    ],
+    "fileBytes": 21315542,
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+  }
+}

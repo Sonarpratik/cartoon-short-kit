@@ -7,6 +7,12 @@ description: Create original vertical cartoon shorts with Canvas2D characters in
 
 Use this bundled Three.js renderer and its shared visual defaults. Start from an idea, script, or uploaded narration. The normal output is 1080x1920 at 30 fps, timed to the narration. Default story length is 20–30 seconds unless the user asks otherwise.
 
+## Persistent visual defaults
+
+Apply the user's preferences automatically: off-white faces, a soft inner head highlight aligned to the key light, visible window-shaped light across interior surfaces where appropriate, and detailed original props/backgrounds with joinery, hardware, trim and relevant shelf contents. Choose lighting for each scene and preserve readable shadows and faces. Read [lighting-guide.md](references/lighting-guide.md), including its private reference studies, before designing a new set. No repeated prop or lighting request is needed.
+
+Background quality is a standing preference too: start with a fully designed setting, detailed furniture and story-relevant objects, painted materials, architectural trim, believable light sources, surface highlights, soft form shadows and grounded cast/contact shadows. For window-lit interiors, carry the pane-shaped light across walls, worktops and floors as appropriate. Use MKUltra review v3 as the user's approved background direction, adapting the setting and lighting to each new story. Do not wait for the user to request background detail or lighting again; include them in the scene plan and review frames by default.
+
 ## Essential rules
 
 - Create original stories, characters and staging. Reference images are private style study material: never deliver or publish them, or copy their characters, stories or shots.
@@ -39,7 +45,8 @@ Actual source map:
 |---|---|
 | templates/bridge/style.ts | Shared outline, blur and texture-detail defaults |
 | templates/bridge/toon.ts | Pen API, bodyFront/bodySide, expressions and outfits |
-| templates/bridge/props.ts | createProp: crate, barrel, bench and table |
+| templates/bridge/props.ts | createProp: crate, barrel, bench, table, desk, shelf and cabinet |
+| templates/bridge/lighting.ts, cardshade.ts, shade.ts | Window projection and white-face inner highlights |
 | templates/bridge/paint.ts | Painted wood, stone, grass, facades and water |
 | templates/bridge/build.ts | Buildings, scenery geometry and batching |
 | templates/bridge/world.ts | World construction, lights, actors and per-frame posing |
@@ -49,7 +56,7 @@ Actual source map:
 | templates/bridge/player.ts | Browser player, window.ready and window.renderFrame(f) |
 | templates/scripts/bridge-stills.mjs | Deterministic Playwright frame capture |
 
-Optional Kenney GLB files go in public/bridge/kenney/. They are not bundled. Procedural scenery and the four reusable props work without them. Do not assume a missing external asset will appear in the final image.
+Optional Kenney GLB files go in public/bridge/kenney/. They are not bundled. Procedural scenery and the reusable props work without them. Do not assume a missing external asset will appear in the final image.
 
 Read [visual-guide.md](references/visual-guide.md) when designing characters, props and cameras. Existing reports in references/reports are historical measurements, sometimes of older code; inspect the current implementation before applying their prescriptions.
 
@@ -81,7 +88,7 @@ import { createProp } from './props';
 R.add(createProp('crate', { position: [2, groundY, -3], yaw: 0.2 }));
 ```
 
-The library contains four prop types, not a universal asset generator. Claude writes any additional geometry/material code needed for a new setting. Do not reuse the bridge setting merely because it is the worked example.
+The library contains seven prop types, not a universal asset generator. Claude writes any additional geometry/material code needed for a new setting. Do not reuse the bridge setting merely because it is the worked example.
 
 ## 3. Timing and scene implementation
 

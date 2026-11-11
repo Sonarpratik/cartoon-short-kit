@@ -1,0 +1,46 @@
+[
+  {
+    "id": "S01",
+    "f0": 0,
+    "f1": 75,
+    "title": "An unsuspecting citizen",
+    "words": "The CIA drugged its own citizens…",
+    "review": [
+      0,
+      24,
+      74
+    ],
+    "paths": [
+      "review/S01_lightdraft2/f0000.jpg",
+      "review/S01_lightdraft2/f0024.jpg",
+      "review/S01_lightdraft2/f0074.jpg"
+    ],
+    "version": "lightdraft2",
+    "sourceHash": "10ab0d8ae385fbfa4ecbb47235a27b77ac4dee0b42eb9981efc525e5f00d4ab9",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S05",
+    "f0": 420,
+    "f1": 570,
+    "title": "Research into control and interrogation",
+    "words": "The goal? Mind control… and making people talk under interrogation.",
+    "review": [
+      420,
+      458,
+      509,
+      569
+    ],
+    "paths": [
+      "review/S05_lightdraft2/f0420.jpg",
+      "review/S05_lightdraft2/f0458.jpg",
+      "review/S05_lightdraft2/f0509.jpg",
+      "review/S05_lightdraft2/f0569.jpg"
+    ],
+    "version": "lightdraft2",
+    "sourceHash": "10f7da8213958bb2f0efd56150e673138cc6a83a12ba11ca9d54340c48b0cb10",
+    "scale": 1,
+    "status": "to check"
+  }
+]

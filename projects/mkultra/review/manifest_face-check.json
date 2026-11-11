@@ -1,0 +1,67 @@
+[
+  {
+    "id": "S04",
+    "f0": 351,
+    "f1": 420,
+    "title": "They were not told",
+    "words": "Some of them never knew they'd been dosed.",
+    "review": [
+      351,
+      383,
+      419
+    ],
+    "paths": [
+      "review/S04_face-check/f0351.jpg",
+      "review/S04_face-check/f0383.jpg",
+      "review/S04_face-check/f0419.jpg"
+    ],
+    "version": "face-check",
+    "sourceHash": "b914709eb56905541877e13fbe780980ef8a106d0117301e01f4f4c43786fdc2",
+    "scale": 0.4,
+    "status": "to check"
+  },
+  {
+    "id": "S05",
+    "f0": 420,
+    "f1": 570,
+    "title": "Research into control and interrogation",
+    "words": "The goal? Mind control… and making people talk under interrogation.",
+    "review": [
+      420,
+      458,
+      509,
+      569
+    ],
+    "paths": [
+      "review/S05_face-check/f0420.jpg",
+      "review/S05_face-check/f0458.jpg",
+      "review/S05_face-check/f0509.jpg",
+      "review/S05_face-check/f0569.jpg"
+    ],
+    "version": "face-check",
+    "sourceHash": "0314aaa4448ee5ed2024d8083e60916a3102014fd033031a7d51961f92a34d4a",
+    "scale": 0.4,
+    "status": "to check"
+  },
+  {
+    "id": "S08",
+    "f0": 858,
+    "f1": 948,
+    "title": "The discovery, 1977",
+    "words": "They were found in 1977.",
+    "review": [
+      858,
+      902,
+      947
+    ],
+    "paths": [
+      "review/S08_face-check/f0858.jpg",
+      "review/S08_face-check/f0902.jpg",
+      "review/S08_face-check/f0947.jpg"
+    ],
+    "version": "face-check",
+    "sourceHash": "8203174863724fd5738eb6618178c175f71df9589b1111fee9db791da5d62827",
+    "scale": 0.4,
+    "status": "to check"
+  }
+]

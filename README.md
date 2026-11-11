@@ -2,6 +2,8 @@
 
 Canvas2D cartoon characters in a Three.js world. Playwright captures frames and FFmpeg encodes video.
 
+New projects inherit the user's [lighting and detail preferences](references/lighting-guide.md): off-white faces with soft inner highlights, window-shaped light across interiors, and detailed original furniture and sets. Shared helpers live in `templates/bridge/lighting.ts`, `shade.ts`, `cardshade.ts` and `props.ts`. Outdoor scenes leave the window projector disabled.
+
 ## Character preview
 
 Requires Node 22.6+. Run `node preview-characters.mjs` and open http://127.0.0.1:8787. Edit `templates/bridge/toon.ts` and refresh. No dependency installation is needed.

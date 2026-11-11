@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { beamHD, planksHD } from './paint';
 import { twoTone } from './shade';
 
-export type PropKind = 'crate' | 'barrel' | 'bench' | 'table';
+export type PropKind = 'crate' | 'barrel' | 'bench' | 'table' | 'desk' | 'shelf' | 'cabinet';
 export type PropOptions = { position?: [number, number, number]; yaw?: number; scale?: number; wood?: string };
 
 export function createProp(kind: PropKind, options: PropOptions = {}): THREE.Group {
@@ -49,10 +49,28 @@ export function createProp(kind: PropKind, options: PropOptions = {}): THREE.Gro
       }
       for (const y of [.82, 1.02]) box(1.8, .15, .08, 0, y, .25);
       break;
+    case 'desk':
     case 'table':
       box(1.6, .1, .9, 0, .85, 0, top);
       for (const x of [-.64, .64]) for (const z of [-.31, .31]) box(.11, .8, .11, x, .4, z);
       for (const z of [-.31, .31]) box(1.35, .15, .06, 0, .71, z);
+      box(1.35,.065,.68,0,.22,0,top);
+      if(kind==='desk')for(const x of [-.38,.38]){
+        box(.68,.18,.035,x,.7,.46,top);
+        box(.17,.025,.035,x,.7,.49,iron);
+      }
+      break;
+    case 'shelf':
+      for(const x of [-.85,.85])box(.08,2.4,.5,x,1.2,0);
+      for(const y of [.12,.82,1.52,2.22])box(1.8,.07,.55,0,y,0,top);
+      box(1.8,2.4,.04,0,1.2,-.26,top);
+      break;
+    case 'cabinet':
+      box(1.2,1.7,.65,0,.85,0,iron);
+      for(let i=0;i<4;i++){
+        box(1.08,.36,.045,0,.24+i*.4,.35,wood);
+        box(.26,.035,.05,0,.24+i*.4,.39,iron);
+      }
       break;
     default:
       throw new Error(`Unknown prop: ${kind}`);

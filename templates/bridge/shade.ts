@@ -3,6 +3,7 @@
 // own light loop (LFB), so nothing is computed twice. Character cards (cardShade) live in the CHAR agent's file and
 // can import LFB / CHAR from here; world.ts sets every uniform below once per frame from LIGHTS.
 import * as THREE from "three";
+import { WINDOW_LIGHT, WINDOW_DECL } from "./lighting";
 
 export const TONE = {
   uLitCol: { value: new THREE.Vector3(1.5, 1.44, 1.32) }, uShadeCol: { value: new THREE.Vector3(0.6, 0.58, 0.86) },
@@ -37,6 +38,9 @@ const TWO_TONE = /* glsl */ `
   vec3 alb = max( mix( vec3( dot( diffuseColor.rgb, vec3( 0.2126, 0.7152, 0.0722 ) ) ), diffuseColor.rgb, uSat ), 0.0 );
   reflectedLight.directDiffuse = alb * ( mix( uShadeCol, lit, sunTerm ) * skyK + uBounce * facing * clamp( 1.0 - dot( geometryNormal, upV ), 0.0, 1.0 ) * ( 1.0 - sunTerm ) )
     + uShadeLift * LIFT_K * ( 1.0 - sunTerm );
+  vec3 windowIncoming = normalize((viewMatrix * vec4(-uWindowDir,0.)).xyz);
+  float windowFacing = max(dot(geometryNormal, windowIncoming),0.);
+  reflectedLight.directDiffuse += alb * uWindowColor * windowPattern() * uWindowStrength * windowFacing * sunVis;
   reflectedLight.indirectDiffuse = vec3( 0.0 );                               // hemisphere/fill no longer used here
 }
 #endif
@@ -46,13 +50,22 @@ const DECL = "#include <common>\nuniform vec3 uLitCol; uniform vec3 uShadeCol; u
 /** Lambert (or Phong: its specular term is kept, masked by the shadow) -> two-tone. Call once per material. */
 export function twoTone<T extends THREE.MeshLambertMaterial | THREE.MeshPhongMaterial>(m: T, liftK = 1): T {
   m.onBeforeCompile = (sh) => {
-    Object.assign(sh.uniforms, TONE);
+    Object.assign(sh.uniforms, TONE, WINDOW_LIGHT);
+    sh.vertexShader = sh.vertexShader.replace("#include <common>", "#include <common>\nvarying vec3 vWindowWorld;").replace("#include <worldpos_vertex>", `#include <worldpos_vertex>
+vec4 windowPosition = vec4(transformed,1.);
+#ifdef USE_BATCHING
+windowPosition = batchingMatrix * windowPosition;
+#endif
+#ifdef USE_INSTANCING
+windowPosition = instanceMatrix * windowPosition;
+#endif
+vWindowWorld = (modelMatrix * windowPosition).xyz;`);
     sh.fragmentShader = sh.fragmentShader
-      .replace("#include <common>", DECL + `\n#define LIFT_K ${liftK.toFixed(3)}`)
+      .replace("#include <common>", DECL + WINDOW_DECL + `\n#define LIFT_K ${liftK.toFixed(3)}`)
       .replace("#include <lights_fragment_begin>", "float sunVis = 1.0;\n" + LFB)
       .replace("#include <lights_fragment_end>", "#include <lights_fragment_end>\n" + TWO_TONE);
   };
-  m.customProgramCacheKey = () => "twoTone5_" + liftK.toFixed(3);
+  m.customProgramCacheKey = () => "twoTone6_window_" + liftK.toFixed(3);
   return m;
 }
 

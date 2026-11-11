@@ -5,12 +5,12 @@
 // Design space 600 x 1000 units (soles at y = 975); the canvas transform scales it.
 import { STYLE } from './style.js';
 export const INK = "#241726";
-export const SKIN = "#ffe2c2";
+export const SKIN = "#faf9f5";
 const WHITE = "#ffffff";
 const MOUTH = "#5a1e28";
 const TONGUE = "#e86e78";
 type C3 = [number, number, number];
-const SH_SKIN: C3 = [0.96, 0.86, 0.84]; // measured shadow/lit ratio on skin heads
+const SH_SKIN: C3 = [0.94, 0.93, 0.97]; // measured shadow/lit ratio on skin heads
 const SH_CLOTH: C3 = [0.64, 0.66, 0.74]; // torsos: lit side -> far side ~0.65
 const SH_FELT: C3 = [0.62, 0.62, 0.7];
 
@@ -55,7 +55,7 @@ export const RIFLEMAN: Outfit = { jacket: "#357650", pants: "#3d4440", boots: IN
 export const OFFICER: Outfit = { ...RIFLEMAN, hat: "shako_tall", buttons: "#e8c45a", sash: "#c0353a", sword: true, moustache: "#4a3020", rifle: false, belt: null, build: "stout" };
 export const KID: Outfit = { jacket: "#f08a2c", pants: "#3b5b9a", boots: "#f4f1ea", hat: "cap", cap: "#e2453c", build: "kid" };
 export const PARENT: Outfit = { jacket: "#7b5ac9", pants: "#3b3f52", boots: "#5a3b2a", hat: "hair", hair: "#5a3b2a" };
-export const SKINS = [SKIN, "#f5c9a0", "#ecd0b6", "#c99067"];
+export const SKINS = [SKIN, "#f7f6f2", "#faf9f6", "#f5f4f0"];
 
 export const soldier = (v = 0, extra: Partial<Outfit> = {}): Outfit => {
   const o: Outfit = { ...RIFLEMAN, skin: SKINS[v % 4] };

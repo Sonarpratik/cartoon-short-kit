@@ -2,6 +2,8 @@
 
 Use these criteria when adapting the worked example. Match the visual language while keeping characters, stories and staging original. Reference frames stay private.
 
+Use [lighting-guide.md](lighting-guide.md) for the user's persistent window-light, white-head highlight and detailed-set preferences. Apply them automatically to new projects.
+
 ## Characters
 
 - Start from the Pen/bodyFront/bodySide implementation in templates/bridge/toon.ts. Preserve thin ink limbs, bean torsos, readable facial expressions and contact with the ground.
@@ -14,7 +16,7 @@ Use these criteria when adapting the worked example. Match the visual language w
 ## Props and backgrounds
 
 - Claude selects props from the narration. Choose a hero object that explains the action, then two to four supporting objects where useful. Avoid clutter and random decoration.
-- Reuse createProp from templates/bridge/props.ts for a crate, barrel, bench or table. All have base-centred origins and use metres. Position at the actual ground height; yaw is in radians. Validate custom dimensions and scale relative to the actors.
+- Reuse createProp from templates/bridge/props.ts for a crate, barrel, bench, table, desk, shelf or cabinet. All have base-centred origins and use metres. Position at the actual ground height; yaw is in radians. Validate custom dimensions and scale relative to the actors.
 - Extend the library for story-specific objects such as a ship, well or laboratory machine. Give a new prop its own function rather than repeatedly copying geometry into scenes.
 - Broad painted colour areas should dominate. Use sparse grain, wear and mortar; retain useful seams without speckling every surface.
 - Vary building width, height, facade style and spacing where it matters to the camera. Generic repeated window grids across the whole background are a warning sign.

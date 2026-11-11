@@ -7,6 +7,7 @@ import { Batch, Strand, boxGeo, V, lam, buildTown, flagTex, Kit, Ray, kitClone }
 import { beam, bed, rep, ctex, planksHD, beamHD, stoneHD, cobbleHD, grassHD, chainHD, waterNear, waterFar, cloudHD } from "./paint";
 import { Pen, fxSign } from "./toon";
 import { LIGHTS, LOOK, LightPreset } from "./lights";
+import { FACE_LIGHT } from "./lighting";
 import { TONE, CHAR, LFB, twoTone, untone } from "./shade";
 import { NOINK } from "./ink";
 import { createProp } from './props';
@@ -369,6 +370,8 @@ export class World {
     this.fill.intensity = 0; // not used by the two-tone shading
     TONE.uLitCol.value.set(...L.lit); TONE.uShadeCol.value.set(...L.shade); TONE.uShadeLift.value.set(...L.lift);
     TONE.uLambert.value = L.lambert; TONE.uSideK.value = L.sideK; TONE.uTerm.value = L.term; TONE.uBounce.value.set(...LOOK[s.light].bounce); TONE.uSat.value = LOOK[s.light].sat;
+    FACE_LIGHT.uFaceRimColor.value.set(s.light === "golden" ? "#ffd58b" : "#ffedbf");
+    FACE_LIGHT.uFaceRimStrength.value = s.light === "golden" ? .28 : .18;
     CHAR.uCharTint.value.set(...L.charTint); CHAR.uCharShade.value = L.charShade; CHAR.uGrad.value = L.charGrad;
     CHAR.uBodyGrad.value = L.bodyGrad; CHAR.uSideTint.value.set(...L.sideTint);
     // ---- sky, fog (colour = horizon colour, linear fogNear -> fogFar), sun disc + halo, clouds ----

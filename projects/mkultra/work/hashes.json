@@ -1,0 +1,87 @@
+{
+  "S01": {
+    "sourceHash": "23b0fc02ef9e0c46cf5de07949b195ddb3801e05f22d6721551a24504c59b92f",
+    "version": "v6",
+    "frames": [
+      0,
+      24,
+      74
+    ]
+  },
+  "S02": {
+    "sourceHash": "5cfce91635dc2c4aa42019da448182d66ec2c2f27dbb64c73987e7273bd3b3a2",
+    "version": "v6",
+    "frames": [
+      75,
+      104,
+      140
+    ]
+  },
+  "S03": {
+    "sourceHash": "1277f0ed4baba7d5f679e0e4d9c924cd89f5beea6044d63fee54f468accca584",
+    "version": "v6",
+    "frames": [
+      141,
+      208,
+      279,
+      350
+    ]
+  },
+  "S04": {
+    "sourceHash": "e3c438bc72d64a0b75690035b7baccdcb248c236563e90b339d9d4401780af78",
+    "version": "v6",
+    "frames": [
+      351,
+      383,
+      419
+    ]
+  },
+  "S05": {
+    "sourceHash": "2878774b4e9a6b529e24465d2b897ccfa231881d3525965e67b4c44c3f5d013c",
+    "version": "v6",
+    "frames": [
+      420,
+      458,
+      509,
+      569
+    ]
+  },
+  "S06": {
+    "sourceHash": "01043cdd1fdcb03064207d6c62f41937695fd6175e890c4a2303c8a130ccd434",
+    "version": "v6",
+    "frames": [
+      570,
+      628,
+      660,
+      701
+    ]
+  },
+  "S07": {
+    "sourceHash": "dc2e1c939e12609aac7e1ec09af22e56bff7740e20b1c9fd4a01ebf6a0b1ac9d",
+    "version": "v6",
+    "frames": [
+      702,
+      752,
+      809,
+      857
+    ]
+  },
+  "S08": {
+    "sourceHash": "8255e61a4a48dd5e28ee5e1abc8d9ddcc5f76a8f37f0f41e7db811370a19f3a3",
+    "version": "v6",
+    "frames": [
+      858,
+      902,
+      947
+    ]
+  },
+  "S09": {
+    "sourceHash": "2bbb73dff488f6fccad6153ab81eeaf0b9653713ee76840aff20419180049b94",
+    "version": "v6",
+    "frames": [
+      948,
+      996,
+      1033
+    ]
+  }
+}

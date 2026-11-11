@@ -1,0 +1,199 @@
+[
+  {
+    "id": "S01",
+    "f0": 0,
+    "f1": 75,
+    "title": "An unsuspecting citizen",
+    "words": "The CIA drugged its own citizens…",
+    "review": [
+      0,
+      24,
+      74
+    ],
+    "paths": [
+      "review/S01_v3/f0000.jpg",
+      "review/S01_v3/f0024.jpg",
+      "review/S01_v3/f0074.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "209ab7b1badc69cbd5f30b122adc3c5f90da1017cf9c6f5ac997fbc5d0433213",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S02",
+    "f0": 75,
+    "f1": 141,
+    "title": "On the public record",
+    "words": "…and they admitted it.",
+    "review": [
+      75,
+      104,
+      140
+    ],
+    "paths": [
+      "review/S02_v3/f0075.jpg",
+      "review/S02_v3/f0104.jpg",
+      "review/S02_v3/f0140.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "732c4701f55beafb08d79816e4fcafdef114c380a0654de9c02ec25220e422e5",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S03",
+    "f0": 141,
+    "f1": 351,
+    "title": "A secret laboratory, 1953",
+    "words": "Starting in 1953, a secret program called MKUltra tested LSD and other drugs on people.",
+    "review": [
+      141,
+      208,
+      279,
+      350
+    ],
+    "paths": [
+      "review/S03_v3/f0141.jpg",
+      "review/S03_v3/f0208.jpg",
+      "review/S03_v3/f0279.jpg",
+      "review/S03_v3/f0350.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "1752396996ed4030dec2fc0a27ccedc1907bb69d37b78f160c352ddb1e28bc4c",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S04",
+    "f0": 351,
+    "f1": 420,
+    "title": "They were not told",
+    "words": "Some of them never knew they'd been dosed.",
+    "review": [
+      351,
+      383,
+      419
+    ],
+    "paths": [
+      "review/S04_v3/f0351.jpg",
+      "review/S04_v3/f0383.jpg",
+      "review/S04_v3/f0419.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "0f9a5aba20af969697b3a1529c1ac93134f577bbabc36c512e46c532e39e8f89",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S05",
+    "f0": 420,
+    "f1": 570,
+    "title": "Research into control and interrogation",
+    "words": "The goal? Mind control… and making people talk under interrogation.",
+    "review": [
+      420,
+      458,
+      509,
+      569
+    ],
+    "paths": [
+      "review/S05_v3/f0420.jpg",
+      "review/S05_v3/f0458.jpg",
+      "review/S05_v3/f0509.jpg",
+      "review/S05_v3/f0569.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "942e309c38b31f78ee943961daf38056473d9938e3ca87b85fed0cc218bd4bdf",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S06",
+    "f0": 570,
+    "f1": 702,
+    "title": "The destruction order, 1973",
+    "words": "In 1973, the CIA director ordered the files destroyed.",
+    "review": [
+      570,
+      628,
+      660,
+      701
+    ],
+    "paths": [
+      "review/S06_v3/f0570.jpg",
+      "review/S06_v3/f0628.jpg",
+      "review/S06_v3/f0660.jpg",
+      "review/S06_v3/f0701.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "c4dc7c770e7202fa30c939b6764035979bfe8959671f8d34dd403f000e7be56a",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S07",
+    "f0": 702,
+    "f1": 858,
+    "title": "Hidden among the finance files",
+    "words": "But about 20,000 documents survived, because they had been misfiled with financial records.",
+    "review": [
+      702,
+      752,
+      809,
+      857
+    ],
+    "paths": [
+      "review/S07_v3/f0702.jpg",
+      "review/S07_v3/f0752.jpg",
+      "review/S07_v3/f0809.jpg",
+      "review/S07_v3/f0857.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "ab06104b2b157f25e07296f196decb13e183575e2b2de2b16ca5650cecbd2cd5",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S08",
+    "f0": 858,
+    "f1": 948,
+    "title": "The discovery, 1977",
+    "words": "They were found in 1977.",
+    "review": [
+      858,
+      902,
+      947
+    ],
+    "paths": [
+      "review/S08_v3/f0858.jpg",
+      "review/S08_v3/f0902.jpg",
+      "review/S08_v3/f0947.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "4f54795b3f7ab1ecf747abd3476368f4c57e404445331a711698d19d5da95012",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S09",
+    "f0": 948,
+    "f1": 1034,
+    "title": "What is missing?",
+    "words": "So… what else do you think got shredded?",
+    "review": [
+      948,
+      996,
+      1033
+    ],
+    "paths": [
+      "review/S09_v3/f0948.jpg",
+      "review/S09_v3/f0996.jpg",
+      "review/S09_v3/f1033.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "5e36f7b9dea0281acfe15f0ebe964c421b83cab5a8706d3d412ef75fd9d2e02f",
+    "scale": 1,
+    "status": "to check"
+  }
+]
