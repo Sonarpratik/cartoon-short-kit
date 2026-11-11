@@ -1,0 +1,16 @@
+{
+  "video": "out/mkultra-area51-karaoke.mp4",
+  "decodedFrames": 1034,
+  "blackFrames": [],
+  "whiteFrames": [],
+  "audioBitstreamIdenticalToClean": true,
+  "allActiveWordsHaveEncodedGoldenrod": true,
+  "checkedWordIntervals": 78,
+  "minimumGoldenrodPixelsAt360Width": 75,
+  "maximumMeanPictureDifferenceAboveCaptionRegion": 0.355895072221756,
+  "previousFinalUnchanged": true,
+  "previousFinalSha256": "8b185993e1609bc5d701bae4a8b1fd4549722eee95a6cdf71a33e58e3cf6fb4b",
+  "subtitleColor": "#DAA520",
+  "cleanBytes": 23443295,
+  "subtitledBytes": 23311045
+}

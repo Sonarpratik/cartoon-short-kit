@@ -1,0 +1,51 @@
+{
+  "file": "out/final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "decodedFrames": 1034,
+  "videoDuration": 34.46666666666667,
+  "narrationDuration": 34.4555,
+  "durationDifferenceSeconds": 0.01116666666666788,
+  "integratedLUFS": -14.13,
+  "truePeakDbTP": -1.24,
+  "finalCommonAudioAdjustmentDb": 0,
+  "blackFrames": [],
+  "whiteFrames": [],
+  "freezeDetectorEvents": [],
+  "unplannedLargeChanges": [],
+  "reviewComparisons": [
+    {
+      "scene": "S01",
+      "frame": 24,
+      "meanPixelDifferenceVsApprovedReview": 4.520416736602783
+    },
+    {
+      "scene": "S03",
+      "frame": 208,
+      "meanPixelDifferenceVsApprovedReview": 4.338472366333008
+    },
+    {
+      "scene": "S04",
+      "frame": 419,
+      "meanPixelDifferenceVsApprovedReview": 4.369560241699219
+    },
+    {
+      "scene": "S05",
+      "frame": 509,
+      "meanPixelDifferenceVsApprovedReview": 4.342291831970215
+    },
+    {
+      "scene": "S07",
+      "frame": 809,
+      "meanPixelDifferenceVsApprovedReview": 4.496921062469482
+    },
+    {
+      "scene": "S08",
+      "frame": 902,
+      "meanPixelDifferenceVsApprovedReview": 4.433842658996582
+    }
+  ],
+  "fileBytes": 23250032,
+  "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+}

@@ -1,6 +1,6 @@
 """Encode the completed frame sequence, meter AAC, and inspect every video frame."""
 from pathlib import Path
-import json, math, re, subprocess
+import json, math, re, subprocess, argparse
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 import imageio_ffmpeg
@@ -10,7 +10,12 @@ OUT=ROOT/'out';OUT.mkdir(exist_ok=True)
 FFMPEG=imageio_ffmpeg.get_ffmpeg_exe()
 render=json.loads((ROOT/'work/render-manifest.json').read_text(encoding='utf-8'))
 audio=json.loads((ROOT/'work/audio-report.json').read_text(encoding='utf-8'))
-total=render['total'];duration=audio['duration'];final=OUT/'final.mp4'
+parser=argparse.ArgumentParser()
+parser.add_argument('--output',default='final.mp4')
+parser.add_argument('--report',default='final-qa.json')
+args=parser.parse_args()
+if Path(args.output).name!=args.output or Path(args.report).name!=args.report:raise ValueError('Use filenames without directories')
+total=render['total'];duration=audio['duration'];final=OUT/args.output
 for s in render['scenes']:
     if not s['complete']:raise RuntimeError('Incomplete scene '+s['id'])
 
@@ -32,7 +37,7 @@ def meter(p):
 levels=meter(final);delivery_gain=0
 if float(levels['input_tp'])>-1:
     delivery_gain=-1.2-float(levels['input_tp'])
-    adjusted=OUT/'final-peak-adjusted.mp4'
+    adjusted=final.with_name(final.stem+'-peak-adjusted.mp4')
     subprocess.run([FFMPEG,'-v','error','-i',str(final),'-i',str(OUT/'mix.wav'),'-map','0:v:0','-map','1:a:0',
         '-c:v','copy','-af',f'volume={delivery_gain:.6f}dB','-c:a','aac','-b:a','192k','-ar','48000',
         '-t',str(duration),'-movflags','+faststart','-y',str(adjusted)],check=True)
@@ -54,7 +59,7 @@ freeze_lines=[line for line in detector.stderr.splitlines() if 'lavfi.freezedete
 
 comparisons=[]
 approved=json.loads((ROOT/'work/hashes.json').read_text(encoding='utf-8'))
-for sid,frame in [('S01',24),('S03',208),('S04',419),('S05',509),('S07',809),('S08',902)]:
+for sid,frame in [('S01',24),('S02',104),('S03',208),('S04',419),('S05',509),('S06',660),('S07',809),('S08',902),('S09',996)]:
     version=approved[sid]['version']
     old=np.asarray(Image.open(ROOT/f'review/{sid}_{version}/f{frame:04d}.jpg').convert('RGB').resize((90,160),Image.Resampling.BOX),dtype=np.float32)
     diff=float(np.abs(old-frames[frame].astype(np.float32)).mean())
@@ -70,15 +75,15 @@ for i,f in enumerate(chosen):
     source=ROOT/render['sequence']/f'f{f:04d}.jpg';im=Image.open(source).convert('RGB').resize((216,384),Image.Resampling.LANCZOS)
     x=(i%4)*cell_w+14;y=60+(i//4)*cell_h
     d.text((x,y),f'{scene}  {f/30:.2f}s',font=font,fill='#efd4ac');sheet.paste(im,(x,y+30))
-sheet.save(OUT/'qa-contact-sheet.jpg',quality=94)
+sheet.save(OUT/('qa-contact-sheet.jpg' if args.output=='final.mp4' else final.stem+'-qa-sheet.jpg'),quality=94)
 
-report={'file':'out/final.mp4','width':1080,'height':1920,'fps':30,'decodedFrames':len(frames),
+report={'file':'out/'+final.name,'width':1080,'height':1920,'fps':30,'decodedFrames':len(frames),
     'videoDuration':len(frames)/30,'narrationDuration':duration,'durationDifferenceSeconds':len(frames)/30-duration,
     'integratedLUFS':float(levels['input_i']),'truePeakDbTP':float(levels['input_tp']),
     'finalCommonAudioAdjustmentDb':delivery_gain,'blackFrames':black,'whiteFrames':white,
     'freezeDetectorEvents':freeze_lines,'unplannedLargeChanges':pops,'reviewComparisons':comparisons,
     'fileBytes':final.stat().st_size,'renderer':render['renderer']}
-(ROOT/'work/final-qa.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+(ROOT/'work'/args.report).write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report,indent=2),flush=True)
 if black or white or freeze_lines or pops:raise RuntimeError('Inspect flagged visual QA events before delivery')
 if float(levels['input_tp'])>-1:raise RuntimeError('AAC true peak exceeds -1 dBTP')

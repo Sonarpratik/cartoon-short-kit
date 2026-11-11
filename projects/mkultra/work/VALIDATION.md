@@ -48,3 +48,8 @@ User explicitly authorized full generation. Latest reviewed sources verified bef
 ## Final generation v9: glossy head and clothing
 
 User requested full generation and clarified clothing reflections mid-render. Added directional satin-like clothing reflection to project/shared character shaders and documented future default. Project/shared builds and shared runtime pass; 31 review frames pass. Latest source hashes verified; all 1,034 frames rendered. Final encoding, all-frame visual QA and audio QA pass. AAC -14.13 LUFS / -1.24 dBTP. Final video: out/mkultra-final-v9.mp4 and out/final.mp4. Prior v6 video: out/final-v6.mp4.
+
+
+## Area 51 and karaoke variants
+
+Both new exports complete. See GENERATION_AREA51.md, area51-clean-qa.json and area51-karaoke-qa.json. Original final.mp4 preserved byte-for-byte. All clean video/audio checks pass; subtitle coverage and retained picture/audio checks pass.
