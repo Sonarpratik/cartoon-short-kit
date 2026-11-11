@@ -1,0 +1,199 @@
+[
+  {
+    "id": "S01",
+    "f0": 0,
+    "f1": 75,
+    "title": "An unsuspecting citizen",
+    "words": "The CIA drugged its own citizens…",
+    "review": [
+      0,
+      24,
+      74
+    ],
+    "paths": [
+      "review/S01_glidetest/f0000.jpg",
+      "review/S01_glidetest/f0024.jpg",
+      "review/S01_glidetest/f0074.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "fd8f30acc5cbac44957addac5f7ac58664f42fe1300c089e314a60f2fe815ebe",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S02",
+    "f0": 75,
+    "f1": 141,
+    "title": "On the public record",
+    "words": "…and they admitted it.",
+    "review": [
+      75,
+      104,
+      140
+    ],
+    "paths": [
+      "review/S02_glidetest/f0075.jpg",
+      "review/S02_glidetest/f0104.jpg",
+      "review/S02_glidetest/f0140.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "c40f34769ac8ec0a6c0e6c8be9e193c236f32ff86528410c08bd03f925fe1363",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S03",
+    "f0": 141,
+    "f1": 351,
+    "title": "A secret laboratory, 1953",
+    "words": "Starting in 1953, a secret program called MKUltra tested LSD and other drugs on people.",
+    "review": [
+      141,
+      208,
+      279,
+      350
+    ],
+    "paths": [
+      "review/S03_glidetest/f0141.jpg",
+      "review/S03_glidetest/f0208.jpg",
+      "review/S03_glidetest/f0279.jpg",
+      "review/S03_glidetest/f0350.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "85d8a535fe05b21a759bcc5593ecddfa6c20782128fdf51a942dae65751f47ea",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S04",
+    "f0": 351,
+    "f1": 420,
+    "title": "They were not told",
+    "words": "Some of them never knew they'd been dosed.",
+    "review": [
+      351,
+      383,
+      419
+    ],
+    "paths": [
+      "review/S04_glidetest/f0351.jpg",
+      "review/S04_glidetest/f0383.jpg",
+      "review/S04_glidetest/f0419.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "be4bfcdebfe5df885ac279414d7506267613d74630f93b0b4dfd2ca49a8fa9c8",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S05",
+    "f0": 420,
+    "f1": 570,
+    "title": "Research into control and interrogation",
+    "words": "The goal? Mind control… and making people talk under interrogation.",
+    "review": [
+      420,
+      458,
+      509,
+      569
+    ],
+    "paths": [
+      "review/S05_glidetest/f0420.jpg",
+      "review/S05_glidetest/f0458.jpg",
+      "review/S05_glidetest/f0509.jpg",
+      "review/S05_glidetest/f0569.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "8c31f14fa36b10196b894d5f20da4262aaf0ee93cefe416d2e5ae90c4251f71f",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S06",
+    "f0": 570,
+    "f1": 702,
+    "title": "The destruction order, 1973",
+    "words": "In 1973, the CIA director ordered the files destroyed.",
+    "review": [
+      570,
+      628,
+      660,
+      701
+    ],
+    "paths": [
+      "review/S06_glidetest/f0570.jpg",
+      "review/S06_glidetest/f0628.jpg",
+      "review/S06_glidetest/f0660.jpg",
+      "review/S06_glidetest/f0701.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "6e95dfd2c9644984a2b56ae9bb50cacf962742f53d384f6eeea92a682e3dce48",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S07",
+    "f0": 702,
+    "f1": 858,
+    "title": "Hidden among the finance files",
+    "words": "But about 20,000 documents survived, because they had been misfiled with financial records.",
+    "review": [
+      702,
+      752,
+      809,
+      857
+    ],
+    "paths": [
+      "review/S07_glidetest/f0702.jpg",
+      "review/S07_glidetest/f0752.jpg",
+      "review/S07_glidetest/f0809.jpg",
+      "review/S07_glidetest/f0857.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "b5ea352b20b92e4ae1d6ebc3370a412b18aaa40be6d3c736310d25e2a19b6808",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S08",
+    "f0": 858,
+    "f1": 948,
+    "title": "The discovery, 1977",
+    "words": "They were found in 1977.",
+    "review": [
+      858,
+      902,
+      947
+    ],
+    "paths": [
+      "review/S08_glidetest/f0858.jpg",
+      "review/S08_glidetest/f0902.jpg",
+      "review/S08_glidetest/f0947.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "09211e570eb94d0dc3c5a403e3fb486f41b42db41d5e181c0c6ef1ff6f643aef",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S09",
+    "f0": 948,
+    "f1": 1034,
+    "title": "What is missing?",
+    "words": "So… what else do you think got shredded?",
+    "review": [
+      948,
+      996,
+      1033
+    ],
+    "paths": [
+      "review/S09_glidetest/f0948.jpg",
+      "review/S09_glidetest/f0996.jpg",
+      "review/S09_glidetest/f1033.jpg"
+    ],
+    "version": "glidetest",
+    "sourceHash": "d3b75a524e6f712d1e6d2c901649292f9418fad950df5b239d1da72acf79ab6d",
+    "scale": 1,
+    "status": "to check"
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "S01",
+    "f0": 0,
+    "f1": 75,
+    "title": "An unsuspecting citizen",
+    "words": "The CIA drugged its own citizens…",
+    "review": [
+      0,
+      24,
+      74
+    ],
+    "paths": [
+      "review/S01_casttest/f0000.jpg",
+      "review/S01_casttest/f0024.jpg",
+      "review/S01_casttest/f0074.jpg"
+    ],
+    "version": "casttest",
+    "sourceHash": "cdc8a4753a816fe385bce3f0bf1ab26905beacca502028cacc822e1937e0ab77",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S03",
+    "f0": 141,
+    "f1": 351,
+    "title": "A secret laboratory, 1953",
+    "words": "Starting in 1953, a secret program called MKUltra tested LSD and other drugs on people.",
+    "review": [
+      141,
+      208,
+      279,
+      350
+    ],
+    "paths": [
+      "review/S03_casttest/f0141.jpg",
+      "review/S03_casttest/f0208.jpg",
+      "review/S03_casttest/f0279.jpg",
+      "review/S03_casttest/f0350.jpg"
+    ],
+    "version": "casttest",
+    "sourceHash": "92aa1028498abcec906f55d161980000eb82a41d2efa9cf9ef1695a8848cd252",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S05",
+    "f0": 420,
+    "f1": 570,
+    "title": "Research into control and interrogation",
+    "words": "The goal? Mind control… and making people talk under interrogation.",
+    "review": [
+      420,
+      458,
+      509,
+      569
+    ],
+    "paths": [
+      "review/S05_casttest/f0420.jpg",
+      "review/S05_casttest/f0458.jpg",
+      "review/S05_casttest/f0509.jpg",
+      "review/S05_casttest/f0569.jpg"
+    ],
+    "version": "casttest",
+    "sourceHash": "d59e5f9bd680ca128e6f2f1436c42ed68c8054149d5be6f4d1b4aae1c57232ca",
+    "scale": 1,
+    "status": "to check"
+  },
+  {
+    "id": "S08",
+    "f0": 858,
+    "f1": 948,
+    "title": "The discovery, 1977",
+    "words": "They were found in 1977.",
+    "review": [
+      858,
+      902,
+      947
+    ],
+    "paths": [
+      "review/S08_casttest/f0858.jpg",
+      "review/S08_casttest/f0902.jpg",
+      "review/S08_casttest/f0947.jpg"
+    ],
+    "version": "casttest",
+    "sourceHash": "536447be3134d74ec1b77d0e29a8f485d884b492656485142b2a6c14b73b48f7",
+    "scale": 1,
+    "status": "to check"
+  }
+]

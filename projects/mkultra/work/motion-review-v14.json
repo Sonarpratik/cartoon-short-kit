@@ -1,0 +1,42 @@
+{
+  "fps": 15,
+  "width": 540,
+  "height": 960,
+  "frames": 221,
+  "clips": [
+    {
+      "id": "S01",
+      "sourceFrames": [
+        0,
+        74
+      ],
+      "previewFrames": [
+        0,
+        37
+      ]
+    },
+    {
+      "id": "S03",
+      "sourceFrames": [
+        141,
+        350
+      ],
+      "previewFrames": [
+        38,
+        142
+      ]
+    },
+    {
+      "id": "S07",
+      "sourceFrames": [
+        702,
+        857
+      ],
+      "previewFrames": [
+        143,
+        220
+      ]
+    }
+  ],
+  "errors": []
+}

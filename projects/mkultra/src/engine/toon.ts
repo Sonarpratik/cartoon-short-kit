@@ -18,7 +18,7 @@ export type Build = "adult" | "stout" | "kid";
 export type Outfit = {
   jacket: string; pants: string; boots: string; hat?: string | null; belt?: string | null; buttons?: string; rifle?: boolean;
   sash?: string; sword?: boolean; moustache?: string; skin?: string; head?: number; cap?: string; hair?: string; dress?: string;
-  build?: Build;
+  build?: Build; hairStyle?: "sidepart" | "receding" | "bob";
 };
 type P2 = [number, number];
 
@@ -358,7 +358,23 @@ const hatOn = (p: Pen, o: Outfit, hp: P2[], H: Blob, cx: number, hc: number, lig
     for (let i = 0; i <= 12; i++) { const t = i / 12; base.push([cx + wb * (2 * t - 1), yb + 3 * u * (1 - (2 * t - 1) ** 2)]); }
     return base;
   };
-  if (o.hat === "shako" || o.hat === "shako_tall") {
+  if(o.hat === "fedora"){
+    const yb=crown+.30*HH,col=o.cap??"#655044";
+    const body=R([[cx-.46*W,yb],[cx-.38*W,yb-.40*HH],[cx-.10*W,yb-.49*HH],[cx+.04*W,yb-.40*HH],[cx+.32*W,yb-.43*HH],[cx+.46*W,yb]]);
+    p.shadedFill(body,col,mul(col,SH_FELT),light,H.a);
+    p.clip(body,()=>p.band(R([[cx-.5*W,yb-.07*HH],[cx+.5*W,yb-.07*HH]]),"#342d34",.09*HH,0));
+    p.poly(body,null,ow*.65);
+    const [bx,by]=R([[cx,yb+.015*HH]])[0];
+    p.ell(bx,by,.64*W,.055*HH,col,ow*.65,0,360,a*180/Math.PI-5);
+  } else if(o.hat === "hair" && o.hairStyle === "receding"){
+    const col=o.hair??"#aaa69d";
+    for(const sign of [-1,1]){
+      const [tx,ty]=R([[cx+sign*.41*W,hc-.035*HH]])[0];
+      p.ell(tx,ty,.068*W,.17*HH,col,ow*.35,0,360,a*180/Math.PI);
+      for(const yy of [-.08,0,.08])p.stroke(R([[cx+sign*.39*W,hc+yy*HH],[cx+sign*.44*W,hc+(yy+.025)*HH]]),1.1*u,"#77756e");
+    }
+    p.stroke(R([[cx-.07*W,crown+.04*HH],[cx+.04*W,crown+.01*HH],[cx+.12*W,crown+.06*HH]]),2*u,col);
+  } else if (o.hat === "shako" || o.hat === "shako_tall") {
     const tall = o.hat === "shako_tall", yb = crown + 0.25 * HH, ht = (tall ? 0.66 : 0.56) * HH, wb = 46 * u, wt = 52 * u;
     const body = R([...sag(yb, wb).reverse(), [cx - wt, yb - ht], [cx + wt, yb - ht]]);
     p.shadedFill(body, "#3a3d47", "#24262d", light, wt, 0.4);
@@ -379,23 +395,33 @@ const hatOn = (p: Pen, o: Outfit, hp: P2[], H: Blob, cx: number, hc: number, lig
       p.ell(tx, ty, 7 * u, 7 * u, "#2b7a4b", 2.5 * u); // green tuft
     }
   } else if (o.hat === "cap" || o.hat === "hair") {
-    const cut = crown + (o.hat === "cap" ? 0.3 : 0.42) * HH;
+    const cut = crown + (o.hat === "cap" ? 0.3 : o.hairStyle === "sidepart" ? .25 : .42) * HH;
     const keep = (x: number, y: number) => y < cut || (side && o.hat === "hair" && x < cx - 6 * u && y < hc + 0.42 * H.b);
     // start the arc at the first kept point after a dropped one, so the kept run is contiguous and the cut closes it
     const n = hp.length, startIdx = Math.max(0, hp.findIndex(([x, y], i) => keep(x, y) && !keep(hp[(i + n - 1) % n][0], hp[(i + n - 1) % n][1])));
     const arc = [...hp.slice(startIdx), ...hp.slice(0, startIdx)].filter(([x, y]) => keep(x, y))
       .map(([x, y]) => [cx + (x - cx) * 1.03, hc + (y - hc) * 1.03] as P2);
     if (arc.length < 3) return;
-    if (o.hat === "hair") { // scalloped lower edge
+    if (o.hat === "hair") { // distinct fringe contours
       const [x0, y0] = arc[arc.length - 1], [x1, y1] = arc[0];
-      for (let i = 1; i < 6; i++) arc.push([x0 + ((x1 - x0) * i) / 6, y0 + ((y1 - y0) * i) / 6 + (i % 2 ? 4 * u : 0)]);
+      for (let i = 1; i < 6; i++) arc.push([x0 + ((x1 - x0) * i) / 6, y0 + ((y1 - y0) * i) / 6 + (o.hairStyle === "sidepart" ? (i<3?-10:3)*u : (i % 2 ? 4 * u : 0))]);
     }
     const col = o.hat === "cap" ? o.cap! : o.hair!;
     p.shadedFill(arc, col, mul(col, SH_FELT), light, H.a, 0.35);
     p.poly(arc, null, ow);
+    if(o.hat === "hair" && o.hairStyle === "bob"){
+      for(const sign of [-1,1]){
+        const points:P2[]=[];
+        const curve=(a:P2,b:P2,c:P2,d:P2)=>{for(let i=0;i<=20;i++){const t=i/20,v=1-t;points.push([cx+sign*W*(v*v*v*a[0]+3*v*v*t*b[0]+3*v*t*t*c[0]+t*t*t*d[0]),hc+HH*(v*v*v*a[1]+3*v*v*t*b[1]+3*v*t*t*c[1]+t*t*t*d[1])]);}};
+        curve([.43,-.34],[.57,-.12],[.55,.29],[.43,.46]);
+        curve([.43,.46],[.39,.48],[.34,.43],[.32,.37]);
+        curve([.32,.37],[.39,.13],[.34,-.14],[.43,-.34]);
+        const lock=R(points);p.shadedFill(lock,col,mul(col,SH_FELT),light,H.a*.4);p.poly(lock,null,ow*.55);
+      }
+    }
     if (o.hat === "hair") {
       const s = side ? -1 : facing || 1;
-      p.stroke([[cx + s * 10 * u, cut - 30 * u], [cx + s * 2 * u, cut - 12 * u]], 1.2 * u);
+      p.clip(arc,()=>p.stroke([[cx + s * 10 * u, cut - 30 * u], [cx + s * 2 * u, cut - 12 * u]], 1.2 * u));
     }
     if (o.hat === "cap") {
       const deg = (a * 180) / Math.PI;

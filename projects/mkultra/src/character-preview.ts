@@ -1,13 +1,8 @@
 // Isolated drawing study: does not change Character, scene files or review frames.
 import {Pen,bodyFront,headBlob,type Outfit,type Expr} from './engine/toon';
 import {CharacterPen,FACE_COLOR} from './face-style';
-const cast:Array<{name:string;kind:string;seed:number;outfit:Outfit}>=[
- {name:'Civilian',kind:'civilian',seed:3,outfit:{jacket:'#c78150',pants:'#3d5360',boots:'#302936',hat:'hair',hair:'#4e352c',skin:'#ffe3c6'}},
- {name:'Researcher',kind:'researcher',seed:5,outfit:{jacket:'#e7dfc8',pants:'#537375',boots:'#34333c',hat:'hair',hair:'#5b4534',skin:'#e7bc99'}},
- {name:'Official',kind:'official',seed:12,outfit:{jacket:'#344b61',pants:'#34404d',boots:'#292b35',hat:'hair',hair:'#b3a18a',skin:'#f4d3b1'}},
- {name:'Investigator',kind:'investigator',seed:9,outfit:{jacket:'#596a63',pants:'#39474b',boots:'#302e35',hat:'hair',hair:'#3e302c',skin:'#dfb994'}},
- {name:'Archivist',kind:'archivist',seed:6,outfit:{jacket:'#ba6e64',pants:'#445d60',boots:'#3e3031',hat:'hair',hair:'#5b3d30',skin:'#f3d5b7'}},
-];
+import {CAST_DESIGNS,type CharacterKind} from './cast-design';
+const cast=Object.entries(CAST_DESIGNS).map(([kind,design])=>({...design,kind:kind as CharacterKind}));
 const version=document.querySelector<HTMLSelectElement>('#version')!,expression=document.querySelector<HTMLSelectElement>('#expression')!,direction=document.querySelector<HTMLSelectElement>('#direction')!,animate=document.querySelector<HTMLInputElement>('#animate')!;
 const cards=cast.map(person=>{const figure=document.createElement('figure'),canvas=document.createElement('canvas'),caption=document.createElement('figcaption');canvas.width=600;canvas.height=1000;caption.textContent=person.name;figure.append(canvas,caption);document.querySelector('main')!.append(figure);return {...person,g:canvas.getContext('2d')!};});
 function draw(now:number){

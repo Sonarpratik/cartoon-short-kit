@@ -43,3 +43,8 @@ Rounded head lighting, brighter inner rim, soft cool form shade, stronger body/c
 ## Final generation v6
 
 User explicitly authorized full generation. Latest reviewed sources verified before rendering. All 1,034 frames rendered; full encode and all-frame QA passed. No black/white/frozen/unplanned pop sections. Final AAC -14.13 LUFS and -1.24 dBTP. Final video out/final.mp4; previous video out/final-previous.mp4.
+
+
+## Final generation v9: glossy head and clothing
+
+User requested full generation and clarified clothing reflections mid-render. Added directional satin-like clothing reflection to project/shared character shaders and documented future default. Project/shared builds and shared runtime pass; 31 review frames pass. Latest source hashes verified; all 1,034 frames rendered. Final encoding, all-frame visual QA and audio QA pass. AAC -14.13 LUFS / -1.24 dBTP. Final video: out/mkultra-final-v9.mp4 and out/final.mp4. Prior v6 video: out/final-v6.mp4.

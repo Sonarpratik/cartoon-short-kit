@@ -7,6 +7,7 @@
 // preset gradient, and the preset tint (measured on WHITE heads) is applied at TINT_K so peach skin stays clean
 // (lighting.md 9.1 note: golden ~[1, .88, .76], day ~[1, .97, .96] for peach skin).
 import * as THREE from "three";
+import {DIRECTOR} from "./director";
 import { LFB, CHAR } from "./shade";
 import { FACE_LIGHT } from "./lighting";
 
@@ -47,10 +48,19 @@ vec3 outgoingLight = diffuseColor.rgb * tintK;
   float faceRadius = dot(faceXY,faceXY);
   vec3 faceNormal = normalize(vec3(faceXY, sqrt(max(.035,1.-faceRadius))));
   float faceLight = smoothstep(-.22,.62,dot(faceNormal,sunV));
-  vec3 faceShade = vec3(.64,.66,.78);
-  outgoingLight *= mix(vec3(1.),mix(faceShade,vec3(1.025),faceLight),faceMask);
+  vec3 faceShade = vec3(.75,.76,.87);
+  outgoingLight *= mix(vec3(1.),mix(faceShade,vec3(${DIRECTOR.character.faceLitGain.toFixed(3)}),faceLight),faceMask);
+  float pearlBand = faceMask*smoothstep(.69,.98,sqrt(faceRadius));
+  outgoingLight = mix(outgoingLight,vec3(1.22,1.13,1.28),pearlBand*.38);
   // Face pixels keep a bright floor in cast shadow; the coat receives the full soft shadow map.
   outgoingLight *= mix(1.,mix(.94,1.,sunVis),faceMask);
+  // Broad cloth light only; CharacterPen draws the pointed rim along the real silhouette.
+  float clothLuma = dot(diffuseColor.rgb,vec3(.2126,.7152,.0722));
+  float clothMask = (1.-head)*smoothstep(.025,.075,clothLuma)
+    * smoothstep(.235,.30,vMapUv.y)*(1.-smoothstep(.535,.585,vMapUv.y));
+  float clothWrap = exp(-pow((t-.55)/.38,2.));
+  outgoingLight += mix(vec3(.85,.91,1.),uFaceRimColor,.2)*clothMask
+    * ${DIRECTOR.character.clothWrap.toFixed(3)}*clothWrap*mix(.7,1.,sunVis);
   #ifdef USE_MAP
   {
     // INNER warm rim, golden only: the outermost ~2 px (at 1080 wide) of the HEAD skin / TORSO silhouette on the
@@ -67,7 +77,7 @@ vec3 outgoingLight = diffuseColor.rgb * tintK;
     float roundedRim = smoothstep(.52,.96,sqrt(faceRadius))*smoothstep(.18,.78,dot(normalize(vec3(faceXY,.08)),sunV));
     float faceRim = faceMask * max((.65*innerEdge+.35*softEdge)*.15,roundedRim) * smoothstep(-.1,.5,t);
     outgoingLight = mix(outgoingLight, outgoingLight * mix(vec3(1.),uFaceRimColor / max(max(uFaceRimColor.r,uFaceRimColor.g),uFaceRimColor.b),.45), faceRim*.6);
-    outgoingLight += uFaceRimColor * uFaceRimStrength * (faceRim*3.0 + faceMask*.16*faceLight);
+    outgoingLight += uFaceRimColor * uFaceRimStrength * (faceRim*${DIRECTOR.character.faceRimBoost.toFixed(3)} + faceMask*.22*faceLight);
     float hairLuma = dot(diffuseColor.rgb,vec3(.2126,.7152,.0722));
     float hairMask = head*(1.-faceMask)*smoothstep(.025,.07,hairLuma)*(1.-smoothstep(.24,.42,hairLuma));
     outgoingLight += uFaceRimColor * hairMask * .11 * roundedRim;
@@ -101,7 +111,7 @@ export function cardShade(m: THREE.MeshLambertMaterial, faceFrame = {value:new T
       .replace("#include <lights_fragment_begin>", "float sunVis = 1.0;\n" + LFB)
       .replace("vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse + totalEmissiveRadiance;", CARD);
   };
-  m.customProgramCacheKey = () => "rounded-white-face-v6";
+  m.customProgramCacheKey = () => "pointed-cloth-edge-v10";
   return m;
 }
 

@@ -1,12 +1,13 @@
 {
   "status": "complete",
-  "revision": "v6",
-  "approval": "User explicitly requested generation of the latest scenes.",
+  "revision": "v9",
+  "approval": "User requested full generation, then added glossy clothing during rendering; latest export includes this correction.",
   "video": "out/final.mp4",
-  "sha256": "71c67ef8c6bccf31bff4ac9e5f9a0b51ae2fe38690e07b4a50a9b7e37fa8b003",
-  "previousVideo": "out/final-previous.mp4",
-  "latestSourceStatus": "Latest v6 scenes rendered, encoded and verified.",
-  "latestReview": "review/overview_v6.jpg",
+  "versionedVideo": "out/mkultra-final-v9.mp4",
+  "sha256": "5819d9372fa774f8f6b3e3255f2cd59b8e20daa6e6134e24fc4c51a4c381fc90",
+  "previousVideo": "out/final-v6.mp4",
+  "latestSourceStatus": "Distinct cast and gliding camera paths v14 ready for review; full video remains completed v9.",
+  "latestReview": "review/overview_v14.jpg",
   "specs": {
     "file": "out/final.mp4",
     "width": 1080,
@@ -27,22 +28,22 @@
       {
         "scene": "S01",
         "frame": 24,
-        "meanPixelDifferenceVsApprovedReview": 4.45078706741333
+        "meanPixelDifferenceVsApprovedReview": 4.490324020385742
       },
       {
         "scene": "S03",
         "frame": 208,
-        "meanPixelDifferenceVsApprovedReview": 4.356088161468506
+        "meanPixelDifferenceVsApprovedReview": 4.37074089050293
       },
       {
         "scene": "S04",
         "frame": 419,
-        "meanPixelDifferenceVsApprovedReview": 4.30949068069458
+        "meanPixelDifferenceVsApprovedReview": 4.3622918128967285
       },
       {
         "scene": "S05",
         "frame": 509,
-        "meanPixelDifferenceVsApprovedReview": 4.322152614593506
+        "meanPixelDifferenceVsApprovedReview": 4.352245330810547
       },
       {
         "scene": "S07",
@@ -52,10 +53,11 @@
       {
         "scene": "S08",
         "frame": 902,
-        "meanPixelDifferenceVsApprovedReview": 4.387685298919678
+        "meanPixelDifferenceVsApprovedReview": 4.393958568572998
       }
     ],
-    "fileBytes": 21315542,
+    "fileBytes": 21500497,
     "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
-  }
+  },
+  "latestMotionReview": "review/camera-motion-v14.mp4"
 }

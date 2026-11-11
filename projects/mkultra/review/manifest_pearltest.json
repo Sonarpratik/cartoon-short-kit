@@ -1,0 +1,23 @@
+[
+  {
+    "id": "S04",
+    "f0": 351,
+    "f1": 420,
+    "title": "They were not told",
+    "words": "Some of them never knew they'd been dosed.",
+    "review": [
+      351,
+      383,
+      419
+    ],
+    "paths": [
+      "review/S04_pearltest/f0351.jpg",
+      "review/S04_pearltest/f0383.jpg",
+      "review/S04_pearltest/f0419.jpg"
+    ],
+    "version": "pearltest",
+    "sourceHash": "20242d12d2ccd7b24fd1f9ea5d53749f1f9fc4e692fdad1b519e2746ae566a0f",
+    "scale": 1,
+    "status": "to check"
+  }
+]

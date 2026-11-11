@@ -4,6 +4,7 @@
 // the sun, painted crescent in the drawing); standing ones get a soft multiply contact blob. Effects are unlit cards.
 // Cards, effects and blobs live on the NOINK layer so the world ink pass never outlines their quads.
 import * as THREE from "three";
+import { CharacterPen } from "./face-style";
 import {
   Pen, bodyFront, bodySide, swingKid, soldier, townsfolk, OFFICER, KID, PARENT, fxNote, fxBurst, fxSplash, fxStars, fxCreak, fxRing, fxBlob, fxShadow, fxContact, fxPlank, fxDrum,
   Outfit, Expr, FrontOpts, SideOpts,
@@ -46,7 +47,7 @@ export class Pool {
         e = i >= 0 ? this.free.splice(i, 1)[0] : makeEntry(r.w, r.h);
         const g = e.cv.getContext("2d")!;
         g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, e.w, e.h); g.setTransform(r.k, 0, 0, r.k, 0, 0);
-        r.draw(new Pen(g));
+        r.draw(new CharacterPen(g));
         e.tex.needsUpdate = true;
         this.live.set(key, e);
       }

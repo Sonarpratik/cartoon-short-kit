@@ -2,6 +2,8 @@
 
 Canvas2D cartoon characters in a Three.js world. Playwright captures frames and FFmpeg encodes video.
 
+The shared entry point for new projects is [templates/bridge/director.ts](templates/bridge/director.ts): character archetypes, face/gloss/outline controls and gliding camera helpers. See [camera-guide.md](references/camera-guide.md) for the reference study and usage. Copy this file with the renderer into each new project's engine; keep story-specific cast choices and camera coordinates in that project.
+
 New projects inherit the user's [lighting and detail preferences](references/lighting-guide.md): off-white faces with soft inner highlights, window-shaped light across interiors, and detailed original furniture and sets. Shared helpers live in `templates/bridge/lighting.ts`, `shade.ts`, `cardshade.ts` and `props.ts`. Outdoor scenes leave the window projector disabled.
 
 ## Character preview

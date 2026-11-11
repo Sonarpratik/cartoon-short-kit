@@ -6,6 +6,10 @@ Use [lighting-guide.md](lighting-guide.md) for the user's persistent window-ligh
 
 ## Characters
 
+- Distinguish cast members with silhouette changes as well as colour. Shared Outfit supports a cap (`hat: 'cap', cap: '#425b72'`), a fedora (`hat: 'fedora', cap: '#655044'`), and `hat: 'hair'` with `hairStyle: 'sidepart'`, `'receding'` or `'bob'`. `moustache` sets a facial-hair colour. Choose suitable combinations per story; avoid putting the same hairstyle or moustache on every character. Check hats, glasses and facial hair through reactions and side glances, preserving eyes and mouth visibility.
+
+- Include the user's preferred curved glossy reflection on suitable hair/headwear: a tapered white strip with a soft surrounding glow and a small secondary glint. Reuse CharacterPen in templates/bridge/face-style.ts. This is a standing preference for new projects; see lighting-guide.md for implementation and the distinction from face lighting.
+
 - Start from the Pen/bodyFront/bodySide implementation in templates/bridge/toon.ts. Preserve thin ink limbs, bean torsos, readable facial expressions and contact with the ground.
 - Shared line width and head variation are in style.ts. Make distinct silhouettes through head proportions, hair, headgear and clothing; do not just recolour identical sprites.
 - Keep variation deterministic per character. Do not change the seed between frames or create frame-to-frame outline noise.
@@ -35,6 +39,8 @@ Use [lighting-guide.md](lighting-guide.md) for the user's persistent window-ligh
 - Keep bloom on bright emissive objects. Do not use full-screen haze to hide incomplete materials or scenery.
 
 ## Camera and review
+
+- Use templates/bridge/director.ts for shared camera motion and character presets; see camera-guide.md. Prefer deliberate glides that reveal space and action, with noticeable parallax and changing shot size. Review short motion excerpts alongside stills so a sequence of static cuts cannot pass as camera travel.
 
 - Frame a clear subject and action. Avoid rails, posts, ropes and repeated characters covering faces or hands unless the obstruction has a story purpose.
 - Review at least a character close-up, a medium action shot and a wide setting shot. Inspect the beginning and end of camera moves and both sides of cuts.

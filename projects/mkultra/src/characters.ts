@@ -4,14 +4,8 @@ import { cardShade } from './engine/cardshade';
 import { NOINK } from './engine/ink';
 import { CharacterPen, FACE_COLOR } from './face-style';
 
-export type CharacterKind = 'civilian' | 'researcher' | 'official' | 'investigator' | 'archivist';
-const outfits:Record<CharacterKind,Outfit>={
- civilian:{jacket:'#c78150',pants:'#3d5360',boots:'#302936',hat:'hair',hair:'#4e352c',skin:'#ffe3c6'},
- researcher:{jacket:'#e7dfc8',pants:'#537375',boots:'#34333c',hat:'hair',hair:'#5b4534',skin:'#e7bc99'},
- official:{jacket:'#344b61',pants:'#34404d',boots:'#292b35',hat:'hair',hair:'#b3a18a',skin:'#f4d3b1'},
- investigator:{jacket:'#596a63',pants:'#39474b',boots:'#302e35',hat:'hair',hair:'#3e302c',skin:'#dfb994'},
- archivist:{jacket:'#ba6e64',pants:'#445d60',boots:'#3e3031',hat:'hair',hair:'#5b3d30',skin:'#f3d5b7'},
-};
+import {CAST_DESIGNS,type CharacterKind} from './cast-design';
+export type {CharacterKind} from './cast-design';
 export type ActorState={expr?:Expr;side?:boolean;wave?:number;mode?:'stand'|'sit';headTilt?:number;hand?:[number,number];facing?:-1|0|1;look?:number};
 export class Character {
  root=new THREE.Group(); mesh:THREE.Mesh; private cv:HTMLCanvasElement;private texture:THREE.CanvasTexture; private key='';
@@ -19,7 +13,7 @@ export class Character {
  private faceFrame={value:new THREE.Vector4(.5,.691,.197,.111)};
  constructor(public kind:CharacterKind,public seed=1){
   this.root.userData.actor=this;
-  this.outfit={...outfits[kind],skin:FACE_COLOR};this.cv=document.createElement('canvas');this.cv.width=900;this.cv.height=1500;
+  this.outfit={...CAST_DESIGNS[kind].outfit,skin:FACE_COLOR};this.cv=document.createElement('canvas');this.cv.width=900;this.cv.height=1500;
   this.texture=new THREE.CanvasTexture(this.cv);this.texture.colorSpace=THREE.SRGBColorSpace;this.texture.anisotropy=8;
   const geo=new THREE.PlaneGeometry(1.56,2.6);geo.translate(0,(975-500)*.0026,0);
   const material=cardShade(new THREE.MeshLambertMaterial({map:this.texture,transparent:false,alphaTest:.5,side:THREE.DoubleSide}),this.faceFrame);

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "S04",
+    "f0": 351,
+    "f1": 420,
+    "title": "They were not told",
+    "words": "Some of them never knew they'd been dosed.",
+    "review": [
+      351,
+      383,
+      419
+    ],
+    "paths": [
+      "review/S04_bodyglosstest/f0351.jpg",
+      "review/S04_bodyglosstest/f0383.jpg",
+      "review/S04_bodyglosstest/f0419.jpg"
+    ],
+    "version": "bodyglosstest",
+    "sourceHash": "3806c9b42f57f70ba65d3d082ada4a1040ef82b10984140a4e354a791560b656",
+    "scale": 1,
+    "status": "to check"
+  }
+]

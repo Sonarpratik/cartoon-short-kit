@@ -12,6 +12,10 @@ The user supplied two screenshots: a white-faced red-cap character at night with
 
 ## White heads and directed light
 
+The user also wants a glossy reflection across the top of hair/headwear, as in their close-up reference: a curved tapered white ribbon with a bright centre, a softer warm-white skirt and a small restrained secondary glint. Apply this automatically to suitable visible hair/headwear in future projects. This is a surface reflection distinct from the face's pearl edge. `CharacterPen.shadedFill` clips this ribbon inside upper-head materials; it follows head pose without repainting facial features or changing the setting. The original example in `projects/mkultra/review/gloss-reflection-v8.jpg` demonstrates the implemented treatment; the user's supplied screenshot remains private study material.
+
+Use `CharacterPen` from `templates/bridge/face-style.ts` for character drawing. It adds a soft pearl light layer inside the actual head contour and tapers the head ink strongly: thin on the lit side, thick below and on the far side. Keep the irregular bean contour; avoid a uniform circular border. The shared cast pool already uses this helper. The user explicitly prefers this brighter layered face treatment over the previous flat white face.
+
 - Use off-white faces (#faf9f5), dark plum ink, restrained lavender form shading and plain dark eyes. Faces remain readable at night.
 - Keep the highlight inside the face silhouette. Use a broad soft wrap plus a narrower lit edge, coloured by the source. Preserve the ink border and eyes. Avoid a duplicated outer silhouette or a uniformly glowing head.
 - `templates/bridge/cardshade.ts` supplies the white-face mask and inner rim. `lighting.ts` exports FACE_LIGHT for warm/cool colour and strength. Update these uniforms when the shot's light changes.
@@ -41,3 +45,10 @@ The projector travels right, down and towards the back wall. Use its actual open
 - Invent original dressing appropriate to the setting. Keep signs and faces unobstructed. Avoid identical shelves in every room, excessive procedural grain, floating fittings and clutter around the action.
 
 Review a daylight room, night close-up, hero-prop insert and camera endpoints. Check the window pattern crosses surfaces correctly, the head edge is visible without clipping, cast shadows agree and details survive at delivery size.
+
+
+## Clothing reflection
+
+Check every cast member, including the investigator and archivist. Seeded head proportions can move shoulders above an arbitrary canvas coordinate; identify valid garment shapes from their bounds and size rather than rejecting them with a fixed shoulder-height cutoff. Review the reflection on each outfit at its actual shot size.
+
+The user clarified that the clothing reflection hugs the curved silhouette and tapers to pointed ends. Draw a narrow bright curved strip just inside the source-facing border, with a restrained soft skirt. Follow the actual clothing contour, retaining its dark outer ink; avoid a broad vertical stripe in the centre of the torso. CharacterPen.gradFill intersects the garment polygon at each height to place a deterministic tapered ribbon before buttons, collars and other costume details. The shader supplies only a subtle broad light wrap, not a second central streak. Hair/headwear retains its separate curved glossy reflection. Adapt the side to the key light and keep the far side shaded.
