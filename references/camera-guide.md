@@ -10,6 +10,10 @@ Private analysis frames are in references/camera-study; never deliver them as pr
 
 ## Defaults for new stories
 
+Plan the camera with the lighting and props for every distinct place. Establish its geography, frame the action and reaction, and choose a move that reveals useful detail. Use a deliberate mix of three-quarter/side, wide, medium and close views across the story. Preserve the viewer's sense of direction between connected spaces; show the gate, door, window or road that explains travel. Verify source placement, shadow readability and prop/face occlusion through the actual moving camera, including intermediate frames. Lighting and set detail must work from the selected angle.
+
+The user's later correction requires varied azimuths and physically enclosed rooms. Apply [physical-staging.md](physical-staging.md): use three-quarter and selected side angles, frame face reactions, and verify the camera passes through an actual small window rather than an omitted wall. `staging.ts` supplies `threeQuarterCamera` and `apertureCrossing`; use these alongside `cameraJourney` without changing unrelated reviewed scenes.
+
 - Plan a moving camera path inside each shot: a wide-to-medium reveal, a lateral track past a foreground prop, a small arc, or a purposeful tilt towards the next action. Make changes in perspective and subject scale visible; a tiny zoom alone is insufficient.
 - Tie the path to the story: establish the setting, approach the active character/prop, then reveal the consequence. Preserve eyes, acting hands and hero objects. Use cuts when time or place changes.
 - `cameraJourney(u, keys)` moves camera position, look target, focus and lens continuously with shared smooth timing and continuous tangents at internal keys. `glideCamera(u, from, to)` handles a single move. Coordinates and narrative beats belong to each story's scene modules, not the global defaults file.

@@ -9,6 +9,8 @@ Use this bundled Three.js renderer and its shared visual defaults. Start from an
 
 ## Persistent visual defaults
 
+For every new scene and every distinct room or outdoor location, plan the lighting, camera and props together before coding. This is a standing requirement; the user does not need to request it again. Follow [lighting-guide.md](references/lighting-guide.md), [camera-guide.md](references/camera-guide.md) and [physical-staging.md](references/physical-staging.md). Record the actual light sources, direction/colour, intended wall/floor shadows, time of day, camera angle/path, hero prop and supporting details in `work/PLAN.md`. Verify each location through its final camera before presenting it for review.
+
 Use templates/bridge/director.ts as the shared entry point for character archetypes, face/gloss/outline settings and gliding camera helpers. Copy it into each new project's engine with the renderer helpers; keep that project's story-specific cast and shot coordinates local. Read references/camera-guide.md and plan noticeable, purposeful travel inside shots (wide-to-character reveals, lateral parallax, arcs and tilts), alongside cuts for changes of time/place. Apply these character and camera preferences automatically in future projects.
 
 Include the user's preferred curved glossy reflection on hair and headwear: a tapered bright white highlight with a soft glow and a restrained secondary glint. Reuse CharacterPen from templates/bridge/face-style.ts; consult references/lighting-guide.md. Apply it to suitable visible hair/headwear in new projects without waiting for the user to request it again.
@@ -18,6 +20,8 @@ Apply the user's preferences automatically: off-white faces, a soft inner head h
 Background quality is a standing preference too: start with a fully designed setting, detailed furniture and story-relevant objects, painted materials, architectural trim, believable light sources, surface highlights, soft form shadows and grounded cast/contact shadows. For window-lit interiors, carry the pane-shaped light across walls, worktops and floors as appropriate. Use references/style-examples/backgrounds-approved-v3.jpg as the user's approved background direction, adapting the setting and lighting to each new story. Do not wait for the user to request background detail or lighting again; include them in the scene plan and review frames by default.
 
 ## Essential rules
+
+For future shorts, apply the user's [physical staging and varied-view preferences](references/physical-staging.md): enclosed rooms inside believable buildings, populated workplaces, connected roads and junctions, designed day/night skies, three-quarter and side camera views, and expressive characters looking at their task or each other. Use `templates/bridge/staging.ts` for window-fit checks, connected access roads and enclosed-room geometry. Do not use an open-front showroom as a substitute for a room.
 
 - Create original stories, characters and staging. Reference images are private style study material: never deliver or publish them, or copy their characters, stories or shots.
 - No real named living people, brand mascots or logos as characters.
@@ -83,12 +87,15 @@ The user does not need to provide a prop list. Infer the setting, essential obje
 
 Write work/PLAN.md before scene coding, with one row per scene: S01 etc., global start/end frames, spoken words, setting, camera, characters/actions, hero prop, supporting props, lighting and sound cue. Include the proposed props in this plan for review.
 
+Make the lighting entry concrete: visible source and position, key/fill balance, colour and time of day, shadow receivers/blockers, window-beam treatment where motivated, and any alarm or day/night cue. Make the camera entry concrete: angle, framing, travel, subject and unobstructed reaction/hand/prop. Plan each distinct room separately even when several rooms occur in one scene. A palette name or glowing bulb alone does not complete the lighting plan.
+
 For each scene:
 
 1. Choose the object that explains the action. Give it a readable silhouette and appropriate scale.
 2. Add only a few supporting objects that establish place or help the action. Do not fill every empty area.
 3. Reuse createProp for supported objects, and existing building/paint helpers for scenery. Build new reusable functions for other story-specific objects and record their dimensions and origin.
 4. Keep the main action unobstructed. Check prop placement through the actual camera at the beginning, middle and end of each move.
+5. Verify every location's visible light sources, surface modelling, cast/contact shadows and readable faces in rendered frames. Check walls and floors, practical-light response in the actual shader, and floor/seat/prop contact. Fix missing shadows, overlapping floors, light leaks or flat ambient-only lighting before presenting the scene for review. Recheck lighting changes and camera transitions at their cue frames.
 
 Example in world.ts, where R is the world root:
 

@@ -2,7 +2,7 @@
 // Story-specific casts, scene coordinates and timings belong in that project.
 export const DIRECTOR = {
   character:{faceBase:'#faf9f5',faceShadow:'#e9e6ef',faceLitGain:1.13,faceRimBoost:4.4,clothWrap:.035,headOutlineScale:.74,headOutlineTaper:.76,bodyRimInset:.053,bodyRimWidth:.026,bodyGlowWidth:.075,hairReflectionWidth:.023},
-  camera:{endpointCreep:.08,endpointTangent:.35,defaultFov:39},
+  camera:{endpointCreep:.08,endpointTangent:.35,defaultFov:39,preferredThreeQuarterDegrees:35,sideViewDegrees:60,windowClearance:.12},
 } as const;
 export const CHARACTER_ARCHETYPES = {
  civilian:{jacket:'#c78150',pants:'#3d5360',boots:'#302936',hat:'cap',cap:'#425b72'},

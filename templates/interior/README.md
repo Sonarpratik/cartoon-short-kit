@@ -1,5 +1,9 @@
 # Reusable detailed interior
 
+Every room needs its own lighting, camera and prop plan. Read [the shared lighting requirements](../../references/lighting-guide.md) and [camera guide](../../references/camera-guide.md) before building. Include actual light sources and shader response, coherent wall/floor shadows, purposeful angles, story-specific furniture/props and grounded seated/standing characters. Glowing bulb geometry alone does not illuminate the room. Review every room through the final camera, including lighting changes and intermediate movement frames.
+
+For a physically enclosed workplace, start from `../bridge/staging.ts` (`enclosedShell`) and add the furniture/prop helpers here. The older `room()` example has open camera-facing sides; it is not the default for a completed factory room. Follow `../../references/physical-staging.md` for apertures, crews, connected roads and varied camera angles.
+
 This library is independent of projects/mkultra and has no imports from that project. It preserves the detailed room, window geometry, palettes and furniture used while developing the user's preferred look.
 
 - world.ts: room(), setLight(), warm/lab/night/archive palettes, wood/tile floors, window frames, wall panels and stocked shelves.
