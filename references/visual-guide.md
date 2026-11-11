@@ -4,6 +4,8 @@ Use these criteria when adapting the worked example. Match the visual language w
 
 Use [lighting-guide.md](lighting-guide.md) for the user's persistent window-light, white-head highlight and detailed-set preferences. Apply them automatically to new projects.
 
+For requested subtitles, apply [karaoke-guide.md](karaoke-guide.md): white short phrases with only the current spoken word in goldenrod. Preserved rendered example frames are linked there.
+
 ## Characters
 
 - Distinguish cast members with silhouette changes as well as colour. Shared Outfit supports a cap (`hat: 'cap', cap: '#425b72'`), a fedora (`hat: 'fedora', cap: '#655044'`), and `hat: 'hair'` with `hairStyle: 'sidepart'`, `'receding'` or `'bob'`. `moustache` sets a facial-hair colour. Choose suitable combinations per story; avoid putting the same hairstyle or moustache on every character. Check hats, glasses and facial hair through reactions and side glances, preserving eyes and mouth visibility.

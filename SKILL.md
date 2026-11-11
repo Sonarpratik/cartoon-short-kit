@@ -22,6 +22,7 @@ Background quality is a standing preference too: start with a fully designed set
 - Create original stories, characters and staging. Reference images are private style study material: never deliver or publish them, or copy their characters, stories or shots.
 - No real named living people, brand mascots or logos as characters.
 - No captions unless requested. In-world signs must read correctly.
+- When subtitles are requested, use the user's saved active-word karaoke style automatically: only the spoken word is goldenrod (#DAA520), with the remaining phrase white. Read [karaoke-guide.md](references/karaoke-guide.md) and its preserved example frames; keep separate clean and captioned exports.
 - Preserve the narration's timing and delivery. Time visual reactions zero to three frames before the corresponding word.
 - Review first. Show scene frames, accept corrections, and stop. Render the full sequence only when the user explicitly says generate, render, make the video, or go. Silence and approval of individual scenes do not authorize full generation.
 - A correction affects only named scenes. Preserve other scene sources and frames. Ask before an unavoidable shared design change that would affect previously reviewed scenes.

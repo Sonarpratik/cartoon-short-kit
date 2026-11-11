@@ -8,6 +8,10 @@ These examples are independent of projects/mkultra. Deleting that project does n
 - face-glow-outline.jpg: pearl face layer and thin/thick head ink.
 - pointed-body-edge.jpg: narrow contour-following body reflection with pointed ends.
 - camera-paths.jpg: original rendered examples of camera travel and parallax.
+- [karaoke-active-word.png](karaoke-active-word.png): white phrase with only the current spoken word in goldenrod.
+- [karaoke-ending.png](karaoke-ending.png): ending caption placed below the readable document.
+
+Read [../karaoke-guide.md](../karaoke-guide.md) for the reusable subtitle style, timing rules and preserved ASS example.
 
 These are our rendered project examples, not extracted frames from the user's reference channel. The private reference frames live separately in ../lighting and ../camera-study. Keep those private.
 
