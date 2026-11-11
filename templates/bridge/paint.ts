@@ -1,6 +1,7 @@
 // Hand-painted look textures drawn on canvases (cached): grass, cobbles, stone courses, deck planks, water,
 // river bed, roof tiles, bricks, plaster facades with windows/doors/timber frames, iron chain links.
 import * as THREE from "three";
+import { STYLE } from './style';
 
 export const rng = (seed: number) => {
   let s = (seed * 9301 + 49297) % 233280 || 1;
@@ -281,12 +282,12 @@ export const planksHD = () => ctex("planksHD", 2048, 2048, (g, r) => {
       const x = U(r, 0, S), rad = U(r, 120, 260), light = r() > 0.5;
       wrapX(S, x - rad * 3, rad * 6, (xx) => blotch(g, xx + rad * 3, y + B / 2, rad, 3, light ? "255,236,200" : "110,60,25", light ? 0.12 : 0.1));
     }
-    for (let k = 0; k < 18; k++) { // grain: long, thin, clearly visible; never as dark or as wide as a seam
+    for (let k = 0; k < STYLE.paint.grainLines; k++) { // Sparse strokes keep broad colour areas readable.
       const light = r() < 0.25;
       grain(g, r, S, U(r, 0, S), y + U(r, 16, B - 16), U(r, 500, 1600), U(r, 2, 8), U(r, 2, 4),
-        light ? "rgba(255,232,195,0.2)" : "rgba(95,48,18,0.3)");
+        light ? "rgba(255,232,195,0.15)" : "rgba(95,48,18,0.2)");
     }
-    for (let k = 0; k < 4; k++) // a few longer figure lines (darker, still thinner than a seam)
+    for (let k = 0; k < STYLE.paint.figureLines; k++)
       grain(g, r, S, U(r, 0, S), y + U(r, 30, B - 30), U(r, 900, 1900), U(r, 4, 10), 3.5, "rgba(70,32,10,0.4)");
     if (r() < 0.35) { // knot, about one board in three
       const kx = U(r, 120, S - 120), ky = y + U(r, 70, B - 70), rx = U(r, 14, 24), ry = rx * U(r, 0.45, 0.6);
@@ -370,7 +371,7 @@ export const stoneHD = (key = "stoneHD", cols = ["#ddd0bf", "#d3c5b3", "#e5d9c9"
       let x = (row % 2) * 140 + U(r, 0, 60);
       for (const w0 of ws) {
         const w = w0 * k, col = jit(r, pick(r, cols), 0.1, 5, 0.18), dl = U(r, -1, 1);
-        const sp = Array.from({ length: 16 }, () => [r(), r(), U(r, 1, 2.2), r() < 0.6 ? 1 : 0]);
+        const sp = Array.from({ length: STYLE.paint.stoneSpeckles }, () => [r(), r(), U(r, 1, 2.2), r() < 0.6 ? 1 : 0]);
         const crack = r() < 0.15 ? Array.from({ length: 4 }, () => [r(), r()]) : null;
         wrapX(S, x % S, w, (xx) => {
           const X = xx + J / 2, Y = y + J / 2, BW = w - J, BH = RH - J;
@@ -503,7 +504,7 @@ export const grassHD = () => ctex("grassHD", 1024, 1024, (g, r) => {
     wrap2(S, S, x, y, rad * 1.4, (xx, yy) => blotch(g, xx, yy, rad, 1.4, light ? "140,198,80" : "92,154,48", 0.35));
   }
   g.lineWidth = 2; g.lineCap = "round"; g.lineJoin = "round";
-  for (let i = 0; i < 1400; i++) { // tufts ~90 per m2
+  for (let i = 0; i < STYLE.paint.grassTufts; i++) {
     const x = U(r, 0, S), y = U(r, 0, S), h = U(r, 7, 16), lean = U(r, -3, 3), light = r() < 0.4;
     wrap2(S, S, x, y, 20, (xx, yy) => {
       g.strokeStyle = light ? "rgba(165,218,98,0.35)" : "rgba(78,138,38,0.45)";

@@ -44,6 +44,8 @@ ffmpeg -i out/bridge/video.mp4 -i mix.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a a
 - `preview-characters.mjs`: standalone character gallery.
 - `templates/bridge/player.ts`: Three.js playback, effects and deterministic `window.renderFrame(frame)` API.
 - `templates/bridge/toon.ts`: character drawing.
+- `templates/bridge/style.ts`: reusable line, blur and texture-detail settings.
+- `templates/bridge/props.ts`: painted crate, barrel, bench and table builders.
 - `templates/bridge/story.ts`: frame timing, cameras and shots.
 - `templates/bridge/world.ts`: scenery and character staging.
 - `templates/scripts/bridge-stills.mjs`: Playwright frame capture.
@@ -51,5 +53,7 @@ ffmpeg -i out/bridge/video.mp4 -i mix.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a a
 - `references/`: private style study material; do not publish reference images.
 
 Reference reports are historical research notes and may describe the former renderer. Current setup and commands are above.
+
+The skill plans props from the narration automatically. You only need to specify objects when you have a particular preference. New settings still require scene design and sometimes new prop code; the library is a starting point. The scene-review workflow is documented in `SKILL.md`, with visual guidance in `references/visual-guide.md`.
 
 Code and documentation are MIT licensed. See LICENSE.

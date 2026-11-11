@@ -49,8 +49,9 @@ requestAnimationFrame(draw);
 
 const server = createServer(async (req, res) => {
   try {
-    if (req.url === '/toon.js') {
-      const js = stripTypeScriptTypes(await readFile(source, 'utf8'));
+    if (req.url === '/toon.js' || req.url === '/style.js') {
+      const moduleSource = req.url === '/style.js' ? new URL('./templates/bridge/style.ts', import.meta.url) : source;
+      const js = stripTypeScriptTypes(await readFile(moduleSource, 'utf8'));
       res.writeHead(200, { 'Content-Type': 'text/javascript', 'Cache-Control': 'no-store' });
       res.end(js);
     } else if (req.url === '/') {

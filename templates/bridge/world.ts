@@ -9,6 +9,7 @@ import { Pen, fxSign } from "./toon";
 import { LIGHTS, LOOK, LightPreset } from "./lights";
 import { TONE, CHAR, LFB, twoTone, untone } from "./shade";
 import { NOINK } from "./ink";
+import { createProp } from './props';
 import { Pool, Actor, Fx, stage, snapFx, splashFx, creakFx, SIGN_AT, SU_SWING } from "./cast";
 import { FPS, D0, SHOTS, PARK, ANCHOR, SNAP, camAt, bridgeState, deckY, dropW, shapeZ, snapEnd, front, BridgeState, V3, smooth, FOREGROUND, ShotDef } from "./story";
 
@@ -315,6 +316,8 @@ export class World {
     this.sign.traverse((o) => { o.castShadow = true; o.receiveShadow = true; });
     R.add(this.sign);
     this.swing = new Actor(R, swingGeo);
+    // A reusable park prop, placed beside the action rather than across a character.
+    R.add(createProp('bench', { position: [PARK[0] + 3.8, D0, PARK[2] - 2.8], yaw: -0.2 }));
     // the CAM agent's near framing objects: built once, never passed through the sight-line filter, toggled per frame
     for (const fg of FOREGROUND) {
       const o = kitClone(kit, fg.kit, fg.s ?? 1);

@@ -6,6 +6,7 @@ import { InkPass, noInkFallback } from './ink';
 import { LensBlur } from './lensblur';
 import { GradeEffect, GRADES, GRADE_STRENGTH, gradeFor } from './grade';
 import { FPS, TOTAL, FLASH_AT, SHOTS, layersAt, dofAt } from './story';
+import { STYLE } from './style';
 
 const screen = document.querySelector<HTMLDivElement>('#screen')!;
 const status = document.querySelector<HTMLParagraphElement>('#status')!;
@@ -60,7 +61,8 @@ async function init() {
       b.camera.getWorldDirection(forward);
       if (d.focus) focus.set(...d.focus(f)); else focus.copy(target);
       b.lens.focus = Math.max(0.3, focus.sub(b.camera.position).dot(forward));
-      b.lens.cInf = d.cInf; gradeFor(b.grade, SHOTS[layer.id - 1].light);
+      b.lens.cInf = Math.min(STYLE.lens.maxCoC, d.cInf * STYLE.lens.strength);
+      gradeFor(b.grade, SHOTS[layer.id - 1].light);
       b.composer.render(1 / FPS);
     });
     flash.style.opacity = String(f >= FLASH_AT && f < FLASH_AT + 4 ? [1, .75, .45, .2][f - FLASH_AT] : 0);

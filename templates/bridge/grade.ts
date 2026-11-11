@@ -162,9 +162,9 @@ export const GRADE_DAY2: GradeParams = {
 };
 export const GRADE_GOLDEN2: GradeParams = {
   ky: [0, 0.09, 0.245, 0.54, 0.8, 0.93, 1],
-  sat: [1.0, 1.12, 1.15],
-  tintS: [0.02, 0.002], tintM: [0, 0], tintH: [-0.012, 0.006],
-  vig: [0.2, 0.4],
+  sat: [1.0, 1.02, 1.03],
+  tintS: [0.008, 0.002], tintM: [0, 0], tintH: [-0.006, 0.003],
+  vig: [0.12, 0.45],
 };
 export const GRADES: Record<"day" | "golden", GradeParams> = { day: GRADE_DAY2, golden: GRADE_GOLDEN2 };
 /** One strength (0..1, the effect's `amount`) per preset, set against the NEW world (bridge_world, 2026-10-31): full-strength
