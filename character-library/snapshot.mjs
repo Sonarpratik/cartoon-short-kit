@@ -1,0 +1,13 @@
+import {readFile,mkdir,writeFile,copyFile,realpath} from 'node:fs/promises';
+import {resolve,relative,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const [target,...ids]=process.argv.slice(2);if(!target||!ids.length)throw Error('Usage: node character-library/snapshot.mjs projects/story character-id ...');
+const actual=await realpath(resolve(root,target)),rel=relative(root,actual);if(rel.startsWith('..')||!rel)throw Error('Project must be a subdirectory of this repository');
+const library=JSON.parse(await readFile(new URL('../references/characters/cast.json',import.meta.url),'utf8'));
+const characters=ids.map(id=>{const c=library.characters.find(c=>c.id===id);if(!c)throw Error('Unknown character: '+id);return c;});
+const folder=join(actual,'characters');await mkdir(folder);
+await writeFile(join(folder,'cast.json'),JSON.stringify({schemaVersion:1,characters},null,2)+'\n');
+await copyFile(new URL('../templates/bridge/character-rig.ts',import.meta.url),join(folder,'character-rig.ts'));
+for(const file of ['toon.ts','style.ts','face-style.ts','director.ts','hair-3d.ts'])await copyFile(new URL('../templates/bridge/'+file,import.meta.url),join(folder,file));
+console.log('Preserved cast and rig in '+folder);

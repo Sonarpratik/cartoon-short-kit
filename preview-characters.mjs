@@ -1,70 +1,34 @@
-import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
-import { stripTypeScriptTypes } from 'node:module';
-
-const source = new URL('./templates/bridge/toon.ts', import.meta.url);
-const page = `<!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Character preview</title>
-<style>
-body{font:16px system-ui;background:#ece8df;color:#241726;margin:24px}
-header{position:sticky;top:0;background:#ece8df;padding:12px 0;z-index:1}
-h1{margin:0 0 12px}label{margin-right:18px}select,button{font:inherit;padding:6px}
-main{display:flex;flex-wrap:wrap;gap:16px}figure{margin:0;background:#faf8f1;border-radius:12px;padding:12px}
-canvas{width:240px;height:400px;display:block}figcaption{text-align:center}
-#error{color:#a02020;white-space:pre-wrap}
-</style>
-<header><h1>Character preview</h1>
-<label>View <select id="view"><option>Front</option><option>Side</option></select></label>
-<label>Expression <select id="expr"></select></label>
-<label>Action <select id="action"><option value="stand">Stand</option><option value="march">March</option></select></label>
-<button id="pause">Pause</button>
-<p>Edit templates/bridge/toon.ts and refresh to see your changes.</p></header>
-<p id="error"></p><main></main>
-<script type="module">
-try {
-const T = await import('/toon.js');
-const expr = document.querySelector('#expr');
-for(const name of ['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick']) expr.add(new Option(name,name));
-const characters = [['Rifleman',T.RIFLEMAN],['Officer',T.OFFICER],['Kid',T.KID],['Parent',T.PARENT],['Townsfolk 1',T.townsfolk(0)],['Townsfolk 2',T.townsfolk(1)]];
-const cards = characters.map(([name,outfit],i)=>{
- const figure=document.createElement('figure'), canvas=document.createElement('canvas'), caption=document.createElement('figcaption');
- canvas.width=600;canvas.height=1000;caption.textContent=name;figure.append(canvas,caption);document.querySelector('main').append(figure);
- return {g:canvas.getContext('2d'),outfit,seed:i+1};
-});
-let paused=false, time=0, previous;
-document.querySelector('#pause').onclick=(event)=>{paused=!paused;event.target.textContent=paused?'Play':'Pause';};
-function draw(now){
- if(previous!==undefined&&!paused)time+=(now-previous)/1000;previous=now;
- for(const {g,outfit,seed} of cards){
-  g.clearRect(0,0,600,1000);
-  const opts={seed,expr:expr.value,mode:document.querySelector('#action').value,phase:time%1,blink:!paused&&(time+seed*.3)%4<.12};
-  (document.querySelector('#view').value==='Side'?T.bodySide:T.bodyFront)(new T.Pen(g),outfit,opts);
- }
- requestAnimationFrame(draw);
+import {createServer} from 'node:http';
+import {readFile,writeFile,rename} from 'node:fs/promises';
+import {stripTypeScriptTypes} from 'node:module';
+const root=new URL('./',import.meta.url),catalog=new URL('references/characters/cast.json',root);
+const routes={'/':['character-studio/index.html','text/html; charset=utf-8'],'/studio.js':['character-studio/studio.js','text/javascript'],'/character-rig.js':['templates/bridge/character-rig.ts','text/javascript'],'/toon.js':['templates/bridge/toon.ts','text/javascript'],'/style.js':['templates/bridge/style.ts','text/javascript'],'/face-style.js':['templates/bridge/face-style.ts','text/javascript'],'/director.js':['templates/bridge/director.ts','text/javascript']};
+let saveQueue=Promise.resolve();
+function validate(c){
+ if(!c||typeof c!=='object')throw Error('Expected a character object');
+ for(const key of ['id','name','project','identity','hairStyle'])if(typeof c[key]!=='string'||!c[key].trim()||c[key].length>120)throw Error('Invalid '+key);
+ if(!/^[a-zA-Z0-9_-]+$/.test(c.id))throw Error('Invalid character ID');
+ for(const key of ['jacket','pants','boots','hair','skin'])if(!/^#[0-9a-f]{6}$/i.test(c[key]))throw Error('Invalid '+key+' colour');
+ if(!Number.isInteger(c.seed)||c.seed<0||c.seed>1000000||typeof c.coat!=='boolean')throw Error('Invalid seed or coat');
+ if(!['sidepart','receding','spiky','bob'].includes(c.hairStyle))throw Error('Unknown hair style');
+ const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
 }
-requestAnimationFrame(draw);
-}catch(error){document.querySelector('#error').textContent=error.stack;}
-</script></html>`;
-
-const server = createServer(async (req, res) => {
-  try {
-    if (req.url === '/toon.js' || req.url === '/style.js') {
-      const moduleSource = req.url === '/style.js' ? new URL('./templates/bridge/style.ts', import.meta.url) : source;
-      const js = stripTypeScriptTypes(await readFile(moduleSource, 'utf8'));
-      res.writeHead(200, { 'Content-Type': 'text/javascript', 'Cache-Control': 'no-store' });
-      res.end(js);
-    } else if (req.url === '/') {
-      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-      res.end(page);
-    } else {
-      res.writeHead(404); res.end('Not found');
-    }
-  } catch (error) {
-    console.error(error);
-    res.writeHead(500); res.end('Could not load character source. See terminal.');
+const server=createServer(async(req,res)=>{
+ const pathname=new URL(req.url,'http://127.0.0.1').pathname;
+ const reply=(code,data,type='application/json')=>{res.writeHead(code,{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(type==='application/json'?JSON.stringify(data):data);};
+ try{
+  if(pathname==='/api/cast'&&req.method==='GET'){reply(200,JSON.parse(await readFile(catalog,'utf8')));return;}
+  if(pathname==='/approved-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('references/characters/bootstrap-paradox/approved-cast.png',root)),'image/png');return;}
+  if(pathname==='/studio-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('references/characters/shared/studio-cast.png',root)),'image/png');return;}
+  if(pathname==='/api/characters'&&req.method==='POST'){
+   if(req.headers.origin&&req.headers.origin!==`http://${req.headers.host}`){reply(403,{error:'Cross-origin save rejected'});return;}
+   let body='';for await(const chunk of req){body+=chunk;if(body.length>20000){reply(413,{error:'Character is too large'});return;}}
+   const character=validate(JSON.parse(body));
+   const operation=saveQueue.then(async()=>{const data=JSON.parse(await readFile(catalog,'utf8'));if(data.characters.some(c=>c.id===character.id))throw Error('ID already saved. Use a new ID to preserve the original.');data.characters.push(character);const temp=new URL('references/characters/cast.tmp.json',root);await writeFile(temp,JSON.stringify(data,null,2)+'\n');await rename(temp,catalog);return data;});saveQueue=operation.catch(()=>{});reply(201,await operation);return;
   }
+  const route=pathname==='/hair-3d.js'?['templates/bridge/hair-3d.ts','text/javascript']:routes[pathname];if(!route||req.method!=='GET'){reply(404,{error:'Not found'});return;}
+  let source=await readFile(new URL(route[0],root),'utf8');if(route[0].endsWith('.ts'))source=stripTypeScriptTypes(source).replace(/(from\s+['"])(\.\/[\w-]+)(['"])/g,'$1$2.js$3');reply(200,source,route[1]);
+ }catch(error){reply(400,{error:error.message});}
 });
-server.on('error', (error) => { console.error(error.message); process.exitCode = 1; });
-const port = Number(process.env.PORT || 8787);
-server.listen(port, '127.0.0.1', () => console.log(`Character preview: http://127.0.0.1:${port}\nPress Ctrl+C to stop.`));
+server.on('error',e=>{console.error(e.message);process.exitCode=1;});
+const port=Number(process.env.PORT||8787);server.listen(port,'127.0.0.1',()=>console.log(`Character Studio: http://127.0.0.1:${port}`));

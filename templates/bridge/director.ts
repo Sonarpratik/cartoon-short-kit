@@ -30,3 +30,16 @@ export function cameraJourney(u:number,keys:readonly CameraKey[]):CameraPose{
   return {position:vector('position'),target:vector('target'),focus:vector('focus'),fov:scalar(p.fov??39,a.fov??39,b.fov??39,n.fov??39),blur:scalar(p.blur??0,a.blur??0,b.blur??0,n.blur??0)};
 }
 export const glideCamera=(u:number,from:CameraPose,to:CameraPose)=>cameraJourney(u,[{...from,at:0},{...to,at:1}]);
+
+export type CameraFrameKey=CameraPose & {frame:number};
+/** Shared camera track across narrative beats. Keys land on exact frames, without global easing shifting cues. */
+export function cameraSequence(frame:number,keys:readonly CameraFrameKey[]):CameraPose{
+ if(keys.length<2||keys.some((k,i)=>i>0&&k.frame<=keys[i-1].frame))throw Error('Camera sequence requires increasing frame keys');
+ const f=Math.max(keys[0].frame,Math.min(keys[keys.length-1].frame,frame));let i=0;while(i<keys.length-2&&f>keys[i+1].frame)i++;
+ const a=keys[i],b=keys[i+1],p=keys[Math.max(0,i-1)],n=keys[Math.min(keys.length-1,i+2)],dt=b.frame-a.frame,t=(f-a.frame)/dt;
+ const scalar=(pv:number,av:number,bv:number,nv:number)=>{const v0=i===0?0:(bv-pv)/(b.frame-p.frame),v1=i===keys.length-2?0:(nv-av)/(n.frame-a.frame);return(2*t*t*t-3*t*t+1)*av+(t*t*t-2*t*t+t)*dt*v0+(-2*t*t*t+3*t*t)*bv+(t*t*t-t*t)*dt*v1;};
+ const vector=(name:'position'|'target'|'focus')=>[0,1,2].map(j=>scalar((p[name]??p.target)[j],(a[name]??a.target)[j],(b[name]??b.target)[j],(n[name]??n.target)[j])) as V3;
+ return{position:vector('position'),target:vector('target'),focus:vector('focus'),fov:scalar(p.fov??39,a.fov??39,b.fov??39,n.fov??39),blur:scalar(p.blur??0,a.blur??0,b.blur??0,n.blur??0)};
+}
+/** Reports positional/aim/lens discontinuities at a proposed same-location edit. */
+export function cameraBoundary(a:CameraPose,b:CameraPose){const distance=(x:V3,y:V3)=>Math.hypot(...x.map((v,i)=>v-y[i]));return{positionGap:distance(a.position,b.position),targetGap:distance(a.target,b.target),fovGap:Math.abs((a.fov??39)-(b.fov??39))};}

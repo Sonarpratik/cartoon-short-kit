@@ -61,3 +61,9 @@ Reference reports are historical research notes and may describe the former rend
 The skill plans props from the narration automatically. You only need to specify objects when you have a particular preference. New settings still require scene design and sometimes new prop code; the library is a starting point. The scene-review workflow is documented in `SKILL.md`, with visual guidance in `references/visual-guide.md`.
 
 Code and documentation are MIT licensed. See LICENSE.
+
+Shared camera defaults now favour connected action over sentence-by-sentence cuts, with lateral reveals, side/three-quarter views, changes in height and foreground parallax. `cameraSequence` keeps cues on exact frame numbers across narrative beats; `cameraBoundary` checks adjoining poses. See [the saved continuity preference](references/camera-guide.md) for reference-informed staging and authorized audio-pause handling. Existing story engine snapshots remain isolated.
+# Shared Character Studio
+
+Run `npm.cmd run characters`, then open http://127.0.0.1:8787. Inspect saved cast designs, 12 directions, top/bottom views, actions, facial expressions and micro animation. Save variants or export/import designs for reuse. See [the character library](character-library/README.md) for project snapshots and renderer integration.
+

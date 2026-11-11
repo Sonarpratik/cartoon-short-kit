@@ -1,0 +1,20 @@
+[
+  {
+    "id": "bootstrap-young",
+    "meanChannelDifference": 0.6184175,
+    "changedChannels": 8397,
+    "bodyDifference": 0
+  },
+  {
+    "id": "bootstrap-future",
+    "meanChannelDifference": 0.6308758333333333,
+    "changedChannels": 8550,
+    "bodyDifference": 0
+  },
+  {
+    "id": "bootstrap-middle",
+    "meanChannelDifference": 0.63218375,
+    "changedChannels": 8568,
+    "bodyDifference": 0
+  }
+]

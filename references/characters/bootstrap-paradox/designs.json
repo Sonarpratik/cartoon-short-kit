@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "characters": [
+    {
+      "id": "bootstrap-young",
+      "name": "Inventor \u00b7 young",
+      "project": "bootstrap-paradox",
+      "identity": "bootstrap-inventor",
+      "seed": 3,
+      "jacket": "#397d7e",
+      "pants": "#344653",
+      "boots": "#322d39",
+      "hair": "#634331",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5"
+    },
+    {
+      "id": "bootstrap-future",
+      "name": "Inventor \u00b7 future",
+      "project": "bootstrap-paradox",
+      "identity": "bootstrap-inventor",
+      "seed": 3,
+      "jacket": "#eef1eb",
+      "pants": "#344653",
+      "boots": "#322d39",
+      "hair": "#b9d9ef",
+      "hairStyle": "spiky",
+      "coat": true,
+      "skin": "#faf9f5"
+    },
+    {
+      "id": "bootstrap-middle",
+      "name": "Inventor \u00b7 middle age",
+      "project": "bootstrap-paradox",
+      "identity": "bootstrap-inventor",
+      "seed": 3,
+      "jacket": "#397d7e",
+      "pants": "#344653",
+      "boots": "#322d39",
+      "hair": "#a9b2b1",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5"
+    }
+  ]
+}
