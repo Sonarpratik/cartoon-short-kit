@@ -18,7 +18,7 @@
 //       no ink where the main depth buffer has something nearer than the world (characters / cards in front).
 //  3. Composite: 3x3 tent-filtered mask (anti-aliasing), near-black ink blended in display gamma (like Canvas2D),
 //     written back into the input buffer (colour only; the composer's depth texture stays intact).
-//     This is a Pass (not an Effect), so R3F's <EffectComposer> keeps it as its own pass BEFORE the merged
+//     This is a Pass (not an Effect); the browser composer keeps it as its own pass BEFORE the merged
 //     DOF + Bloom + ToneMapping EffectPass: the depth of field then blurs the lines together with the background.
 // Verified in a toy scene with this exact stack (MSAA 4, HalfFloat, DOF/Bloom/Neutral): compiles, no GL errors,
 // measured EW 3.7 / 3.2 / 2.6 / 1.5 / 1.1 px at 3 / 12 / 25 / 90 / 200 m (silhouettes) and 2.3 -> 0.9 px (creases).

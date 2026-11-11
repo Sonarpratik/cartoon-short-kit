@@ -1,0 +1,19 @@
+{
+  "name": "animated-shorts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "characters": "node preview-characters.mjs",
+    "dev": "vite --host 127.0.0.1 --port 8788 --strictPort",
+    "build": "vite build",
+    "stills": "node templates/scripts/bridge-stills.mjs"
+  },
+  "dependencies": {
+    "three": "~0.170.0",
+    "postprocessing": "~6.36.0"
+  },
+  "devDependencies": {
+    "vite": "^6.4.0",
+    "playwright": "^1.56.0"
+  }
+}

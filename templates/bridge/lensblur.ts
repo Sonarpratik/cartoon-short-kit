@@ -9,7 +9,7 @@
 // Occlusion rules (no halos, no dark rims): a sample counts only if its own CoC reaches this pixel, a farther sample
 // may never spread wider than this pixel's own CoC (sharp subjects keep clean silhouettes), and the result is
 // renormalised by the accepted weights. Fixed sample pattern, no per-pixel noise: no grain, no frame-to-frame flicker.
-// Both passes are CONVOLUTION effects, so R3F's <EffectComposer> gives each its own EffectPass.
+// Both passes are CONVOLUTION effects; the browser composer gives each its own EffectPass.
 import { Effect, EffectAttribute, BlendFunction } from "postprocessing";
 import { Uniform } from "three";
 

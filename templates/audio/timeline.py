@@ -1,4 +1,4 @@
-# Picture timeline mirrored (read-only) from your Remotion project/src/videos/bridge/story.ts + cast.ts so every sound lands on
+# Picture timeline mirrored (read-only) from templates/bridge/story.ts + cast.ts so every sound lands on
 # the frame: shots, story time tau per shot, march phase (footfalls at tau = k * 0.5 s), bounce amp(), stomp(),
 # snap / drop / water, swing pushes, hammer hits, tourists' own stroll phases, and the camera's distance to the column.
 import math

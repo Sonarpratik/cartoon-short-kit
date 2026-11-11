@@ -1,33 +1,55 @@
-# Claude Animated Shorts
+﻿# Animated Shorts
 
-The free Claude skill from the video **"How to Make Viral Animated Shorts Using Claude (Full Workflow)"**.
+Canvas2D cartoon characters in a Three.js world. Playwright captures frames and FFmpeg encodes video.
 
-It makes 55-70 s vertical animated story shorts: 2D characters in a colourful 3D world, with ink outlines, a painted town, lens blur, gliding cameras, a march score and sound effects. Everything is rendered with three.js inside Remotion on your own PC, with no AI video generator.
+## Character preview
 
-Proven on **The Bridge That Fell for a Song**, a 67 s short about the 1831 Broughton bridge.
+Requires Node 22.6+. Run `node preview-characters.mjs` and open http://127.0.0.1:8787. Edit `templates/bridge/toon.ts` and refresh. No dependency installation is needed.
 
-## What's inside
-| Path | What it is |
-|---|---|
-| `SKILL.md` | The skill: the full pipeline, every rule, every fix, and the final look values |
-| `templates/bridge/` | The full source of the bridge short: world, characters, ink, lens blur, grade, story/camera |
-| `templates/audio/` | The synthesized sound: SFX, march music, the mix with ducking and loudness |
-| `templates/scripts/` | Stills, side-by-side sheets, shot merge and frame-by-frame QA helpers |
-| `references/STYLE_BIBLE.md` | The script and visual formula measured from 20 reference shorts |
-| `references/reports/` | Seven measured reports: motion, depth, textures, characters, lighting, outlines, grade |
-| `references/frames/` | 38 full-size reference frames (540x960) to compare your frames against |
-| `references/sheets/` | 20 contact sheets, one per reference short, 60 frames each (1,200 frames) |
+## 3D scene preview
 
-## Install
-1. Copy this folder to `~/.claude/skills/cartoon-3d-short/` (clone it there, or download the ZIP).
-2. You need [Remotion](https://www.remotion.dev/) with `@remotion/three`, plus Node, Python 3 and ffmpeg.
-3. In Claude Code, say: *"Use the cartoon short skill and make a short about …"*.
+```powershell
+npm.cmd install
+npm.cmd run dev
+```
 
-Claude then follows `SKILL.md`: topic and facts, then script, then voice, then the shot plan in `story.ts`, then stills, then renders. Agents check your frames against the reports and the frames, and you get the final 2K render and sound mix.
+Open http://127.0.0.1:8788 to play or scrub through the scene. Optional Kenney models belong in `public/bridge/kenney/`; they are not included. Missing models are skipped and procedural scenery remains. Audio assets are not included; the preview is silent.
 
-## Notes
-- Set `REMOTION_TMP` to a folder on a big drive. Every Remotion bundle copies `public/` (~1.3 GB) into the temp folder.
-- Story, characters and voice should always be your own. Use the references for the look, not the content.
+## Capture frames and encode video
 
-## License
-The code and docs are MIT (see `LICENSE`). The reference frames are included for style study only.
+Keep the preview server running. In another terminal:
+
+```powershell
+npx.cmd playwright install chromium
+npm.cmd run stills -- out/bridge/f 0,100,400 0.5
+```
+
+Capture all 2,025 frames at 1080x1920 and encode:
+
+```powershell
+npm.cmd run stills -- out/bridge/f 0-2024 1
+ffmpeg -framerate 30 -i out/bridge/f%04d.jpg -c:v libx264 -crf 17 -pix_fmt yuv420p out/bridge/video.mp4
+```
+
+For 1440x2560 use scale `1.3333333333333333`. Add a separately prepared audio mix:
+
+```powershell
+ffmpeg -i out/bridge/video.mp4 -i mix.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -shortest out/bridge/final.mp4
+```
+
+`CHROME_PATH` selects an existing Chrome executable. `PREVIEW_URL` selects another running preview server. `npm.cmd run build` builds the browser app.
+
+## Source
+
+- `preview-characters.mjs`: standalone character gallery.
+- `templates/bridge/player.ts`: Three.js playback, effects and deterministic `window.renderFrame(frame)` API.
+- `templates/bridge/toon.ts`: character drawing.
+- `templates/bridge/story.ts`: frame timing, cameras and shots.
+- `templates/bridge/world.ts`: scenery and character staging.
+- `templates/scripts/bridge-stills.mjs`: Playwright frame capture.
+- `templates/audio/`: Python audio synthesis and mixing templates (requires NumPy).
+- `references/`: private style study material; do not publish reference images.
+
+Reference reports are historical research notes and may describe the former renderer. Current setup and commands are above.
+
+Code and documentation are MIT licensed. See LICENSE.
