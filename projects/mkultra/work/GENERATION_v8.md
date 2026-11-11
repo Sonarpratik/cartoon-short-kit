@@ -1,1 +1,0 @@
-User explicitly requested: generate the video with this. Latest v8 source hashes verified against all nine reviewed scenes. Previous v6 export backed up as out/final-v6.mp4. Retain narration and existing audio mix.
