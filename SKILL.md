@@ -15,7 +15,7 @@ Include the user's preferred curved glossy reflection on hair and headwear: a ta
 
 Apply the user's preferences automatically: off-white faces, a soft inner head highlight aligned to the key light, visible window-shaped light across interior surfaces where appropriate, and detailed original props/backgrounds with joinery, hardware, trim and relevant shelf contents. Choose lighting for each scene and preserve readable shadows and faces. Read [lighting-guide.md](references/lighting-guide.md), including its private reference studies, before designing a new set. No repeated prop or lighting request is needed.
 
-Background quality is a standing preference too: start with a fully designed setting, detailed furniture and story-relevant objects, painted materials, architectural trim, believable light sources, surface highlights, soft form shadows and grounded cast/contact shadows. For window-lit interiors, carry the pane-shaped light across walls, worktops and floors as appropriate. Use MKUltra review v3 as the user's approved background direction, adapting the setting and lighting to each new story. Do not wait for the user to request background detail or lighting again; include them in the scene plan and review frames by default.
+Background quality is a standing preference too: start with a fully designed setting, detailed furniture and story-relevant objects, painted materials, architectural trim, believable light sources, surface highlights, soft form shadows and grounded cast/contact shadows. For window-lit interiors, carry the pane-shaped light across walls, worktops and floors as appropriate. Use references/style-examples/backgrounds-approved-v3.jpg as the user's approved background direction, adapting the setting and lighting to each new story. Do not wait for the user to request background detail or lighting again; include them in the scene plan and review frames by default.
 
 ## Essential rules
 
@@ -26,6 +26,10 @@ Background quality is a standing preference too: start with a fully designed set
 - Review first. Show scene frames, accept corrections, and stop. Render the full sequence only when the user explicitly says generate, render, make the video, or go. Silence and approval of individual scenes do not authorize full generation.
 - A correction affects only named scenes. Preserve other scene sources and frames. Ask before an unavoidable shared design change that would affect previously reviewed scenes.
 - Keep a short task list and report progress on long captures.
+
+## Preserved shared reference library
+
+All required guides and visual examples live outside story projects. Read references/style-examples/README.md for the preserved background, face, hair/body reflection, cast and camera examples. Use templates/interior for detailed reusable rooms/props and templates/examples/interior-short-source.zip for a source-only worked example. New projects must not depend on projects/mkultra being present.
 
 ## Use the bundled project
 

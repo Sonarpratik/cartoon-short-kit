@@ -18,34 +18,34 @@
     {
       "scene": "S01",
       "frame": 24,
-      "meanPixelDifferenceVsApprovedReview": 4.490324020385742
+      "meanPixelDifferenceVsApprovedReview": 4.520416736602783
     },
     {
       "scene": "S03",
       "frame": 208,
-      "meanPixelDifferenceVsApprovedReview": 4.37074089050293
+      "meanPixelDifferenceVsApprovedReview": 4.338472366333008
     },
     {
       "scene": "S04",
       "frame": 419,
-      "meanPixelDifferenceVsApprovedReview": 4.3622918128967285
+      "meanPixelDifferenceVsApprovedReview": 4.369560241699219
     },
     {
       "scene": "S05",
       "frame": 509,
-      "meanPixelDifferenceVsApprovedReview": 4.352245330810547
+      "meanPixelDifferenceVsApprovedReview": 4.342291831970215
     },
     {
       "scene": "S07",
       "frame": 809,
-      "meanPixelDifferenceVsApprovedReview": 4.342916488647461
+      "meanPixelDifferenceVsApprovedReview": 4.496921062469482
     },
     {
       "scene": "S08",
       "frame": 902,
-      "meanPixelDifferenceVsApprovedReview": 4.393958568572998
+      "meanPixelDifferenceVsApprovedReview": 4.433842658996582
     }
   ],
-  "fileBytes": 21500497,
+  "fileBytes": 23250032,
   "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
 }

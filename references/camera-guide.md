@@ -6,7 +6,7 @@ The user wants the reference's continuous glides as well as distinct cast design
 
 Studied the user's roller-coaster reference video directly at three samples per second. At about 7–8 s, a wide view moves into the character/workbench; around 17–20 s, the view pulls across the loop then approaches a character; around 36–39 s, it turns from the ride foreground to reveal the track below, with foreground/background parallax. These are apparent screen-space observations, not recovered original camera coordinates. Cuts and transitions are also present. Do not force a continuous flight between unrelated locations or copy the reference's shots.
 
-Private analysis frames are in projects/mkultra/work/private-reference/motion-study; never deliver them as project artwork.
+Private analysis frames are in references/camera-study; never deliver them as project artwork.
 
 ## Defaults for new stories
 
@@ -26,3 +26,6 @@ const camera=(u:number)=>cameraJourney(u,[
 ```
 
 The MKUltra project uses this shared module's snapshot for both its distinct cast designs and all nine camera paths. Its lab shot has several continuous keys; the destruction scene follows the stamp before gliding to the shredder. Preserve the approved narration's length and timing when adapting the camera.
+
+
+Original rendered camera-path examples are preserved in references/style-examples/camera-paths.jpg. The source-only worked example in templates/examples/interior-short-source.zip preserves scene paths without requiring projects/mkultra to remain installed.

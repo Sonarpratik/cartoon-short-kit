@@ -45,6 +45,12 @@ Use [lighting-guide.md](lighting-guide.md) for the user's persistent window-ligh
 - Frame a clear subject and action. Avoid rails, posts, ropes and repeated characters covering faces or hands unless the obstruction has a story purpose.
 - Review at least a character close-up, a medium action shot and a wide setting shot. Inspect the beginning and end of camera moves and both sides of cuts.
 - Check hand/prop contact and ground placement during motion, not just in a still pose.
+- Keep hands connected to the character's actual arm. Avoid a separate floating 3D sleeve/palm alongside a drawn character. For billboard characters gripping a 3D prop, project the grip onto the billboard using the current camera and compensate actor motion; check contact through the full camera glide.
 - Keep verticals readable. Prefer deliberate camera moves and restrained roll; avoid tilting a wide view solely to fit a tall building.
 - Compare before/after frames at equal resolution and the same frame number. Use matching lighting and shot size when selecting private reference frames for study.
 - Evaluate character silhouette, materials, shadows, framing and motion separately. Improving one does not demonstrate that the whole video matches the target.
+
+
+## Independent reusable library
+
+See style-examples/README.md for preserved examples of approved background detail, face/hair/body reflections, cast variation and camera paths. Detailed interior/prop code is in templates/interior; central character/camera defaults are in templates/bridge/director.ts. These remain available if a story project is removed.

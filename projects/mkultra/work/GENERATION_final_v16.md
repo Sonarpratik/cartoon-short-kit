@@ -1,0 +1,1 @@
+User explicitly requested final MKUltra video. Use latest reviewed source hashes: S01 v16 and all other scenes v14. Includes distinct cast, pointed body highlights for all characters, gliding cameras and the corrected bottle grip. Preserve original narration and existing mix. Previous v9 export backed up as out/final-v9.mp4.

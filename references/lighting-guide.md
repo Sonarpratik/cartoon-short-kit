@@ -2,7 +2,7 @@
 
 These are the user's preferred defaults for every new short, without asking them to repeat the request. Choose an appropriate scheme for the story and scene; inspect rendered frames rather than promising a universal best setting.
 
-The user explicitly likes the MKUltra v3 background direction: detailed rooms and props, visible window light, clear surface lighting and grounded shadows. Treat this as the default quality target for new settings, alongside the updated character lighting. Plan and build the environment automatically from the story; background detail and lighting are part of the initial scene, rather than a later optional polish pass. Preserve original staging and adapt the light sources to the location and time of day.
+The user explicitly likes the preserved background example in style-examples/backgrounds-approved-v3.jpg: detailed rooms and props, visible window light, clear surface lighting and grounded shadows. Treat this as the default quality target for new settings, alongside the updated character lighting. Plan and build the environment automatically from the story; background detail and lighting are part of the initial scene, rather than a later optional polish pass. Preserve original staging and adapt the light sources to the location and time of day.
 
 ## Private visual references
 
@@ -12,7 +12,7 @@ The user supplied two screenshots: a white-faced red-cap character at night with
 
 ## White heads and directed light
 
-The user also wants a glossy reflection across the top of hair/headwear, as in their close-up reference: a curved tapered white ribbon with a bright centre, a softer warm-white skirt and a small restrained secondary glint. Apply this automatically to suitable visible hair/headwear in future projects. This is a surface reflection distinct from the face's pearl edge. `CharacterPen.shadedFill` clips this ribbon inside upper-head materials; it follows head pose without repainting facial features or changing the setting. The original example in `projects/mkultra/review/gloss-reflection-v8.jpg` demonstrates the implemented treatment; the user's supplied screenshot remains private study material.
+The user also wants a glossy reflection across the top of hair/headwear, as in their close-up reference: a curved tapered white ribbon with a bright centre, a softer warm-white skirt and a small restrained secondary glint. Apply this automatically to suitable visible hair/headwear in future projects. This is a surface reflection distinct from the face's pearl edge. `CharacterPen.shadedFill` clips this ribbon inside upper-head materials; it follows head pose without repainting facial features or changing the setting. The original example in `references/style-examples/hair-reflection.jpg` demonstrates the implemented treatment; the user's supplied screenshot remains private study material.
 
 Use `CharacterPen` from `templates/bridge/face-style.ts` for character drawing. It adds a soft pearl light layer inside the actual head contour and tapers the head ink strongly: thin on the lit side, thick below and on the far side. Keep the irregular bean contour; avoid a uniform circular border. The shared cast pool already uses this helper. The user explicitly prefers this brighter layered face treatment over the previous flat white face.
 
@@ -52,3 +52,6 @@ Review a daylight room, night close-up, hero-prop insert and camera endpoints. C
 Check every cast member, including the investigator and archivist. Seeded head proportions can move shoulders above an arbitrary canvas coordinate; identify valid garment shapes from their bounds and size rather than rejecting them with a fixed shoulder-height cutoff. Review the reflection on each outfit at its actual shot size.
 
 The user clarified that the clothing reflection hugs the curved silhouette and tapers to pointed ends. Draw a narrow bright curved strip just inside the source-facing border, with a restrained soft skirt. Follow the actual clothing contour, retaining its dark outer ink; avoid a broad vertical stripe in the centre of the torso. CharacterPen.gradFill intersects the garment polygon at each height to place a deterministic tapered ribbon before buttons, collars and other costume details. The shader supplies only a subtle broad light wrap, not a second central streak. Hair/headwear retains its separate curved glossy reflection. Adapt the side to the key light and keep the far side shaded.
+
+
+Reusable detailed interior construction and furniture live in templates/interior/world.ts and props.ts. This library and references/style-examples are independent of any story project. See style-examples/README.md for the full preserved example index.

@@ -4,7 +4,7 @@
     "f0": 0,
     "f1": 75,
     "title": "An unsuspecting citizen",
-    "words": "The CIA drugged its own citizens…",
+    "words": "The CIA drugged its own citizens\u00e2\u20ac\u00a6",
     "review": [
       0,
       24,
@@ -25,7 +25,7 @@
     "f0": 75,
     "f1": 141,
     "title": "On the public record",
-    "words": "…and they admitted it.",
+    "words": "\u00e2\u20ac\u00a6and they admitted it.",
     "review": [
       75,
       104,
@@ -39,7 +39,7 @@
     "version": "v14",
     "sourceHash": "2b4c7cfb6a452c2d00e26f08d7e0b3bea719c184c51c1b38fbfe567872f833f3",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   },
   {
     "id": "S03",
@@ -62,7 +62,7 @@
     "version": "v14",
     "sourceHash": "df11845b220e595706c91d952dee732167f5be657531a32a8876281c40f9be14",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   },
   {
     "id": "S04",
@@ -83,14 +83,14 @@
     "version": "v14",
     "sourceHash": "b079a6a4ac97ea13a84f008d582bbbd5be7cd328f76caf39eec13ed36537d09c",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   },
   {
     "id": "S05",
     "f0": 420,
     "f1": 570,
     "title": "Research into control and interrogation",
-    "words": "The goal? Mind control… and making people talk under interrogation.",
+    "words": "The goal? Mind control\u00e2\u20ac\u00a6 and making people talk under interrogation.",
     "review": [
       420,
       458,
@@ -106,7 +106,7 @@
     "version": "v14",
     "sourceHash": "7d612951b70abf499b34d4a5b2af554356514a2052fa51b395ebac796b48e8dc",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   },
   {
     "id": "S06",
@@ -129,7 +129,7 @@
     "version": "v14",
     "sourceHash": "be2f6a24abc764978558565f920ba7ec465b144b314632a578c6f0e05126eb4a",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   },
   {
     "id": "S07",
@@ -152,7 +152,7 @@
     "version": "v14",
     "sourceHash": "c712a359992659b0519c683e8ab823b554704b443215b9357de3701fd5cd723e",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   },
   {
     "id": "S08",
@@ -173,14 +173,14 @@
     "version": "v14",
     "sourceHash": "470736c0716e6e8726018730495d3624c206ded06d16d7947b63e1558f793e50",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   },
   {
     "id": "S09",
     "f0": 948,
     "f1": 1034,
     "title": "What is missing?",
-    "words": "So… what else do you think got shredded?",
+    "words": "So\u00e2\u20ac\u00a6 what else do you think got shredded?",
     "review": [
       948,
       996,
@@ -194,6 +194,6 @@
     "version": "v14",
     "sourceHash": "9b5c97dd992e141f5748edd961d4616d15678e9b122e028f9b377ea2ad8f502e",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   }
 ]

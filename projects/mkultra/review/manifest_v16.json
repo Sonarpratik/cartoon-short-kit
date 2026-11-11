@@ -4,7 +4,7 @@
     "f0": 0,
     "f1": 75,
     "title": "An unsuspecting citizen",
-    "words": "The CIA drugged its own citizens…",
+    "words": "The CIA drugged its own citizens\u00e2\u20ac\u00a6",
     "review": [
       0,
       24,
@@ -18,6 +18,6 @@
     "version": "v16",
     "sourceHash": "bb06ab8d9651f016b4e6ebb51849dd2bd2dd2c8f61ebed231fa5a21d9e68bf9c",
     "scale": 1,
-    "status": "to check"
+    "status": "approved for generation"
   }
 ]
