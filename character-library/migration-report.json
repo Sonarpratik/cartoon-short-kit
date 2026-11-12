@@ -1,0 +1,38 @@
+[
+  {
+    "from": "references\\characters\\bootstrap-paradox",
+    "to": "projects/bootstrap-paradox/character-references/original",
+    "files": 14,
+    "hashesVerified": true
+  },
+  {
+    "from": "references\\characters\\mkultra",
+    "to": "projects/mkultra/character-references/original",
+    "files": 20,
+    "hashesVerified": true
+  },
+  {
+    "from": "references\\characters\\flying-dutchman",
+    "to": "projects/flying-dutchman/character-references/original",
+    "files": 16,
+    "hashesVerified": true
+  },
+  {
+    "from": "references\\characters\\flying-dutchman-v2",
+    "to": "projects/flying-dutchman/character-references/v2",
+    "files": 16,
+    "hashesVerified": true
+  },
+  {
+    "from": "references\\characters\\flying-dutchman-motion-v3",
+    "to": "projects/flying-dutchman/character-references/motion-v3",
+    "files": 10,
+    "hashesVerified": true
+  },
+  {
+    "from": "references\\characters\\shared",
+    "to": "character-library/shared",
+    "files": 11,
+    "hashesVerified": true
+  }
+]

@@ -3,5 +3,8 @@ dist/
 out/
 frames/
 .npm-cache/
-projects
+projects/**
+!projects/*/
+!projects/*/character-references/
+!projects/*/character-references/**
 character-studio/review/

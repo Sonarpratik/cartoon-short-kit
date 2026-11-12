@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
-import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,unlink} from 'node:fs/promises';
+import {characterReferencePath} from '../character-library/paths.mjs';
 import {execFileSync} from 'node:child_process';
-const base='http://127.0.0.1:8787',file=new URL('../references/characters/cast.json',import.meta.url);
+const base='http://127.0.0.1:8787',file=new URL('../character-library/cast.json',import.meta.url);
 const original=await fetch(base+'/api/cast').then(r=>r.json()),id='qa-'+Date.now();
 const fixture={...(original.characters.find(c=>c.id==='mkultra-researcher')??original.characters[0]),id,name:'QA temporary variant'};
 try{
@@ -17,4 +18,4 @@ try{
  assert.equal(await readFile(target+'/characters/character-rig.ts','utf8'),await readFile('templates/bridge/character-rig.ts','utf8'));
  let blocked=false;try{execFileSync(process.execPath,['character-library/snapshot.mjs',target,'bootstrap-young'],{stdio:'pipe'});}catch{blocked=true;}assert(blocked,'Snapshot overwrite must be rejected');
  console.log('PASS: validation, origin check, save/reload, original preservation, duplicate protection, isolated cast/rig snapshot, snapshot overwrite protection.');
-}finally{const current=JSON.parse(await readFile(file,'utf8'));current.characters=current.characters.filter(c=>c.id!==id);await writeFile(file,JSON.stringify(current,null,2)+'\n');}
+}finally{const current=JSON.parse(await readFile(file,'utf8'));current.characters=current.characters.filter(c=>c.id!==id);await writeFile(file,JSON.stringify(current,null,2)+'\n');await unlink(characterReferencePath(fixture.project)+'/variants/'+id+'.json').catch(e=>{if(e.code!=='ENOENT')throw e;});}

@@ -1,7 +1,7 @@
 import {chromium} from 'playwright';
 import {readFile,writeFile} from 'node:fs/promises';
 import {stripTypeScriptTypes} from 'node:module';
-const source=stripTypeScriptTypes(await readFile('references/characters/bootstrap-paradox/engine/toon.ts','utf8')).replace("'./style.js'","'http://127.0.0.1:8787/style.js'");
+const source=stripTypeScriptTypes(await readFile('projects/bootstrap-paradox/character-references/original/engine/toon.ts','utf8')).replace("'./style.js'","'http://127.0.0.1:8787/style.js'");
 const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
 try{
  const page=await browser.newPage();await page.goto('http://127.0.0.1:8787');await page.waitForFunction(()=>window.studioReady,{},{timeout:15000});
@@ -16,7 +16,7 @@ try{
   }
   URL.revokeObjectURL(url);return {comparisons,png:gallery.toDataURL().split(',')[1]};
  },source);
- await writeFile('references/characters/shared/studio-cast.png',Buffer.from(result.png,'base64'));
- await writeFile('references/characters/shared/renderer-check.json',JSON.stringify(result.comparisons,null,2)+'\n');
+ await writeFile('character-library/shared/studio-cast.png',Buffer.from(result.png,'base64'));
+ await writeFile('character-library/shared/renderer-check.json',JSON.stringify(result.comparisons,null,2)+'\n');
  console.log(JSON.stringify(result.comparisons));if(result.comparisons.some(c=>c.bodyAlphaDifference!==0))throw Error('Face/shading correction changed the body silhouette');
 }finally{await browser.close();}

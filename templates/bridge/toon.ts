@@ -17,7 +17,7 @@ const SH_FELT: C3 = [0.62, 0.62, 0.7];
 export type Build = "adult" | "stout" | "kid";
 export type Outfit = {
   jacket: string; pants: string; boots: string; hat?: string | null; belt?: string | null; buttons?: string; rifle?: boolean;
-  sash?: string; sword?: boolean; moustache?: string; skin?: string; head?: number; cap?: string; hair?: string; dress?: string;
+  sash?: string; sword?: boolean; moustache?: string; beard?: string; skin?: string; head?: number; cap?: string; hair?: string; dress?: string;
   build?: Build; hairStyle?: "sidepart" | "receding" | "bob" | "spiky"; labCoat?: boolean; viewYaw?:number; viewPitch?:number; meshHair?:boolean; angleHair?:boolean;
 };
 type P2 = [number, number];
@@ -313,8 +313,13 @@ const mouth = (p: Pen, kind: MouthK, mx: number, my: number, u: number, k = 1) =
 /** face v2 (front / 3-4). u = 1 % of the head path width W. Eyes 26u apart on the centre line, brows 20u up, mouth 20u
  *  down, everything slid toward the facing side. No blush, no catchlights. */
 const faceFront = (p: Pen, cx: number, cy: number, W: number, expr: Expr, facing: number, look: number, lid: number, brim: boolean,
-  skin: string, moustache?: string, stout = false) => {
+  skin: string, moustache?: string, stout = false, beard?: string) => {
   const u = W / 100, F = FACE[expr], fx = cx + 7 * u * facing;
+  if(beard){
+    const points:P2[]=[[-36,9],[-33,30],[-24,41],[-10,47],[0,49],[16,44],[30,32],[35,10],[24,15],[17,29],[-17,29],[-25,15]].map(([x,y])=>[cx+x*u,cy+y*u]);
+    p.poly(points,beard,1.2*u);
+    for(const x of [-19,-8,6,18])p.stroke([[cx+x*u,cy+33*u],[cx+(x+2)*u,cy+40*u]],.7*u,shade(beard,.7));
+  }
   const ex = (F.eye[0] === "shock" ? 12 : 13) * u, ey = cy;
   for (const side of [-1, 1]) {
     const x = fx + side * ex;
@@ -717,7 +722,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   p.g.restore();
   const brim = !!o.hat && o.hat !== "hair" && o.hat !== "bonnet" && o.hat !== "cap";
   p.surface='feature';
-  if(!(opts.faceBack??opts.back))faceFront(p, 300, hc, W, expr, facing, look, lid, brim, skin, o.moustache, o.build === "stout");
+  if(!(opts.faceBack??opts.back))faceFront(p, 300, hc, W, expr, facing, look, lid, brim, skin, o.moustache, o.build === "stout",o.beard);
   p.surface='body';
   p.rot = null;
 };

@@ -20,7 +20,7 @@ try{
   return {checks,models,png:sheet.toDataURL().split(',')[1],skullFront:skullDepth(0,0,118,110,100,0,0),skullTop:skullDepth(0,0,118,110,100,0,Math.PI/2),skullMiss:skullDepth(500,500,118,110,100,0,0)===-Infinity};
  });
  await writeFile('character-studio/review/hair-3d.png',Buffer.from(result.png,'base64'));delete result.png;
- await writeFile('references/characters/shared/hair-models-3d.json',JSON.stringify({schemaVersion:1,coordinateSystem:'head-local, y down, z forward',models:result.models}));delete result.models;
+ await writeFile('character-library/shared/hair-models-3d.json',JSON.stringify({schemaVersion:1,coordinateSystem:'head-local, y down, z forward',models:result.models}));delete result.models;
  console.log(JSON.stringify(result));await writeFile('character-studio/review/hair-3d-report.json',JSON.stringify(result,null,2));
  assert(Math.abs(result.skullFront-100)<1e-9);assert(Math.abs(result.skullTop-110)<1e-9);assert(result.skullMiss);
  for(const c of result.checks){assert(c.triangles>50);assert(c.zMax-c.zMin>100);assert(c.wrapError<1e-8);assert(c.faceClear);assert(c.id==='bootstrap-middle'?c.topCenterAlpha===0:c.topCenterAlpha>0);}

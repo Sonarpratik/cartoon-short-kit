@@ -2,7 +2,7 @@
   "description": "Checked shared character motion renderer. Original project design references are preserved separately.",
   "files": {
     "character-rig.ts": "c4fd5458b1b32c801302ae0db3ec3aeeccb1ca6263a3c2fbd6eaa7f67b8f88c2",
-    "toon.ts": "8d448d06d0c03b1246c8782361317e1fdaeeaf2b8d12a9f9a11ccefda9f3746e",
+    "toon.ts": "0539ee7cfc26345075c44bed63f1d479ace2ccdb3a15810a4b21fe6bd9ce4861",
     "style.ts": "575c9860ee450118156348b69bb0643f3b44996bfa9144e5967ff4bc5cfcd1cd",
     "face-style.ts": "64a8060afa172850567e7259acb88ed5de45feaa2a51ca255516f4c8c87a9353",
     "director.ts": "6c55a206bf3cd542b168def2176f32c8b5511a97113160b165080a13307b3ef6",

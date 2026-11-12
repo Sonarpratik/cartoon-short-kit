@@ -1,0 +1,11 @@
+import {mkdir,copyFile,readFile,writeFile,cp} from 'node:fs/promises';
+const root=new URL('../',import.meta.url),project=new URL('projects/flying-dutchman/',root),current=new URL('character-references/current/',project);await mkdir(new URL('engine/',current),{recursive:true});
+for(const name of ['character-rig.ts','toon.ts','style.ts','face-style.ts','director.ts','hair-3d.ts','angle-designs.ts'])await copyFile(new URL('characters/'+name,project),new URL('engine/'+name,current));
+const active=JSON.parse(await readFile(new URL('characters/cast.json',project),'utf8'));const characters=active.characters.map(d=>({...d,id:d.identity+'-current',name:d.name+' · current',project:'flying-dutchman-current'}));
+await writeFile(new URL('cast-design.json',current),JSON.stringify({schemaVersion:1,characters},null,2)+'\n');
+const file=new URL('character-library/cast.json',root),catalog=JSON.parse(await readFile(file,'utf8'));for(const c of characters){const index=catalog.characters.findIndex(d=>d.id===c.id);if(index<0)catalog.characters.push(c);else catalog.characters[index]=c;}await writeFile(file,JSON.stringify(catalog,null,2)+'\n');
+const chernobyl=new URL('projects/chernobyl/',root),saved=new URL('character-references/original/',chernobyl);await mkdir(saved,{recursive:true});
+for(const name of ['cast-design.ts','characters.ts','face-style.ts'])await copyFile(new URL('src/'+name,chernobyl),new URL(name,saved));
+await cp(new URL('src/engine/',chernobyl),new URL('engine/',saved),{recursive:true});
+for(const name of ['bootstrap-paradox','chernobyl','mkultra','flying-dutchman'])await writeFile(new URL(`projects/${name}/character-references/README.md`,root),'# Project character references\n\nCharacter designs, preserved renderer source and turnaround sheets live in this project. `original/` preserves the first saved design. Additional version folders retain revisions; the working scene imports its local source. The global Character Studio index lives in `character-library/cast.json`, outside the media references folder.\n'+(name==='flying-dutchman'?'\n`current/` contains the latest corrected character renderer and designs; `v2/` and `motion-v3/` preserve earlier revisions. Active scene imports remain in `characters/`.\n':''));
+console.log('All four projects now own their character references; current cast registered.');

@@ -1,0 +1,13 @@
+{
+  "revision": "motion-v3",
+  "files": {
+    "character-rig.ts": "c32b55e3e67ed70070322aa732a43f0be45d3665171bfd41d6c68583427e28a0",
+    "toon.ts": "785441fe322c8f00d7aa385a5d7ae2504c3c8d7e6a4ccb9e29175236372c9b5e",
+    "style.ts": "575c9860ee450118156348b69bb0643f3b44996bfa9144e5967ff4bc5cfcd1cd",
+    "face-style.ts": "64a8060afa172850567e7259acb88ed5de45feaa2a51ca255516f4c8c87a9353",
+    "director.ts": "6c55a206bf3cd542b168def2176f32c8b5511a97113160b165080a13307b3ef6",
+    "hair-3d.ts": "bed5b145a0d0d0e117dbe808ffce1a04701fbd079e20667f9e167eb2bf0d05f8",
+    "angle-designs.ts": "cb0f2212ce910ee8c648864bd1d8299a17004329abbf71cb06fcc60fd3bc0740"
+  },
+  "notes": "Corrected project renderer; previous character designs preserved in original folders."
+}

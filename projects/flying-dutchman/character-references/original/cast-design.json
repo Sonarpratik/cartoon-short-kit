@@ -1,0 +1,86 @@
+{
+  "characters": [
+    {
+      "project": "flying-dutchman",
+      "coat": false,
+      "skin": "#faf9f5",
+      "boots": "#262838",
+      "pants": "#343e52",
+      "light": -2.2,
+      "id": "dutchman-george",
+      "identity": "dutchman-george",
+      "name": "Prince George · naval cadet",
+      "seed": 18,
+      "jacket": "#344e70",
+      "hair": "#694533",
+      "hairStyle": "sidepart",
+      "build": "kid",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#273b59",
+        "buttons": "#dabf79"
+      }
+    },
+    {
+      "project": "flying-dutchman",
+      "coat": false,
+      "skin": "#faf9f5",
+      "boots": "#262838",
+      "pants": "#343e52",
+      "light": -2.2,
+      "id": "dutchman-lookout",
+      "identity": "dutchman-lookout",
+      "name": "Lookout · Henry",
+      "seed": 24,
+      "jacket": "#bacbd4",
+      "hair": "#a27243",
+      "hairStyle": "sidepart",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#eee6ce",
+        "buttons": "#506579"
+      }
+    },
+    {
+      "project": "flying-dutchman",
+      "coat": false,
+      "skin": "#faf9f5",
+      "boots": "#262838",
+      "pants": "#343e52",
+      "light": -2.2,
+      "id": "dutchman-officer",
+      "identity": "dutchman-officer",
+      "name": "Watch officer",
+      "seed": 31,
+      "jacket": "#273b50",
+      "hair": "#614638",
+      "hairStyle": "receding",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#23384a",
+        "moustache": "#684735",
+        "buttons": "#d9b875"
+      }
+    },
+    {
+      "project": "flying-dutchman",
+      "coat": false,
+      "skin": "#faf9f5",
+      "boots": "#262838",
+      "pants": "#343e52",
+      "light": -2.2,
+      "id": "dutchman-midshipman",
+      "identity": "dutchman-midshipman",
+      "name": "Investigating midshipman",
+      "seed": 8,
+      "jacket": "#557078",
+      "hair": "#342f30",
+      "hairStyle": "sidepart",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#23384a",
+        "buttons": "#d9b875"
+      }
+    }
+  ]
+}
