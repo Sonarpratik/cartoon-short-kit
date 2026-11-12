@@ -3,7 +3,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 const base='http://127.0.0.1:8787',file=new URL('../references/characters/cast.json',import.meta.url);
 const original=await fetch(base+'/api/cast').then(r=>r.json()),id='qa-'+Date.now();
-const fixture={...original.characters[0],id,name:'QA temporary variant'};
+const fixture={...(original.characters.find(c=>c.id==='mkultra-researcher')??original.characters[0]),id,name:'QA temporary variant'};
 try{
  const invalid=await fetch(base+'/api/characters',{method:'POST',body:JSON.stringify({...fixture,hair:'bad'})});assert.equal(invalid.status,400);
  const cross=await fetch(base+'/api/characters',{method:'POST',headers:{Origin:'https://example.com'},body:JSON.stringify(fixture)});assert.equal(cross.status,403);

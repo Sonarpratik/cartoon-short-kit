@@ -11,7 +11,11 @@ function validate(c){
  for(const key of ['jacket','pants','boots','hair','skin'])if(!/^#[0-9a-f]{6}$/i.test(c[key]))throw Error('Invalid '+key+' colour');
  if(!Number.isInteger(c.seed)||c.seed<0||c.seed>1000000||typeof c.coat!=='boolean')throw Error('Invalid seed or coat');
  if(!['sidepart','receding','spiky','bob'].includes(c.hairStyle))throw Error('Unknown hair style');
- const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
+ if(c.accessory!==undefined&&!['researcher','archivist','official','investigator'].includes(c.accessory))throw Error('Unknown accessory');
+ if(c.facing!==undefined&&![-1,0,1].includes(c.facing))throw Error('Invalid facing');
+ if(c.light!==undefined&&(!Number.isFinite(c.light)||Math.abs(c.light)>7))throw Error('Invalid light');
+ if(c.outfit!==undefined){if(!c.outfit||typeof c.outfit!=='object'||Array.isArray(c.outfit))throw Error('Invalid outfit');for(const [key,value] of Object.entries(c.outfit)){if(!['jacket','pants','boots','hat','belt','buttons','sash','moustache','skin','cap','hair','dress','build','hairStyle','rifle','sword','head','labCoat'].includes(key)||!['string','boolean','number'].includes(typeof value)&&value!==null)throw Error('Invalid outfit field');if(typeof value==='string'&&value.length>60)throw Error('Outfit value too long');}}
+ const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build','outfit','accessory','facing','light'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
 }
 const server=createServer(async(req,res)=>{
  const pathname=new URL(req.url,'http://127.0.0.1').pathname;

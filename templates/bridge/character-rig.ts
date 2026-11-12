@@ -3,7 +3,7 @@
  */
 import {bodyFront,headBlob,blobPts,mix,type Outfit,type Expr} from './toon.js';
 import {CharacterPen} from './face-style.js';
-export type CharacterDesign={id:string;name:string;project:string;identity:string;seed:number;jacket:string;pants:string;boots:string;hair:string;hairStyle:string;coat:boolean;skin:string;build?:string};
+export type CharacterDesign={id:string;name:string;project:string;identity:string;seed:number;jacket:string;pants:string;boots:string;hair:string;hairStyle:string;coat:boolean;skin:string;build?:string;outfit?:Outfit;accessory?:'researcher'|'archivist'|'official'|'investigator';facing?:-1|0|1;light?:number};
 export type RigPose={yaw?:number;pitch?:number;time?:number;action?:string;expression?:string;micro?:boolean};
 export const VIEWS=Array.from({length:12},(_,i)=>i*30);
 export const ACTIONS=['idle','walk','run','sit','bend','reach','hammer','drill','wave','talk'];
@@ -55,11 +55,11 @@ class TurnPen extends CharacterPen{
 export function drawCharacter(g:CanvasRenderingContext2D,d:CharacterDesign,o:RigPose={}){
  g.save();
  const t=o.time??0,micro=o.micro!==false,action=o.action??'idle',yaw=((o.yaw??0)%360+360)%360,pitch=(o.pitch??0)*rad,turn=yaw*rad,back=Math.cos(turn)<-.001;
- const facing=d.hairStyle==='spiky'?-1:1,build=d.build==='kid'?'kid':d.build==='stout'?'stout':'adult',H=headBlob(d.seed,build==='kid'?112:118,facing),HH=2*H.b,torso=build==='kid'?.85:build==='stout'?1.15:1.1,legs=build==='kid'?1:build==='stout'?1.32:1.4;
+ const facing=d.facing??(d.hairStyle==='spiky'?-1:1),light=d.light??-2.2,build=d.build==='kid'?'kid':d.build==='stout'?'stout':'adult',H=headBlob(d.seed,build==='kid'?112:118,facing),HH=2*H.b,torso=build==='kid'?.85:build==='stout'?1.15:1.1,legs=build==='kid'?1:build==='stout'?1.32:1.4;
  const phase=t*(action==='run'?2.3:1.4),walking=action==='walk'||action==='run';
  const gait=walking?walkCycle(phase,(legs+.12)*HH-4*HH/100,action==='run'?.65:.45,action==='run'?65:40):undefined;
  const bottom=gait?gait.hipY+.12*HH:action==='sit'?975-.2*HH:975-legs*HH,chin=bottom-torso*HH,hc=chin-H.b,hip=bottom-.12*HH;
- const outfit:Outfit={jacket:d.jacket,pants:d.pants,boots:d.boots,skin:d.skin,hat:'hair',hair:d.hair,hairStyle:d.hairStyle as Outfit['hairStyle'],labCoat:d.coat,buttons:'#d4b57d',build,viewYaw:yaw,viewPitch:o.pitch??0};
+ const outfit:Outfit={hat:'hair',buttons:d.outfit?d.outfit.buttons:'#d4b57d',...d.outfit,jacket:d.jacket,pants:d.pants,boots:d.boots,skin:d.skin,hair:d.hair,hairStyle:d.hairStyle as Outfit['hairStyle'],labCoat:d.coat,build,viewYaw:yaw,viewPitch:o.pitch??0};
  const pen=new TurnPen(g,turn,pitch,hc,H.b,H.a,chin,hip,t,micro,action==='bend');
  const expression=EXPRESSIONS.includes(o.expression??'')?o.expression as Expr:'neutral',expr=action==='talk'?(['neutral','relief_open','neutral','smile'] as Expr[])[Math.floor(t*6)%4]:expression;
  const blink=micro&&(t+d.seed*.37)%3.77>.13&&(t+d.seed*.37)%3.77<.25;
@@ -73,7 +73,21 @@ export function drawCharacter(g:CanvasRenderingContext2D,d:CharacterDesign,o:Rig
    const h=project(heel),toe2=project(toe);h[0]-=Math.abs(cy)*5*u;toe2[0]+=Math.abs(cy)*6*u;p.stroke([h,toe2],7.5*u,d.boots);
   }
  }
- bodyFront(pen,outfit,{seed:d.seed,expr,blink,mode:action==='sit'?'sit':walking?'stroll':'stand',hideLegs:walking,hipHeight:gait?.hipY,walkYaw:walking?yaw:undefined,phase,light:-2.2,look:facing+(micro?Math.sin(t*.67+d.seed)*.15:0),facing,back,faceBack:Math.cos(turn)<-.25,headTilt:micro?.15*Math.sin(t*1.5):0,wave:['wave','reach'].includes(action)?.5+.5*Math.sin(t*(action==='wave'?5:1)):undefined,prop:action==='hammer'?['hammer',.5+.5*Math.sin(t*18)]:action==='drill'?['drill',.8+.02*Math.sin(t*45)]:null});
+ bodyFront(pen,outfit,{seed:d.seed,expr,blink,mode:action==='sit'?'sit':walking?'stroll':'stand',hideLegs:walking,hipHeight:gait?.hipY,walkYaw:walking?yaw:undefined,phase,light,look:facing+(micro?Math.sin(t*.67+d.seed)*.15:0),facing,back,faceBack:Math.cos(turn)<-.25,headTilt:micro?.15*Math.sin(t*1.5):0,wave:['wave','reach'].includes(action)?.5+.5*Math.sin(t*(action==='wave'?5:1)):undefined,prop:action==='hammer'?['hammer',.5+.5*Math.sin(t*18)]:action==='drill'?['drill',.8+.02*Math.sin(t*45)]:null});
+ // Preserve the project-authored professional accessories in every shared-library copy.
+ if(d.accessory&&!back){
+  const fx=300+7*(2*H.a/100)*facing;
+  if(d.accessory==='researcher'||d.accessory==='archivist'){
+   pen.surface='feature';
+   for(const side of [-1,1])pen.ell(fx+side*13*(2*H.a/100),hc,26,23,null,4);
+   pen.stroke([[fx-6,hc],[fx+6,hc]],4);pen.stroke([[fx-55,hc-3],[fx-65,hc-6]],3);pen.stroke([[fx+55,hc-3],[fx+65,hc-6]],3);pen.surface='body';
+  }
+  if(d.accessory==='official'||d.accessory==='investigator'){
+   pen.poly([[285,chin+15],[300,chin+30],[315,chin+15],[310,chin+53],[322,chin+111],[300,chin+135],[278,chin+111],[290,chin+53]],d.accessory==='official'?'#a7554d':'#31495b',3);
+   pen.poly([[260,chin+10],[300,chin+30],[275,chin+66]],'#e3ddc9',2);pen.poly([[340,chin+10],[300,chin+30],[325,chin+66]],'#e3ddc9',2);
+  }
+  if(d.accessory==='researcher')pen.poly([[330,chin+78],[365,chin+78],[363,chin+110],[332,chin+110]],'#9dafab',2);
+ }
 
  // The user prefers the previous authored hair animation to the mesh experiment.
  const crownT=Math.max(0,Math.min(1,((o.pitch??0)-35)/40)),crown=crownT*crownT*(3-2*crownT);
@@ -85,8 +99,10 @@ export function drawCharacter(g:CanvasRenderingContext2D,d:CharacterDesign,o:Rig
   if(d.hairStyle==='spiky'){
    const spikes:[number,number][]=[];for(let i=0;i<30;i++){const a=i/30*Math.PI*2+turn,r=i%2?1.32:1.02;spikes.push([cx+Math.cos(a)*rx*r,centerY+Math.sin(a)*ry*r]);}p.shadedFill(spikes,d.hair,'#779ebd',-2.2,H.a*1.3);p.poly(spikes,null,5);
   }
-  p.shadedFill(shape,d.hairStyle==='receding'?d.skin:d.hair,d.hairStyle==='receding'?'#d8d8dc':mix(d.hair,'#241726',.2),-2.2,H.a);p.poly(shape,null,5);
-  if(d.hairStyle==='receding')p.clip(shape,()=>{for(const side of [-1,1])p.ell(cx+side*rx*.83,centerY,rx*.19,ry*.77,d.hair,3);});
+  const headwear=outfit.hat==='cap'||outfit.hat==='fedora',color=headwear?outfit.cap??d.hair:d.hair;
+  if(outfit.hat==='fedora')p.ell(cx,centerY,rx*1.28,ry*1.18,color,5);
+  p.shadedFill(shape,!headwear&&d.hairStyle==='receding'?d.skin:color,!headwear&&d.hairStyle==='receding'?'#d8d8dc':mix(color,'#241726',.2),light,H.a);p.poly(shape,null,5);
+  if(!headwear&&d.hairStyle==='receding')p.clip(shape,()=>{for(const side of [-1,1])p.ell(cx+side*rx*.83,centerY,rx*.19,ry*.77,d.hair,3);});
   if(d.hairStyle!=='receding')p.arc(cx-rx*.06,centerY-ry*.1,rx*.72,ry*.67,205,285,5,'#fff9f3');
   g.restore();
  }
