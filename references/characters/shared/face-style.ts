@@ -8,6 +8,7 @@ export const FACE_SHADOW = DIRECTOR.character.faceShadow;
 export class CharacterPen extends Pen {
   private headOutlinePending = false;
   override gradFill(...args:Parameters<Pen['gradFill']>){
+    args[4]=.42; // A readable lit plane, with the darker form layer opposite the key.
     super.gradFill(...args);
     const [points,,,light]=args;
     const ys=points.map(p=>p[1]),xs=points.map(p=>p[0]);
@@ -39,7 +40,7 @@ export class CharacterPen extends Pen {
   }
   override shadedFill(...args: Parameters<Pen['shadedFill']>) {
     const face=[FACE_COLOR,'#f7f6f2','#faf9f6','#f5f4f0'].includes(args[1]);
-    if (face) args[2] = FACE_SHADOW;
+    if(face){args[2]=FACE_SHADOW;args[5]=.25;args[6]=.74;args[7]=1.28;}
     super.shadedFill(...args);
     const [contour]=args;
     const xs=contour.map(p=>p[0]),ys=contour.map(p=>p[1]);
@@ -66,12 +67,14 @@ export class CharacterPen extends Pen {
       });
     }
     if(face){
-      // A pearl light layer inside the actual bean contour, before ink and facial features.
-      const [points,,,,radius]=args;
+      // Restrict the soft pearl rim to the key-light side. A full white ring erases the shadow.
+      const [points,,,light,radius]=args;
       this.clip(points,()=>{
         const g=this.g;g.save();this.path(points,true);
-        g.strokeStyle='#fffafd';g.lineWidth=radius*.25;
-        g.shadowColor='#fff0dc';g.shadowBlur=radius*.055;g.stroke();g.restore();
+        const cx=(left+width/2),cy=(top+height/2),dx=Math.cos(light)*radius,dy=Math.sin(light)*radius;
+        const a=this.P(cx+dx,cy+dy),b=this.P(cx-dx,cy-dy),rim=g.createLinearGradient(a[0],a[1],b[0],b[1]);
+        rim.addColorStop(0,'rgba(255,250,246,.9)');rim.addColorStop(.38,'rgba(255,250,246,.42)');rim.addColorStop(.62,'rgba(255,250,246,0)');rim.addColorStop(1,'rgba(255,250,246,0)');
+        g.strokeStyle=rim;g.lineWidth=radius*.15;g.shadowColor='#fff0dc';g.shadowBlur=radius*.025;g.stroke();g.restore();
       });
       this.headOutlinePending=true;
     }

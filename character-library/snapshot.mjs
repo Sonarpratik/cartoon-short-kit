@@ -9,5 +9,5 @@ const characters=ids.map(id=>{const c=library.characters.find(c=>c.id===id);if(!
 const folder=join(actual,'characters');await mkdir(folder);
 await writeFile(join(folder,'cast.json'),JSON.stringify({schemaVersion:1,characters},null,2)+'\n');
 await copyFile(new URL('../templates/bridge/character-rig.ts',import.meta.url),join(folder,'character-rig.ts'));
-for(const file of ['toon.ts','style.ts','face-style.ts','director.ts','hair-3d.ts'])await copyFile(new URL('../templates/bridge/'+file,import.meta.url),join(folder,file));
+for(const file of ['toon.ts','style.ts','face-style.ts','director.ts','hair-3d.ts','angle-designs.ts'])await copyFile(new URL('../templates/bridge/'+file,import.meta.url),join(folder,file));
 console.log('Preserved cast and rig in '+folder);

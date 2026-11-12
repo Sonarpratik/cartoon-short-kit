@@ -1,11 +1,12 @@
 {
   "description": "Checked shared character motion renderer. Original project design references are preserved separately.",
   "files": {
-    "character-rig.ts": "7326a0e33ff9426b66542f53c3482fc06aeed4662e1d13be03814a78640c11d3",
-    "toon.ts": "415d3a9280e73096cbcd1d772cb0e21a41329c9a7299560e73054aa9e15a0a8d",
+    "character-rig.ts": "c4fd5458b1b32c801302ae0db3ec3aeeccb1ca6263a3c2fbd6eaa7f67b8f88c2",
+    "toon.ts": "8d448d06d0c03b1246c8782361317e1fdaeeaf2b8d12a9f9a11ccefda9f3746e",
     "style.ts": "575c9860ee450118156348b69bb0643f3b44996bfa9144e5967ff4bc5cfcd1cd",
-    "face-style.ts": "76041e1bed03cbbddb56306b64ca5dab46cf7db857e0cfab441be4b98ec8ec68",
-    "director.ts": "036310ea269d23f5cdad3b7fc4f64daf8e3c0652ef0dfab4d618a99c8fc27873",
-    "hair-3d.ts": "bed5b145a0d0d0e117dbe808ffce1a04701fbd079e20667f9e167eb2bf0d05f8"
+    "face-style.ts": "64a8060afa172850567e7259acb88ed5de45feaa2a51ca255516f4c8c87a9353",
+    "director.ts": "6c55a206bf3cd542b168def2176f32c8b5511a97113160b165080a13307b3ef6",
+    "hair-3d.ts": "bed5b145a0d0d0e117dbe808ffce1a04701fbd079e20667f9e167eb2bf0d05f8",
+    "angle-designs.ts": "142744c41a06dc0bc9a2d61a3c7059ee72c41ae252f1ce260c4252f6668a9155"
   }
 }

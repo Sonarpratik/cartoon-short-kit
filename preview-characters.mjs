@@ -22,6 +22,8 @@ const server=createServer(async(req,res)=>{
  const reply=(code,data,type='application/json')=>{res.writeHead(code,{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(type==='application/json'?JSON.stringify(data):data);};
  try{
   if(pathname==='/api/cast'&&req.method==='GET'){reply(200,JSON.parse(await readFile(catalog,'utf8')));return;}
+  const sheet=pathname.match(/^\/turnarounds\/([a-zA-Z0-9_-]+)\.(png|json)$/);
+  if(sheet&&req.method==='GET'){const data=JSON.parse(await readFile(catalog,'utf8')),character=data.characters.find(c=>c.id===sheet[1]);if(!character||!/^[a-zA-Z0-9_-]+$/.test(character.project)){reply(404,{error:'Unknown character'});return;}const bytes=await readFile(new URL(`references/characters/${character.project}/turnarounds/${character.id}.${sheet[2]}`,root));reply(200,sheet[2]==='json'?JSON.parse(bytes.toString('utf8')):bytes,sheet[2]==='json'?'application/json':'image/png');return;}
   if(pathname==='/approved-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('references/characters/bootstrap-paradox/approved-cast.png',root)),'image/png');return;}
   if(pathname==='/studio-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('references/characters/shared/studio-cast.png',root)),'image/png');return;}
   if(pathname==='/api/characters'&&req.method==='POST'){
@@ -30,7 +32,7 @@ const server=createServer(async(req,res)=>{
    const character=validate(JSON.parse(body));
    const operation=saveQueue.then(async()=>{const data=JSON.parse(await readFile(catalog,'utf8'));if(data.characters.some(c=>c.id===character.id))throw Error('ID already saved. Use a new ID to preserve the original.');data.characters.push(character);const temp=new URL('references/characters/cast.tmp.json',root);await writeFile(temp,JSON.stringify(data,null,2)+'\n');await rename(temp,catalog);return data;});saveQueue=operation.catch(()=>{});reply(201,await operation);return;
   }
-  const route=pathname==='/hair-3d.js'?['templates/bridge/hair-3d.ts','text/javascript']:routes[pathname];if(!route||req.method!=='GET'){reply(404,{error:'Not found'});return;}
+  const route=pathname==='/hair-3d.js'?['templates/bridge/hair-3d.ts','text/javascript']:pathname==='/angle-designs.js'?['templates/bridge/angle-designs.ts','text/javascript']:routes[pathname];if(!route||req.method!=='GET'){reply(404,{error:'Not found'});return;}
   let source=await readFile(new URL(route[0],root),'utf8');if(route[0].endsWith('.ts'))source=stripTypeScriptTypes(source).replace(/(from\s+['"])(\.\/[\w-]+)(['"])/g,'$1$2.js$3');reply(200,source,route[1]);
  }catch(error){reply(400,{error:error.message});}
 });

@@ -18,7 +18,7 @@ export type Build = "adult" | "stout" | "kid";
 export type Outfit = {
   jacket: string; pants: string; boots: string; hat?: string | null; belt?: string | null; buttons?: string; rifle?: boolean;
   sash?: string; sword?: boolean; moustache?: string; skin?: string; head?: number; cap?: string; hair?: string; dress?: string;
-  build?: Build; hairStyle?: "sidepart" | "receding" | "bob" | "spiky"; labCoat?: boolean; viewYaw?:number; viewPitch?:number; meshHair?:boolean;
+  build?: Build; hairStyle?: "sidepart" | "receding" | "bob" | "spiky"; labCoat?: boolean; viewYaw?:number; viewPitch?:number; meshHair?:boolean; angleHair?:boolean;
 };
 type P2 = [number, number];
 
@@ -71,7 +71,7 @@ export const townsfolk = (v = 0): Outfit => {
 };
 
 export class Pen {
-  surface:'body'|'head'|'feature'|'hair-back'|'hair-front'|'limb'='body';
+  surface:'body'|'head'|'feature'|'hair-back'|'hair-front'|'limb'|'costume'|'leg'|'shoe'='body';
   limbOriginY=0; limbSwing=0;
   g: CanvasRenderingContext2D;
   ol = 12;
@@ -488,6 +488,7 @@ const BUILD: Record<Build, { a: number; torso: number; legs: number; tw: number 
 };
 
 export type FrontOpts = {
+  frontDetail?:number;
   faceBack?:boolean;
   hideLegs?:boolean; hipHeight?:number; walkYaw?:number;
   back?: boolean;
@@ -498,9 +499,18 @@ export type FrontOpts = {
 };
 
 const footStroke = (p: Pen, a: P2, b: P2, w: number, col: string) => {
+  const surface=p.surface;p.surface='shoe';
   if (col !== INK) p.stroke([a, b], w + 3, INK);
   p.stroke([a, b], w, col);
+  p.surface=surface;
 };
+
+/** Shared attachment transforms for the torso and everything carried by the head. */
+export function upperBodyRotations(phase:number,mode:string,tilt:number,headTilt:number,chin:number,hipY:number){
+  const sway=mode==='march'?1.6*Math.sin(Math.PI*2*phase):mode==='stroll'?Math.sin(Math.PI*2*phase):0;
+  const A=tilt+sway,Ah=A+headTilt,[cx,cy]=rotAbout([300,chin],rad(A),[300,hipY]);
+  return {body:A?[rad(A),300,hipY]:null,head:Ah?[rad(Ah),300,chin,cx-300,cy-chin]:null};
+}
 
 export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   const { phase = 0, expr = "neutral", mode = "march", look = 0, blink = false, lift = 60, prop = null, tilt = 0, headTilt = 0, wave,
@@ -517,6 +527,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   const legW = 5.8 * u, footW = 7.5 * u;
   // ---- legs + feet (not rotated) ----
   p.rot = null;
+  p.surface='leg';
   if(opts.hideLegs){ /* projected world-space gait is drawn by the character rig */ }
   else if (mode === "sit") {
     for (const side of [-1, 1]) {
@@ -550,9 +561,9 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
     }
   }
   // ---- upper body: rotates about the hips (tilt + a small weight-shift sway on every step) ----
-  const sway = mode === "march" ? 1.6 * Math.sin(two * phase) : mode === "stroll" ? 1.0 * Math.sin(two * phase) : 0;
-  const A = tilt + sway;
-  p.rot = A ? [rad(A), 300, hipY] : null;
+  p.surface='body';
+  const attachmentRotations=upperBodyRotations(phase,mode,tilt,headTilt,chin,hipY);
+  p.rot=attachmentRotations.body;
   const dress = !!o.dress && mode !== "sit" && mode !== "fall";
   const T: Blob = { a: ((Bd.tw / 2) * W) / 1.06, b: 0.5 * (torsoBot - (chin - 0.25 * HH)), nTop: 2.2, nBot: 2.6, egg: o.build === "stout" ? 0.17 : 0.12,
     asym: 0.04 * facing, rot: 0, noise: 0.006, seed: seed + 7 };
@@ -618,6 +629,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   } else {
     p.gradFill(tp, o.jacket, mul(o.jacket, SH_CLOTH), light);
     p.clip(tp, () => {
+      p.g.save();p.g.globalAlpha*=opts.frontDetail??1;p.surface='costume';
       if (o.belt) {
         for (const s of [-1, 1]) p.band([[tcx - s * 0.75 * T.a, chin - 0.05 * HH], [tcx + s * 0.8 * T.a, torsoBot - 0.1 * HH]], o.belt!, 5.5 * u, 1.8 * u);
         const xc = tcx + 0.025 * T.a, yc = chin - 0.05 * HH + (torsoBot - 0.1 * HH - (chin - 0.05 * HH)) * (0.75 / 1.55);
@@ -629,6 +641,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
         if (o.sash && Math.abs(y - (torsoBot - 0.32 * HH)) < 0.08 * HH) continue;
         p.dot(tcx + 2 * u * facing, y, 2.2 * u + 0.8 * u, INK); p.dot(tcx + 2 * u * facing, y, 2.2 * u, o.buttons ?? shade(o.jacket, 0.7));
       }
+      p.surface='body';p.g.restore();
     });
     if (o.sash) { const s = facing || 1; p.poly([[tcx + s * 0.55 * T.a, torsoBot - 0.3 * HH], [tcx + s * 0.75 * T.a, torsoBot + 0.05 * HH], [tcx + s * 0.45 * T.a, torsoBot + 0.02 * HH]], o.sash, 1.6 * u); }
     p.inkRing(tp, ow, thick);
@@ -662,10 +675,11 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   if(o.labCoat){
     const coat:P2[]=[[tcx-.32*W,chin-.08*HH],[tcx-.41*W,chin+.14*HH],[tcx-.4*W,torsoBot+.28*HH],[tcx-.06*W,torsoBot+.33*HH],[tcx,torsoBot+.2*HH],[tcx+.06*W,torsoBot+.33*HH],[tcx+.4*W,torsoBot+.28*HH],[tcx+.41*W,chin+.14*HH],[tcx+.32*W,chin-.08*HH]];
     p.gradFill(coat,'#f1f2e9','#bdcad3',light);p.poly(coat,null,ow*.75);
-    if(!opts.back)p.poly([[tcx-.16*W,chin-.08*HH],[tcx+.16*W,chin-.08*HH],[tcx+.11*W,chin+.36*HH],[tcx,chin+.49*HH],[tcx-.11*W,chin+.36*HH]],'#397d7e',1.2*u);
+    const detail=(draw:()=>void)=>{if(opts.back)return;p.g.save();p.g.globalAlpha*=opts.frontDetail??1;p.surface='costume';draw();p.surface='body';p.g.restore();};
+    detail(()=>p.poly([[tcx-.16*W,chin-.08*HH],[tcx+.16*W,chin-.08*HH],[tcx+.11*W,chin+.36*HH],[tcx,chin+.49*HH],[tcx-.11*W,chin+.36*HH]],'#397d7e',1.2*u));
     for(const s of [-1,1]){
-      if(!opts.back)p.poly([[tcx+s*.16*W,chin-.08*HH],[tcx+s*.28*W,chin+.09*HH],[tcx+s*.15*W,chin+.22*HH],[tcx+s*.2*W,chin+.3*HH],[tcx,chin+.51*HH]],'#fafbf4',1.1*u);
-      if(!opts.back)p.poly([[tcx+s*.14*W,torsoBot-.1*HH],[tcx+s*.32*W,torsoBot-.1*HH],[tcx+s*.31*W,torsoBot+.1*HH],[tcx+s*.15*W,torsoBot+.1*HH]],'#e6ece8',1.1*u);
+      detail(()=>p.poly([[tcx+s*.16*W,chin-.08*HH],[tcx+s*.28*W,chin+.09*HH],[tcx+s*.15*W,chin+.22*HH],[tcx+s*.2*W,chin+.3*HH],[tcx,chin+.51*HH]],'#fafbf4',1.1*u));
+      detail(()=>p.poly([[tcx+s*.14*W,torsoBot-.1*HH],[tcx+s*.32*W,torsoBot-.1*HH],[tcx+s*.31*W,torsoBot+.1*HH],[tcx+s*.15*W,torsoBot+.1*HH]],'#e6ece8',1.1*u));
       const arm=arms[s===-1?0:1];if(arm){
         const sleeve=[arm.pts[0],lerp2(arm.pts[1],arm.pts[2],.55)];
         if(armYaw!==undefined&&Math.abs(Math.sin(rad(armYaw)))>.001){
@@ -674,17 +688,16 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
       }
     }
     p.stroke([[tcx,chin+.51*HH],[tcx,torsoBot+.2*HH]],1.2*u,'#83969e');
-    if(!opts.back){p.poly([[tcx+.13*W,chin+.42*HH],[tcx+.3*W,chin+.42*HH],[tcx+.29*W,chin+.59*HH],[tcx+.14*W,chin+.59*HH]],'#e6ece8',1*u);
-    p.stroke([[tcx+.22*W,chin+.32*HH],[tcx+.22*W,chin+.45*HH]],2.3*u,'#507e9a');}
+    detail(()=>{p.poly([[tcx+.13*W,chin+.42*HH],[tcx+.3*W,chin+.42*HH],[tcx+.29*W,chin+.59*HH],[tcx+.14*W,chin+.59*HH]],'#e6ece8',1*u);
+    p.stroke([[tcx+.22*W,chin+.32*HH],[tcx+.22*W,chin+.45*HH]],2.3*u,'#507e9a');});
   }
   // ---- head: rotates with the body, plus its own tilt about the chin ----
   p.surface='head';
-  const Ah = A + headTilt, [cpx, cpy] = rotAbout([300, chin], rad(A), [300, hipY]);
-  p.rot = Ah ? [rad(Ah), 300, chin, cpx - 300, cpy - chin] : null;
+  p.rot=attachmentRotations.head;
   p.surface='hair-back';
   const crownT=clamp(((o.viewPitch??0)-35)/40,0,1),hairAlpha=1-crownT*crownT*(3-2*crownT);
   p.g.save();p.g.globalAlpha*=hairAlpha;
-  if(!o.meshHair)hatBehind(p, o, H, 300, hc, light, thick, ow, false);
+  if(!o.meshHair&&!o.angleHair)hatBehind(p, o, H, 300, hc, light, thick, ow, false);
   p.g.restore();
   p.surface='head';
   const hp = blobPts(300, hc, H);
@@ -692,7 +705,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   p.inkRing(hp, ow, thick);
   p.surface='hair-front';
   p.g.save();p.g.globalAlpha*=hairAlpha;
-  if(o.meshHair){ /* the depth-tested scalp and clumps are drawn by hair-3d.ts */ }
+  if(o.meshHair||o.angleHair){ /* shared rig provides the selected hair design */ }
   else if(opts.back&&o.hat==='hair'){
     p.surface='head';
     const rear=o.viewYaw===undefined?1:Math.min(1,Math.max(0,-Math.cos(rad(o.viewYaw)))*3);
