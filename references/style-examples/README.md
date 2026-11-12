@@ -3,7 +3,8 @@
 These examples are independent of projects/mkultra. Deleting that project does not remove this folder.
 
 - backgrounds-approved-v3.jpg: the user's preferred detailed-room and window-light direction.
-- distinct-cast.png: hats, moustaches and different hair silhouettes.
+- wardrobe-range.png: the current rig's range (curly/bun/afro/long/ponytail/buzz hair; beanie, tricorn, helmet, peaked cap, bandana, top hat; shirt, coat with tails, apron, overalls, hoodie, vest, sweater; stripes, plaid, knit, dots; scarf, tie, badge, eyepatch, sunglasses, freckles) at front and 45°.
+- distinct-cast.png: the older, narrower cast range (legacy office archetypes).
 - hair-reflection.jpg: curved glossy hair/headwear reflection.
 - face-glow-outline.jpg: pearl face layer and thin/thick head ink.
 - pointed-body-edge.jpg: narrow contour-following body reflection with pointed ends.

@@ -8,7 +8,7 @@ For requested subtitles, apply [karaoke-guide.md](karaoke-guide.md): white short
 
 ## Characters
 
-- Distinguish cast members with silhouette changes as well as colour. Shared Outfit supports a cap (`hat: 'cap', cap: '#425b72'`), a fedora (`hat: 'fedora', cap: '#655044'`), and `hat: 'hair'` with `hairStyle: 'sidepart'`, `'receding'` or `'bob'`. `moustache` sets a facial-hair colour. Choose suitable combinations per story; avoid putting the same hairstyle or moustache on every character. Check hats, glasses and facial hair through reactions and side glances, preserving eyes and mouth visibility.
+- Design the cast with [character-design.md](character-design.md): 10 hair styles, 9 headwear types, 8 garments, fabric patterns, collars, ties, scarves, badges and face accessories, checked with `castDistinctness()`. Costume shows each character's job and era. Characters never show their backs on screen. Check hats, glasses and facial hair through reactions and side glances, preserving eyes and mouth visibility.
 
 - Include the user's preferred curved glossy reflection on suitable hair/headwear: a tapered white strip with a soft surrounding glow and a small secondary glint. Reuse CharacterPen in templates/bridge/face-style.ts. This is a standing preference for new projects; see lighting-guide.md for implementation and the distinction from face lighting.
 
@@ -16,12 +16,13 @@ For requested subtitles, apply [karaoke-guide.md](karaoke-guide.md): white short
 - Shared line width and head variation are in style.ts. Make distinct silhouettes through head proportions, hair, headgear and clothing; do not just recolour identical sprites.
 - Keep variation deterministic per character. Do not change the seed between frames or create frame-to-frame outline noise.
 - Avoid excessive black borders around every clothing detail. Keep face detail lighter than the outer silhouette.
-- Preserve bright readable faces under warm and cool lighting. Blinks, anticipation and settling help convey actions; do not move every body part continuously without purpose.
+- Keep the rig's micro-motion on: breathing, weight shift, gaze saccades, irregular blinks and hair follow-through. Add acting on cues; never add random per-frame noise.
+- Preserve bright readable faces under warm and cool lighting. Anticipation and settling help convey actions.
 - Preview new cast designs in the character gallery and at their intended on-screen size.
 
 ## Props and backgrounds
 
-- Claude selects props from the narration. Choose a hero object that explains the action, then two to four supporting objects where useful. Avoid clutter and random decoration.
+- Claude selects props from the narration. Choose a hero object that explains the action and keep the action area clear, then dress the midground and background densely with story-specific objects (see [scene-design.md](scene-design.md)). Avoid random decoration that does not belong to the place.
 - Reuse createProp from templates/bridge/props.ts for a crate, barrel, bench, table, desk, shelf or cabinet. All have base-centred origins and use metres. Position at the actual ground height; yaw is in radians. Validate custom dimensions and scale relative to the actors.
 - Extend the library for story-specific objects such as a ship, well or laboratory machine. Give a new prop its own function rather than repeatedly copying geometry into scenes.
 - Broad painted colour areas should dominate. Use sparse grain, wear and mortar; retain useful seams without speckling every surface.
@@ -42,7 +43,7 @@ For requested subtitles, apply [karaoke-guide.md](karaoke-guide.md): white short
 
 ## Camera and review
 
-- Use templates/bridge/director.ts for shared camera motion and character presets; see camera-guide.md. Prefer deliberate glides that reveal space and action, with noticeable parallax and changing shot size. Review short motion excerpts alongside stills so a sequence of static cuts cannot pass as camera travel.
+- Use templates/bridge/director.ts for camera helpers and pick each move from the story beat in [camera-guide.md](camera-guide.md): bursts then holds for hooks, escalation and payoff; slow glides for setting and explanation; slow creep for mystery. Review short motion excerpts alongside stills.
 
 - Frame a clear subject and action. Avoid rails, posts, ropes and repeated characters covering faces or hands unless the obstruction has a story purpose.
 - Review at least a character close-up, a medium action shot and a wide setting shot. Inspect the beginning and end of camera moves and both sides of cuts.

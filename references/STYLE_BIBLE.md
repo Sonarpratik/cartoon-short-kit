@@ -2,6 +2,8 @@
 Private study only. Videos: vids/ (720p, original EN audio), transcripts: tx/, per-video measurements: measure/summary.json,
 30 fps contact sheets: measure/<video>_sheets/ (each sheet = 2 s, 60 frames).
 
+> Measurements of the reference channel, not our defaults. Our length default is in SKILL.md; our camera rules are in camera-guide.md (which follows the measured rhythm below).
+
 ## Format
 - Vertical 1080x1920, 30 fps, 31-78 s (median ~60 s), voice starts at frame 1-4 (no intro, no logo, no outro, no CTA).
 - Voice: one male narrator, fast and steady: 3.5-4.1 words/s (median 3.7), almost no pauses (word gaps >0.25 s total <1 s per video).

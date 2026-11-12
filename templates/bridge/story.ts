@@ -2,6 +2,7 @@
 // story physics (column position, march phase, deck bounce, collapse) and the camera grammar measured in the
 // reference study: continuous slow push-ins; symmetric ease-in-out moves ~23 f (10 in / 10 out), peak ~15 px/f at 720p;
 // big reframes are cuts; impacts are 7-frame kicks that flip sign every frame; no hand-held float.
+// Bridge example only. New projects follow references/camera-guide.md (burst-then-hold by story beat, travel over cuts).
 export const FPS = 30;
 export const TOTAL = 2025;
 export const D0 = 6.0; // bank top + deck height (m)

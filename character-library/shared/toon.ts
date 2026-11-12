@@ -18,8 +18,19 @@ export type Build = "adult" | "stout" | "kid";
 export type Outfit = {
   jacket: string; pants: string; boots: string; hat?: string | null; belt?: string | null; buttons?: string; rifle?: boolean;
   sash?: string; sword?: boolean; moustache?: string; beard?: string; skin?: string; head?: number; cap?: string; hair?: string; dress?: string;
-  build?: Build; hairStyle?: "sidepart" | "receding" | "bob" | "spiky"; labCoat?: boolean; viewYaw?:number; viewPitch?:number; meshHair?:boolean; angleHair?:boolean;
+  build?: Build; hairStyle?: "sidepart" | "receding" | "bob" | "spiky" | "curly" | "afro" | "bun" | "ponytail" | "long" | "buzz"; labCoat?: boolean; viewYaw?:number; viewPitch?:number; meshHair?:boolean; angleHair?:boolean;
+  /** Garment layer drawn on the torso. `jacket` is the garment colour; `shirt` is the layer underneath. */
+  top?: Garment; shirt?: string; sleeves?: string;
+  pattern?: Pattern; patternColor?: string;
+  collar?: "shirt" | "turtleneck" | "vneck" | "none";
+  tie?: string; scarf?: string; apron?: string; badge?: string; pocket?: boolean; buttonCount?: number;
+  /** pom-pom, badge, helmet stripe, cockade */
+  hatAccent?: string;
 };
+export type Garment = "jacket" | "shirt" | "sweater" | "vest" | "hoodie" | "coat" | "overalls" | "apron";
+export type Pattern = "none" | "stripes" | "hstripes" | "plaid" | "knit" | "dots";
+export const GARMENTS: Garment[] = ["jacket", "shirt", "sweater", "vest", "hoodie", "coat", "overalls", "apron"];
+export const PATTERNS: Pattern[] = ["none", "stripes", "hstripes", "plaid", "knit", "dots"];
 type P2 = [number, number];
 
 const rad = (d: number) => (d * Math.PI) / 180;
@@ -510,6 +521,94 @@ const footStroke = (p: Pen, a: P2, b: P2, w: number, col: string) => {
   p.surface=surface;
 };
 
+// ---- clothing layers: fabric pattern (all views), garment front details, over-torso layers ----
+/** Fabric pattern clipped to the torso. Drawn on the 'body' surface so it stays visible in side views. */
+const drawPattern = (p: Pen, o: Outfit, tcx: number, chin: number, bot: number, Ta: number, HH: number, u: number) => {
+  const kind = o.pattern ?? "none"; if (kind === "none") return;
+  const pc = o.patternColor ?? mix(o.jacket, "#ffffff", 0.4), x0 = tcx - 1.3 * Ta, x1 = tcx + 1.3 * Ta, y0 = chin - 0.35 * HH, y1 = bot + 0.1 * HH;
+  const surface = p.surface; p.surface = "body"; p.g.save();
+  if (kind === "plaid") p.g.globalAlpha *= 0.5;
+  if (kind === "stripes" || kind === "plaid") for (let x = x0; x <= x1; x += 0.27 * Ta) p.stroke([[x, y0], [x, y1]], (kind === "plaid" ? 0.13 : 0.09) * Ta, pc);
+  if (kind === "hstripes" || kind === "plaid") for (let y = y0; y <= y1; y += 0.17 * HH) p.stroke([[x0, y], [x1, y]], (kind === "plaid" ? 0.07 : 0.055) * HH, pc);
+  p.g.restore();
+  if (kind === "plaid") {
+    const line = mix(o.jacket, INK, 0.45);
+    for (let x = x0 + 0.135 * Ta; x <= x1; x += 0.54 * Ta) p.stroke([[x, y0], [x, y1]], 0.9 * u, line);
+    for (let y = y0 + 0.085 * HH; y <= y1; y += 0.34 * HH) p.stroke([[x0, y], [x1, y]], 0.9 * u, line);
+  }
+  if (kind === "knit") {
+    const line = mix(o.jacket, INK, 0.28);
+    for (let y = y0, r = 0; y <= y1; y += 0.1 * HH, r++) for (let x = x0 + (r % 2) * 0.08 * Ta; x <= x1; x += 0.16 * Ta)
+      p.stroke([[x - 0.06 * Ta, y], [x, y + 0.04 * HH], [x + 0.06 * Ta, y]], 1.3 * u, line);
+  }
+  if (kind === "dots") for (let y = y0, r = 0; y <= y1; y += 0.13 * HH, r++) for (let x = x0 + (r % 2) * 0.11 * Ta; x <= x1; x += 0.22 * Ta) p.dot(x, y, 2.6 * u, pc);
+  p.surface = surface;
+};
+
+/** Front-only garment construction inside the torso clip: openings, lapels, bibs, pockets, ties, collars. */
+const drawGarmentFront = (p: Pen, o: Outfit, top: Garment, under: string, tcx: number, chin: number, bot: number, Ta: number, HH: number, u: number) => {
+  const lw = 1.4 * u, dark = mix(o.jacket, INK, 0.35), gold = o.buttons ?? "#d4b57d";
+  const button = (x: number, y: number) => { p.dot(x, y, 3 * u, INK); p.dot(x, y, 2.2 * u, gold); };
+  if (top === "vest" || top === "coat") {
+    const depth = top === "coat" ? 0.62 : 0.5;
+    p.poly([[tcx - 0.34 * Ta, chin - 0.3 * HH], [tcx + 0.34 * Ta, chin - 0.3 * HH], [tcx + 0.06 * Ta, chin + depth * HH], [tcx - 0.06 * Ta, chin + depth * HH]], under, lw);
+  }
+  if (o.tie) p.poly([[tcx - 0.07 * Ta, chin], [tcx, chin + 0.07 * HH], [tcx + 0.07 * Ta, chin], [tcx + 0.05 * Ta, chin + 0.18 * HH], [tcx + 0.12 * Ta, chin + 0.55 * HH],
+    [tcx, chin + 0.68 * HH], [tcx - 0.12 * Ta, chin + 0.55 * HH], [tcx - 0.05 * Ta, chin + 0.18 * HH]], o.tie, lw);
+  if (top === "coat") {
+    for (const s of [-1, 1]) {
+      p.poly([[tcx + s * 0.34 * Ta, chin - 0.25 * HH], [tcx + s * 0.64 * Ta, chin + 0.06 * HH], [tcx + s * 0.42 * Ta, chin + 0.2 * HH], [tcx + s * 0.08 * Ta, chin + 0.62 * HH]], mul(o.jacket, [0.86, 0.86, 0.9]), lw);
+      for (let i = 0; i < 3; i++) button(tcx + s * 0.32 * Ta, chin + (0.72 + i * 0.2) * HH);
+    }
+  }
+  if (top === "sweater") {
+    p.stroke([[tcx - 1.3 * Ta, bot - 0.07 * HH], [tcx + 1.3 * Ta, bot - 0.07 * HH]], 0.1 * HH, mix(o.jacket, INK, 0.18));
+    for (let x = tcx - 1.2 * Ta; x <= tcx + 1.2 * Ta; x += 0.1 * Ta) p.stroke([[x, bot - 0.11 * HH], [x, bot - 0.03 * HH]], 0.8 * u, mix(o.jacket, INK, 0.35));
+  }
+  if (top === "hoodie") {
+    p.poly([[tcx - 0.55 * Ta, bot - 0.44 * HH], [tcx + 0.55 * Ta, bot - 0.44 * HH], [tcx + 0.72 * Ta, bot - 0.1 * HH], [tcx - 0.72 * Ta, bot - 0.1 * HH]], mix(o.jacket, INK, 0.1), lw);
+    for (const s of [-1, 1]) { p.stroke([[tcx + s * 0.14 * Ta, chin + 0.02 * HH], [tcx + s * 0.17 * Ta, chin + 0.34 * HH]], 1.8 * u, "#f2efe6"); p.dot(tcx + s * 0.17 * Ta, chin + 0.35 * HH, 2.4 * u, "#f2efe6"); }
+  }
+  if (top === "overalls") {
+    p.poly([[tcx - 0.46 * Ta, chin + 0.3 * HH], [tcx + 0.46 * Ta, chin + 0.3 * HH], [tcx + 0.58 * Ta, bot + 0.1 * HH], [tcx - 0.58 * Ta, bot + 0.1 * HH]], o.pants, lw);
+    p.poly([[tcx - 0.2 * Ta, chin + 0.4 * HH], [tcx + 0.2 * Ta, chin + 0.4 * HH], [tcx + 0.2 * Ta, chin + 0.62 * HH], [tcx - 0.2 * Ta, chin + 0.62 * HH]], mix(o.pants, INK, 0.12), lw * 0.8);
+    for (const s of [-1, 1]) { p.band([[tcx + s * 0.38 * Ta, chin + 0.34 * HH], [tcx + s * 0.55 * Ta, chin - 0.3 * HH]], o.pants, 0.11 * Ta, 1.1 * u); button(tcx + s * 0.38 * Ta, chin + 0.36 * HH); }
+  }
+  if (top === "shirt") p.stroke([[tcx, chin + 0.08 * HH], [tcx, bot]], 1.2 * u, dark);
+  if (o.pocket) p.poly([[tcx + 0.3 * Ta, chin + 0.3 * HH], [tcx + 0.62 * Ta, chin + 0.3 * HH], [tcx + 0.6 * Ta, chin + 0.56 * HH], [tcx + 0.32 * Ta, chin + 0.56 * HH]], mix(o.jacket, INK, 0.08), lw);
+  if (o.badge) {
+    const bx = tcx - 0.45 * Ta, by = chin + 0.36 * HH, r = 0.09 * HH, star: P2[] = [];
+    for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + (k * Math.PI) / 5, rr = k % 2 ? r * 0.45 : r; star.push([bx + rr * Math.cos(a), by + rr * Math.sin(a)]); }
+    p.poly(star, o.badge, lw * 0.9);
+  }
+  const collar = o.collar ?? (top === "shirt" || top === "vest" || top === "coat" ? "shirt" : "none");
+  if (collar === "shirt") {
+    const col = top === "shirt" ? mix(o.jacket, "#ffffff", 0.25) : mix(under, "#ffffff", 0.3);
+    for (const s of [-1, 1]) p.poly([[tcx, chin + 0.07 * HH], [tcx + s * 0.38 * Ta, chin - 0.06 * HH], [tcx + s * 0.26 * Ta, chin + 0.17 * HH]], col, lw);
+  } else if (collar === "vneck") p.poly([[tcx - 0.28 * Ta, chin - 0.2 * HH], [tcx + 0.28 * Ta, chin - 0.2 * HH], [tcx, chin + 0.3 * HH]], o.shirt ?? o.skin ?? SKIN, lw);
+  else if (collar === "turtleneck") p.stroke([[tcx - 0.55 * Ta, chin + 0.03 * HH], [tcx + 0.55 * Ta, chin + 0.03 * HH]], 0.16 * HH, mix(o.jacket, INK, 0.14));
+};
+
+/** Layers that extend past the torso contour: apron, scarf. */
+const drawOverlayLayers = (p: Pen, o: Outfit, top: Garment, opts: FrontOpts, tcx: number, chin: number, bot: number, Ta: number, HH: number, u: number, light: number, facing: number) => {
+  // Whole garments stay opaque through three-quarter views and only fade near the profile.
+  const front = (draw: () => void) => { if (opts.back) return; p.g.save(); p.g.globalAlpha *= Math.min(1, (opts.frontDetail ?? 1) * 4); const s = p.surface; p.surface = "costume"; draw(); p.surface = s; p.g.restore(); };
+  if (top === "apron" || o.apron) front(() => {
+    const col = o.apron ?? "#ece4d0", apron: P2[] = [[tcx - 0.5 * Ta, chin + 0.26 * HH], [tcx + 0.5 * Ta, chin + 0.26 * HH], [tcx + 0.64 * Ta, bot + 0.32 * HH], [tcx - 0.64 * Ta, bot + 0.32 * HH]];
+    for (const s of [-1, 1]) p.stroke([[tcx + s * 0.46 * Ta, chin + 0.28 * HH], [tcx + s * 0.3 * Ta, chin - 0.05 * HH]], 1.8 * u, mix(col, INK, 0.35));
+    p.gradFill(apron, col, mul(col, SH_CLOTH), light); p.poly(apron, null, 1.8 * u);
+    p.poly([[tcx - 0.3 * Ta, bot - 0.12 * HH], [tcx + 0.3 * Ta, bot - 0.12 * HH], [tcx + 0.3 * Ta, bot + 0.08 * HH], [tcx - 0.3 * Ta, bot + 0.08 * HH]], mix(col, INK, 0.08), 1.3 * u);
+  });
+  if (o.scarf) {
+    p.band([[tcx - 0.5 * Ta, chin + 0.05 * HH], [tcx + 0.5 * Ta, chin + 0.07 * HH]], o.scarf, 0.11 * HH, 1.4 * u, "round");
+    const s = facing || 1;
+    front(() => {
+      p.poly([[tcx + s * 0.18 * Ta, chin + 0.08 * HH], [tcx + s * 0.42 * Ta, chin + 0.08 * HH], [tcx + s * 0.4 * Ta, chin + 0.58 * HH], [tcx + s * 0.16 * Ta, chin + 0.55 * HH]], o.scarf!, 1.4 * u);
+      for (let k = 0; k < 4; k++) { const x = tcx + s * (0.18 + k * 0.07) * Ta; p.stroke([[x, chin + 0.56 * HH], [x, chin + 0.63 * HH]], 1.2 * u, o.scarf!); }
+    });
+  }
+};
+
 /** Shared attachment transforms for the torso and everything carried by the head. */
 export function upperBodyRotations(phase:number,mode:string,tilt:number,headTilt:number,chin:number,hipY:number){
   const sway=mode==='march'?1.6*Math.sin(Math.PI*2*phase):mode==='stroll'?Math.sin(Math.PI*2*phase):0;
@@ -528,7 +627,9 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   const torsoBot = opts.hipHeight!==undefined?opts.hipHeight+.12*HH:mode === "sit" ? sole - 0.2 * HH : sole - Bd.legs * HH + bob;
   const chin = torsoBot - Bd.torso * HH, hc = chin - H.b, crown = hc - H.b, hipY = torsoBot - 0.12 * HH;
   const thick = thickAngle(light), ow = STYLE.character.outline * u;
-  const legCol = mix(o.pants, INK, 0.55), armCol = mix(o.jacket, INK, 0.5), footCol = o.boots;
+  const top = o.top ?? "jacket", under = o.shirt ?? "#ece6d6";
+  const sleeveCol = o.sleeves ?? (top === "vest" || top === "overalls" || top === "apron" ? (top === "vest" ? under : o.jacket) : o.jacket);
+  const legCol = mix(o.pants, INK, 0.55), armCol = mix(sleeveCol, INK, o.sleeves ? 0.35 : 0.5), footCol = o.boots;
   const legW = 5.8 * u, footW = 7.5 * u;
   // ---- legs + feet (not rotated) ----
   p.rot = null;
@@ -632,8 +733,19 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
     p.gradFill(sp, o.jacket, mul(o.jacket, SH_CLOTH), light);
     p.inkRing(sp, ow * 0.9, thick);
   } else {
+    if (top === "coat" && mode !== "sit" && mode !== "fall") {
+      // Long coat skirt below the torso: a different silhouette from the plain bean body.
+      // Two flared tails split from the waist, so the legs read between them (not shorts or a skirt).
+      for (const s of [-1, 1]) {
+        const tail: P2[] = [[tcx + s * 0.02 * W, torsoBot - 0.3 * HH], [tcx + s * 0.37 * W, torsoBot - 0.3 * HH], [tcx + s * 0.47 * W, torsoBot + 0.66 * HH],
+          [tcx + s * 0.3 * W, torsoBot + 0.72 * HH], [tcx + s * 0.13 * W, torsoBot + 0.68 * HH], [tcx + s * 0.05 * W, torsoBot + 0.05 * HH]];
+        p.gradFill(tail, o.jacket, mul(o.jacket, SH_CLOTH), light); p.poly(tail, null, ow * 0.7);
+      }
+    }
     p.gradFill(tp, o.jacket, mul(o.jacket, SH_CLOTH), light);
     p.clip(tp, () => {
+      drawPattern(p, o, tcx, chin, torsoBot, T.a, HH, u);
+      if (!opts.back) { p.g.save(); p.g.globalAlpha *= Math.min(1, (opts.frontDetail ?? 1) * 4); p.surface = 'costume'; drawGarmentFront(p, o, top, under, tcx, chin, torsoBot, T.a, HH, u); p.surface = 'body'; p.g.restore(); }
       p.g.save();p.g.globalAlpha*=opts.frontDetail??1;p.surface='costume';
       if (o.belt) {
         for (const s of [-1, 1]) p.band([[tcx - s * 0.75 * T.a, chin - 0.05 * HH], [tcx + s * 0.8 * T.a, torsoBot - 0.1 * HH]], o.belt!, 5.5 * u, 1.8 * u);
@@ -641,7 +753,8 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
         p.poly([[xc - 3.5 * u, yc - 3.5 * u], [xc + 3.5 * u, yc - 3.5 * u], [xc + 3.5 * u, yc + 3.5 * u], [xc - 3.5 * u, yc + 3.5 * u]], "#d9dde0", 1.5 * u);
       }
       if (o.sash) p.band([[tcx - 1.3 * T.a, torsoBot - 0.32 * HH], [tcx + 1.3 * T.a, torsoBot - 0.32 * HH]], o.sash, 0.13 * HH, 1.8 * u);
-      for (let i = 0; i < (opts.back?0:4); i++) {
+      const buttonCount = o.buttonCount ?? (top === "jacket" ? 4 : top === "shirt" || top === "vest" ? 3 : 0);
+      for (let i = 0; i < (opts.back?0:buttonCount); i++) {
         const y = chin + 0.12 * HH + i * 0.2 * HH;
         if (o.sash && Math.abs(y - (torsoBot - 0.32 * HH)) < 0.08 * HH) continue;
         p.dot(tcx + 2 * u * facing, y, 2.2 * u + 0.8 * u, INK); p.dot(tcx + 2 * u * facing, y, 2.2 * u, o.buttons ?? shade(o.jacket, 0.7));
@@ -650,6 +763,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
     });
     if (o.sash) { const s = facing || 1; p.poly([[tcx + s * 0.55 * T.a, torsoBot - 0.3 * HH], [tcx + s * 0.75 * T.a, torsoBot + 0.05 * HH], [tcx + s * 0.45 * T.a, torsoBot + 0.02 * HH]], o.sash, 1.6 * u); }
     p.inkRing(tp, ow, thick);
+    drawOverlayLayers(p, o, top, opts, tcx, chin, torsoBot, T.a, HH, u, light, facing);
   }
   // in front of the body: hands holding props
   for (const a of arms) if (a.front) {

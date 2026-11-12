@@ -1,12 +1,14 @@
 # Reusable character views and facial motion
 
+> On screen, characters stay within ±60° of facing the camera (±90° hard limit); see [character-design.md](character-design.md). The 12-view turntable below is for model-sheet review in Character Studio only. Idle micro-motion (breathing, weight shift, saccades, irregular blinks, hair follow-through) is built into the rig.
+
 The user's persistent preference is a cast that can turn naturally, with lidded uneven eyes and small chin/cheek changes rather than a face frozen onto a front-facing body. The supplied images and private camera-reference video informed this preference. Do not redistribute those references or reproduce their characters.
 
 Use [the shared library](../character-library/README.md), its original character designs and procedural rig for future projects. Save new designs and variants globally; copy selected cast definitions and the rig into each project before staging. Preserve each snapshot so future library changes do not change older projects.
 
 Review a 12-view turntable (0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330 degrees), top and bottom views, sitting, walking, bending, task poses and the expression range. Check the side silhouette, rear hair, far-arm occlusion, coat details and hidden facial features from behind. Derive view angles from world heading and camera elevation. A camera-facing card must not imply a front-facing drawing.
 
-Facial motion should be gentle and reproducible from the timeline: staggered blinking, slow gaze changes, expression-driven lids/brows/mouth and low-amplitude chin width changes. Avoid random per-frame noise and whole-face scaling. The micro-expression switch in Character Studio allows comparing a neutral model sheet with the animated version.
+Facial motion should be gentle and reproducible from the timeline: seeded irregular blinking (`blinkLid`), gaze holds with quick saccades (`gazeShift`), expression-driven lids/brows/mouth, a damped head nod on expression change and low-amplitude chin width changes. Avoid random per-frame noise and whole-face scaling. The micro-expression switch in Character Studio allows comparing a neutral model sheet with the animated version.
 
 The user's preferred face/body lighting has a soft glow on the key-light side and a visible darker form layer on the opposite side. Do not paint a white halo around the full face: it erases the shaded edge. The studio's Light selector allows checking both directions. Keep the off-white face and rounded facial features. For reactions, deform only the lower cheek/chin contour with expression-dependent width/height and a brief damped settle. Keep the upper head and body stable; neutral idle should not continuously jitter. Drive `fromExpression` and `expressionAge` from the timeline (seconds since the reaction), not wall-clock state, so review frames and exports agree.
 

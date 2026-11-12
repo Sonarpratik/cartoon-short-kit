@@ -50,13 +50,15 @@ ffmpeg -i out/bridge/video.mp4 -i mix.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a a
 - `templates/bridge/toon.ts`: character drawing.
 - `templates/bridge/style.ts`: reusable line, blur and texture-detail settings.
 - `templates/bridge/props.ts`: painted crate, barrel, bench and table builders.
+- `templates/bridge/character-rig.ts` + `angle-designs.ts`: turning characters with 10 hair styles, 9 headwear types, garments, patterns, accessories and idle micro-motion.
+- `templates/bridge/director.ts`: `WARDROBE`, `castDistinctness`, camera pacing (`CAMERA_PACE`, `EASE`, `burstThenHold`).
 - `templates/bridge/story.ts`: frame timing, cameras and shots.
 - `templates/bridge/world.ts`: scenery and character staging.
 - `templates/scripts/bridge-stills.mjs`: Playwright frame capture.
 - `templates/audio/`: Python audio synthesis and mixing templates (requires NumPy).
 - `references/`: private style study material; do not publish reference images.
 
-Reference reports are historical research notes and may describe the former renderer. Current setup and commands are above.
+Historical research reports were moved to `archive/reports/`; they describe an earlier renderer. Start from [references/README.md](references/README.md) for which references are current.
 
 The skill plans props from the narration automatically. You only need to specify objects when you have a particular preference. New settings still require scene design and sometimes new prop code; the library is a starting point. The scene-review workflow is documented in `SKILL.md`, with visual guidance in `references/visual-guide.md`.
 

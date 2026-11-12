@@ -3,7 +3,10 @@
  * frames morph matching contours rather than sliding a front drawing sideways.
  */
 export type Point=[number,number];
-export type Patch={id:string;points:Point[];layer:'back'|'front';clip:boolean;alpha:number};
+/** kind selects the base colour (hair or outfit.cap); tone>0 darkens towards ink, tone<0 lightens; accent uses outfit.hatAccent. */
+export type Patch={id:string;points:Point[];layer:'back'|'front';clip:boolean;alpha:number;kind?:'hair'|'hat';tone?:number;accent?:boolean};
+export const HAIR_STYLES=['sidepart','receding','bob','spiky','curly','afro','bun','ponytail','long','buzz'] as const;
+export const HEADWEAR=['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat'] as const;
 export type BodyDesign={width:number;front:number;shoulder:number;seam:number};
 export type AngleDesign={angle:number;body:BodyDesign;hair:Patch[]};
 export const BODY_KEYS:BodyDesign[]=[
@@ -64,12 +67,89 @@ function contour(points:Point[],count=64):Point[]{
  const lengths:number[]=[0];for(let i=0;i<points.length;i++){const a=points[i],b=points[(i+1)%points.length];lengths.push(lengths.at(-1)!+Math.hypot(b[0]-a[0],b[1]-a[1]));}
  const result:Point[]=[];let segment=0;for(let i=0;i<count;i++){const distance=i/count*lengths.at(-1)!;while(segment<points.length-1&&lengths[segment+1]<distance)segment++;const a=points[segment],b=points[(segment+1)%points.length],t=(distance-lengths[segment])/Math.max(1e-8,lengths[segment+1]-lengths[segment]);result.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t]);}return result;
 }
+
+const HAT_IDS=new Set(['hat','cuff','pom','rim','stripe','visor','badge','brim','cockade','knot','dots','band']);
+const NEW_STYLES=new Set(['curly','afro','bun','ponytail','long','buzz']);
+const NEW_HATS=new Set(['beanie','helmet','peaked','tricorn','bandana','tophat']);
+type PatchFn=(id:string,points:Point[],layer?:'back'|'front',clip?:boolean,alpha?:number,extra?:Partial<Patch>)=>void;
+const ring=(cx:number,cy:number,rx:number,ry:number,n=16):Point[]=>Array.from({length:n},(_,k)=>{const a=k/n*Math.PI*2;return [cx+rx*Math.cos(a),cy+ry*Math.sin(a)] as Point;});
+const shiftX=(points:Point[],dx:number):Point[]=>points.map(([x,y])=>[x+dx,y] as Point);
+/** Insert a downward bump between hairline points: curly fringe. */
+const scallop=(line:Point[],amp:number):Point[]=>line.flatMap((p,k)=>k===0?[p]:[[(line[k-1][0]+p[0])/2,(line[k-1][1]+p[1])/2+amp] as Point,p]);
+/** Bumpy hair cloud over the top of the head (curly/afro), drawn behind the head contour. */
+function cloud(cx:number,cy:number,rx:number,ry:number,bumps:number,bottom:number):Point[]{
+ const points:Point[]=[];
+ for(let k=0;k<=bumps*2;k++){const t=k/(bumps*2),a=Math.PI*(1.08-1.16*t),r=k%2?1.1:1;points.push([cx+rx*r*Math.cos(a),cy-ry*r*Math.sin(a)]);}
+ points.push([cx+rx*.92,bottom],[cx-rx*.92,bottom]);return points;
+}
+const LONG_LOCK:Point[]=[[-.88,-.55],[-1.12,-.2],[-1.17,.6],[-1.08,1.25],[-.86,1.34],[-.72,.92],[-.78,.2]];
+const LONG_BACK:Point[]=[[-1.08,-.55],[-1.2,.2],[-1.22,.95],[-1.06,1.48],[-.4,1.55],[.4,1.55],[1.06,1.48],[1.22,.95],[1.2,.2],[1.08,-.55],[.6,-1.08],[0,-1.14],[-.6,-1.08]];
+/** Hair that stays visible under any headwear (volume, length, tails). */
+function hairUnderHat(style:string,patch:PatchFn,sn:number,cs:number,body:BodyDesign){
+ // The lock on the side the face turns towards falls behind the far cheek instead of ghosting over the face.
+ if(style==='long'){patch('long-back',shiftX(LONG_BACK,-.22*sn),'back',false);patch('long-left',LONG_LOCK,sn<-.6?'back':'front',false);patch('long-right',mirror(LONG_LOCK),sn>.6?'back':'front',false);}
+ if(style==='bob'){const lock:Point[]=[[-.9,-.5],[-1.11,-.2],[-1.13,.55],[-.92,.95],[-.69,.75],[-.8,.2]];patch('bob-left',lock,'front',false);patch('bob-right',mirror(lock),'front',false,body.front*.85+.15);}
+ if(style==='curly'||style==='afro'){const big=style==='afro';patch('curls-back',cloud(-.1*sn,big?-.3:-.32,big?1.5:1.2,big?1.3:.98,big?9:8,big?.35:.12),'back',false);}
+ if(style==='ponytail')ponytail(patch,sn,cs);
+}
+function ponytail(patch:PatchFn,sn:number,cs:number){
+ const x0=-.95*sn,dir=sn>=0?-1:1,a=Math.abs(sn);
+ patch('tail',[[x0-.13,-.58],[x0+.15,-.52],[x0+dir*.34*a+.1,.2],[x0+dir*.42*a+.02,.8],[x0+dir*.3*a-.1,.9],[x0+dir*.12*a-.14,.15]],cs<-.3?'front':'back',false);
+}
+function newHair(style:string,patch:PatchFn,i:number,right:boolean,sn:number,cs:number,body:BodyDesign){
+ const line=at(LINES,i);
+ if(style==='buzz'){const points=[...CAP_TOP,...line.map(([x,y])=>[x,y-.12] as Point)];patch('scalp',right?points:mirror(points),'front',true,1,{tone:-.08});return;}
+ if(style==='curly'||style==='afro'){
+  hairUnderHat(style,patch,sn,cs,body);
+  const points=[...CAP_TOP,...scallop(line,.09)];patch('scalp',right?points:mirror(points));return;
+ }
+ const points=[...CAP_TOP,...line];patch('scalp',right?points:mirror(points));
+ if(style==='bun')patch('bun',ring(-.4*sn,-1.08,.38,.32),cs<-.3?'front':'back',false);
+ if(style==='ponytail')ponytail(patch,sn,cs);
+ if(style==='long')hairUnderHat(style,patch,sn,cs,body);
+}
+/** Headwear built from per-view projections of a few 3D anchor points. */
+function newHat(hat:string,patch:PatchFn,sn:number,cs:number,hw:number,front:number){
+ const fwd=.42*sn;
+ if(hat==='beanie'){
+  patch('hat-crown',[[-1.07,-.25],[-1.1,-.7],[-.85-.1*sn,-1.12],[-.4-.12*sn,-1.32],[-.12*sn,-1.37],[.4-.12*sn,-1.32],[.85-.1*sn,-1.12],[1.1,-.7],[1.07,-.25]],'front',false);
+  patch('cuff',[[-1.11,-.5],[1.11,-.5],[1.13,-.2],[-1.13,-.2]],'front',false,1,{tone:.2});
+  patch('pom',ring(-.14*sn,-1.43,.22,.2),'front',false,1,{accent:true});
+ }else if(hat==='helmet'){
+  patch('hat-crown',[[-1.13,-.28],[-1.14,-.75],[-.82,-1.18],[0,-1.33],[.82,-1.18],[1.14,-.75],[1.13,-.28]],'front',false);
+  patch('stripe',[[-1.14,-.66],[1.14,-.66],[1.14,-.54],[-1.14,-.54]],'front',false,1,{accent:true});
+  patch('rim',[[-1.2,-.38],[1.2+.25*Math.max(0,sn),-.38],[1.24+.25*Math.max(0,sn),-.24],[-1.24+.25*Math.min(0,sn),-.24]],'front',false,1,{tone:.28});
+ }else if(hat==='peaked'){
+  patch('hat-crown',[[-1.02,-.4],[-1.2+.15*sn,-.95],[-.72+.15*sn,-1.32],[.72+.15*sn,-1.32],[1.2+.15*sn,-.95],[1.02,-.4]],'front',false);
+  patch('cuff',[[-1.04,-.64],[1.04,-.64],[1.04,-.4],[-1.04,-.4]],'front',false,1,{tone:.42});
+  patch('visor',[[-.85,-.42],[.9,-.42],[.9+fwd,-.27],[.15+fwd,-.2],[-.85+fwd,-.29]],'front',false,1,{tone:.6});
+  const bx=.85*sn/hw;patch('badge',[[bx,-1.0],[bx+.16,-.84],[bx,-.68],[bx-.16,-.84]],'front',false,front,{accent:true});
+ }else if(hat==='tricorn'){
+  patch('hat-crown',[[-.95,-.5],[-.9,-.95],[-.45,-1.27],[.45,-1.27],[.9,-.95],[.95,-.5]],'front',false);
+  const fp=.9*sn;patch('brim',[[-1.52,-.32],[-1.36,-1.02],[-.85,-.64],[.85,-.64],[1.36,-1.02],[1.52,-.32],[fp+.48,-.42],[fp,-.2],[fp-.48,-.42]],'front',false,1,{tone:.12});
+  patch('cockade',ring((-.7*cs+.6*sn)/hw,-.72,.13,.13,12),'front',false,Math.max(0,Math.min(1,(cs+.3)/.6)),{accent:true});
+ }else if(hat==='bandana'){
+  patch('hat-crown',[...CAP_TOP,[1.04,-.36],[.5,-.47],[0,-.5],[-.5,-.47],[-1.04,-.36]]);
+  const x0=-1.0*sn/hw,dir=sn>=0?-1:1;
+  patch('knot',[[x0,-.52],[x0+dir*.48,-.7],[x0+dir*.52,-.38],[x0+dir*.18,-.36],[x0+dir*.58,-.04],[x0+dir*.36,.1],[x0,-.3]],'back',false);
+  patch('dots-a',ring(-.45+.3*sn,-.78,.07,.07,8),'front',true,front,{accent:true});
+  patch('dots-b',ring(.08+.3*sn,-.88,.07,.07,8),'front',true,front,{accent:true});
+  patch('dots-c',ring(.55+.3*sn,-.72,.07,.07,8),'front',true,front,{accent:true});
+ }else if(hat==='tophat'){
+  patch('hat-crown',[[-.7,-.92],[-.75,-2.0],[.75,-2.0],[.7,-.92]],'front',false);
+  patch('band',[[-.71,-1.2],[.71,-1.2],[.71,-.98],[-.71,-.98]],'front',false,1,{tone:.5});
+  patch('brim',[[-1.25,-.98],[0,-1.03],[1.25,-.98],[1.2,-.83],[0,-.79],[-1.2,-.83]],'front',false,1,{tone:.2});
+ }
+}
 const cache=new Map<string,AngleDesign[]>();
 export function characterAngleDesigns(style:string,hat='hair'):AngleDesign[]{
  const key=style+'|'+hat;if(cache.has(key))return cache.get(key)!;
  const designs=BODY_KEYS.map((body,i)=>{
-  const right=i<=6,patches:Patch[]=[],patch=(id:string,points:Point[],layer:'back'|'front'='front',clip=true,alpha=1)=>patches.push({id,points:contour(id.startsWith('temple')?rounded(points):points),layer,clip,alpha});
-  if(hat==='cap'||hat==='fedora'){
+  const right=i<=6,patches:Patch[]=[],patch=(id:string,points:Point[],layer:'back'|'front'='front',clip=true,alpha=1,extra:Partial<Patch>={})=>patches.push({id,points:contour(id.startsWith('temple')?rounded(points):points),layer,clip,alpha,kind:hat!=='hair'&&HAT_IDS.has(id.split('-')[0])?'hat':'hair',...extra});
+  const ang=i*30*Math.PI/180,sn=Math.sin(ang),cs=Math.cos(ang),hw=Math.hypot(cs,.85*sn),front=Math.max(0,Math.min(1,(cs+.2)/.5));
+  if(hat!=='hair')hairUnderHat(style,patch,sn,cs,body);
+  if(NEW_HATS.has(hat))newHat(hat,patch,sn,cs,hw,front);
+  else if(hat==='cap'||hat==='fedora'){
    const profile=[0,.12,.30,.42,.27,.1,0,.1,.27,.42,.30,.12][i],direction=i<6?1:-1;
    if(hat==='fedora'){
     patch('hat-crown',[[-.96,-.43],[-.8,-1.18],[-.23,-1.39],[.06,-1.22],[.65,-1.29],[.98,-.43]],'front',false);
@@ -79,6 +159,8 @@ export function characterAngleDesigns(style:string,hat='hair'):AngleDesign[]{
     patch('hat-crown',[[-1.03,-.37],[-.82,-.85],[-.4,-1.04],[0,-1.08],[.55,-.93],[.93,-.61],[1.03,-.37]]);
     patch('hat-brim',[[-.85,-.38],[.9,-.38],[.9+profile*direction,-.2],[.15+profile*direction,-.18],[-.85+profile*direction,-.24]],'front',false);
    }
+  }else if(NEW_STYLES.has(style)){
+   newHair(style,patch,i,right,sn,cs,body);
   }else if(style==='receding'){
    const locks=at(LOCKS,i),build=(side:'left'|'right')=>{const [shift,width,alpha]=locks[side],x=side==='left'?-.90:.90,source=side==='left'?LOCK:mirror(LOCK);return {points:source.map(([px,py])=>[x+(px-x)*width,py+shift] as Point),alpha};};
    const left=build(right?'left':'right'),r=build(right?'right':'left');
