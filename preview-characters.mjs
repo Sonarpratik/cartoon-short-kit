@@ -11,12 +11,12 @@ function validate(c){
  if(!/^[a-zA-Z0-9_-]+$/.test(c.id))throw Error('Invalid character ID');
  for(const key of ['jacket','pants','boots','hair','skin'])if(!/^#[0-9a-f]{6}$/i.test(c[key]))throw Error('Invalid '+key+' colour');
  if(!Number.isInteger(c.seed)||c.seed<0||c.seed>1000000||typeof c.coat!=='boolean')throw Error('Invalid seed or coat');
- if(!['sidepart','receding','spiky','bob','curly','afro','bun','ponytail','long','buzz'].includes(c.hairStyle))throw Error('Unknown hair style');
+ if(!['sidepart','receding','spiky','bob','curly','afro','bun','ponytail','long','buzz','braid'].includes(c.hairStyle))throw Error('Unknown hair style');
  if(c.accessory!==undefined&&!['researcher','archivist','official','investigator'].includes(c.accessory))throw Error('Unknown accessory');
- if(c.accessories!==undefined&&(!Array.isArray(c.accessories)||c.accessories.length>5||c.accessories.some(a=>!['glasses','sunglasses','eyepatch','freckles','blush'].includes(a))))throw Error('Unknown accessories');
+ if(c.accessories!==undefined&&(!Array.isArray(c.accessories)||c.accessories.length>5||c.accessories.some(a=>!['glasses','sunglasses','eyepatch','freckles','blush','stubble','scar'].includes(a))))throw Error('Unknown accessories');
  if(c.facing!==undefined&&![-1,0,1].includes(c.facing))throw Error('Invalid facing');
  if(c.light!==undefined&&(!Number.isFinite(c.light)||Math.abs(c.light)>7))throw Error('Invalid light');
- if(c.outfit!==undefined){if(!c.outfit||typeof c.outfit!=='object'||Array.isArray(c.outfit))throw Error('Invalid outfit');for(const [key,value] of Object.entries(c.outfit)){if(!['jacket','pants','boots','hat','belt','buttons','sash','moustache','beard','skin','cap','hair','dress','build','hairStyle','rifle','sword','head','labCoat','top','shirt','sleeves','pattern','patternColor','collar','tie','scarf','apron','badge','pocket','buttonCount','hatAccent'].includes(key)||!['string','boolean','number'].includes(typeof value)&&value!==null)throw Error('Invalid outfit field');if(typeof value==='string'&&value.length>60)throw Error('Outfit value too long');}}
+ if(c.outfit!==undefined){if(!c.outfit||typeof c.outfit!=='object'||Array.isArray(c.outfit))throw Error('Invalid outfit');for(const [key,value] of Object.entries(c.outfit)){if(!['jacket','pants','boots','hat','belt','buttons','sash','moustache','moustacheStyle','beard','skin','cap','hair','dress','build','hairStyle','rifle','sword','head','labCoat','top','shirt','sleeves','pattern','patternColor','collar','tie','scarf','apron','badge','pocket','buttonCount','hatAccent'].includes(key)||!['string','boolean','number'].includes(typeof value)&&value!==null)throw Error('Invalid outfit field');if(typeof value==='string'&&value.length>60)throw Error('Outfit value too long');}}
  const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build','outfit','accessory','accessories','facing','light'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
 }
 const server=createServer(async(req,res)=>{

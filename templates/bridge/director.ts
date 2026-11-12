@@ -15,13 +15,13 @@ export const CHARACTER_ARCHETYPES = {
 } as const;
 /** Every option the shared rig can draw. Combine per story; see references/character-design.md. */
 export const WARDROBE = {
- hairStyle:['sidepart','receding','bob','spiky','curly','afro','bun','ponytail','long','buzz'],
- hat:['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat'],
+ hairStyle:['sidepart','receding','bob','spiky','curly','afro','bun','ponytail','long','buzz','braid'],
+ hat:['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat','headband','sheriff'],
  top:['jacket','shirt','sweater','vest','hoodie','coat','overalls','apron'],
  pattern:['none','stripes','hstripes','plaid','knit','dots'],
  collar:['shirt','turtleneck','vneck','none'],
  build:['adult','stout','kid'],
- accessories:['glasses','sunglasses','eyepatch','freckles','blush'],
+ accessories:['glasses','sunglasses','eyepatch','freckles','blush','stubble','scar'],
  extras:['tie','scarf','badge','pocket','apron','beard','moustache','labCoat','hatAccent','sleeves'],
 } as const;
 type CastMember={id:string;hairStyle:string;jacket:string;pants:string;build?:string;outfit?:{hat?:string|null;top?:string;pattern?:string;cap?:string}};

@@ -17,8 +17,8 @@ const SH_FELT: C3 = [0.62, 0.62, 0.7];
 export type Build = "adult" | "stout" | "kid";
 export type Outfit = {
   jacket: string; pants: string; boots: string; hat?: string | null; belt?: string | null; buttons?: string; rifle?: boolean;
-  sash?: string; sword?: boolean; moustache?: string; beard?: string; skin?: string; head?: number; cap?: string; hair?: string; dress?: string;
-  build?: Build; hairStyle?: "sidepart" | "receding" | "bob" | "spiky" | "curly" | "afro" | "bun" | "ponytail" | "long" | "buzz"; labCoat?: boolean; viewYaw?:number; viewPitch?:number; meshHair?:boolean; angleHair?:boolean;
+  sash?: string; sword?: boolean; moustache?: string; moustacheStyle?: 'bold'; beard?: string; skin?: string; head?: number; cap?: string; hair?: string; dress?: string;
+  build?: Build; hairStyle?: "sidepart" | "receding" | "bob" | "spiky" | "curly" | "afro" | "bun" | "ponytail" | "long" | "buzz" | "braid"; labCoat?: boolean; viewYaw?:number; viewPitch?:number; meshHair?:boolean; angleHair?:boolean;
   /** Garment layer drawn on the torso. `jacket` is the garment colour; `shirt` is the layer underneath. */
   top?: Garment; shirt?: string; sleeves?: string;
   pattern?: Pattern; patternColor?: string;
@@ -325,7 +325,7 @@ const mouth = (p: Pen, kind: MouthK, mx: number, my: number, u: number, k = 1) =
 /** face v2 (front / 3-4). u = 1 % of the head path width W. Eyes 26u apart on the centre line, brows 20u up, mouth 20u
  *  down, everything slid toward the facing side. No blush, no catchlights. */
 const faceFront = (p: Pen, cx: number, cy: number, W: number, expr: Expr, facing: number, look: number, lid: number, brim: boolean,
-  skin: string, moustache?: string, stout = false, beard?: string) => {
+  skin: string, moustache?: string, stout = false, beard?: string, mStyle?: string) => {
   const u = W / 100, F = FACE[expr], fx = cx + 7 * u * facing;
   if(beard){
     const points:P2[]=[[-36,9],[-33,30],[-24,41],[-10,47],[0,49],[16,44],[30,32],[35,10],[24,15],[17,29],[-17,29],[-25,15]].map(([x,y])=>[cx+x*u,cy+y*u]);
@@ -343,13 +343,19 @@ const faceFront = (p: Pen, cx: number, cy: number, W: number, expr: Expr, facing
   }
   const mx = cx + 8 * u * facing, my = cy + 20 * u;
   mouth(p, F.mouth, mx, my, u);
-  if (moustache) for (const s of [-1, 1])
+  if (moustache && mStyle === "bold") {
+    // Bold horseshoe moustache (user reference): one thick dark shape across the lip, ends drooping past the mouth corners.
+    const half: [number, number][] = [[.5, 10.6], [8, 10], [15, 11.4], [19.2, 14.8], [20.6, 20.8], [17.2, 18], [11, 16.2], [4, 16.6], [.5, 15.6]];
+    const pts: P2[] = [...half.map(([x, y]) => [mx + x * u, cy + y * u] as P2), ...[...half].reverse().map(([x, y]) => [mx - x * u, cy + y * u] as P2)];
+    p.poly(pts, moustache, 1.3 * u);
+    p.stroke(curve([mx - 13 * u, cy + 12.4 * u], [mx - 6 * u, cy + 11.3 * u], [mx - 1 * u, cy + 12 * u]), 1.1 * u, "rgba(255,255,255,.28)");
+  } else if (moustache) for (const s of [-1, 1])
     taper(p, [mx + s * 1.5 * u, cy + 12.5 * u], [mx + s * (stout ? 19 : 15) * u, cy + (stout ? 10.5 : 15) * u], stout ? 5.5 * u : 4.5 * u, 1.6 * u, moustache);
   if (expr === "nervous") p.ell(cx + 40 * u * (facing || 1), cy - 22 * u, 3 * u, 5 * u, "#9fd4ff", 2 * u);
 };
 
 /** profile face (facing screen-right): one eye, brow, nose tick, mouth near the front edge; no skin bump nose, no ear */
-const faceSide = (p: Pen, hx: number, hy: number, W: number, expr: Expr, lid: number, brim: boolean, skin: string, moustache?: string, stout = false) => {
+const faceSide = (p: Pen, hx: number, hy: number, W: number, expr: Expr, lid: number, brim: boolean, skin: string, moustache?: string, stout = false, mStyle?: string) => {
   const u = W / 100, F = FACE[expr], ex = hx + 27 * u, ey = hy;
   const kind = eyeKind(F.eye[1], lid);
   eye(p, kind, ex, ey, u, 1, 0.6, skin);
@@ -358,7 +364,8 @@ const faceSide = (p: Pen, hx: number, hy: number, W: number, expr: Expr, lid: nu
   else p.stroke(curve([ex+7.5*u,by+dI*u],[ex,by+(dI+dO)*.5*u-1.1*u],[ex-7*u,by-u+dO*u]),3.5*u);
   p.stroke([[hx + 44 * u, hy + 4 * u], [hx + 47.5 * u, hy + 9 * u], [hx + 43 * u, hy + 10 * u]], 3 * u);
   mouth(p, F.mouth, hx + 33 * u, hy + 21 * u, u, 0.62);
-  if (moustache) taper(p, [hx + 41 * u, hy + 13.5 * u], [hx + 25 * u, hy + (stout ? 11.5 : 16) * u], stout ? 5.5 * u : 4.5 * u, 1.6 * u, moustache);
+  if (moustache && mStyle === "bold") p.poly(([[42, 11.2], [44.5, 15], [38, 16.8], [30, 16.4], [24.5, 21], [24.8, 14.6], [32, 11.4]] as [number, number][]).map(([x, y]) => [hx + x * u, hy + y * u] as P2), moustache, 1.3 * u);
+  else if (moustache) taper(p, [hx + 41 * u, hy + 13.5 * u], [hx + 25 * u, hy + (stout ? 11.5 : 16) * u], stout ? 5.5 * u : 4.5 * u, 1.6 * u, moustache);
   if (expr === "nervous") p.ell(hx - 30 * u, hy - 24 * u, 3 * u, 5 * u, "#9fd4ff", 2 * u);
 };
 
@@ -840,9 +847,9 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
     if(rear<1){p.g.save();p.g.globalAlpha*=1-rear;p.surface='hair-front';hatOn(p,o,hp,H,300,hc,light,seed,facing,false);p.g.restore();}
   }else hatOn(p, o, hp, H, 300, hc, light, seed, facing, false);
   p.g.restore();
-  const brim = !!o.hat && o.hat !== "hair" && o.hat !== "bonnet" && o.hat !== "cap";
+  const brim = !!o.hat && o.hat !== "hair" && o.hat !== "bonnet" && o.hat !== "cap" && o.hat !== "headband";
   p.surface='feature';
-  if(!(opts.faceBack??opts.back))faceFront(p, 300, hc, W, expr, facing, look, lid, brim, skin, o.moustache, o.build === "stout",o.beard);
+  if(!(opts.faceBack??opts.back))faceFront(p, 300, hc, W, expr, facing, look, lid, brim, skin, o.moustache, o.build === "stout",o.beard,o.moustacheStyle);
   p.surface='body';
   p.rot = null;
 };
@@ -972,8 +979,8 @@ export const bodySide = (p: Pen, o: Outfit, opts: SideOpts) => {
   p.shadedFill(hp, skin, mul(skin, SH_SKIN), light, H.a);
   p.inkRing(hp, ow, thick);
   p.surface='hair-front';hatOn(p, o, hp, H, hx, hc, light, seed, 1, true);p.surface='feature';
-  const brim = !!o.hat && o.hat !== "hair" && o.hat !== "bonnet" && o.hat !== "cap";
-  faceSide(p, hx, hc, W, expr, lid, brim, skin, o.moustache, o.build === "stout");
+  const brim = !!o.hat && o.hat !== "hair" && o.hat !== "bonnet" && o.hat !== "cap" && o.hat !== "headband";
+  faceSide(p, hx, hc, W, expr, lid, brim, skin, o.moustache, o.build === "stout", o.moustacheStyle);
   p.surface='body';
   p.rot = null;
 };
