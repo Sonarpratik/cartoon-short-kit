@@ -6,7 +6,7 @@ All reference images and videos here are **private study material**. Never deliv
 
 | File | Use it for |
 |---|---|
-| [character-design.md](character-design.md) | Designing a distinct cast: wardrobe options, distinctness test, no-backs rule, micro-motion |
+| [character-design.md](character-design.md) | Designing a distinct cast: wardrobe options, distinctness test, no-backs rule, micro-motion, expression-change reaction (jaw squash/woggle, §6) |
 | [scene-design.md](scene-design.md) | World concept, location list, set density, ambient life, lighting by story beat |
 | [camera-guide.md](camera-guide.md) | Camera grammar: which move for which beat, speeds, easing, cuts vs travel |
 | [lighting-guide.md](lighting-guide.md) | Light sources per location, face/hair/clothing highlights, window light |
@@ -27,7 +27,7 @@ When two documents disagree, SKILL.md wins, then this order: character-design, s
 | `lighting/` | Face-light studies | Face rim/pearl highlight placement |
 | `user-supplied/pirate-cannonballs/` | User's reference video and extracted frames | Curved travel, high-to-low reveals, foreground parallax |
 | `user-supplied/japan-gambling-window/` + `lighting/*night*`, `lighting/*window*`, `lighting/warm-fluorescent-hall-haze.jpg`, `props/` | User's night-city reference: indigo ambient, one warm hero source with bloom, neon signs, wet reflections, dense wall/shelf props | **Lighting and prop-density target for night, alley and shop scenes.** See lighting-guide.md (Night city) and scene-design.md (Set density). |
-| `user-supplied/second-draw/` + `characters/second-draw-*.jpg`, `lighting/second-draw-saloon-lamp-interior.jpg` | User's character + filming reference: warm skin, thick ink, costume detail, portrait-mode DOF, rack focus | **Target for character drawing and highlight shots.** See character-design.md §5. |
+| `user-supplied/second-draw/` + `characters/second-draw-*.jpg`, `lighting/second-draw-saloon-lamp-interior.jpg` | User's character + filming reference: warm skin, Studio-weight ink (not thicker), costume detail, portrait-mode DOF, rack focus | **Target for character drawing and highlight shots.** See character-design.md §5. |
 | `style-examples/` | **Our own** rendered examples (face, hair gloss, clothing rim, karaoke) | Rendering details only. The background example is one office room: do not reuse its layout, palette or shelf for every story. |
 | `scenes/flying-dutchman-v4/PLAN.md` | A complete per-scene plan | Format example for `work/PLAN.md`. Its S03 "travel behind shoulder" predates the no-backs rule; do not copy that move. |
 

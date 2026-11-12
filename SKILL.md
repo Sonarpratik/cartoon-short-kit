@@ -94,6 +94,7 @@ Infer props from the narration; ask only about ambiguous story-critical details.
 - Get word timestamps from a transcription tool, or align the script to measured pauses and verify. No timing.py is bundled. Set FPS and TOTAL from the narration; update picture and audio timelines together.
 - Split the story into scene modules (e.g. `scenes/S01.ts`) wired into the story/world/cast dispatchers, so corrections stay isolated. Scene-local overrides must actually be consumed by the renderer.
 - Use frame numbers and seeded randomness for all animation. Drive `expression`, `fromExpression` and `expressionAge` from the timeline, 0–3 frames before the word.
+- **Expression-change reaction (jaw woggle).** Every expression change plays the Second Draw beat automatically from the shared rig (`reactionBlink` + `reactionSquash` in `character-rig.ts`): 2-frame eye squeeze, 2–3-frame head squash with the jaw spreading wide, a slight tall overshoot, then a ~4-frame settle (done by 0.6 s). Always pass `fromExpression` and `expressionAge` so it fires; change expressions on story beats, not every few frames. Check it with a 16-frame strip around one change before generating. See character-design.md §6.
 - Do not claim caching or resume unless implemented and verified in that project.
 
 ## 4. Review frames, then stop
