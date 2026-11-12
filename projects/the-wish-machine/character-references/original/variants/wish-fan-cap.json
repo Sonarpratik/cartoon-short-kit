@@ -1,0 +1,21 @@
+{
+  "id": "wish-fan-cap",
+  "name": "Fan · striped cap",
+  "project": "the-wish-machine",
+  "identity": "wish-fan-cap",
+  "seed": 3,
+  "jacket": "#e2564b",
+  "pants": "#3a4c6b",
+  "boots": "#f1ede4",
+  "hair": "#2a211d",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "cap",
+    "cap": "#2f8f8a",
+    "top": "shirt",
+    "pattern": "hstripes",
+    "patternColor": "#f4efe0"
+  }
+}

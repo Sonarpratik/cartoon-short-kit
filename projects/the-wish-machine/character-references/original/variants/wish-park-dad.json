@@ -1,0 +1,20 @@
+{
+  "id": "wish-park-dad",
+  "name": "Park dad",
+  "project": "the-wish-machine",
+  "identity": "wish-park-dad",
+  "seed": 5,
+  "jacket": "#3d7cc0",
+  "pants": "#3b3f52",
+  "boots": "#5a3b2a",
+  "hair": "#2a211d",
+  "hairStyle": "spiky",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "shirt",
+    "pattern": "plaid",
+    "patternColor": "#9cc3e6",
+    "collar": "shirt"
+  }
+}

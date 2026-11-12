@@ -70,4 +70,21 @@ Scene work still needs acting on top of this:
 
 ## 4. Face and rendering style (unchanged preferences)
 
-Off-white faces (#faf9f5), small round pupils under thin lidded eye curves, rounded brows, compact curved mouths. Tapered glossy reflection on hair and headwear; narrow contour-following rim on clothing; key-side pearl light inside the head contour. See [lighting-guide.md](lighting-guide.md) and [character-motion.md](character-motion.md).
+Off-white faces (#faf9f5), small round pupils under thin lidded eye curves, rounded brows, compact curved mouths.
+
+**Smiles (user correction, `user-supplied/face-style/smile-reference.png`):** a smile keeps the eyes **open under relaxed, heavy lids** with the pupils free to glance sideways, soft lowered brows and a small, slightly lopsided closed smile — a calm, knowing look. Do not use squeezed `^ ^` arc eyes for `smile`, `smile_closed` or `grin`; keep closed arcs only for `relief` and squeezed eyes for `laugh`. The shared table in `templates/bridge/toon.ts` (FACE) implements this. Tapered glossy reflection on hair and headwear; narrow contour-following rim on clothing; key-side pearl light inside the head contour. See [lighting-guide.md](lighting-guide.md) and [character-motion.md](character-motion.md).
+
+
+## 5. "Second Draw" reference (user-supplied, `user-supplied/second-draw/`, `characters/second-draw-*.jpg`)
+
+The user wants characters and filming close to this reference. Study the drawing and staging rules only; never copy its characters, story, text or shots.
+
+| Trait | Reference | Our implementation |
+|---|---|---|
+| Skin | Warm cream-peach (≈ #f9e7c9) with a warm orange shadow edge, not white | `DIRECTOR.character.faceBase '#f9e7c9'`, `faceShadow '#e9b98c'`, design `skin` = same |
+| Ink | Thick, even black outline on head and body (head outline as heavy as the body's) | `STYLE.character.outline ≈ 5.6`, `outlineTaper ≈ .72`, `headOutlineScale 1.0`, `headOutlineTaper .95` |
+| Faces | Thick brows, bold moustaches, big white round eyes on surprise, sweat drops, dirt smudges, mouth props (straw, toothpick) | Expressions + sweat-drop overlay on nervous/shock/pained |
+| Costume | Stitched vests over coloured shirts, big round belt buckles, holsters with stitching, buttons, fringe | Use WARDROBE garments/patterns + story-specific overlays; every main character gets 2–3 small costume details |
+| Body | Bean torso, thin black stick limbs, round dot hands, long legs | Shared rig (unchanged) |
+| Filming | Portrait-mode depth of field on every highlight (subject sharp, background melted), low hero angles, big close-ups, rack focus between two subjects | `portrait([...])` beats per scene with `rack(A,B,frame)`; lens maxCoC ≥ 30 |
+| Sets | Fully built 3D streets with plank facades, signage, porches, poles and wires, mesas; moody lamp-lit interiors with tabletop clutter | scene-design.md set density + lighting-guide.md |

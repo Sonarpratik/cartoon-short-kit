@@ -248,7 +248,8 @@ type MouthK = "dash" | "frown" | "smirk" | "smile" | "smileWide" | "grin" | "lau
 const FACE: Record<Expr, { eye: [EyeK, EyeK]; brow: [number, number]; mouth: MouthK }> = {
   neutral: { eye: ["lid", "lid"], brow: [0, -1], mouth: "dash" },
   stern: { eye: ["lid", "lid"], brow: [3, -2], mouth: "frown" },
-  grin: { eye: ["happy", "happy"], brow: [-3, -3], mouth: "grin" },
+  // Smiles keep the eyes open under relaxed heavy lids, pupils free to glance (user face reference: references/user-supplied/face-style/smile-reference.png).
+  grin: { eye: ["lid", "lid"], brow: [-2, -2], mouth: "grin" },
   laugh: { eye: ["squeeze", "squeeze"], brow: [-4, -4], mouth: "laugh" },
   whistle: { eye: ["dash", "dash"], brow: [-2, -4], mouth: "o" },
   nervous: { eye: ["small", "small"], brow: [-3, 2], mouth: "wave" },
@@ -257,8 +258,8 @@ const FACE: Record<Expr, { eye: [EyeK, EyeK]; brow: [number, number]; mouth: Mou
   relief_open: { eye: ["happy", "happy"], brow: [-2, 1], mouth: "grin" },
   dazed: { eye: ["spiral", "spiral"], brow: [-3, 2], mouth: "wave" },
   pained: { eye: ["squeeze", "lid"], brow: [-3, 2], mouth: "teeth" },
-  smile: { eye: ["dot", "dot"], brow: [0, -1], mouth: "smirk" },
-  smile_closed: { eye: ["happy", "happy"], brow: [0, -1], mouth: "smile" },
+  smile: { eye: ["lid", "lid"], brow: [-1, -1], mouth: "smirk" },
+  smile_closed: { eye: ["lid", "lid"], brow: [-1, -2], mouth: "smile" },
   lick: { eye: ["dot", "dot"], brow: [0, -1], mouth: "lick" },
 };
 const halfLid = (k: EyeK): EyeK => (k === "dot" || k === "small" ? "lid" : k === "lid" ? "slit" : k === "shock" ? "shockHalf" : k);
@@ -510,6 +511,8 @@ export type FrontOpts = {
   back?: boolean;
   phase?: number; expr?: Expr; mode?: "march" | "stroll" | "stand" | "sit" | "fall"; look?: number; blink?: boolean | number; lift?: number;
   prop?: Prop; tilt?: number; headTilt?: number; wave?: number;
+  /** optional right-hand target in design space (600x1000): the arm reaches to it, e.g. to press a button or hold a cane */
+  hand?: P2;
   /** canvas angle the key light comes FROM (painted crescent + thick outline side) */
   light?: number; facing?: -1 | 0 | 1; seed?: number;
 };
@@ -617,7 +620,7 @@ export function upperBodyRotations(phase:number,mode:string,tilt:number,headTilt
 }
 
 export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
-  const { phase = 0, expr = "neutral", mode = "march", look = 0, blink = false, lift = 60, prop = null, tilt = 0, headTilt = 0, wave,
+  const { phase = 0, expr = "neutral", mode = "march", look = 0, blink = false, lift = 60, prop = null, tilt = 0, headTilt = 0, wave, hand,
     light = DEF_LIGHT, facing = 0, seed = 1 } = opts;
   const Bd = BUILD[o.build ?? "adult"], skin = o.skin ?? SKIN, two = Math.PI * 2, lid = lidOf(blink);
   const H = headBlob(seed, Bd.a, facing), W = 2 * H.a, HH = 2 * H.b, u = W / 100;
@@ -693,6 +696,9 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
     if (rifle) {
       const G = lerp2(R0, R1, 0.1);
       arms.push({ pts: [sh(1), [tcx + 1.12 * T.a + 5 * u, sh(1)[1] + 0.45 * HH], G], front: false });
+    } else if (hand) {
+      const S = sh(1);
+      arms.push({ pts: [S, [Math.max(S[0] + 14, hand[0] + 24), (S[1] + hand[1]) / 2 + 35], hand], front: true });
     } else if (wave !== undefined) {
       const S = sh(1);
       arms.push({ pts: [S, [tcx + 1.1 * T.a + 10 * u + 3 * u * wave, S[1] - 0.22 * HH], [tcx + 1.18 * T.a + 16 * u + 12 * u * wave, S[1] - 0.6 * HH]], front: false });

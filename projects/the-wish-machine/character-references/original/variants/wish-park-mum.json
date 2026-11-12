@@ -1,0 +1,21 @@
+{
+  "id": "wish-park-mum",
+  "name": "Park mum",
+  "project": "the-wish-machine",
+  "identity": "wish-park-mum",
+  "seed": 12,
+  "jacket": "#e07a9a",
+  "pants": "#4a4058",
+  "boots": "#5a3b2a",
+  "hair": "#a5512f",
+  "hairStyle": "ponytail",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "sweater",
+    "collar": "turtleneck"
+  },
+  "accessories": [
+    "blush"
+  ]
+}

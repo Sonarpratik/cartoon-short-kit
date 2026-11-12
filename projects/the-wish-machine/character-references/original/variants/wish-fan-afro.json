@@ -1,0 +1,22 @@
+{
+  "id": "wish-fan-afro",
+  "name": "Fan · gold vest",
+  "project": "the-wish-machine",
+  "identity": "wish-fan-afro",
+  "seed": 14,
+  "jacket": "#e8b93c",
+  "pants": "#3d3f48",
+  "boots": "#2a2830",
+  "hair": "#2a211d",
+  "hairStyle": "afro",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "vest",
+    "shirt": "#eeeadf",
+    "collar": "shirt"
+  },
+  "accessories": [
+    "sunglasses"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "wish-sam-old",
+  "name": "Sam · 78, alone",
+  "project": "the-wish-machine",
+  "identity": "wish-sam",
+  "seed": 7,
+  "jacket": "#8a5f45",
+  "pants": "#585454",
+  "boots": "#3a2f2c",
+  "hair": "#e2dfd8",
+  "hairStyle": "receding",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "sweater",
+    "pattern": "knit",
+    "patternColor": "#c9a77c",
+    "collar": "shirt",
+    "shirt": "#eeeadf",
+    "beard": "#e4e1db"
+  },
+  "accessories": [
+    "glasses"
+  ]
+}

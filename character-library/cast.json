@@ -432,6 +432,249 @@
         "moustache": "#3b2c31"
       },
       "facing": 1
+    },
+    {
+      "id": "wish-sam-young",
+      "name": "Sam · 25, broke",
+      "project": "the-wish-machine",
+      "identity": "wish-sam",
+      "seed": 7,
+      "jacket": "#d29a3a",
+      "pants": "#566069",
+      "boots": "#3a2f2c",
+      "hair": "#5b3a26",
+      "hairStyle": "curly",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "hoodie",
+        "pocket": true,
+        "sleeves": "#b9822c"
+      }
+    },
+    {
+      "id": "wish-sam-rich",
+      "name": "Sam · 30, rich",
+      "project": "the-wish-machine",
+      "identity": "wish-sam",
+      "seed": 7,
+      "jacket": "#2f3f63",
+      "pants": "#2b3448",
+      "boots": "#1f1c22",
+      "hair": "#5b3a26",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "jacket",
+        "shirt": "#eeeadf",
+        "collar": "shirt",
+        "tie": "#c8423b",
+        "pocket": true,
+        "buttonCount": 2
+      }
+    },
+    {
+      "id": "wish-sam-famous",
+      "name": "Sam · 50, famous",
+      "project": "the-wish-machine",
+      "identity": "wish-sam",
+      "seed": 7,
+      "jacket": "#7b2f4a",
+      "pants": "#2e2d35",
+      "boots": "#1f1c22",
+      "hair": "#8d8780",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "coat",
+        "shirt": "#1f1c22",
+        "collar": "vneck",
+        "scarf": "#e8b93c",
+        "moustache": "#7a736b"
+      },
+      "accessories": [
+        "sunglasses"
+      ]
+    },
+    {
+      "id": "wish-sam-old",
+      "name": "Sam · 78, alone",
+      "project": "the-wish-machine",
+      "identity": "wish-sam",
+      "seed": 7,
+      "jacket": "#8a5f45",
+      "pants": "#585454",
+      "boots": "#3a2f2c",
+      "hair": "#e2dfd8",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "sweater",
+        "pattern": "knit",
+        "patternColor": "#c9a77c",
+        "collar": "shirt",
+        "shirt": "#eeeadf",
+        "beard": "#e4e1db"
+      },
+      "accessories": [
+        "glasses"
+      ]
+    },
+    {
+      "id": "wish-fan-cap",
+      "name": "Fan · striped cap",
+      "project": "the-wish-machine",
+      "identity": "wish-fan-cap",
+      "seed": 3,
+      "jacket": "#e2564b",
+      "pants": "#3a4c6b",
+      "boots": "#f1ede4",
+      "hair": "#2a211d",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#2f8f8a",
+        "top": "shirt",
+        "pattern": "hstripes",
+        "patternColor": "#f4efe0"
+      }
+    },
+    {
+      "id": "wish-fan-bob",
+      "name": "Fan · purple hoodie",
+      "project": "the-wish-machine",
+      "identity": "wish-fan-bob",
+      "seed": 11,
+      "jacket": "#7b5ac9",
+      "pants": "#36394d",
+      "boots": "#4a3326",
+      "hair": "#2c2321",
+      "hairStyle": "bob",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "hoodie"
+      },
+      "accessories": [
+        "blush"
+      ]
+    },
+    {
+      "id": "wish-fan-afro",
+      "name": "Fan · gold vest",
+      "project": "the-wish-machine",
+      "identity": "wish-fan-afro",
+      "seed": 14,
+      "jacket": "#e8b93c",
+      "pants": "#3d3f48",
+      "boots": "#2a2830",
+      "hair": "#2a211d",
+      "hairStyle": "afro",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "vest",
+        "shirt": "#eeeadf",
+        "collar": "shirt"
+      },
+      "accessories": [
+        "sunglasses"
+      ]
+    },
+    {
+      "id": "wish-fan-beanie",
+      "name": "Fan · red beanie",
+      "project": "the-wish-machine",
+      "identity": "wish-fan-beanie",
+      "seed": 21,
+      "jacket": "#3d7cc0",
+      "pants": "#2b3448",
+      "boots": "#5a3b2a",
+      "hair": "#d9b45a",
+      "hairStyle": "long",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "beanie",
+        "cap": "#c8423b",
+        "hatAccent": "#f4efe0",
+        "top": "sweater",
+        "pattern": "stripes",
+        "patternColor": "#9cc3e6"
+      },
+      "accessories": [
+        "freckles"
+      ]
+    },
+    {
+      "id": "wish-park-dad",
+      "name": "Park dad",
+      "project": "the-wish-machine",
+      "identity": "wish-park-dad",
+      "seed": 5,
+      "jacket": "#3d7cc0",
+      "pants": "#3b3f52",
+      "boots": "#5a3b2a",
+      "hair": "#2a211d",
+      "hairStyle": "spiky",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "shirt",
+        "pattern": "plaid",
+        "patternColor": "#9cc3e6",
+        "collar": "shirt"
+      }
+    },
+    {
+      "id": "wish-park-mum",
+      "name": "Park mum",
+      "project": "the-wish-machine",
+      "identity": "wish-park-mum",
+      "seed": 12,
+      "jacket": "#e07a9a",
+      "pants": "#4a4058",
+      "boots": "#5a3b2a",
+      "hair": "#a5512f",
+      "hairStyle": "ponytail",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "sweater",
+        "collar": "turtleneck"
+      },
+      "accessories": [
+        "blush"
+      ]
+    },
+    {
+      "id": "wish-park-kid",
+      "name": "Park kid",
+      "project": "the-wish-machine",
+      "identity": "wish-park-kid",
+      "seed": 9,
+      "jacket": "#3b5b9a",
+      "pants": "#3b5b9a",
+      "boots": "#f4f1ea",
+      "hair": "#5b3a26",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "build": "kid",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#e2453c",
+        "top": "overalls",
+        "shirt": "#f2c94c"
+      },
+      "accessories": [
+        "freckles"
+      ]
     }
   ]
 }

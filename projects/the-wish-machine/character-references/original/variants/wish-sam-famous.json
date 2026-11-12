@@ -1,0 +1,24 @@
+{
+  "id": "wish-sam-famous",
+  "name": "Sam · 50, famous",
+  "project": "the-wish-machine",
+  "identity": "wish-sam",
+  "seed": 7,
+  "jacket": "#7b2f4a",
+  "pants": "#2e2d35",
+  "boots": "#1f1c22",
+  "hair": "#8d8780",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "coat",
+    "shirt": "#1f1c22",
+    "collar": "vneck",
+    "scarf": "#e8b93c",
+    "moustache": "#7a736b"
+  },
+  "accessories": [
+    "sunglasses"
+  ]
+}

@@ -24,6 +24,7 @@ Keep the action area clear, and fill everything around it. These rules replace t
 
 - Every location needs its own furniture and dressing. Never reuse the same shelf, desk or wall layout across locations.
 - Props must belong to the story: if the narration says "47 scratches", show a close-up with the scratches and a counter.
+- Small-detail density (user reference `props/alley-wall-clutter.jpg`, `props/stocked-prize-counter.jpg`, `props/repeated-rows-perspective.jpg`, `props/glossy-stools-machines.jpg`): walls carry life — AC units on brackets, vents, barred windows, overhead cables, pipes, address plates, licence frames, mailboxes, hooks and chains, a parked bicycle, stacked crates with bottles, potted plants, an animal. Shops show shelves packed with colourful labelled goods (each label readable), glossy materials with a clear specular highlight, patterned carpets/floors, and signage. Study density and arrangement only; design our own objects.
 - Use `createProp` and `templates/interior/` as building blocks, then write new story-specific geometry for the set-piece. Do not reuse the bridge or office set because it exists.
 
 ## 3. Ambient life (required in every shot)

@@ -1,0 +1,19 @@
+{
+  "id": "wish-sam-young",
+  "name": "Sam · 25, broke",
+  "project": "the-wish-machine",
+  "identity": "wish-sam",
+  "seed": 7,
+  "jacket": "#d29a3a",
+  "pants": "#566069",
+  "boots": "#3a2f2c",
+  "hair": "#5b3a26",
+  "hairStyle": "curly",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "hoodie",
+    "pocket": true,
+    "sleeves": "#b9822c"
+  }
+}

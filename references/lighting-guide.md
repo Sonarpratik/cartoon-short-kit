@@ -75,3 +75,22 @@ Reusable detailed interior construction and furniture live in templates/interior
 The user prefers visible window shafts and practical bulbs with matching light on walls and floors, as in their private window-beam reference. Glowing fixture geometry alone is insufficient: place a real shadow-casting light below the fixture, and aim window light through the actual opening. Preserve darker unlit areas so shadows from furniture, window frames and workers remain visible. Keep beams in world space and stop them at receiving geometry. Check the wall and floor at the final shot angle.
 
 For two-tone shaders that replace Lambert lighting, explicitly retain practical-light irradiance and its shadow visibility in an opt-in material wrapper; adding a Three.js spotlight alone may have no visible effect. Keep shared materials isolated between scenes. Emergency lighting must turn the room red at the alarm cue, with readable faces and indicators, while exterior walls retain their outdoor lighting.
+
+## Night city, neon and one warm source (user reference: "The Window That Breaks Japan's Gambling Law")
+
+Private study frames: `lighting/alley-night-indigo-ambient.jpg`, `lighting/alley-single-warm-window-glow.jpg`, `lighting/alley-window-rim-light-closeup.jpg`, `lighting/neon-night-street-wet-reflections.jpg`, `lighting/warm-fluorescent-hall-haze.jpg` (source video and all 30 frames: `user-supplied/japan-gambling-window/`). Study light and material only, never characters, story, signage text or shots.
+
+What makes these frames work, and how to build it with our shared tools:
+
+| Trait | In the reference | How we build it |
+|---|---|---|
+| Ambient | Deep indigo / violet everywhere (walls, ground, sky); never grey | Night palette: lit ≈ [.55,.6,.95], shade ≈ [.2,.2,.42], blue key at low intensity, violet fog |
+| One hero source | A single warm window/booth is the brightest thing; it blooms with a soft halo and spills a warm pool on wall and ground | Emissive opening + PointLight + additive halo sprite + a warm floor pool decal; keep everything else at least 2 stops darker |
+| Rim light | Characters near the source get a warm rim on the hair/head edge facing it | Put the PointLight slightly behind/beside the actor; face rim colour follows the source |
+| Neon | Vertical magenta / cyan signs with arrows, slightly overexposed, each lighting the wall under it | Emissive sign panels (colour values > 1 for bloom) + small coloured PointLight per sign |
+| Wet ground | Long, vertical coloured streaks under every light (signs, windows, lamps) | Additive vertical gradient strips on the ground below each source + ripple rings; drizzle streaks |
+| Depth | Strong DOF; blurred foreground objects (plants, bottles, cat, railings) frame the shot | Place 1–2 foreground props between camera and actor; lens blur ≥ 2.5 for close shots |
+| Windows | Mix of warm amber and cool blue-white lit windows on dark facades; some dark | Glow planes over facade windows, ~50% lit, a few flicker |
+| Interiors | Overexposed warm fluorescent strips, haze into depth, long repeated rows | Emissive ceiling strips, fog/haze sprites at the far end, repeat props along a vanishing line |
+
+Bloom is part of the look: night scenes use stronger bloom (intensity ≈ .35–.5, threshold ≈ .9) than day scenes.

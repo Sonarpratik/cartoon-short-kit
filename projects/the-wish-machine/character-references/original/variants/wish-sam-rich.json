@@ -1,0 +1,22 @@
+{
+  "id": "wish-sam-rich",
+  "name": "Sam · 30, rich",
+  "project": "the-wish-machine",
+  "identity": "wish-sam",
+  "seed": 7,
+  "jacket": "#2f3f63",
+  "pants": "#2b3448",
+  "boots": "#1f1c22",
+  "hair": "#5b3a26",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "jacket",
+    "shirt": "#eeeadf",
+    "collar": "shirt",
+    "tie": "#c8423b",
+    "pocket": true,
+    "buttonCount": 2
+  }
+}

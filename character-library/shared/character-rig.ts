@@ -7,7 +7,9 @@ import {angleDesign,type AngleDesign} from './angle-designs.js';
 export type Accessory='glasses'|'sunglasses'|'eyepatch'|'freckles'|'blush';
 export const ACCESSORIES:Accessory[]=['glasses','sunglasses','eyepatch','freckles','blush'];
 export type CharacterDesign={id:string;name:string;project:string;identity:string;seed:number;jacket:string;pants:string;boots:string;hair:string;hairStyle:string;coat:boolean;skin:string;build?:string;outfit?:Outfit;accessory?:'researcher'|'archivist'|'official'|'investigator';accessories?:Accessory[];facing?:-1|0|1;light?:number};
-export type RigPose={yaw?:number;pitch?:number;time?:number;action?:string;expression?:string;micro?:boolean;fromExpression?:string;expressionAge?:number;light?:number};
+export type RigPose={yaw?:number;pitch?:number;time?:number;action?:string;expression?:string;micro?:boolean;fromExpression?:string;expressionAge?:number;light?:number;
+ /** Right-hand target in design space (600x1000). Overrides the action's right arm; scenes project world contact points onto the card. */
+ hand?:[number,number]};
 export const VIEWS=Array.from({length:12},(_,i)=>i*30);
 export const ACTIONS=['idle','walk','run','sit','bend','reach','hammer','drill','wave','talk'];
 export const EXPRESSIONS=['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick'];
@@ -157,7 +159,7 @@ export function drawCharacter(g:CanvasRenderingContext2D,d:CharacterDesign,o:Rig
   }
  };
  drawHair('back');
- bodyFront(pen,outfit,{seed:d.seed,expr,blink,mode:action==='sit'?'sit':walking?'stroll':'stand',hideLegs:walking,hipHeight:gait?.hipY,walkYaw:walking?yaw:undefined,frontDetail:view.body.front,phase,light,look:facing+(micro?gazeShift(t,d.seed):0),facing,back:view.body.front<.025,faceBack:Math.cos(turn)<-.25,headTilt,tilt:sway,wave:['wave','reach'].includes(action)?.5+.5*Math.sin(t*(action==='wave'?5:1)):undefined,prop:action==='hammer'?['hammer',.5+.5*Math.sin(t*18)]:action==='drill'?['drill',.8+.02*Math.sin(t*45)]:null});
+ bodyFront(pen,outfit,{seed:d.seed,expr,blink,mode:action==='sit'?'sit':walking?'stroll':'stand',hideLegs:walking,hipHeight:gait?.hipY,walkYaw:walking?yaw:undefined,frontDetail:view.body.front,phase,light,look:facing+(micro?gazeShift(t,d.seed):0),facing,back:view.body.front<.025,faceBack:Math.cos(turn)<-.25,headTilt,tilt:sway,wave:['wave','reach'].includes(action)?.5+.5*Math.sin(t*(action==='wave'?5:1)):undefined,hand:o.hand,prop:action==='hammer'?['hammer',.5+.5*Math.sin(t*18)]:action==='drill'?['drill',.8+.02*Math.sin(t*45)]:null});
  drawHair('front');
  pen.rot=attachments.body;
  if(view.body.seam>.05){g.save();g.globalAlpha*=view.body.seam*.65;pen.stroke([[300,chin+HH*.14],[300,hip-HH*.05]],1.8,mix(d.jacket,'#241726',.45));if(d.coat)pen.stroke([[300,hip-HH*.05],[300,hip+HH*.34]],1.8,'#83969e');g.restore();}

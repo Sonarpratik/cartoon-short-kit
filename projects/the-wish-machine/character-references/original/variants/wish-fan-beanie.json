@@ -1,0 +1,25 @@
+{
+  "id": "wish-fan-beanie",
+  "name": "Fan · red beanie",
+  "project": "the-wish-machine",
+  "identity": "wish-fan-beanie",
+  "seed": 21,
+  "jacket": "#3d7cc0",
+  "pants": "#2b3448",
+  "boots": "#5a3b2a",
+  "hair": "#d9b45a",
+  "hairStyle": "long",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "beanie",
+    "cap": "#c8423b",
+    "hatAccent": "#f4efe0",
+    "top": "sweater",
+    "pattern": "stripes",
+    "patternColor": "#9cc3e6"
+  },
+  "accessories": [
+    "freckles"
+  ]
+}

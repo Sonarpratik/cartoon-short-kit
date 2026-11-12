@@ -1,0 +1,24 @@
+{
+  "id": "wish-park-kid",
+  "name": "Park kid",
+  "project": "the-wish-machine",
+  "identity": "wish-park-kid",
+  "seed": 9,
+  "jacket": "#3b5b9a",
+  "pants": "#3b5b9a",
+  "boots": "#f4f1ea",
+  "hair": "#5b3a26",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "build": "kid",
+  "outfit": {
+    "hat": "cap",
+    "cap": "#e2453c",
+    "top": "overalls",
+    "shirt": "#f2c94c"
+  },
+  "accessories": [
+    "freckles"
+  ]
+}
