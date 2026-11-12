@@ -88,3 +88,12 @@ The user wants characters and filming close to this reference. Study the drawing
 | Body | Bean torso, thin black stick limbs, round dot hands, long legs | Shared rig (unchanged) |
 | Filming | Portrait-mode depth of field on every highlight (subject sharp, background melted), low hero angles, big close-ups, rack focus between two subjects | `portrait([...])` beats per scene with `rack(A,B,frame)`; lens maxCoC ≥ 30 |
 | Sets | Fully built 3D streets with plank facades, signage, porches, poles and wires, mesas; moody lamp-lit interiors with tabletop clutter | scene-design.md set density + lighting-guide.md |
+
+## 6. Expression-change reaction (Second Draw timing, built into the shared rig)
+Studied frame by frame at 30 fps in `user-supplied/second-draw/` (43.3 s top-hat close-up, 47.6 s green-visor close-up).
+Every expression change plays the same ~10-frame beat:
+1. **Anticipation, 2 frames:** eyes squeeze shut (`reactionBlink`).
+2. **Squash, 2-3 frames:** the whole head flattens wide and short, the lower head/jaw spreads most, anchored at the chin (`reactionSquash`, +11 % for big reactions such as shock / laugh / grin / nervous, +7 % otherwise).
+3. **Overshoot:** the head stretches slightly tall as the new face pops in.
+4. **Settle, about 4 frames:** a damped wobble back to rest, finished by 0.6 s.
+Scenes get this automatically by passing `expression`, `fromExpression` and `expressionAge` to `drawCharacter`. Change expressions on story beats, not every few frames, or the head will wobble constantly.

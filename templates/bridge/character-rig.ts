@@ -23,6 +23,16 @@ export function reactionJaw(expression:string,micro:boolean,age?:number,from='ne
  const pulse=3*Math.exp(-7*t)*Math.sin(17*t);
  return target.map((v,i)=>start[i]+(v-start[i])*response+(i===0?pulse:i===1?-pulse*.5:0)) as [number,number,number];
 }
+/** Reference-style reaction squash on an expression change: the head flattens wide (jaw spreads) for ~2-3 frames,
+ * overshoots tall as the new face pops, then settles within ~.4 s. + = squash, - = stretch. */
+const BIG_REACTIONS=new Set(['shock','laugh','grin','nervous','pained','relief_open','dazed']);
+export function reactionSquash(expression:string,micro:boolean,age?:number,from='neutral'):number{
+ if(!micro||age===undefined||age<0||age>=.6||expression===from)return 0;
+ const amp=BIG_REACTIONS.has(expression)||BIG_REACTIONS.has(from)?.11:.07;
+ return amp*Math.min(1,age/.05)*Math.exp(-7.5*age)*Math.cos(15*age);
+}
+/** Anticipation: the eyes squeeze shut for ~2 frames as the expression changes. */
+export function reactionBlink(expression:string,micro:boolean,age?:number,from='neutral'){return micro&&age!==undefined&&age>=0&&age<.075&&expression!==from?1:0;}
 export function relativeView(heading:number,cameraX:number,cameraZ:number,actorX=0,actorZ=0){return ((Math.atan2(cameraX-actorX,cameraZ-actorZ)/rad-heading)%360+360)%360;}
 
 // ---- On-screen view policy: no backs. ----
@@ -79,13 +89,13 @@ export function walkCycle(phase:number,legLength:number,stride=.45,lift=40){
  */
 class TurnPen extends CharacterPen{
  view:AngleDesign=angleDesign('sidepart','hair',0);
- jaw:[number,number,number]=[0,0,0];
+ jaw:[number,number,number]=[0,0,0];squash=0;
  featureCenterX:number|undefined;
  breath=0;
  yaw:number;pitch:number;hc:number;hb:number;ha:number;hip:number;t:number;micro:boolean;bend:boolean;
  constructor(g:CanvasRenderingContext2D,yaw:number,pitch:number,hc:number,hb:number,ha:number,chin:number,hip:number,t:number,micro:boolean,bend:boolean){super(g);this.yaw=yaw;this.pitch=pitch;this.hc=hc;this.hb=hb;this.ha=ha;this.hip=hip;this.t=t;this.micro=micro;this.bend=bend;}
  override P(x:number,y:number):[number,number]{
-  if(!this.yaw&&!this.pitch&&!this.bend&&!this.micro&&this.jaw.every(v=>v===0))return super.P(x,y);
+  if(!this.yaw&&!this.pitch&&!this.bend&&!this.micro&&this.jaw.every(v=>v===0)&&!this.squash)return super.P(x,y);
   let [px,py]=super.P(x,y);const dx=px-300,head=this.surface==='head'||this.surface==='feature'||this.surface==='hair-back'||this.surface==='hair-front',feature=this.surface==='feature',cy=Math.cos(this.yaw),sy=Math.sin(this.yaw),cp=Math.cos(this.pitch),sp=Math.sin(this.pitch);
   const headWidth=Math.hypot(cy,.85*sy),bodyWidth=this.view.body.width;
   let depth=0;
@@ -100,6 +110,7 @@ class TurnPen extends CharacterPen{
   let syy=500+(py-500)*cp+depth*sp;
   if(head&&!feature){const extent=Math.hypot(this.hb*cp,this.ha*.72*sp);syy=500+(this.hc-500)*cp+(py-this.hc)/this.hb*extent;}
   if(this.surface==='head'||feature){const q=Math.max(0,Math.min(1,((py-this.hc)/this.hb-.12)/.88)),weight=q*q*(3-2*q);sx+=(dx/this.ha*this.jaw[0]+this.jaw[2])*weight;syy+=this.jaw[1]*weight*cp;}
+  if(head&&this.squash){const chin=this.hc+this.hb,q=Math.max(0,Math.min(1,(py-(this.hc-this.hb))/(2*this.hb)));sx=300+(sx-300)*(1+this.squash*(.5+.9*q));syy=chin+(syy-chin)*(1-this.squash*.85);}
   if(this.bend&&py<this.hip){const amount=(this.hip-py),b=.65;sx+=amount*Math.sin(b)*sy;syy+=amount*(1-Math.cos(b))*cp;}
   // Keep a leaning body within the reusable model-sheet canvas.
   if(this.bend)sx-=Math.sin(this.yaw)*85;
@@ -126,7 +137,9 @@ export function drawCharacter(g:CanvasRenderingContext2D,d:CharacterDesign,o:Rig
  const expression=EXPRESSIONS.includes(o.expression??'')?o.expression as Expr:'neutral',expr=action==='talk'?(['neutral','relief_open','neutral','smile'] as Expr[])[Math.floor(t*6)%4]:expression;
  const talkExpressions=['neutral','relief_open','neutral','smile'];
  pen.jaw=reactionJaw(expr,micro,action==='talk'?(t*6%1)/6:o.expressionAge,action==='talk'?talkExpressions[(Math.floor(t*6)+3)%4]:o.fromExpression);
- const blink=micro?blinkLid(t,d.seed):0;
+ const reactFrom=action==='talk'?expr:o.fromExpression;
+ pen.squash=reactionSquash(expr,micro,o.expressionAge,reactFrom);
+ const blink=micro?Math.max(blinkLid(t,d.seed),reactionBlink(expr,micro,o.expressionAge,reactFrom)):0;
  if(action==='sit'||action==='bend'){g.translate(300,500);g.scale(.8,.8);g.translate(-300,-500);}
  if(gait){
   const cy=Math.cos(turn),sy=Math.sin(turn),cp=Math.cos(pitch),sp=Math.sin(pitch),project=(p:V3):[number,number]=>[300+p[0]*cy+p[2]*sy,500+(p[1]-500)*cp+(p[2]*cy-p[0]*sy)*sp];
