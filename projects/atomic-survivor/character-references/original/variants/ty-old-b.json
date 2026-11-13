@@ -1,0 +1,24 @@
+{
+  "id": "ty-old-b",
+  "name": "Yamaguchi · age 93 (faded scar)",
+  "project": "atomic-survivor",
+  "identity": "ty-yamaguchi",
+  "seed": 131,
+  "jacket": "#6b6f78",
+  "pants": "#45464e",
+  "boots": "#2a2228",
+  "hair": "#e6e2da",
+  "hairStyle": "receding",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "jacket",
+    "shirt": "#f2efe6",
+    "collar": "shirt",
+    "tie": "#5a6a8a"
+  },
+  "accessories": [
+    "oldburns",
+    "glasses"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "project": "atomic-survivor",
+  "archivedAt": "2026-11-13T16:05:03.175Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/atomic-survivor/characters",
+    "scene": "projects/atomic-survivor/src"
+  },
+  "characters": [
+    "ty-young",
+    "ty-burned-d",
+    "ty-boss-b",
+    "ty-colleague",
+    "ty-aud-student",
+    "ty-aud-woman",
+    "ty-aud-man",
+    "ty-aud-elder",
+    "ty-old-b",
+    "ty-bloody",
+    "ty-burned-blood"
+  ],
+  "files": {
+    "engine/angle-designs.ts": "9531b063f8f4dfa4",
+    "cast.json": "e3d417f741fa34c2",
+    "engine/character-rig.ts": "37be36661e1b9fa6",
+    "engine/director.ts": "6c1aaa915afcfe06",
+    "engine/face-style.ts": "64a8060afa172850",
+    "engine/hair-3d.ts": "bed5b145a0d0d0e1",
+    "engine/style.ts": "575c9860ee450118",
+    "engine/toon.ts": "43961ce7c7da6f77",
+    "scene/characters.ts": "4637e5f765664e29",
+    "scene/engine/cardshade.ts": "0a8d78e4edfb4c12",
+    "scene/engine/ink.ts": "971e25cfae6fd3e5"
+  }
+}

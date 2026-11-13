@@ -1,0 +1,24 @@
+{
+  "id": "ty-boss-b",
+  "name": "Office boss · Nagasaki",
+  "project": "atomic-survivor",
+  "identity": "ty-boss",
+  "seed": 137,
+  "jacket": "#2f4a6b",
+  "pants": "#2a3445",
+  "boots": "#1e1a20",
+  "hair": "#2a2628",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "build": "stout",
+  "outfit": {
+    "top": "jacket",
+    "shirt": "#ece6d6",
+    "collar": "shirt",
+    "tie": "#c8a23c",
+    "moustache": "#2a2628",
+    "moustacheStyle": "bold",
+    "pocket": true
+  }
+}

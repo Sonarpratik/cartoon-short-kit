@@ -4,18 +4,18 @@
 import {bodyFront,upperBodyRotations,headBlob,blobPts,mix,type Outfit,type Expr} from './toon.js';
 import {CharacterPen} from './face-style.js';
 import {angleDesign,type AngleDesign} from './angle-designs.js';
-export type Accessory='glasses'|'sunglasses'|'eyepatch'|'freckles'|'blush';
-export const ACCESSORIES:Accessory[]=['glasses','sunglasses','eyepatch','freckles','blush'];
+export type Accessory='glasses'|'sunglasses'|'eyepatch'|'freckles'|'blush'|'stubble'|'scar'|'burns'|'bandages'|'oldburns'|'blood';
+export const ACCESSORIES:Accessory[]=['glasses','sunglasses','eyepatch','freckles','blush','stubble','scar','burns','bandages','oldburns','blood'];
 export type CharacterDesign={id:string;name:string;project:string;identity:string;seed:number;jacket:string;pants:string;boots:string;hair:string;hairStyle:string;coat:boolean;skin:string;build?:string;outfit?:Outfit;accessory?:'researcher'|'archivist'|'official'|'investigator';accessories?:Accessory[];facing?:-1|0|1;light?:number};
 export type RigPose={yaw?:number;pitch?:number;time?:number;action?:string;expression?:string;micro?:boolean;fromExpression?:string;expressionAge?:number;light?:number;
  /** Right-hand target in design space (600x1000). Overrides the action's right arm; scenes project world contact points onto the card. */
  hand?:[number,number]};
 export const VIEWS=Array.from({length:12},(_,i)=>i*30);
 export const ACTIONS=['idle','walk','run','sit','bend','reach','hammer','drill','wave','talk'];
-export const EXPRESSIONS=['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick'];
+export const EXPRESSIONS=['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick','nervous_grin','terrified'];
 const rad=Math.PI/180;
-const FLOWING=new Set(['long','bob','curls','tail','bun','pom','knot']);
-const JAW:Record<string,[number,number,number]>={neutral:[0,0,0],stern:[1,-1,0],grin:[3,-2,0],laugh:[4,5,.5],whistle:[-2,1,0],nervous:[1,1,1.2],shock:[-4,6,0],relief:[2,0,0],relief_open:[3,3,0],dazed:[1,1,1],pained:[2,-2,-1],smile:[2,-1,0],smile_closed:[2,-1,0],lick:[1,1,.6]};
+const FLOWING=new Set(['long','bob','curls','tail','bun','pom','knot','braid']);
+const JAW:Record<string,[number,number,number]>={neutral:[0,0,0],stern:[1,-1,0],grin:[3,-2,0],laugh:[4,5,.5],whistle:[-2,1,0],nervous:[1,1,1.2],shock:[-4,6,0],relief:[2,0,0],relief_open:[3,3,0],dazed:[1,1,1],pained:[2,-2,-1],smile:[2,-1,0],smile_closed:[2,-1,0],lick:[1,1,.6],nervous_grin:[2,-1,1.2],terrified:[-4,7,.8]};
 /** Timeline-driven lower-jaw response. Settle after a reaction instead of jittering at idle. */
 export function reactionJaw(expression:string,micro:boolean,age?:number,from='neutral'):[number,number,number]{
  const target=JAW[expression]??JAW.neutral;if(!micro||age===undefined||age>=1)return [...target];
@@ -25,7 +25,7 @@ export function reactionJaw(expression:string,micro:boolean,age?:number,from='ne
 }
 /** Reference-style reaction squash on an expression change: the head flattens wide (jaw spreads) for ~2-3 frames,
  * overshoots tall as the new face pops, then settles within ~.4 s. + = squash, - = stretch. */
-const BIG_REACTIONS=new Set(['shock','laugh','grin','nervous','pained','relief_open','dazed']);
+const BIG_REACTIONS=new Set(['shock','laugh','grin','nervous','pained','relief_open','dazed','nervous_grin','terrified']);
 export function reactionSquash(expression:string,micro:boolean,age?:number,from='neutral'):number{
  if(!micro||age===undefined||age<0||age>=.6||expression===from)return 0;
  const amp=BIG_REACTIONS.has(expression)||BIG_REACTIONS.has(from)?.11:.07;
@@ -208,8 +208,8 @@ export function drawCharacter(g:CanvasRenderingContext2D,d:CharacterDesign,o:Rig
   if(d.hairStyle==='spiky'){
    const spikes:[number,number][]=[];for(let i=0;i<30;i++){const a=i/30*Math.PI*2+turn,r=i%2?1.32:1.02;spikes.push([cx+Math.cos(a)*rx*r,centerY+Math.sin(a)*ry*r]);}p.shadedFill(spikes,d.hair,'#779ebd',-2.2,H.a*1.3);p.poly(spikes,null,5);
   }
-  const headwear=!!outfit.hat&&outfit.hat!=='hair',color=headwear?outfit.cap??d.hair:d.hair;
-  if(outfit.hat==='fedora'||outfit.hat==='tricorn'||outfit.hat==='tophat')p.ell(cx,centerY,rx*1.28,ry*1.18,color,5);
+  const headwear=!!outfit.hat&&outfit.hat!=='hair'&&outfit.hat!=='headband',color=headwear?outfit.cap??d.hair:d.hair;
+  if(outfit.hat==='fedora'||outfit.hat==='tricorn'||outfit.hat==='tophat'||outfit.hat==='sheriff')p.ell(cx,centerY,rx*1.28,ry*1.18,color,5);
   p.shadedFill(shape,!headwear&&d.hairStyle==='receding'?d.skin:color,!headwear&&d.hairStyle==='receding'?'#d8d8dc':mix(color,'#241726',.2),light,H.a);p.poly(shape,null,5);
   if(!headwear&&d.hairStyle==='receding')p.clip(shape,()=>{for(const side of [-1,1])p.ell(cx+side*rx*.83,centerY,rx*.19,ry*.77,d.hair,3);});
   if(d.hairStyle!=='receding')p.arc(cx-rx*.06,centerY-ry*.1,rx*.72,ry*.67,205,285,5,'#fff9f3');
@@ -224,6 +224,67 @@ function drawAccessories(g:CanvasRenderingContext2D,pen:TurnPen,d:CharacterDesig
  const visible=Math.max(0,Math.min(1,(Math.cos(turn)+.25)/.25));if(visible<=0)return;
  g.save();g.globalAlpha*=visible;pen.rot=attachments.head;pen.surface='feature';
  const u=2*H.a/100,fx=300+7*u*facing,eye=(side:number)=>fx+side*13*u;
+ if(list.has('stubble')){
+  // Shaved grey beard: dense seeded stipple over jaw and upper lip, no outline or fill patch (stays inside the head contour at every turn).
+  const tone='#8f8a86';let s=d.seed*97+13;const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
+  for(let i=0;i<120;i++){const x=-31+rnd()*62,y=13+rnd()*33,edge=(x/31)**2+((y-26)/22)**2*.55+Math.max(0,(y-38)/9)*(Math.abs(x)/31);
+   if(edge>1||(y<19&&Math.abs(x)>14)||(y>20&&y<28&&Math.abs(x)<15))continue;pen.dot(fx+x*u,hc+y*u,(.55+.35*rnd())*u,tone);}
+ }
+ if(list.has('scar')){
+  // Healed scar on the character's right side: starts at the forehead (just under a hat brim) and cuts down through the brow.
+  const hat=!!(d.outfit?.hat&&d.outfit.hat!=='hair'),top=d.outfit?.hat==='headband'?-.38:hat?-.31:-.5;
+  const a:[number,number]=[fx-.44*H.a,hc+top*H.b],b:[number,number]=[fx-.3*H.a,hc+.02*H.b];
+  pen.stroke([a,b],2.3*u,'#c9787a');pen.stroke([a,b],.8*u,'#eab0ad');
+  for(const k of [.22,.5,.78]){const x=a[0]+(b[0]-a[0])*k,y=a[1]+(b[1]-a[1])*k;pen.stroke([[x-3.6*u,y-1*u],[x+3.6*u,y+1*u]],.75*u,'#7a3b44');}
+ }
+ if(list.has('burns')){
+  // Burns over the character's right half of the face (screen left): raw translucent patch with a ragged edge down the
+  // middle, darker weeping areas, blisters and charred specks. Translucent so the eye and brow ink still read through.
+  let s=d.seed*131+7;const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
+  const inside=(x:number,y:number)=>(x/H.a)**2/.86+(y/H.b)**2/.8<1;
+  const edge:[number,number][]=[];
+  for(let i=0;i<=14;i++){const t=i/14,y=-.5+1.2*t;edge.push([fx+(-.04-.12*rnd()+.06*Math.sin(t*9))*H.a,hc+y*H.b]);}
+  for(let i=0;i<=16;i++){const a=Math.PI*.6+Math.PI*.78*(1-i/16);edge.push([fx+Math.cos(a)*H.a*.9,hc+Math.max(-.5,Math.sin(a)*.86)*H.b]);}
+  pen.poly(edge,'rgba(214,104,92,.62)',0);
+  for(let i=0;i<7;i++){const x=-(.18+rnd()*.6)*H.a,y=(-.4+rnd()*1)*H.b;if(!inside(x,y)||Math.hypot(fx+x-eye(-1),y)<30*u)continue;
+   pen.ell(fx+x,hc+y,(.08+rnd()*.12)*H.a,(.05+rnd()*.1)*H.b,'rgba(158,52,48,.5)',0,0,360,rnd()*180);}
+  for(let i=0;i<14;i++){const x=-(.12+rnd()*.7)*H.a,y=(-.5+rnd()*1.1)*H.b;if(!inside(x,y)||Math.hypot(fx+x-eye(-1),y)<16*u)continue;
+   pen.ell(fx+x,hc+y,(1.6+rnd()*1.6)*u,(1.3+rnd()*1.2)*u,'#f6d2bd',.8);}
+  for(let i=0;i<10;i++){const x=-(.2+rnd()*.65)*H.a,y=(-.4+rnd()*1)*H.b;if(!inside(x,y))continue;pen.dot(fx+x,hc+y,(.6+rnd()*.8)*u,'#4a2a2a');}
+ }
+ if(list.has('oldburns')){
+  // Healed burn decades later: same side as 'burns', paler and smaller, a soft mottled keloid edge, no blisters.
+  let s=d.seed*131+7;const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
+  const edge:[number,number][]=[];
+  for(let i=0;i<=12;i++){const t=i/12,y=-.2+.85*t;edge.push([fx+(-.3-.08*rnd()+.05*Math.sin(t*8))*H.a,hc+y*H.b]);}
+  for(let i=0;i<=12;i++){const a=Math.PI*.62+Math.PI*.5*(1-i/12);edge.push([fx+Math.cos(a)*H.a*.86,hc+Math.max(-.2,Math.sin(a)*.8)*H.b]);}
+  pen.poly(edge,'rgba(210,140,130,.42)',0);
+  for(let i=0;i<5;i++){const x=-(.4+rnd()*.4)*H.a,y=(.05+rnd()*.5)*H.b;pen.ell(fx+x,hc+y,(.06+rnd()*.07)*H.a,(.04+rnd()*.05)*H.b,'rgba(186,112,104,.36)',0,0,360,rnd()*180);}
+  for(let i=0;i<3;i++){const y=hc+(.1+i*.16)*H.b,x=fx-(.5+i*.06)*H.a;pen.stroke([[x-6*u,y],[x+6*u,y+1.5*u]],.7*u,'rgba(150,90,86,.45)');}
+ }
+ if(list.has('blood')){
+  // Fresh wounds (cartoon, not gory): a forehead cut on the burned side with two trickles running down, a nose trickle,
+  // a cheek scrape, and soot smudges on the other side.
+  const red='#a3161c',hi='#d9443a';
+  const trickle=(x0:number,y0:number,len:number,w:number,wob:number)=>{const pts:[number,number][]=[];for(let i=0;i<=6;i++){const t=i/6;pts.push([x0+wob*Math.sin(t*5)*u,y0+len*t]);}
+   pen.stroke(pts,w*u,red);pen.stroke(pts.slice(0,4),w*.35*u,hi);pen.ell(pts[6][0],pts[6][1]+w*.4*u,w*.62*u,w*.85*u,red,0);};
+  const cx=fx-.38*H.a,cy=hc-.5*H.b;
+  pen.stroke([[cx-.16*H.a,cy+.02*H.b],[cx+.14*H.a,cy-.05*H.b]],3.4*u,red);pen.stroke([[cx-.12*H.a,cy],[cx+.1*H.a,cy-.05*H.b]],1.1*u,'#5a0a10');
+  trickle(cx-.08*H.a,cy+.03*H.b,1.0*H.b,3.2,1.6);trickle(cx+.13*H.a,cy-.02*H.b,.55*H.b,2.4,-1.2);
+  trickle(fx-.03*H.a,hc+.16*H.b,.2*H.b,2,.6);
+  for(const k of [0,1,2])pen.stroke([[fx+.3*H.a+k*4*u,hc+.28*H.b+k*5*u],[fx+.52*H.a+k*4*u,hc+.22*H.b+k*5*u]],1.1*u,'rgba(150,40,40,.75)');
+  for(const [dx,dy,r] of [[.5,-.32,.13],[.62,.5,.1],[.24,.62,.08]] as const)pen.ell(fx+dx*H.a,hc+dy*H.b,r*H.a,r*.7*H.b,'rgba(60,48,46,.28)',0);
+ }
+ if(list.has('bandages')){
+  // Medical dressing: diagonal wrap over the crown, a taped gauze pad on the burned cheek.
+  const gauze='#f4efe4',shade='#d8cfbf';
+  const w=.15*H.b,A:[number,number]=[fx+.5*H.a,hc-.98*H.b],B:[number,number]=[fx-.92*H.a,hc-.5*H.b];
+  pen.band([A,B],gauze,w,1.6*u,'butt');for(const k of [.25,.5,.75])pen.stroke([[A[0]+(B[0]-A[0])*k,A[1]+(B[1]-A[1])*k-w*.45],[A[0]+(B[0]-A[0])*k+3*u,A[1]+(B[1]-A[1])*k+w*.45]],.9*u,shade);
+  const cx=fx-.54*H.a,cy=hc+.42*H.b,pw=.15*H.a,ph=.19*H.b,r=-.25,R=(x:number,y:number):[number,number]=>[cx+x*Math.cos(r)-y*Math.sin(r),cy+x*Math.sin(r)+y*Math.cos(r)];
+  pen.poly([R(-pw,-ph),R(pw,-ph),R(pw,ph),R(-pw,ph)],gauze,2.4*u);pen.stroke([R(-pw*.6,-ph*.2),R(pw*.6,-ph*.2)],.8*u,shade);pen.stroke([R(-pw*.6,ph*.3),R(pw*.4,ph*.3)],.8*u,shade);
+  for(const sy of [-1,1])pen.poly([R(-pw*1.3,sy*ph*.62-ph*.13),R(pw*1.3,sy*ph*.62-ph*.13),R(pw*1.3,sy*ph*.62+ph*.13),R(-pw*1.3,sy*ph*.62+ph*.13)],'#e9dcc0',1.2*u);
+  pen.ell(cx+pw*.1,cy+ph*.1,pw*.3,ph*.35,'rgba(190,80,70,.35)',0);
+ }
  if(list.has('blush'))for(const side of [-1,1])pen.ell(fx+side*.5*H.a,hc+.34*H.b,.15*H.a,.07*H.b,'rgba(236,128,128,.38)',0);
  if(list.has('freckles'))for(const side of [-1,1])for(const [dx,dy] of [[.36,.28],[.46,.33],[.41,.4],[.53,.27]])pen.dot(fx+side*dx*H.a,hc+dy*H.b,1.9*u,'#c48466');
  if(list.has('glasses')){for(const side of [-1,1])pen.ell(eye(side),hc,26,23,null,4);pen.stroke([[fx-6,hc],[fx+6,hc]],4);pen.stroke([[fx-55,hc-3],[fx-65,hc-6]],3);pen.stroke([[fx+55,hc-3],[fx+65,hc-6]],3);}

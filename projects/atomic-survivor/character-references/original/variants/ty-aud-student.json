@@ -1,0 +1,21 @@
+{
+  "id": "ty-aud-student",
+  "name": "Audience · student",
+  "project": "atomic-survivor",
+  "identity": "ty-aud-student",
+  "seed": 141,
+  "jacket": "#3d8fc0",
+  "pants": "#2f3440",
+  "boots": "#f1ede4",
+  "hair": "#2a211d",
+  "hairStyle": "ponytail",
+  "coat": false,
+  "skin": "#faf9f5",
+  "build": "kid",
+  "outfit": {
+    "top": "hoodie"
+  },
+  "accessories": [
+    "freckles"
+  ]
+}

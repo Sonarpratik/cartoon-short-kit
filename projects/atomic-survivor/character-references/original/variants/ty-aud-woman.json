@@ -1,0 +1,21 @@
+{
+  "id": "ty-aud-woman",
+  "name": "Audience · woman",
+  "project": "atomic-survivor",
+  "identity": "ty-aud-woman",
+  "seed": 143,
+  "jacket": "#c8423b",
+  "pants": "#4a4555",
+  "boots": "#3a2c2a",
+  "hair": "#3a2a24",
+  "hairStyle": "bun",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "sweater",
+    "pattern": "knit",
+    "patternColor": "#e8a090",
+    "collar": "shirt",
+    "shirt": "#f2efe6"
+  }
+}

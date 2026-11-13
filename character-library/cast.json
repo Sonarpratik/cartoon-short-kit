@@ -1341,6 +1341,270 @@
         "stubble",
         "scar"
       ]
+    },
+    {
+      "id": "ty-young",
+      "name": "Yamaguchi · engineer 1945",
+      "project": "atomic-survivor",
+      "identity": "ty-yamaguchi",
+      "seed": 131,
+      "jacket": "#3b4150",
+      "pants": "#2f3440",
+      "boots": "#2a2228",
+      "hair": "#1c1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "vest",
+        "shirt": "#f2efe6",
+        "collar": "shirt",
+        "tie": "#7a2a2a",
+        "buttonCount": 3
+      },
+      "accessories": [
+        "glasses"
+      ]
+    },
+    {
+      "id": "ty-colleague",
+      "name": "Office colleague",
+      "project": "atomic-survivor",
+      "identity": "ty-colleague",
+      "seed": 139,
+      "jacket": "#b5654a",
+      "pants": "#4a4a55",
+      "boots": "#2a2228",
+      "hair": "#1f1c22",
+      "hairStyle": "bob",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "sweater",
+        "collar": "shirt",
+        "shirt": "#f2efe6"
+      },
+      "accessories": [
+        "blush"
+      ]
+    },
+    {
+      "id": "ty-aud-student",
+      "name": "Audience · student",
+      "project": "atomic-survivor",
+      "identity": "ty-aud-student",
+      "seed": 141,
+      "jacket": "#3d8fc0",
+      "pants": "#2f3440",
+      "boots": "#f1ede4",
+      "hair": "#2a211d",
+      "hairStyle": "ponytail",
+      "coat": false,
+      "skin": "#faf9f5",
+      "build": "kid",
+      "outfit": {
+        "top": "hoodie"
+      },
+      "accessories": [
+        "freckles"
+      ]
+    },
+    {
+      "id": "ty-aud-woman",
+      "name": "Audience · woman",
+      "project": "atomic-survivor",
+      "identity": "ty-aud-woman",
+      "seed": 143,
+      "jacket": "#c8423b",
+      "pants": "#4a4555",
+      "boots": "#3a2c2a",
+      "hair": "#3a2a24",
+      "hairStyle": "bun",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "sweater",
+        "pattern": "knit",
+        "patternColor": "#e8a090",
+        "collar": "shirt",
+        "shirt": "#f2efe6"
+      }
+    },
+    {
+      "id": "ty-aud-man",
+      "name": "Audience · man",
+      "project": "atomic-survivor",
+      "identity": "ty-aud-man",
+      "seed": 147,
+      "jacket": "#5d6b3a",
+      "pants": "#3a3a40",
+      "boots": "#2a2228",
+      "hair": "#2a211d",
+      "hairStyle": "curly",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#e8833a",
+        "top": "jacket",
+        "shirt": "#d9d6c4",
+        "collar": "shirt"
+      },
+      "accessories": [
+        "stubble"
+      ]
+    },
+    {
+      "id": "ty-aud-elder",
+      "name": "Audience · elder",
+      "project": "atomic-survivor",
+      "identity": "ty-aud-elder",
+      "seed": 149,
+      "jacket": "#7a5a8a",
+      "pants": "#45464e",
+      "boots": "#2a2228",
+      "hair": "#cfcac2",
+      "hairStyle": "long",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "beanie",
+        "cap": "#3a6a6a",
+        "top": "coat",
+        "collar": "turtleneck",
+        "scarf": "#e8b93c"
+      }
+    },
+    {
+      "id": "ty-boss-b",
+      "name": "Office boss · Nagasaki",
+      "project": "atomic-survivor",
+      "identity": "ty-boss",
+      "seed": 137,
+      "jacket": "#2f4a6b",
+      "pants": "#2a3445",
+      "boots": "#1e1a20",
+      "hair": "#2a2628",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "build": "stout",
+      "outfit": {
+        "top": "jacket",
+        "shirt": "#ece6d6",
+        "collar": "shirt",
+        "tie": "#c8a23c",
+        "moustache": "#2a2628",
+        "moustacheStyle": "bold",
+        "pocket": true
+      }
+    },
+    {
+      "id": "ty-burned-d",
+      "name": "Yamaguchi · burned (half face)",
+      "project": "atomic-survivor",
+      "identity": "ty-yamaguchi",
+      "seed": 131,
+      "jacket": "#cfc4ae",
+      "pants": "#3a3a42",
+      "boots": "#2a2228",
+      "hair": "#1c1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "headband",
+        "cap": "#f1ece0",
+        "top": "shirt",
+        "shirt": "#d9cfbb",
+        "collar": "shirt",
+        "sleeves": "#efe9dc",
+        "pocket": true
+      },
+      "accessories": [
+        "burns",
+        "bandages",
+        "glasses"
+      ]
+    },
+    {
+      "id": "ty-old-b",
+      "name": "Yamaguchi · age 93 (faded scar)",
+      "project": "atomic-survivor",
+      "identity": "ty-yamaguchi",
+      "seed": 131,
+      "jacket": "#6b6f78",
+      "pants": "#45464e",
+      "boots": "#2a2228",
+      "hair": "#e6e2da",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "jacket",
+        "shirt": "#f2efe6",
+        "collar": "shirt",
+        "tie": "#5a6a8a"
+      },
+      "accessories": [
+        "oldburns",
+        "glasses"
+      ]
+    },
+    {
+      "id": "ty-bloody",
+      "name": "Yamaguchi · Hiroshima, bloody",
+      "project": "atomic-survivor",
+      "identity": "ty-yamaguchi",
+      "seed": 131,
+      "jacket": "#c4b69c",
+      "pants": "#3a3a42",
+      "boots": "#2a2228",
+      "hair": "#1c1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "shirt",
+        "shirt": "#d9cfbb",
+        "collar": "shirt",
+        "sleeves": "#efe9dc",
+        "pocket": true
+      },
+      "accessories": [
+        "burns",
+        "blood",
+        "glasses"
+      ]
+    },
+    {
+      "id": "ty-burned-blood",
+      "name": "Yamaguchi · Nagasaki, bandaged + bleeding",
+      "project": "atomic-survivor",
+      "identity": "ty-yamaguchi",
+      "seed": 131,
+      "jacket": "#b8aa90",
+      "pants": "#3a3a42",
+      "boots": "#2a2228",
+      "hair": "#1c1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "headband",
+        "cap": "#f1ece0",
+        "top": "shirt",
+        "shirt": "#d9cfbb",
+        "collar": "shirt",
+        "sleeves": "#efe9dc",
+        "pocket": true
+      },
+      "accessories": [
+        "burns",
+        "bandages",
+        "blood",
+        "glasses"
+      ]
     }
   ]
 }

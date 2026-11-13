@@ -1,0 +1,21 @@
+{
+  "id": "ty-aud-elder",
+  "name": "Audience · elder",
+  "project": "atomic-survivor",
+  "identity": "ty-aud-elder",
+  "seed": 149,
+  "jacket": "#7a5a8a",
+  "pants": "#45464e",
+  "boots": "#2a2228",
+  "hair": "#cfcac2",
+  "hairStyle": "long",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "beanie",
+    "cap": "#3a6a6a",
+    "top": "coat",
+    "collar": "turtleneck",
+    "scarf": "#e8b93c"
+  }
+}

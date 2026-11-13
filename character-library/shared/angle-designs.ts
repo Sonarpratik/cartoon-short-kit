@@ -5,8 +5,8 @@
 export type Point=[number,number];
 /** kind selects the base colour (hair or outfit.cap); tone>0 darkens towards ink, tone<0 lightens; accent uses outfit.hatAccent. */
 export type Patch={id:string;points:Point[];layer:'back'|'front';clip:boolean;alpha:number;kind?:'hair'|'hat';tone?:number;accent?:boolean};
-export const HAIR_STYLES=['sidepart','receding','bob','spiky','curly','afro','bun','ponytail','long','buzz'] as const;
-export const HEADWEAR=['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat'] as const;
+export const HAIR_STYLES=['sidepart','receding','bob','spiky','curly','afro','bun','ponytail','long','buzz','braid'] as const;
+export const HEADWEAR=['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat','headband','sheriff'] as const;
 export type BodyDesign={width:number;front:number;shoulder:number;seam:number};
 export type AngleDesign={angle:number;body:BodyDesign;hair:Patch[]};
 export const BODY_KEYS:BodyDesign[]=[
@@ -69,8 +69,8 @@ function contour(points:Point[],count=64):Point[]{
 }
 
 const HAT_IDS=new Set(['hat','cuff','pom','rim','stripe','visor','badge','brim','cockade','knot','dots','band']);
-const NEW_STYLES=new Set(['curly','afro','bun','ponytail','long','buzz']);
-const NEW_HATS=new Set(['beanie','helmet','peaked','tricorn','bandana','tophat']);
+const NEW_STYLES=new Set(['curly','afro','bun','ponytail','long','buzz','braid']);
+const NEW_HATS=new Set(['beanie','helmet','peaked','tricorn','bandana','tophat','sheriff']);
 type PatchFn=(id:string,points:Point[],layer?:'back'|'front',clip?:boolean,alpha?:number,extra?:Partial<Patch>)=>void;
 const ring=(cx:number,cy:number,rx:number,ry:number,n=16):Point[]=>Array.from({length:n},(_,k)=>{const a=k/n*Math.PI*2;return [cx+rx*Math.cos(a),cy+ry*Math.sin(a)] as Point;});
 const shiftX=(points:Point[],dx:number):Point[]=>points.map(([x,y])=>[x+dx,y] as Point);
@@ -91,10 +91,21 @@ function hairUnderHat(style:string,patch:PatchFn,sn:number,cs:number,body:BodyDe
  if(style==='bob'){const lock:Point[]=[[-.9,-.5],[-1.11,-.2],[-1.13,.55],[-.92,.95],[-.69,.75],[-.8,.2]];patch('bob-left',lock,'front',false);patch('bob-right',mirror(lock),'front',false,body.front*.85+.15);}
  if(style==='curly'||style==='afro'){const big=style==='afro';patch('curls-back',cloud(-.1*sn,big?-.3:-.32,big?1.5:1.2,big?1.3:.98,big?9:8,big?.35:.12),'back',false);}
  if(style==='ponytail')ponytail(patch,sn,cs);
+ if(style==='braid')braid(patch,sn,cs);
 }
 function ponytail(patch:PatchFn,sn:number,cs:number){
  const x0=-.95*sn,dir=sn>=0?-1:1,a=Math.abs(sn);
  patch('tail',[[x0-.13,-.58],[x0+.15,-.52],[x0+dir*.34*a+.1,.2],[x0+dir*.42*a+.02,.8],[x0+dir*.3*a-.1,.9],[x0+dir*.12*a-.14,.15]],cs<-.3?'front':'back',false);
+}
+/** Single plait on the character's right side: starts behind the ear and falls forward over the shoulder.
+ * Each lobe is a 3D point (X side, Z forward) projected per view, so the braid never slides across the face. */
+function braid(patch:PatchFn,sn:number,cs:number){
+ const lobes=6,X=-.86,proj=(z:number)=>({x:X*cs+z*sn,depth:-X*sn+z*cs});
+ for(let k=0;k<lobes;k++){const t=k/(lobes-1),y=.16+t*1.32,{x,depth}=proj(-.32+.6*t),r=.2-.05*t,cx=x+(k%2?.05:-.05);
+  patch('braid-'+k,ring(cx,y,r,r*.82,14).map(([px,py])=>[px+(py-y)*(k%2?.17:-.17),py] as Point),depth>-.05?'front':'back',false);}
+ const {x,depth}=proj(.3),ty=1.66,layer=depth>-.05?'front':'back';
+ patch('braid-tie',ring(x,ty,.1,.07,10),layer,false,1,{tone:.5});
+ patch('braid-tuft',[[x-.1,ty+.04],[x+.1,ty+.04],[x+.14,ty+.3],[x,ty+.22],[x-.14,ty+.3]],layer,false);
 }
 function newHair(style:string,patch:PatchFn,i:number,right:boolean,sn:number,cs:number,body:BodyDesign){
  const line=at(LINES,i);
@@ -106,6 +117,7 @@ function newHair(style:string,patch:PatchFn,i:number,right:boolean,sn:number,cs:
  const points=[...CAP_TOP,...line];patch('scalp',right?points:mirror(points));
  if(style==='bun')patch('bun',ring(-.4*sn,-1.08,.38,.32),cs<-.3?'front':'back',false);
  if(style==='ponytail')ponytail(patch,sn,cs);
+ if(style==='braid')braid(patch,sn,cs);
  if(style==='long')hairUnderHat(style,patch,sn,cs,body);
 }
 /** Headwear built from per-view projections of a few 3D anchor points. */
@@ -135,6 +147,15 @@ function newHat(hat:string,patch:PatchFn,sn:number,cs:number,hw:number,front:num
   patch('dots-a',ring(-.45+.3*sn,-.78,.07,.07,8),'front',true,front,{accent:true});
   patch('dots-b',ring(.08+.3*sn,-.88,.07,.07,8),'front',true,front,{accent:true});
   patch('dots-c',ring(.55+.3*sn,-.72,.07,.07,8),'front',true,front,{accent:true});
+ }else if(hat==='sheriff'){
+  // Western sheriff hat: tall crown pinched at the top, dark band with a star, wide brim with upturned ends.
+  // The brim leans toward the facing side and thins in profile, like the fedora brim.
+  const tilt=.18*sn,thin=.55+.45*Math.abs(cs);
+  patch('hat-crown',[[-.82,-.42],[-.84,-1.05],[-.7,-1.42],[-.38,-1.5],[-.12,-1.36],[0,-1.3],[.12,-1.36],[.38,-1.5],[.7,-1.42],[.84,-1.05],[.82,-.42]].map(([x,y])=>[x+tilt*(y+.4)*-.3,y] as Point),'front',false);
+  patch('band',[[-.83,-.66],[.83,-.66],[.83,-.48],[-.83,-.48]],'front',false,1,{tone:.55});
+  const bx=-.42*sn;patch('badge',[[bx,-.8],[bx+.07,-.66],[bx+.2,-.64],[bx+.1,-.55],[bx+.13,-.42],[bx,-.49],[bx-.13,-.42],[bx-.1,-.55],[bx-.2,-.64],[bx-.07,-.66]].map(([x,y])=>[x,y+.1] as Point),'front',false,front,{accent:true});
+  const w=1.62,lip=.28*thin;
+  patch('brim',[[-w,-.78],[-w+.18,-.56],[-1.05,-.47],[0,-.44],[1.05,-.47],[w-.18,-.56],[w,-.78],[w+.04,-.6],[w-.2,-.4],[1.05,-.44+lip*.25],[0,-.44+lip*.4],[-1.05,-.44+lip*.25],[-w+.2,-.4],[-w-.04,-.6]].map(([x,y])=>[x*(.62+.38*Math.abs(cs))+fwd*.35,y] as Point),'front',false,1,{tone:.06});
  }else if(hat==='tophat'){
   patch('hat-crown',[[-.7,-.92],[-.75,-2.0],[.75,-2.0],[.7,-.92]],'front',false);
   patch('band',[[-.71,-1.2],[.71,-1.2],[.71,-.98],[-.71,-.98]],'front',false,1,{tone:.5});
@@ -147,7 +168,8 @@ export function characterAngleDesigns(style:string,hat='hair'):AngleDesign[]{
  const designs=BODY_KEYS.map((body,i)=>{
   const right=i<=6,patches:Patch[]=[],patch=(id:string,points:Point[],layer:'back'|'front'='front',clip=true,alpha=1,extra:Partial<Patch>={})=>patches.push({id,points:contour(id.startsWith('temple')?rounded(points):points),layer,clip,alpha,kind:hat!=='hair'&&HAT_IDS.has(id.split('-')[0])?'hat':'hair',...extra});
   const ang=i*30*Math.PI/180,sn=Math.sin(ang),cs=Math.cos(ang),hw=Math.hypot(cs,.85*sn),front=Math.max(0,Math.min(1,(cs+.2)/.5));
-  if(hat!=='hair')hairUnderHat(style,patch,sn,cs,body);
+  const band=hat==='headband';
+  if(hat!=='hair'&&!band)hairUnderHat(style,patch,sn,cs,body);
   if(NEW_HATS.has(hat))newHat(hat,patch,sn,cs,hw,front);
   else if(hat==='cap'||hat==='fedora'){
    const profile=[0,.12,.30,.42,.27,.1,0,.1,.27,.42,.30,.12][i],direction=i<6?1:-1;
@@ -173,6 +195,8 @@ export function characterAngleDesigns(style:string,hat='hair'):AngleDesign[]{
     patch('bob-right',mirror([[-.9,-.5],[-1.11,-.2],[-1.13,.55],[-.92,.95],[-.69,.75],[-.8,.2]]),'front',true,body.front*.85+.15);
    }
   }
+  // Headband: full hair stays, a fabric band wraps the head across the upper forehead (clipped to the head contour).
+  if(band)patch('band-head',[[-1.15,-.6],[-.5,-.7],[0,-.72],[.5,-.7],[1.15,-.6],[1.15,-.42],[.5,-.52],[0,-.54],[-.5,-.52],[-1.15,-.42]],'front',true);
   return {angle:i*30,body:{...body},hair:patches};
  });cache.set(key,designs);return designs;
 }

@@ -1,0 +1,26 @@
+{
+  "id": "ty-bloody",
+  "name": "Yamaguchi · Hiroshima, bloody",
+  "project": "atomic-survivor",
+  "identity": "ty-yamaguchi",
+  "seed": 131,
+  "jacket": "#c4b69c",
+  "pants": "#3a3a42",
+  "boots": "#2a2228",
+  "hair": "#1c1a1f",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "shirt",
+    "shirt": "#d9cfbb",
+    "collar": "shirt",
+    "sleeves": "#efe9dc",
+    "pocket": true
+  },
+  "accessories": [
+    "burns",
+    "blood",
+    "glasses"
+  ]
+}

@@ -21,7 +21,7 @@ export const WARDROBE = {
  pattern:['none','stripes','hstripes','plaid','knit','dots'],
  collar:['shirt','turtleneck','vneck','none'],
  build:['adult','stout','kid'],
- accessories:['glasses','sunglasses','eyepatch','freckles','blush','stubble','scar'],
+ accessories:['glasses','sunglasses','eyepatch','freckles','blush','stubble','scar','burns','bandages','oldburns','blood'],
  extras:['tie','scarf','badge','pocket','apron','beard','moustache','labCoat','hatAccent','sleeves'],
 } as const;
 type CastMember={id:string;hairStyle:string;jacket:string;pants:string;build?:string;outfit?:{hat?:string|null;top?:string;pattern?:string;cap?:string}};

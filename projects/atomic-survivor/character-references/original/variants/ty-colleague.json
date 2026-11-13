@@ -1,0 +1,22 @@
+{
+  "id": "ty-colleague",
+  "name": "Office colleague",
+  "project": "atomic-survivor",
+  "identity": "ty-colleague",
+  "seed": 139,
+  "jacket": "#b5654a",
+  "pants": "#4a4a55",
+  "boots": "#2a2228",
+  "hair": "#1f1c22",
+  "hairStyle": "bob",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "sweater",
+    "collar": "shirt",
+    "shirt": "#f2efe6"
+  },
+  "accessories": [
+    "blush"
+  ]
+}

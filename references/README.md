@@ -12,6 +12,7 @@ All reference images and videos here are **private study material**. Never deliv
 | [lighting-guide.md](lighting-guide.md) | Light sources per location, face/hair/clothing highlights, window light |
 | [physical-staging.md](physical-staging.md) | Enclosed rooms, connected roads, crowds, believable scale |
 | [character-motion.md](character-motion.md) | Turn/walk rig details and the face style |
+| [caption-guide.md](caption-guide.md) | **Default place / date / year card** (typewriter title + small date line + rule); code in templates/overlays/doc-caption.ts |
 | [karaoke-guide.md](karaoke-guide.md) | Only when the user asks for subtitles |
 | [STYLE_BIBLE.md](STYLE_BIBLE.md) | Measured facts about the reference channel: script formula, colour stats, camera timing |
 

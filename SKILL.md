@@ -30,6 +30,8 @@ Read [references/README.md](references/README.md) first: it says which reference
 - Clutter the action area: faces, acting hands and the hero prop stay unobstructed.
 - Copy reference characters, stories, shots or text, or deliver reference images. Use no real living people, brand mascots or logos as characters.
 - Add captions unless asked (then use the karaoke style in [karaoke-guide.md](references/karaoke-guide.md)). In-world signs must read correctly.
+
+Place, date and year cards are not captions: use the user-approved documentary card (typewriter title, small date line above, rule) from [caption-guide.md](references/caption-guide.md) / `templates/overlays/doc-caption.ts`.
 - Render the full video without an explicit instruction.
 
 ## Persistent visual style

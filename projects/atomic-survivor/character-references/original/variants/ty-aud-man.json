@@ -1,0 +1,24 @@
+{
+  "id": "ty-aud-man",
+  "name": "Audience · man",
+  "project": "atomic-survivor",
+  "identity": "ty-aud-man",
+  "seed": 147,
+  "jacket": "#5d6b3a",
+  "pants": "#3a3a40",
+  "boots": "#2a2228",
+  "hair": "#2a211d",
+  "hairStyle": "curly",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "cap",
+    "cap": "#e8833a",
+    "top": "jacket",
+    "shirt": "#d9d6c4",
+    "collar": "shirt"
+  },
+  "accessories": [
+    "stubble"
+  ]
+}
