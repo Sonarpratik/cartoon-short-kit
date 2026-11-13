@@ -1,0 +1,29 @@
+{
+  "id": "zs-host",
+  "name": "Host · survivor",
+  "project": "zombie-shelter",
+  "identity": "zs-host",
+  "seed": 6,
+  "jacket": "#6f7d3c",
+  "pants": "#3b4152",
+  "boots": "#4a3326",
+  "hair": "#3a2a22",
+  "hairStyle": "braid",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "headband",
+    "cap": "#c8423b",
+    "top": "vest",
+    "shirt": "#e8dcc0",
+    "collar": "shirt",
+    "scarf": "#e8833a",
+    "pocket": true,
+    "badge": "#e8b93c",
+    "belt": "#5a3b2a"
+  },
+  "accessories": [
+    "stubble",
+    "scar"
+  ]
+}

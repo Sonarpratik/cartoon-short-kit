@@ -1,7 +1,7 @@
 import {createServer} from 'node:http';
 import {readFile,writeFile,rename,mkdir,access} from 'node:fs/promises';
 import {stripTypeScriptTypes} from 'node:module';
-import {characterReferencePath} from './character-library/paths.mjs';
+import {characterReferencePath,characterRendererPath} from './character-library/paths.mjs';
 const root=new URL('./',import.meta.url),catalog=new URL('character-library/cast.json',root);
 const routes={'/':['character-studio/index.html','text/html; charset=utf-8'],'/studio.js':['character-studio/studio.js','text/javascript'],'/character-rig.js':['templates/bridge/character-rig.ts','text/javascript'],'/toon.js':['templates/bridge/toon.ts','text/javascript'],'/style.js':['templates/bridge/style.ts','text/javascript'],'/face-style.js':['templates/bridge/face-style.ts','text/javascript'],'/director.js':['templates/bridge/director.ts','text/javascript']};
 let saveQueue=Promise.resolve();
@@ -30,7 +30,7 @@ const server=createServer(async(req,res)=>{
   if(pathname==='/studio-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('character-library/shared/studio-cast.png',root)),'image/png');return;}
   const renderer=pathname.match(/^\/renderers\/([a-zA-Z0-9_-]+)\/(character-rig|toon|style|face-style|director|hair-3d|angle-designs)\.js$/);
   if(renderer&&req.method==='GET'){
-   const folder=characterReferencePath(renderer[1])+'/engine/';let own=true;try{await access(new URL(folder+'character-rig.ts',root));}catch{own=false;}
+   const folder=characterRendererPath(renderer[1],root)+'/engine/';let own=true;try{await access(new URL(folder+'character-rig.ts',root));}catch{own=false;}
    const file=new URL((own?folder:'templates/bridge/')+renderer[2]+'.ts',root);let source=stripTypeScriptTypes(await readFile(file,'utf8'));source=source.replace(/(from\s+['"])(\.\/[\w-]+)(['"])/g,'$1$2.js$3');reply(200,source,'text/javascript');return;
   }
   if(pathname==='/api/characters'&&req.method==='POST'){

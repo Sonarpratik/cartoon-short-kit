@@ -1,0 +1,27 @@
+{
+  "id": "zs-crowd-cop",
+  "name": "Crowd · police officer",
+  "project": "zombie-shelter",
+  "identity": "zs-crowd-cop",
+  "seed": 41,
+  "jacket": "#2f3f63",
+  "pants": "#26304a",
+  "boots": "#1f1c22",
+  "hair": "#2a211d",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "peaked",
+    "cap": "#26304a",
+    "hatAccent": "#e8b93c",
+    "top": "shirt",
+    "shirt": "#2f3f63",
+    "collar": "shirt",
+    "tie": "#1f1c22",
+    "badge": "#e8b93c",
+    "pocket": true,
+    "belt": "#1f1c22",
+    "moustache": "#2a211d"
+  }
+}

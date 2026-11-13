@@ -1,0 +1,19 @@
+{
+  "id": "zs-zombie-nurse",
+  "name": "Zombie · nurse",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-nurse",
+  "seed": 44,
+  "jacket": "#5aa6a0",
+  "pants": "#5aa6a0",
+  "boots": "#f1ede4",
+  "hair": "#3a2a22",
+  "hairStyle": "ponytail",
+  "coat": false,
+  "skin": "#8cba90",
+  "outfit": {
+    "top": "shirt",
+    "collar": "vneck",
+    "pocket": true
+  }
+}

@@ -30,3 +30,15 @@ drawCharacter(context,design,{yaw,pitch,time:frame/30,action:'walk',expression:'
 Use 600×1000 design space (or scale the context). Feet are near y=975. Use timeline seconds, never wall-clock time. Include direction, pitch, action, expression and time in texture cache keys. Match walk cycles to world velocity and sitting to real seats. Review all 12 directions, both elevations and an action strip before staging.
 
 Save and review the character-specific sheets with `node character-studio/save-turnarounds.mjs`. Each cast member gets a PNG and JSON under `projects/<project>/character-references/original/turnarounds/`, available through **Saved 12 angles** in the studio. Review intermediate turns and walking as well as the twelve still views.
+
+## Archived project character code (opt-in only)
+
+Each story's final character code is archived in `projects/<project>/character-references/final/`:
+- `cast.json`: the full cast that story used.
+- `engine/`: the exact rig (`projects/<project>/characters/`).
+- `scene/`: the story's `src/characters.ts` and the `src/engine` helpers it imports.
+- `manifest.json`: hashes plus `"reuse": "explicit-only"`.
+
+These folders are git-tracked, even though the rest of `projects/` is ignored. Character Studio renders a project's characters with its `final/engine` rig when one exists. Run `node character-library/archive-project-code.mjs` after finishing a story. Existing archives are kept; pass `<project> --refresh` to replace one.
+
+**Reuse policy:** archived and catalogued characters are storage, not defaults. A new short gets a fresh cast designed in the Studio and drawn with the current `templates/bridge` rig. Use a stored character, archived rig or `scene/` code only when the user explicitly names that project or character (for example "use Jack from zombie-humans"). Then snapshot only the named IDs with `snapshot.mjs`. Never copy a `final/` folder wholesale into a new project.

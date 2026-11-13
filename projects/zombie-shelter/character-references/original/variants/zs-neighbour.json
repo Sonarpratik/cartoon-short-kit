@@ -1,0 +1,25 @@
+{
+  "id": "zs-neighbour",
+  "name": "Neighbour",
+  "project": "zombie-shelter",
+  "identity": "zs-neighbour",
+  "seed": 14,
+  "jacket": "#b0703f",
+  "pants": "#4d4a44",
+  "boots": "#3a2f2c",
+  "hair": "#bdb7ae",
+  "hairStyle": "receding",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "sweater",
+    "pattern": "knit",
+    "patternColor": "#d9a877",
+    "collar": "shirt",
+    "shirt": "#eeeadf",
+    "moustache": "#9a948b"
+  },
+  "accessories": [
+    "glasses"
+  ]
+}

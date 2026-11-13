@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "project": "bootstrap-paradox",
+  "archivedAt": "2026-11-13T10:28:42.462Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/bootstrap-paradox/characters",
+    "scene": "projects/bootstrap-paradox/src"
+  },
+  "characters": [],
+  "files": {
+    "scene/actor.ts": "97802cea07a78e04",
+    "scene/engine/face-style.ts": "76041e1bed03cbbd",
+    "scene/engine/toon.ts": "3273ce79f7cd82fa"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "zh-tina",
+  "name": "Tina · nurse",
+  "project": "zombie-humans",
+  "identity": "zh-tina",
+  "seed": 86,
+  "jacket": "#7fb7d9",
+  "pants": "#7fb7d9",
+  "boots": "#f1ede4",
+  "hair": "#2a211d",
+  "hairStyle": "bun",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "shirt",
+    "collar": "vneck",
+    "pocket": true,
+    "badge": "#d8363a"
+  },
+  "accessories": [
+    "blush"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "zs-zombie-granny",
+  "name": "Zombie · granny",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-granny",
+  "seed": 58,
+  "jacket": "#7b2f4a",
+  "pants": "#3d3540",
+  "boots": "#2a2830",
+  "hair": "#e2dfd8",
+  "hairStyle": "curly",
+  "coat": false,
+  "skin": "#90bd8c",
+  "outfit": {
+    "top": "sweater",
+    "shirt": "#e8e2cf",
+    "collar": "shirt",
+    "buttonCount": 0,
+    "scarf": "#c9a77c"
+  }
+}

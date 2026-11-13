@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "project": "flying-dutchman",
+  "archivedAt": "2026-11-13T10:28:42.511Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/flying-dutchman/characters",
+    "scene": "projects/flying-dutchman/src"
+  },
+  "characters": [
+    "dutchman-george-v2",
+    "dutchman-lookout-v2",
+    "dutchman-officer-v2",
+    "dutchman-midshipman-v2"
+  ],
+  "files": {
+    "engine/angle-designs.ts": "cb0f2212ce910ee8",
+    "cast.json": "ae0afbab9ceb2f18",
+    "engine/character-rig.ts": "19db24ba14c6bb52",
+    "engine/director.ts": "6c55a206bf3cd542",
+    "engine/face-style.ts": "64a8060afa172850",
+    "engine/hair-3d.ts": "bed5b145a0d0d0e1",
+    "engine/style.ts": "575c9860ee450118",
+    "engine/toon.ts": "1a5923927f2646de"
+  }
+}

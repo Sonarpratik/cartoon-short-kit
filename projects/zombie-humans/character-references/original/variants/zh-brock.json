@@ -1,0 +1,29 @@
+{
+  "id": "zh-brock",
+  "name": "Brock · mechanic",
+  "project": "zombie-humans",
+  "identity": "zh-brock",
+  "seed": 92,
+  "jacket": "#35507a",
+  "pants": "#35507a",
+  "boots": "#3a2c2a",
+  "hair": "#5b3a26",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "build": "stout",
+  "outfit": {
+    "hat": "cap",
+    "cap": "#e8833a",
+    "hatAccent": "#2b2b33",
+    "top": "overalls",
+    "shirt": "#b0703f",
+    "pattern": "plaid",
+    "patternColor": "#7a4a2a",
+    "beard": "#5b3a26",
+    "belt": "#2b2b33"
+  },
+  "accessories": [
+    "stubble"
+  ]
+}

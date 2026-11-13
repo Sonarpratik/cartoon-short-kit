@@ -1,0 +1,23 @@
+{
+  "id": "zh-raider-helmet",
+  "name": "Raider · biker",
+  "project": "zombie-humans",
+  "identity": "zh-raider-helmet",
+  "seed": 101,
+  "jacket": "#4a4d57",
+  "pants": "#2e3340",
+  "boots": "#1f1c22",
+  "hair": "#2c2321",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "helmet",
+    "cap": "#2b2b33",
+    "top": "hoodie",
+    "pocket": true
+  },
+  "accessories": [
+    "sunglasses"
+  ]
+}

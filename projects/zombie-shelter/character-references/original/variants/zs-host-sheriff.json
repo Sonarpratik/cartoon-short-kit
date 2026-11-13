@@ -1,0 +1,32 @@
+{
+  "id": "zs-host-sheriff",
+  "name": "Host · sheriff",
+  "project": "zombie-shelter",
+  "identity": "zs-host",
+  "seed": 6,
+  "jacket": "#6f7d3c",
+  "pants": "#3b4152",
+  "boots": "#4a3326",
+  "hair": "#3a2a22",
+  "hairStyle": "braid",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "sheriff",
+    "cap": "#d9bf8a",
+    "top": "vest",
+    "shirt": "#e8dcc0",
+    "collar": "shirt",
+    "scarf": "#e8833a",
+    "pocket": true,
+    "badge": "#e8b93c",
+    "belt": "#5a3b2a",
+    "hatAccent": "#e8c45a",
+    "moustache": "#1f1a1e",
+    "moustacheStyle": "bold"
+  },
+  "accessories": [
+    "stubble",
+    "scar"
+  ]
+}

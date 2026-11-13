@@ -1,0 +1,22 @@
+{
+  "id": "zs-zombie-jogger",
+  "name": "Zombie · jogger",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-jogger",
+  "seed": 63,
+  "jacket": "#e8b93c",
+  "pants": "#2b3448",
+  "boots": "#f1ede4",
+  "hair": "#2c2321",
+  "hairStyle": "ponytail",
+  "coat": false,
+  "skin": "#88b884",
+  "outfit": {
+    "hat": "bandana",
+    "cap": "#c8423b",
+    "top": "vest",
+    "shirt": "#3d7cc0",
+    "pattern": "hstripes",
+    "patternColor": "#f4efe0"
+  }
+}

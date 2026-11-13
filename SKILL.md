@@ -42,6 +42,7 @@ Read [references/README.md](references/README.md) first: it says which reference
 ## Characters and the library
 
 - Saved cast lives in `character-library/cast.json`; finished projects keep frozen snapshots in `projects/<project>/character-references/`. Never overwrite an approved design; save variants under new IDs.
+- Stored characters and archived project code (`projects/<project>/character-references/final/`) are opt-in only: never reuse them in a new short unless the user explicitly names the project or character. Otherwise design a fresh cast. After finishing a story run `node character-library/archive-project-code.mjs`.
 - Review the cast in Character Studio (`npm.cmd run characters`, http://127.0.0.1:8787) at on-screen size before staging. Save sheets with `node character-studio/save-turnarounds.mjs`.
 - Snapshot the selected cast into a new project with `node character-library/snapshot.mjs projects/<story> <id> ...`. After changing shared renderer code and checking it, run `node character-library/preserve-shared.mjs`.
 - `templates/bridge/` is the single source of truth for renderer code. `character-library/shared/` is a checked backup copy.

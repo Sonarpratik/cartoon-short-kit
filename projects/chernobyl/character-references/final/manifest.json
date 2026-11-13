@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "project": "chernobyl",
+  "archivedAt": "2026-11-13T10:28:42.491Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/chernobyl/characters",
+    "scene": "projects/chernobyl/src"
+  },
+  "characters": [],
+  "files": {
+    "scene/characters.ts": "5af69aa9d24fe841",
+    "scene/engine/toon.ts": "883e3e851d72c247",
+    "scene/engine/cardshade.ts": "d730e99265a101e4",
+    "scene/engine/ink.ts": "971e25cfae6fd3e5",
+    "scene/engine/face-style.ts": "76041e1bed03cbbd",
+    "scene/cast-design.ts": "4ac3199a563e0274",
+    "scene/engine/director.ts": "3bff2cb36599aa9f",
+    "scene/face-style.ts": "da197516fd849bbd"
+  }
+}

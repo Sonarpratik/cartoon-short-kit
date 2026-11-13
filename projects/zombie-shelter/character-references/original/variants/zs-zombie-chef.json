@@ -1,0 +1,22 @@
+{
+  "id": "zs-zombie-chef",
+  "name": "Zombie · chef",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-chef",
+  "seed": 71,
+  "jacket": "#efeae0",
+  "pants": "#3a3f4f",
+  "boots": "#2a2830",
+  "hair": "#634331",
+  "hairStyle": "spiky",
+  "coat": false,
+  "skin": "#95bf88",
+  "outfit": {
+    "top": "jacket",
+    "buttonCount": 4,
+    "pattern": "plaid",
+    "patternColor": "#d4cbb8",
+    "scarf": "#c8423b"
+  },
+  "build": "stout"
+}

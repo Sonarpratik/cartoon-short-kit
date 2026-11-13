@@ -12,10 +12,10 @@ export type RigPose={yaw?:number;pitch?:number;time?:number;action?:string;expre
  hand?:[number,number]};
 export const VIEWS=Array.from({length:12},(_,i)=>i*30);
 export const ACTIONS=['idle','walk','run','sit','bend','reach','hammer','drill','wave','talk'];
-export const EXPRESSIONS=['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick'];
+export const EXPRESSIONS=['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick','nervous_grin','terrified'];
 const rad=Math.PI/180;
 const FLOWING=new Set(['long','bob','curls','tail','bun','pom','knot','braid']);
-const JAW:Record<string,[number,number,number]>={neutral:[0,0,0],stern:[1,-1,0],grin:[3,-2,0],laugh:[4,5,.5],whistle:[-2,1,0],nervous:[1,1,1.2],shock:[-4,6,0],relief:[2,0,0],relief_open:[3,3,0],dazed:[1,1,1],pained:[2,-2,-1],smile:[2,-1,0],smile_closed:[2,-1,0],lick:[1,1,.6]};
+const JAW:Record<string,[number,number,number]>={neutral:[0,0,0],stern:[1,-1,0],grin:[3,-2,0],laugh:[4,5,.5],whistle:[-2,1,0],nervous:[1,1,1.2],shock:[-4,6,0],relief:[2,0,0],relief_open:[3,3,0],dazed:[1,1,1],pained:[2,-2,-1],smile:[2,-1,0],smile_closed:[2,-1,0],lick:[1,1,.6],nervous_grin:[2,-1,1.2],terrified:[-4,7,.8]};
 /** Timeline-driven lower-jaw response. Settle after a reaction instead of jittering at idle. */
 export function reactionJaw(expression:string,micro:boolean,age?:number,from='neutral'):[number,number,number]{
  const target=JAW[expression]??JAW.neutral;if(!micro||age===undefined||age>=1)return [...target];
@@ -25,7 +25,7 @@ export function reactionJaw(expression:string,micro:boolean,age?:number,from='ne
 }
 /** Reference-style reaction squash on an expression change: the head flattens wide (jaw spreads) for ~2-3 frames,
  * overshoots tall as the new face pops, then settles within ~.4 s. + = squash, - = stretch. */
-const BIG_REACTIONS=new Set(['shock','laugh','grin','nervous','pained','relief_open','dazed']);
+const BIG_REACTIONS=new Set(['shock','laugh','grin','nervous','pained','relief_open','dazed','nervous_grin','terrified']);
 export function reactionSquash(expression:string,micro:boolean,age?:number,from='neutral'):number{
  if(!micro||age===undefined||age<0||age>=.6||expression===from)return 0;
  const amp=BIG_REACTIONS.has(expression)||BIG_REACTIONS.has(from)?.11:.07;

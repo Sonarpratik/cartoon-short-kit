@@ -1,0 +1,23 @@
+{
+  "id": "zs-bitten",
+  "name": "Mall guy · bitten",
+  "project": "zombie-shelter",
+  "identity": "zs-bitten",
+  "seed": 11,
+  "jacket": "#3d7cc0",
+  "pants": "#5b5f6a",
+  "boots": "#f1ede4",
+  "hair": "#c58a3c",
+  "hairStyle": "curly",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "shirt",
+    "pattern": "hstripes",
+    "patternColor": "#f4efe0",
+    "collar": "shirt"
+  },
+  "accessories": [
+    "freckles"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "project": "mkultra",
+  "archivedAt": "2026-11-13T10:28:42.537Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/mkultra/characters",
+    "scene": "projects/mkultra/src"
+  },
+  "characters": [],
+  "files": {
+    "scene/characters.ts": "96e5f993e12b41cf",
+    "scene/engine/toon.ts": "b0f9a457ae5e2a9b",
+    "scene/engine/cardshade.ts": "d730e99265a101e4",
+    "scene/engine/ink.ts": "971e25cfae6fd3e5",
+    "scene/cast-design.ts": "4f1c25590871989c",
+    "scene/engine/director.ts": "82156cbc0cce456c",
+    "scene/face-style.ts": "da197516fd849bbd",
+    "scene/character-preview.ts": "9ce2fa2c9a8422f8"
+  }
+}

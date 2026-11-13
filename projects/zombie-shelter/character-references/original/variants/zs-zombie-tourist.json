@@ -1,0 +1,23 @@
+{
+  "id": "zs-zombie-tourist",
+  "name": "Zombie · tourist",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-tourist",
+  "seed": 52,
+  "jacket": "#e2564b",
+  "pants": "#d8c49a",
+  "boots": "#7a5a3a",
+  "hair": "#5b3a26",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#9bc48a",
+  "outfit": {
+    "top": "shirt",
+    "pattern": "dots",
+    "patternColor": "#f4d35e",
+    "collar": "shirt"
+  },
+  "accessories": [
+    "sunglasses"
+  ]
+}

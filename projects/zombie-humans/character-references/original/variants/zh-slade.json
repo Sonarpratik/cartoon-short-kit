@@ -1,0 +1,29 @@
+{
+  "id": "zh-slade",
+  "name": "Slade · raider boss",
+  "project": "zombie-humans",
+  "identity": "zh-slade",
+  "seed": 97,
+  "jacket": "#5a3b2a",
+  "pants": "#26242b",
+  "boots": "#1a181d",
+  "hair": "#1f1c22",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "bandana",
+    "cap": "#7a1f24",
+    "top": "jacket",
+    "shirt": "#2b2b33",
+    "collar": "none",
+    "belt": "#1a181d",
+    "moustache": "#1f1c22",
+    "moustacheStyle": "bold",
+    "buttonCount": 0
+  },
+  "accessories": [
+    "eyepatch",
+    "scar"
+  ]
+}

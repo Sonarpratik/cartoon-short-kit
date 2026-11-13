@@ -1,0 +1,27 @@
+{
+  "id": "zh-raider-cap",
+  "name": "Raider · camo cap",
+  "project": "zombie-humans",
+  "identity": "zh-raider-cap",
+  "seed": 109,
+  "jacket": "#5d6b3a",
+  "pants": "#4a4535",
+  "boots": "#2a2830",
+  "hair": "#2a211d",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "cap",
+    "cap": "#3a4528",
+    "top": "jacket",
+    "pattern": "dots",
+    "patternColor": "#7d8a52",
+    "shirt": "#d9d6c4",
+    "collar": "shirt"
+  },
+  "accessories": [
+    "stubble",
+    "scar"
+  ]
+}

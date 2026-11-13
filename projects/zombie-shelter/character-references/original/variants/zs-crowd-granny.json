@@ -1,0 +1,24 @@
+{
+  "id": "zs-crowd-granny",
+  "name": "Crowd · granny",
+  "project": "zombie-shelter",
+  "identity": "zs-crowd-granny",
+  "seed": 31,
+  "jacket": "#4f9a8a",
+  "pants": "#55505a",
+  "boots": "#3a2f2c",
+  "hair": "#dcd8d0",
+  "hairStyle": "bun",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "sweater",
+    "pattern": "dots",
+    "patternColor": "#e8e2cf",
+    "collar": "shirt",
+    "shirt": "#f1ebdd"
+  },
+  "accessories": [
+    "glasses"
+  ]
+}

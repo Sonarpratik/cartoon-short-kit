@@ -1,0 +1,21 @@
+{
+  "id": "zs-zombie-office",
+  "name": "Zombie · office",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-office",
+  "seed": 4,
+  "jacket": "#4f5866",
+  "pants": "#2e3340",
+  "boots": "#1f1c22",
+  "hair": "#2a211d",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#8fbf86",
+  "outfit": {
+    "top": "jacket",
+    "shirt": "#d9d6c4",
+    "collar": "shirt",
+    "tie": "#8a2f2f",
+    "buttonCount": 2
+  }
+}

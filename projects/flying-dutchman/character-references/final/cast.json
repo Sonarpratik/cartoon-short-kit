@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "characters": [
+    {
+      "project": "flying-dutchman-v2",
+      "coat": false,
+      "skin": "#faf9f5",
+      "light": -2.2,
+      "id": "dutchman-george-v2",
+      "identity": "dutchman-george",
+      "name": "George · swept brown hair, cadet blues",
+      "seed": 18,
+      "build": "kid",
+      "jacket": "#254b78",
+      "pants": "#e2d8bc",
+      "boots": "#323144",
+      "hair": "#6a432e",
+      "hairStyle": "sidepart",
+      "outfit": {
+        "hat": "hair",
+        "buttons": "#d8b060",
+        "belt": "#eee4c9",
+        "sash": "#bb744f"
+      },
+      "facing": 1
+    },
+    {
+      "project": "flying-dutchman-v2",
+      "coat": false,
+      "skin": "#faf9f5",
+      "light": -2.2,
+      "id": "dutchman-lookout-v2",
+      "identity": "dutchman-lookout",
+      "name": "Henry · ginger hair and full beard",
+      "seed": 24,
+      "build": "stout",
+      "jacket": "#ded2ae",
+      "pants": "#3c596a",
+      "boots": "#635044",
+      "hair": "#9e542f",
+      "hairStyle": "bob",
+      "outfit": {
+        "hat": "hair",
+        "buttons": "#514b42",
+        "beard": "#8e482c",
+        "moustache": "#8e482c"
+      },
+      "facing": 1
+    },
+    {
+      "project": "flying-dutchman-v2",
+      "coat": false,
+      "skin": "#faf9f5",
+      "light": -2.2,
+      "id": "dutchman-officer-v2",
+      "identity": "dutchman-officer",
+      "name": "Watch officer · silver hair and moustache",
+      "seed": 31,
+      "jacket": "#243d3e",
+      "pants": "#3b3a46",
+      "boots": "#292933",
+      "hair": "#b8bab0",
+      "hairStyle": "receding",
+      "outfit": {
+        "hat": "hair",
+        "buttons": "#dfb65d",
+        "belt": "#aa8546",
+        "moustache": "#a2a79d",
+        "sash": "#b8644d"
+      },
+      "facing": 1
+    },
+    {
+      "project": "flying-dutchman-v2",
+      "coat": false,
+      "skin": "#faf9f5",
+      "light": -2.2,
+      "id": "dutchman-midshipman-v2",
+      "identity": "dutchman-midshipman",
+      "name": "Midshipman · dark spiky hair, short moustache",
+      "seed": 8,
+      "jacket": "#944f3d",
+      "pants": "#a9b2a3",
+      "boots": "#383b46",
+      "hair": "#312b35",
+      "hairStyle": "spiky",
+      "accessory": "investigator",
+      "outfit": {
+        "hat": "hair",
+        "buttons": "#e1c5a1",
+        "moustache": "#3b2c31"
+      },
+      "facing": 1
+    }
+  ]
+}

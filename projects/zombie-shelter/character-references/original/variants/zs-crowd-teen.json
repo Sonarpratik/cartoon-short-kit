@@ -1,0 +1,21 @@
+{
+  "id": "zs-crowd-teen",
+  "name": "Crowd · teen",
+  "project": "zombie-shelter",
+  "identity": "zs-crowd-teen",
+  "seed": 23,
+  "jacket": "#e8833a",
+  "pants": "#2b3448",
+  "boots": "#f1ede4",
+  "hair": "#2a211d",
+  "hairStyle": "afro",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "cap",
+    "cap": "#2f8f8a",
+    "hatAccent": "#f4efe0",
+    "top": "hoodie",
+    "pocket": true
+  }
+}

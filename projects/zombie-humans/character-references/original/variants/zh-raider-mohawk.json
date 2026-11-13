@@ -1,0 +1,22 @@
+{
+  "id": "zh-raider-mohawk",
+  "name": "Raider · spikes",
+  "project": "zombie-humans",
+  "identity": "zh-raider-mohawk",
+  "seed": 113,
+  "jacket": "#2b2b33",
+  "pants": "#5b4a6a",
+  "boots": "#1a181d",
+  "hair": "#c8423b",
+  "hairStyle": "spiky",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "vest",
+    "shirt": "#4a4d57",
+    "scarf": "#2b2b33"
+  },
+  "accessories": [
+    "eyepatch"
+  ]
+}

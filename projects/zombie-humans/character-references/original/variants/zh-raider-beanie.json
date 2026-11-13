@@ -1,0 +1,23 @@
+{
+  "id": "zh-raider-beanie",
+  "name": "Raider · beanie",
+  "project": "zombie-humans",
+  "identity": "zh-raider-beanie",
+  "seed": 104,
+  "jacket": "#6b5a3a",
+  "pants": "#3a3f4f",
+  "boots": "#3a2c2a",
+  "hair": "#634331",
+  "hairStyle": "long",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "beanie",
+    "cap": "#b88a2e",
+    "top": "vest",
+    "shirt": "#8a2f2f",
+    "pattern": "plaid",
+    "patternColor": "#5a1f1f",
+    "beard": "#634331"
+  }
+}

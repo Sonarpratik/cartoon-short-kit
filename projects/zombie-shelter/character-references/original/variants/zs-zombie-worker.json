@@ -1,0 +1,20 @@
+{
+  "id": "zs-zombie-worker",
+  "name": "Zombie · worker",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-worker",
+  "seed": 9,
+  "jacket": "#3f6e8f",
+  "pants": "#3f6e8f",
+  "boots": "#3a2c2a",
+  "hair": "#5b3a26",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#86b57e",
+  "outfit": {
+    "hat": "helmet",
+    "cap": "#e8b93c",
+    "top": "overalls",
+    "shirt": "#b65a3a"
+  }
+}

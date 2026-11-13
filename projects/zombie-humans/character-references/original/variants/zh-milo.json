@@ -1,0 +1,22 @@
+{
+  "id": "zh-milo",
+  "name": "Milo · best friend",
+  "project": "zombie-humans",
+  "identity": "zh-milo",
+  "seed": 81,
+  "jacket": "#c8423b",
+  "pants": "#2b3448",
+  "boots": "#f1ede4",
+  "hair": "#c58a3c",
+  "hairStyle": "spiky",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "hoodie",
+    "pocket": true,
+    "sleeves": "#a83530"
+  },
+  "accessories": [
+    "freckles"
+  ]
+}

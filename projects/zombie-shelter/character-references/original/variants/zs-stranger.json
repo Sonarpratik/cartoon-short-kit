@@ -1,0 +1,24 @@
+{
+  "id": "zs-stranger",
+  "name": "Dark figure",
+  "project": "zombie-shelter",
+  "identity": "zs-stranger",
+  "seed": 21,
+  "jacket": "#2b2b33",
+  "pants": "#24232a",
+  "boots": "#1a181d",
+  "hair": "#1f1c22",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "beanie",
+    "cap": "#1f1c22",
+    "top": "coat",
+    "shirt": "#1f1c22",
+    "collar": "turtleneck",
+    "scarf": "#5a1f24",
+    "beard": "#2a211d",
+    "hatAccent": "#3a2a30"
+  }
+}

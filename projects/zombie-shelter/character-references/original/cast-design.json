@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "characters": [
+    {
+      "id": "zs-host",
+      "name": "Host · survivor",
+      "project": "zombie-shelter",
+      "identity": "zs-host",
+      "seed": 6,
+      "jacket": "#6f7d3c",
+      "pants": "#3b4152",
+      "boots": "#4a3326",
+      "hair": "#3a2a22",
+      "hairStyle": "braid",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "headband",
+        "cap": "#c8423b",
+        "top": "vest",
+        "shirt": "#e8dcc0",
+        "collar": "shirt",
+        "scarf": "#e8833a",
+        "pocket": true,
+        "badge": "#e8b93c",
+        "belt": "#5a3b2a"
+      },
+      "accessories": [
+        "stubble",
+        "scar"
+      ]
+    },
+    {
+      "id": "zs-bitten",
+      "name": "Mall guy · bitten",
+      "project": "zombie-shelter",
+      "identity": "zs-bitten",
+      "seed": 11,
+      "jacket": "#3d7cc0",
+      "pants": "#5b5f6a",
+      "boots": "#f1ede4",
+      "hair": "#c58a3c",
+      "hairStyle": "curly",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "shirt",
+        "pattern": "hstripes",
+        "patternColor": "#f4efe0",
+        "collar": "shirt"
+      },
+      "accessories": [
+        "freckles"
+      ]
+    },
+    {
+      "id": "zs-bitten-turned",
+      "name": "Mall guy · turned",
+      "project": "zombie-shelter",
+      "identity": "zs-bitten",
+      "seed": 11,
+      "jacket": "#3d7cc0",
+      "pants": "#5b5f6a",
+      "boots": "#f1ede4",
+      "hair": "#c58a3c",
+      "hairStyle": "curly",
+      "coat": false,
+      "skin": "#8fbf86",
+      "outfit": {
+        "top": "shirt",
+        "pattern": "hstripes",
+        "patternColor": "#f4efe0",
+        "collar": "shirt"
+      },
+      "accessories": [
+        "freckles"
+      ]
+    },
+    {
+      "id": "zs-neighbour",
+      "name": "Neighbour",
+      "project": "zombie-shelter",
+      "identity": "zs-neighbour",
+      "seed": 14,
+      "jacket": "#b0703f",
+      "pants": "#4d4a44",
+      "boots": "#3a2f2c",
+      "hair": "#bdb7ae",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "sweater",
+        "pattern": "knit",
+        "patternColor": "#d9a877",
+        "collar": "shirt",
+        "shirt": "#eeeadf",
+        "moustache": "#9a948b"
+      },
+      "accessories": [
+        "glasses"
+      ]
+    },
+    {
+      "id": "zs-neighbour-turned",
+      "name": "Neighbour · turned",
+      "project": "zombie-shelter",
+      "identity": "zs-neighbour",
+      "seed": 14,
+      "jacket": "#b0703f",
+      "pants": "#4d4a44",
+      "boots": "#3a2f2c",
+      "hair": "#bdb7ae",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#92c08a",
+      "outfit": {
+        "top": "sweater",
+        "pattern": "knit",
+        "patternColor": "#d9a877",
+        "collar": "shirt",
+        "shirt": "#eeeadf",
+        "moustache": "#9a948b"
+      },
+      "accessories": [
+        "glasses"
+      ]
+    },
+    {
+      "id": "zs-stranger",
+      "name": "Dark figure",
+      "project": "zombie-shelter",
+      "identity": "zs-stranger",
+      "seed": 21,
+      "jacket": "#2b2b33",
+      "pants": "#24232a",
+      "boots": "#1a181d",
+      "hair": "#1f1c22",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "beanie",
+        "cap": "#1f1c22",
+        "top": "coat",
+        "shirt": "#1f1c22",
+        "collar": "turtleneck",
+        "scarf": "#5a1f24",
+        "beard": "#2a211d",
+        "hatAccent": "#3a2a30"
+      }
+    },
+    {
+      "id": "zs-crowd-mum",
+      "name": "Crowd · mum with bags",
+      "project": "zombie-shelter",
+      "identity": "zs-crowd-mum",
+      "seed": 12,
+      "jacket": "#e07a9a",
+      "pants": "#4a4058",
+      "boots": "#5a3b2a",
+      "hair": "#a5512f",
+      "hairStyle": "ponytail",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "coat",
+        "shirt": "#f4efe0",
+        "collar": "turtleneck",
+        "buttonCount": 3
+      },
+      "accessories": [
+        "blush"
+      ]
+    },
+    {
+      "id": "zs-crowd-teen",
+      "name": "Crowd · teen",
+      "project": "zombie-shelter",
+      "identity": "zs-crowd-teen",
+      "seed": 23,
+      "jacket": "#e8833a",
+      "pants": "#2b3448",
+      "boots": "#f1ede4",
+      "hair": "#2a211d",
+      "hairStyle": "afro",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#2f8f8a",
+        "hatAccent": "#f4efe0",
+        "top": "hoodie",
+        "pocket": true
+      }
+    },
+    {
+      "id": "zs-crowd-granny",
+      "name": "Crowd · granny",
+      "project": "zombie-shelter",
+      "identity": "zs-crowd-granny",
+      "seed": 31,
+      "jacket": "#4f9a8a",
+      "pants": "#55505a",
+      "boots": "#3a2f2c",
+      "hair": "#dcd8d0",
+      "hairStyle": "bun",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "sweater",
+        "pattern": "dots",
+        "patternColor": "#e8e2cf",
+        "collar": "shirt",
+        "shirt": "#f1ebdd"
+      },
+      "accessories": [
+        "glasses"
+      ]
+    },
+    {
+      "id": "zs-crowd-clerk",
+      "name": "Crowd · supermarket clerk",
+      "project": "zombie-shelter",
+      "identity": "zs-crowd-clerk",
+      "seed": 37,
+      "jacket": "#7aa36a",
+      "pants": "#3a3f4f",
+      "boots": "#3a2c2a",
+      "hair": "#c46a3a",
+      "hairStyle": "bob",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "apron",
+        "apron": "#2f6b4f",
+        "shirt": "#e9e4d4",
+        "collar": "shirt",
+        "pattern": "stripes",
+        "patternColor": "#9ccf8a"
+      },
+      "accessories": [
+        "freckles"
+      ]
+    },
+    {
+      "id": "zs-crowd-cop",
+      "name": "Crowd · police officer",
+      "project": "zombie-shelter",
+      "identity": "zs-crowd-cop",
+      "seed": 41,
+      "jacket": "#2f3f63",
+      "pants": "#26304a",
+      "boots": "#1f1c22",
+      "hair": "#2a211d",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "peaked",
+        "cap": "#26304a",
+        "hatAccent": "#e8b93c",
+        "top": "shirt",
+        "shirt": "#2f3f63",
+        "collar": "shirt",
+        "tie": "#1f1c22",
+        "badge": "#e8b93c",
+        "pocket": true,
+        "belt": "#1f1c22",
+        "moustache": "#2a211d"
+      }
+    },
+    {
+      "id": "zs-zombie-office",
+      "name": "Zombie · office",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-office",
+      "seed": 4,
+      "jacket": "#4f5866",
+      "pants": "#2e3340",
+      "boots": "#1f1c22",
+      "hair": "#2a211d",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#8fbf86",
+      "outfit": {
+        "top": "jacket",
+        "shirt": "#d9d6c4",
+        "collar": "shirt",
+        "tie": "#8a2f2f",
+        "buttonCount": 2
+      }
+    },
+    {
+      "id": "zs-zombie-worker",
+      "name": "Zombie · worker",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-worker",
+      "seed": 9,
+      "jacket": "#3f6e8f",
+      "pants": "#3f6e8f",
+      "boots": "#3a2c2a",
+      "hair": "#5b3a26",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#86b57e",
+      "outfit": {
+        "hat": "helmet",
+        "cap": "#e8b93c",
+        "top": "overalls",
+        "shirt": "#b65a3a"
+      }
+    },
+    {
+      "id": "zs-zombie-hoodie",
+      "name": "Zombie · hoodie",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-hoodie",
+      "seed": 17,
+      "jacket": "#7b5ac9",
+      "pants": "#36394d",
+      "boots": "#4a3326",
+      "hair": "#2c2321",
+      "hairStyle": "long",
+      "coat": false,
+      "skin": "#94c28a",
+      "outfit": {
+        "top": "hoodie",
+        "pocket": true,
+        "sleeves": "#6a4bb3"
+      }
+    },
+    {
+      "id": "zs-zombie-nurse",
+      "name": "Zombie · nurse",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-nurse",
+      "seed": 44,
+      "jacket": "#5aa6a0",
+      "pants": "#5aa6a0",
+      "boots": "#f1ede4",
+      "hair": "#3a2a22",
+      "hairStyle": "ponytail",
+      "coat": false,
+      "skin": "#8cba90",
+      "outfit": {
+        "top": "shirt",
+        "collar": "vneck",
+        "pocket": true
+      }
+    },
+    {
+      "id": "zs-zombie-tourist",
+      "name": "Zombie · tourist",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-tourist",
+      "seed": 52,
+      "jacket": "#e2564b",
+      "pants": "#d8c49a",
+      "boots": "#7a5a3a",
+      "hair": "#5b3a26",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#9bc48a",
+      "outfit": {
+        "top": "shirt",
+        "pattern": "dots",
+        "patternColor": "#f4d35e",
+        "collar": "shirt"
+      },
+      "accessories": [
+        "sunglasses"
+      ]
+    },
+    {
+      "id": "zs-zombie-granny",
+      "name": "Zombie · granny",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-granny",
+      "seed": 58,
+      "jacket": "#7b2f4a",
+      "pants": "#3d3540",
+      "boots": "#2a2830",
+      "hair": "#e2dfd8",
+      "hairStyle": "curly",
+      "coat": false,
+      "skin": "#90bd8c",
+      "outfit": {
+        "top": "sweater",
+        "shirt": "#e8e2cf",
+        "collar": "shirt",
+        "buttonCount": 0,
+        "scarf": "#c9a77c"
+      }
+    },
+    {
+      "id": "zs-zombie-jogger",
+      "name": "Zombie · jogger",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-jogger",
+      "seed": 63,
+      "jacket": "#e8b93c",
+      "pants": "#2b3448",
+      "boots": "#f1ede4",
+      "hair": "#2c2321",
+      "hairStyle": "ponytail",
+      "coat": false,
+      "skin": "#88b884",
+      "outfit": {
+        "hat": "bandana",
+        "cap": "#c8423b",
+        "top": "vest",
+        "shirt": "#3d7cc0",
+        "pattern": "hstripes",
+        "patternColor": "#f4efe0"
+      }
+    },
+    {
+      "id": "zs-zombie-chef",
+      "name": "Zombie · chef",
+      "project": "zombie-shelter",
+      "identity": "zs-zombie-chef",
+      "seed": 71,
+      "jacket": "#efeae0",
+      "pants": "#3a3f4f",
+      "boots": "#2a2830",
+      "hair": "#634331",
+      "hairStyle": "spiky",
+      "coat": false,
+      "skin": "#95bf88",
+      "outfit": {
+        "top": "jacket",
+        "buttonCount": 4,
+        "pattern": "plaid",
+        "patternColor": "#d4cbb8",
+        "scarf": "#c8423b"
+      },
+      "build": "stout"
+    }
+  ]
+}

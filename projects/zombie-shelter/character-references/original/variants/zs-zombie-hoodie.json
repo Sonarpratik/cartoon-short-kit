@@ -1,0 +1,19 @@
+{
+  "id": "zs-zombie-hoodie",
+  "name": "Zombie · hoodie",
+  "project": "zombie-shelter",
+  "identity": "zs-zombie-hoodie",
+  "seed": 17,
+  "jacket": "#7b5ac9",
+  "pants": "#36394d",
+  "boots": "#4a3326",
+  "hair": "#2c2321",
+  "hairStyle": "long",
+  "coat": false,
+  "skin": "#94c28a",
+  "outfit": {
+    "top": "hoodie",
+    "pocket": true,
+    "sleeves": "#6a4bb3"
+  }
+}

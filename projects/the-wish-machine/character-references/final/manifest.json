@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "project": "the-wish-machine",
+  "archivedAt": "2026-11-13T10:28:42.570Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/the-wish-machine/characters",
+    "scene": "projects/the-wish-machine/src"
+  },
+  "characters": [
+    "wish-sam-young",
+    "wish-sam-rich",
+    "wish-sam-famous",
+    "wish-sam-old",
+    "wish-fan-cap",
+    "wish-fan-bob",
+    "wish-fan-afro",
+    "wish-fan-beanie",
+    "wish-park-dad",
+    "wish-park-mum",
+    "wish-park-kid"
+  ],
+  "files": {
+    "engine/angle-designs.ts": "f33dc2a6837d59fb",
+    "cast.json": "c53c257ce8223e3f",
+    "engine/character-rig.ts": "01504cb855fd7098",
+    "engine/director.ts": "a13255212e56c2b0",
+    "engine/face-style.ts": "64a8060afa172850",
+    "engine/hair-3d.ts": "bed5b145a0d0d0e1",
+    "engine/style.ts": "575c9860ee450118",
+    "engine/toon.ts": "d9078d8e1efffe5e",
+    "scene/characters.ts": "d4feacb9a1fd7aaf",
+    "scene/engine/cardshade.ts": "0a8d78e4edfb4c12",
+    "scene/engine/ink.ts": "971e25cfae6fd3e5",
+    "scene/face-style.ts": "da197516fd849bbd",
+    "scene/engine/director.ts": "a905e614d90c6b90",
+    "scene/engine/toon.ts": "b0f9a457ae5e2a9b"
+  }
+}

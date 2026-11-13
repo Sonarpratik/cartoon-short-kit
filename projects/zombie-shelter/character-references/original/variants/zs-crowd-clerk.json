@@ -1,0 +1,25 @@
+{
+  "id": "zs-crowd-clerk",
+  "name": "Crowd · supermarket clerk",
+  "project": "zombie-shelter",
+  "identity": "zs-crowd-clerk",
+  "seed": 37,
+  "jacket": "#7aa36a",
+  "pants": "#3a3f4f",
+  "boots": "#3a2c2a",
+  "hair": "#c46a3a",
+  "hairStyle": "bob",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "apron",
+    "apron": "#2f6b4f",
+    "shirt": "#e9e4d4",
+    "collar": "shirt",
+    "pattern": "stripes",
+    "patternColor": "#9ccf8a"
+  },
+  "accessories": [
+    "freckles"
+  ]
+}
