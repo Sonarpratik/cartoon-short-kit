@@ -4,7 +4,7 @@ import { EffectComposer, RenderPass, EffectPass, BloomEffect, BlendFunction, Ton
 import { World, loadKit } from './world';
 import { InkPass, noInkFallback } from './ink';
 import { LensBlur } from './lensblur';
-import { GradeEffect, GRADES, GRADE_STRENGTH, gradeFor } from './grade';
+import { GradeEffect, GRADES, GRADE_STRENGTH, GRADE_CINEMATIC, GRADE_CINEMATIC_STRENGTH, GRADE_LOOK, gradeFor } from './grade';
 import { FPS, TOTAL, FLASH_AT, SHOTS, layersAt, dofAt } from './story';
 import { STYLE } from './style';
 
@@ -30,7 +30,7 @@ async function init() {
     const camera = new THREE.PerspectiveCamera(40, 9 / 16, 0.2, 1500);
     const scene = new THREE.Scene(), world = new World(kit);
     scene.add(world.root);
-    const lens = new LensBlur(), grade = new GradeEffect(GRADES.day, GRADE_STRENGTH.day);
+    const lens = new LensBlur(), grade = new GradeEffect(GRADE_LOOK.value === 'cinematic' ? GRADE_CINEMATIC : GRADES.day, GRADE_LOOK.value === 'cinematic' ? GRADE_CINEMATIC_STRENGTH : GRADE_STRENGTH.day);
     const bloom = new BloomEffect({ blendFunction: BlendFunction.ADD, intensity: 0.5, luminanceThreshold: 1, luminanceSmoothing: 0.2, mipmapBlur: true, levels: 6, radius: 0.6 });
     const composer = new EffectComposer(renderer, { multisampling: 4, frameBufferType: THREE.HalfFloatType });
     composer.addPass(new RenderPass(scene, camera));

@@ -172,8 +172,20 @@ export const GRADES: Record<"day" | "golden", GradeParams> = { day: GRADE_DAY2, 
  *  .54-.62 / ~.52. Re-fit the presets (grade.md 5.C) after the merge and raise these again. */
 export const GRADE_STRENGTH: Record<"day" | "golden", number> = { day: 1, golden: 1 };
 /** Apply the preset of a light to the effect (only touches uniforms when the light changes). */
+/** Dark cinematic look (user-approved on Zombie Part 3, 2026-11-13): crushed blacks and lowered mids, 20-35 % less
+ *  saturation, cool blue shadows / warm highlights, heavy vignette. Read with a little more night bloom (.55). */
+export const GRADE_CINEMATIC: GradeParams = {
+  ky: [0, 0.045, 0.17, 0.44, 0.74, 0.9, 1],
+  sat: [0.62, 0.8, 0.88],
+  tintS: [0.035, -0.008], tintM: [0.006, 0], tintH: [-0.012, 0.014],
+  vig: [0.5, 0.3],
+};
+export const GRADE_CINEMATIC_STRENGTH = 0.95;
+/** Global look for every shot. 'cinematic' (default) applies GRADE_CINEMATIC whatever the light;
+ *  'bright' restores the original fitted day / golden presets. */
+export const GRADE_LOOK: { value: "cinematic" | "bright" } = { value: "cinematic" };
 export function gradeFor(fx: GradeEffect, light: "day" | "golden") {
-  const tag = fx as unknown as { _light?: string };
-  if (tag._light !== light) { fx.set(GRADES[light]); tag._light = light; }
-  fx.amount = GRADE_STRENGTH[light];
+  const tag = fx as unknown as { _light?: string }, key = GRADE_LOOK.value === "cinematic" ? "cinematic" : light;
+  if (tag._light !== key) { fx.set(key === "cinematic" ? GRADE_CINEMATIC : GRADES[light]); tag._light = key; }
+  fx.amount = key === "cinematic" ? GRADE_CINEMATIC_STRENGTH : GRADE_STRENGTH[light];
 }
