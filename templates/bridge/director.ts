@@ -16,7 +16,7 @@ export const CHARACTER_ARCHETYPES = {
 /** Every option the shared rig can draw. Combine per story; see references/character-design.md. */
 export const WARDROBE = {
  hairStyle:['sidepart','receding','bob','spiky','curly','afro','bun','ponytail','long','buzz','braid'],
- hat:['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat','headband','sheriff'],
+ hat:['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat','headband','sheriff','beret'],
  top:['jacket','shirt','sweater','vest','hoodie','coat','overalls','apron'],
  pattern:['none','stripes','hstripes','plaid','knit','dots'],
  collar:['shirt','turtleneck','vneck','none'],

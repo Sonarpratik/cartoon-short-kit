@@ -6,7 +6,7 @@ export type Point=[number,number];
 /** kind selects the base colour (hair or outfit.cap); tone>0 darkens towards ink, tone<0 lightens; accent uses outfit.hatAccent. */
 export type Patch={id:string;points:Point[];layer:'back'|'front';clip:boolean;alpha:number;kind?:'hair'|'hat';tone?:number;accent?:boolean};
 export const HAIR_STYLES=['sidepart','receding','bob','spiky','curly','afro','bun','ponytail','long','buzz','braid'] as const;
-export const HEADWEAR=['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat','headband','sheriff'] as const;
+export const HEADWEAR=['hair','cap','fedora','beanie','helmet','peaked','tricorn','bandana','tophat','headband','sheriff','beret'] as const;
 export type BodyDesign={width:number;front:number;shoulder:number;seam:number};
 export type AngleDesign={angle:number;body:BodyDesign;hair:Patch[]};
 export const BODY_KEYS:BodyDesign[]=[
@@ -70,7 +70,7 @@ function contour(points:Point[],count=64):Point[]{
 
 const HAT_IDS=new Set(['hat','cuff','pom','rim','stripe','visor','badge','brim','cockade','knot','dots','band']);
 const NEW_STYLES=new Set(['curly','afro','bun','ponytail','long','buzz','braid']);
-const NEW_HATS=new Set(['beanie','helmet','peaked','tricorn','bandana','tophat','sheriff']);
+const NEW_HATS=new Set(['beanie','helmet','peaked','tricorn','bandana','tophat','sheriff','beret']);
 type PatchFn=(id:string,points:Point[],layer?:'back'|'front',clip?:boolean,alpha?:number,extra?:Partial<Patch>)=>void;
 const ring=(cx:number,cy:number,rx:number,ry:number,n=16):Point[]=>Array.from({length:n},(_,k)=>{const a=k/n*Math.PI*2;return [cx+rx*Math.cos(a),cy+ry*Math.sin(a)] as Point;});
 const shiftX=(points:Point[],dx:number):Point[]=>points.map(([x,y])=>[x+dx,y] as Point);
@@ -147,6 +147,12 @@ function newHat(hat:string,patch:PatchFn,sn:number,cs:number,hw:number,front:num
   patch('dots-a',ring(-.45+.3*sn,-.78,.07,.07,8),'front',true,front,{accent:true});
   patch('dots-b',ring(.08+.3*sn,-.88,.07,.07,8),'front',true,front,{accent:true});
   patch('dots-c',ring(.55+.3*sn,-.72,.07,.07,8),'front',true,front,{accent:true});
+ }else if(hat==='beret'){
+  // Artist's beret: soft flat crown slumped to the character's left, thin leather band, little stalk on top.
+  const d=.12*sn;
+  patch('hat-crown',[[-1.04,-.48],[-1.2,-.74],[-1.02,-1.04],[-.5,-1.24],[.2,-1.28],[.86,-1.16],[1.36,-.92],[1.48,-.72],[1.2,-.6],[.6,-.52],[0,-.5]].map(([x,y])=>[x+d,y] as Point),'front',false);
+  patch('band',[[-1.05,-.6],[1.05,-.6],[1.05,-.46],[-1.05,-.46]],'front',false,1,{tone:.45});
+  patch('pom',[[-.06+d,-1.25],[-.02+d,-1.42],[.1+d,-1.44],[.08+d,-1.26]],'front',false,1,{tone:.3});
  }else if(hat==='sheriff'){
   // Western sheriff hat: tall crown pinched at the top, dark band with a star, wide brim with upturned ends.
   // The brim leans toward the facing side and thins in profile, like the fedora brim.
