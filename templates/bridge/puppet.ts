@@ -128,6 +128,38 @@ for (const [style, name, T, S, lift, swing] of [['normal', 'Normal walk', .5, 12
   OWN_MOVES[id] = { info: { id, action: 'walk', feelings: ['neutral'], energy: style === 'slow' ? 1 : 2, views: ['side', 'front', '34', 'back'], module: 'own', style },
     mv: { dur: 6 }, st: { key: style, name, pose: plainWalk(T, S, lift, swing), viewPose: true } };
 }
+// Overhand throw (1.2 s, play once from time 0): wind-up 0-.45 s (throwing hand goes up behind the head), release at
+// THROW_RELEASE (hand high and forward: spawn the thrown object there), follow-through down by 1.2 s.
+export const THROW_RELEASE = .52;
+const easeIO = (x: number) => x * x * (3 - 2 * x);
+function throwOverhand(t: number, ch: any, view = 'side') {
+  const up = t < .45 ? easeIO(t / .45) : t < .6 ? 1 : 1 - easeIO(Math.min(1, (t - .6) / .6));
+  const fwd = t < .45 ? -easeIO(t / .45) * .35 : t < .6 ? -.35 + 1.25 * easeIO((t - .45) / .15) : .9 - .5 * easeIO(Math.min(1, (t - .6) / .6));
+  const side = view === 'side' || view === '34', rest = { f: .3, d: .9, bow: .5 };
+  const P: any = side
+    ? { view, dir: 1, x: 0, rot: -6 * up + 8 * Math.max(0, fwd - .5), feet: [{ x: -26 }, { x: 22 }], head: -4 * up,
+        hands: [{ f: -.15, d: .85, bow: .5 }, { f: fwd, d: .9 - 1.75 * up, bow: .3 }] }
+    : { view, dir: 1, x: 0, rot: 4 * up, feet: [{ x: -36 }, { x: 34 }], head: -3 * up,
+        hands: [rest, { f: .3 + .35 * up, d: .9 - 2.1 * up, bow: .25 }] };   // out to the side and well above the head, so it reads from behind
+  P.y = reachDrop(ch, P); return { ...P, cam: 0 };
+}
+// Sit down on the ground (.9 s), then stay seated (hands resting on the ground, a slow breath); works from every
+// side, and from behind it reads as someone sitting and watching (the sea, a sunset).
+function sitGround(t: number, ch: any, view = 'back') {
+  const k = easeIO(Math.min(1, t / .9)), drop = k * Math.max(0, ch.legL - 60);
+  const side = view === 'side' || view === '34';
+  const P: any = side
+    ? { view, dir: 1, x: 0, rot: -4 * k, feet: [{ x: 40 + 90 * k, lift: 0 }, { x: 60 + 110 * k, lift: 0 }], head: 2 * Math.sin(t * .9),
+        hands: [{ f: -.35 * k, d: .7, bow: .5 }, { f: -.2 * k, d: .7, bow: .5 }] }
+    // front / back: the legs fold forward under the body, so the feet stay inside the body's outline (hidden from behind)
+    : { view, dir: 1, x: 0, rot: 1.5 * Math.sin(t * .6), feet: [{ x: -44 + 26 * k }, { x: 42 - 26 * k }], head: 2.5 * Math.sin(t * .7),
+        hands: [{ f: .55 + .2 * k, d: .82 - .12 * k, bow: .5 }, { f: .55 + .2 * k, d: .82 - .12 * k, bow: .5 }] };
+  P.y = drop; return { ...P, cam: 0, blink: blinkAt(t) };
+}
+OWN_MOVES['throw/overhand'] = { info: { id: 'throw/overhand', action: 'throw', feelings: ['angry', 'determined'], energy: 3, views: ['side', 'front', '34', 'back'], module: 'own', style: 'overhand' },
+  mv: { dur: 1.2 }, st: { key: 'overhand', name: 'Overhand throw', pose: throwOverhand, viewPose: true } };
+OWN_MOVES['sit/ground'] = { info: { id: 'sit/ground', action: 'sit', feelings: ['calm', 'sad', 'tired'], energy: 1, views: ['back', 'side', 'front', '34'], module: 'own', style: 'ground' },
+  mv: { dur: 3600 }, st: { key: 'ground', name: 'Sit on the ground', pose: sitGround, viewPose: true } };
 /** 'idle', our plain walks, then every library style id, grouped by action (sit/A, sit/B, sit/C, kneel/A ...). */
 export const ACTIONS = ['idle', ...Object.keys(OWN_MOVES), ...LIB.map((s: any) => s.id)];
 // Blink and lip-flap variants of every preset, registered in this page's copy of FACES (the files are not changed).
