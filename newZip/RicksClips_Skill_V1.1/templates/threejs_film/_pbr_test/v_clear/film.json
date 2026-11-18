@@ -1,0 +1,20 @@
+{
+ "title": "kit3d sky variant clear-day",
+ "fps": 30,
+ "size": [
+  1080,
+  1920
+ ],
+ "cast": {},
+ "post": {
+  "dof": 0.4
+ },
+ "places": {
+  "yard": {
+   "set": "pbrtest",
+   "light": "day",
+   "sky_kind": "clear-day"
+  }
+ },
+ "kit3d": true
+}

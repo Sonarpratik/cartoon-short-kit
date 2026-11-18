@@ -1,0 +1,12 @@
+import * as char2d from './char2d.mjs'; import * as memes from './memes.mjs'; import * as memes2 from './memes2.mjs'; import * as memes3 from './memes3.mjs'; import * as bodies from './bodies.mjs'; import * as cast from './cast.mjs';
+import { initPuppets, svgFor, CARD } from './puppets.mjs';
+import { createRequire } from 'module'; const require = createRequire(import.meta.url); const { chromium } = require('/opt/node-tools/node_modules/playwright');
+initPuppets({ char2d, memes, memes2, memes3, bodies, cast });
+const poses = (process.argv[2] || 'stand,sit,kneel,crouch').split(','), out = process.argv[3] || 'out.png';
+const VW = ['front','34','side','back'], who = ['form:standard','form:dad'], rows = []; for (const w of who) rows.push(...[0].map(()=>[w]));
+const cw = 400, ch = 750; let h = '';
+rows.forEach(([p], r) => VW.forEach((v, c) => { const ps = poses[0]; const s = svgFor({ puppet: p }, { view: v, dir: 1, pose: ps }); h += `<img style="position:absolute;left:${c*cw}px;top:${40+r*ch}px" width="${cw}" height="${ch}" src="data:image/svg+xml;base64,${Buffer.from(s).toString('base64')}">`; }));
+h += VW.map((p,c)=>`<div style="position:absolute;left:${c*cw}px;top:4px;width:${cw}px;text-align:center;font:bold 26px sans-serif">${poses[0]} - ${p === '34' ? '3/4' : p}</div>`).join('');
+const W = cw*VW.length, H = 40+ch*rows.length;
+const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: W, height: H } });
+await pg.setContent(`<html><body style="margin:0;background:#cfd8e6;position:relative">${h}</body></html>`); await pg.screenshot({ path: out }); await b.close(); console.log('ok');

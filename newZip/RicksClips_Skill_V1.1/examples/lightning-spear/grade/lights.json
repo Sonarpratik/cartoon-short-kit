@@ -1,0 +1,116 @@
+{
+ "_note": "Light kind per FILM frame (inclusive). From EDIT_LIST segments + PICTURE_PLAN rows + LOOK_BIBLE light table. Joins between segments are 10-frame blends B-5..B+4 (grade interpolates there); 779 is a real hard cut inside S4 (noon -> spring drizzle, on the word 'Then', measured mean RGB jump); the last 8 frames blend into frame 0 (A2 -> A).",
+ "kinds": {
+  "A": "purple dusk before the storm",
+  "B": "candle church",
+  "C": "clear morning",
+  "D": "golden noon",
+  "E": "spring drizzle then sun",
+  "F": "summer grey rain with fire",
+  "G": "bell-chamber flash",
+  "H": "blue night storm",
+  "A2": "rose dawn"
+ },
+ "spans": [
+  {
+   "kind": "A",
+   "first": 0,
+   "last": 269,
+   "seg": [
+    1
+   ],
+   "rows": "plan 1-7, S1 roof/wall/wire foot"
+  },
+  {
+   "kind": "B",
+   "first": 270,
+   "last": 460,
+   "seg": [
+    2
+   ],
+   "rows": "plan 8-11, S2 church inside"
+  },
+  {
+   "kind": "C",
+   "first": 461,
+   "last": 660,
+   "seg": [
+    3
+   ],
+   "rows": "plan 12-14, S3 rival hill + bell chamber"
+  },
+  {
+   "kind": "D",
+   "first": 661,
+   "last": 778,
+   "seg": [
+    4
+   ],
+   "rows": "plan 15-16, S4 market noon"
+  },
+  {
+   "kind": "E",
+   "first": 779,
+   "last": 1086,
+   "seg": [
+    4,
+    5
+   ],
+   "rows": "plan 17-20, S4 drizzle square + S2 church steps"
+  },
+  {
+   "kind": "F",
+   "first": 1087,
+   "last": 1186,
+   "seg": [
+    6
+   ],
+   "rows": "plan 21-22, S4 vineyard ridge"
+  },
+  {
+   "kind": "G",
+   "first": 1187,
+   "last": 1271,
+   "seg": [
+    7
+   ],
+   "rows": "plan 23, S3 bell chamber flashes"
+  },
+  {
+   "kind": "H",
+   "first": 1272,
+   "last": 1908,
+   "seg": [
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "rows": "plan 24-34, night square, ringer runs, S5 both hills, S3 angel hit, S5 tower burns (fire orange 1840-1908)"
+  },
+  {
+   "kind": "A2",
+   "first": 1909,
+   "last": 2069,
+   "seg": [
+    13
+   ],
+   "rows": "plan 35-36, S6 church yard dawn and the held punchline look (to f2069)"
+  },
+  {
+   "kind": "A",
+   "first": 2070,
+   "last": 2139,
+   "seg": [
+    13
+   ],
+   "rows": "the fly up the wire (2070-2108) and the landed rest on the spear tip (2108-2139) in the purple storm = frame 0's light; 2132-2139 loop blend"
+  }
+ ],
+ "hard_cuts": [
+  779
+ ],
+ "blend_half": 5,
+ "loop_tail": 8
+}

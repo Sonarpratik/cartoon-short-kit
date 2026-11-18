@@ -1,0 +1,93 @@
+{
+ "face_shadow": true,
+ "face_shadow_rule": "CB 2026-11-15 (lightning spear final v1: 'still have shadow on his face. we had a rule to remove it'): copy face_shadow to the TOP of every film.json; false = char2d draws no grey face shadow on any cast card (threejs_film puppets.mjs). Measure: skin pixels darker than 235 inside the head under 1 %.",
+ "_note": "character-artist 2026-11-15. Copy these keys into every film.json that uses this cast. puppet_pkg paths are relative to the film.json: first the folder that holds cast/sheets/spear.mjs (episodes/lightning-spear/cast), then the kit code. CB 2026-11-15: faces clean white, NO coloured rim (card_shade.rim_amount 0, no 'far' light, lights []), costume_shade with smooth 40 (no horizontal streaks in hair). Height = ground to the top of the bare head; hats stand above it. The hen is its own card: pose 'stand' | 'stare' | 'puff' (views side with dir, front, back). The rival's cane is a HELD PROP in his RIGHT fist (grips.mjs kind pole), not on the card.",
+ "puppet_pkg": [
+  "<relative path to>/episodes/lightning-spear/cast",
+  "<relative path to>/templates/vector2d_characters/code"
+ ],
+ "cast": {
+  "mason": {
+   "puppet": "cast:spear/mason",
+   "height": 1.75,
+   "heads_tall": 2.93
+  },
+  "priest": {
+   "puppet": "cast:spear/priest",
+   "height": 1.7,
+   "heads_tall": 2.8
+  },
+  "rival": {
+   "puppet": "cast:spear/rival",
+   "height": 1.88,
+   "heads_tall": 3.1
+  },
+  "ringer": {
+   "puppet": "cast:spear/ringer",
+   "height": 1.58,
+   "heads_tall": 3.1
+  },
+  "baker": {
+   "puppet": "cast:spear/baker",
+   "height": 1.72,
+   "heads_tall": 2.8
+  },
+  "olive": {
+   "puppet": "cast:spear/olive",
+   "height": 1.72,
+   "heads_tall": 2.93
+  },
+  "marketwoman": {
+   "puppet": "cast:spear/marketwoman",
+   "height": 1.62,
+   "heads_tall": 2.8
+  },
+  "picker": {
+   "puppet": "cast:spear/picker",
+   "height": 1.66,
+   "heads_tall": 3.1
+  },
+  "oldman": {
+   "puppet": "cast:spear/oldman",
+   "height": 1.64,
+   "heads_tall": 3.1
+  },
+  "girl": {
+   "puppet": "cast:spear/girl",
+   "height": 1.15,
+   "heads_tall": 2.4
+  },
+  "boy": {
+   "puppet": "cast:spear/boy",
+   "height": 1.2,
+   "heads_tall": 2.4
+  },
+  "eggwoman": {
+   "puppet": "cast:spear/eggwoman",
+   "height": 1.58,
+   "heads_tall": 2.93
+  },
+  "hen": {
+   "puppet": "cast:spear/hen",
+   "height": 0.42,
+   "heads_tall": 3.8
+  }
+ },
+ "costume_shade": {
+  "amount": 0.45,
+  "start": 0.35,
+  "cool": 0.15,
+  "smooth": 40,
+  "keep_drawn_light": true
+ },
+ "card_shade": {
+  "style": "rick",
+  "amount": 0,
+  "rim_amount": 0,
+  "rim_width": 0.9,
+  "hat_shadow": 0,
+  "lights": []
+ },
+ "card_shade_rule": "CB 2026-11-15 (\"why keep making the same mistake? the shadow on his face\"): card_shade.amount 0 AND rim_amount 0 in every place, no 'far' light, lights []. The kit's card_shade painted a grey band on the far side of the face; the only shade allowed on a face is the one the template draws. Never raise amount.",
+ "_face_note": "CB 2026-11-15: 'dont delete this premade face shadow. the one that generate shadow on face only' -> the template's drawn face shadow STAYS (face_shadow true); only the kit's generated card_shade stays off (amount 0, rim 0)."
+}

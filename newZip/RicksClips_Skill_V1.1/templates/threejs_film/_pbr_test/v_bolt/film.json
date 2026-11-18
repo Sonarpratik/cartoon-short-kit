@@ -1,0 +1,23 @@
+{
+ "title": "fx bolt proof: ctx.fx.bolt on a night-storm tower",
+ "fps": 30,
+ "size": [
+  1080,
+  1920
+ ],
+ "cast": {},
+ "post": {
+  "dof": 0.25
+ },
+ "places": {
+  "tower": {
+   "set": "bolttest",
+   "light": "night",
+   "light_over": {
+    "si": 0.55,
+    "ai": 0.55
+   }
+  }
+ },
+ "kit3d": true
+}

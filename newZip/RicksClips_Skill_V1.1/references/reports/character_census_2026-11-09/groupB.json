@@ -1,0 +1,1120 @@
+{
+ "group": "groupB",
+ "episodes": {
+  "The Ancient Jar That Warned an Empire": {
+   "frames_looked_at": 54,
+   "cast": [
+    {
+     "role": "inventor/scholar (protagonist)",
+     "build": "slim",
+     "costume": {
+      "garment": "long robe (tube body, no visible legs)",
+      "main_hex": "#2f5fb5",
+      "second_hex": "#f0a030 (belt sash)"
+     },
+     "hat_or_hair": "black hair in top-knot bun with gold hairpin + teal bead",
+     "facial_hair_glasses": "none",
+     "chest_icon": "white inverted-V collar mark on chest (\u03bb shape)",
+     "pattern": "none",
+     "shoes_or_feet": "small dark slippers peeking under robe hem",
+     "skin": "white"
+    },
+    {
+     "role": "emperor",
+     "build": "medium",
+     "costume": {
+      "garment": "long robe to floor",
+      "main_hex": "#2a2350",
+      "second_hex": "#d23a2a (red \u03bb chest mark + red sash)"
+     },
+     "hat_or_hair": "black official hat with gold bands / ornaments",
+     "facial_hair_glasses": "black droopy mustache",
+     "chest_icon": "red-orange \u03bb chevron with yellow trim on chest",
+     "pattern": "none",
+     "shoes_or_feet": "hidden by robe",
+     "skin": "white"
+    },
+    {
+     "role": "palace guards (several, some laughing)",
+     "build": "medium",
+     "costume": {
+      "garment": "lamellar/chainmail tunic over long skirt",
+      "main_hex": "#6a7088",
+      "second_hex": "#8a2a2a (dark red skirt)"
+     },
+     "hat_or_hair": "grey round helmet with gold rim + red plume",
+     "facial_hair_glasses": "none",
+     "chest_icon": "armour scales act as costume mark; gold belt buckle",
+     "pattern": "scale/grid pattern on armour",
+     "shoes_or_feet": "small dark feet under skirt",
+     "skin": "white"
+    },
+    {
+     "role": "courtiers at banquet",
+     "build": "medium",
+     "costume": {
+      "garment": "robes",
+      "main_hex": "#3f7a58",
+      "second_hex": "#6a4a30"
+     },
+     "hat_or_hair": "black caps / hats",
+     "facial_hair_glasses": "one with glasses",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "not seen",
+     "skin": "white"
+    },
+    {
+     "role": "townsfolk at gate (monk-like man)",
+     "build": "slim",
+     "costume": {
+      "garment": "long brown robe",
+      "main_hex": "#8d683c",
+      "second_hex": "#3a2a20"
+     },
+     "hat_or_hair": "tall black conical hat",
+     "facial_hair_glasses": "round glasses",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "two small dark shoes under hem",
+     "skin": "white"
+    },
+    {
+     "role": "townsfolk (blue robe, woman in red skirt)",
+     "build": "slim",
+     "costume": {
+      "garment": "robe / skirt + grey top",
+      "main_hex": "#7fa0c8",
+      "second_hex": "#b03a3a"
+     },
+     "hat_or_hair": "black hat / hair bun",
+     "facial_hair_glasses": "none",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "small stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "army crowd (tiny, background)",
+     "build": "n/a",
+     "costume": {
+      "garment": "red/white uniforms",
+      "main_hex": "#c03030",
+      "second_hex": "#ffffff"
+     },
+     "hat_or_hair": "helmets",
+     "facial_hair_glasses": "n/a",
+     "chest_icon": "n/a",
+     "pattern": "n/a",
+     "shoes_or_feet": "n/a",
+     "skin": "white",
+     "notes": "crowd sprites, not distinct"
+    }
+   ],
+   "measures": [
+    {
+     "frame": "frame_222.png",
+     "who": "inventor",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 855,
+     "chin_y": 1055,
+     "head_left_x": 430,
+     "head_right_x": 672,
+     "outline_px": 9,
+     "torso_bottom_y": 1505,
+     "torso_left_x": 440,
+     "torso_right_x": 667,
+     "torso_top_w": 193,
+     "sole_y": 1552,
+     "foot_len_px": 45,
+     "hand_dot_px": 30,
+     "leg_stroke_px": null,
+     "arm_stroke_px": null,
+     "hand_y": 1260,
+     "eye_left_x": 487,
+     "eye_right_x": 535,
+     "eye_y": 952,
+     "notes": "robe covers legs; one hand holds lantern at ~x460; belt sash y1190-1215; skull is wider than tall"
+    },
+    {
+     "frame": "frame_204.png",
+     "who": "palace guard (near)",
+     "view": "3/4",
+     "pose": "standing, arm pointing",
+     "head_top_y": 945,
+     "chin_y": 1185,
+     "head_left_x": 481,
+     "head_right_x": 761,
+     "outline_px": 8,
+     "torso_bottom_y": 1690,
+     "torso_left_x": 448,
+     "torso_right_x": 710,
+     "torso_top_w": 182,
+     "sole_y": 1780,
+     "foot_len_px": null,
+     "hand_dot_px": 31,
+     "leg_stroke_px": null,
+     "arm_stroke_px": 8,
+     "hand_y": 1230,
+     "eye_left_x": 613,
+     "eye_right_x": 675,
+     "eye_y": 1057,
+     "notes": "helmet top 914 (skull estimated 945); chainmail torso 1190-1400 then dark-red skirt to 1690; feet a dark blob ~1700-1780"
+    },
+    {
+     "frame": "frame_138.png",
+     "who": "townsperson (brown robe, glasses)",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 1112,
+     "chin_y": 1219,
+     "head_left_x": 56,
+     "head_right_x": 182,
+     "outline_px": 4,
+     "torso_bottom_y": 1485,
+     "torso_left_x": 62,
+     "torso_right_x": 177,
+     "torso_top_w": 92,
+     "sole_y": 1500,
+     "foot_len_px": 29,
+     "hand_dot_px": null,
+     "leg_stroke_px": null,
+     "arm_stroke_px": null,
+     "hand_y": null,
+     "eye_left_x": 115,
+     "eye_right_x": 145,
+     "eye_y": 1158,
+     "notes": "small background figure; hat top 1062; robe to ground"
+    }
+   ],
+   "notes": "Medieval/Asian court setting. Everyone has white skull + tube robe; robes hide legs entirely (no stick legs seen) and short dark feet/slippers show under hems. Role marks are the chest chevron (\u03bb) on inventor & emperor and armour on guards. Lots of non-character 3D shots (jar, dragons, pendulum)."
+  },
+  "The Burglar Who Only Moved Furniture": {
+   "frames_looked_at": 48,
+   "cast": [
+    {
+     "role": "burglar (masked)",
+     "build": "medium",
+     "costume": {
+      "garment": "one-piece dark bodysuit + belt",
+      "main_hex": "#1e2244",
+      "second_hex": "#c8a040 (gold belt buckle)"
+     },
+     "hat_or_hair": "black balaclava with white eye slit (whole head dark)",
+     "facial_hair_glasses": "none",
+     "chest_icon": "belt with square gold buckle",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "buyer = burglar unmasked",
+     "build": "medium",
+     "costume": {
+      "garment": "open mustard jacket over dark striped sweater + belt",
+      "main_hex": "#f0b030",
+      "second_hex": "#2a3050"
+     },
+     "hat_or_hair": "grey knit beanie",
+     "facial_hair_glasses": "smirk; one frame (258) shows a full dark beard/mask",
+     "chest_icon": "gold belt buckle; holds key",
+     "pattern": "vertical stripes on sweater",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "dad",
+     "build": "medium",
+     "costume": {
+      "garment": "teal crew-neck shirt",
+      "main_hex": "#1f9e8e",
+      "second_hex": "#ffffff"
+     },
+     "hat_or_hair": "spiky brown hair",
+     "facial_hair_glasses": "round wire glasses",
+     "chest_icon": "small collar / one button",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet by day; blue fluffy slippers at night",
+     "skin": "white",
+     "notes": "night scenes: blue cap with headlamp, padded green jacket, baseball bat, mustache (198)"
+    },
+    {
+     "role": "mom",
+     "build": "slim",
+     "costume": {
+      "garment": "pink sleeveless dress/top",
+      "main_hex": "#e87fc0",
+      "second_hex": "#8b4a3a (hair)"
+     },
+     "hat_or_hair": "auburn hair bun with yellow pin",
+     "facial_hair_glasses": "none",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "kid",
+     "build": "kid",
+     "costume": {
+      "garment": "teal/yellow tee",
+      "main_hex": "#2aa090",
+      "second_hex": "#f0c040"
+     },
+     "hat_or_hair": "brown hair",
+     "facial_hair_glasses": "big round eyes",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "police officer",
+     "build": "stout",
+     "costume": {
+      "garment": "blue uniform with chest pockets + belt",
+      "main_hex": "#2a4fb0",
+      "second_hex": "#f0c030 (gold star)"
+     },
+     "hat_or_hair": "blue peaked police cap with gold star",
+     "facial_hair_glasses": "none",
+     "chest_icon": "gold star badge on chest + gold buckle on black belt",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "cat (orange tabby)",
+     "build": "n/a",
+     "costume": {
+      "garment": "n/a",
+      "main_hex": "#f09030",
+      "second_hex": "#ffffff"
+     },
+     "hat_or_hair": "n/a",
+     "facial_hair_glasses": "n/a",
+     "chest_icon": "n/a",
+     "pattern": "tabby stripes",
+     "shoes_or_feet": "n/a",
+     "skin": "n/a"
+    }
+   ],
+   "measures": [
+    {
+     "frame": "frame_048.png",
+     "who": "dad",
+     "view": "3/4",
+     "pose": "standing",
+     "head_top_y": 765,
+     "chin_y": 915,
+     "head_left_x": 81,
+     "head_right_x": 258,
+     "outline_px": 4,
+     "torso_bottom_y": 1070,
+     "torso_left_x": 115,
+     "torso_right_x": 248,
+     "torso_top_w": 102,
+     "sole_y": 1269,
+     "foot_len_px": 18,
+     "hand_dot_px": 24,
+     "leg_stroke_px": 9,
+     "arm_stroke_px": 7,
+     "hand_y": 988,
+     "eye_left_x": 155,
+     "eye_right_x": 202,
+     "eye_y": 844,
+     "notes": "holding mug at chest"
+    },
+    {
+     "frame": "frame_012.png",
+     "who": "burglar (masked)",
+     "view": "front",
+     "pose": "sneaking walk",
+     "head_top_y": 560,
+     "chin_y": 907,
+     "head_left_x": 416,
+     "head_right_x": 777,
+     "outline_px": null,
+     "torso_bottom_y": 1163,
+     "torso_left_x": 445,
+     "torso_right_x": 666,
+     "torso_top_w": 180,
+     "sole_y": 1593,
+     "foot_len_px": 20,
+     "hand_dot_px": 29,
+     "leg_stroke_px": 15,
+     "arm_stroke_px": 12,
+     "hand_y": 890,
+     "eye_left_x": 567,
+     "eye_right_x": 642,
+     "eye_y": 738,
+     "notes": "close-up; dark head merges into dark body so outline not separable; belt ~y1080"
+    },
+    {
+     "frame": "frame_120.png",
+     "who": "dad",
+     "view": "3/4",
+     "pose": "standing, hand on hip",
+     "head_top_y": 783,
+     "chin_y": 941,
+     "head_left_x": 683,
+     "head_right_x": 831,
+     "outline_px": 5,
+     "torso_bottom_y": 1099,
+     "torso_left_x": 693,
+     "torso_right_x": 824,
+     "torso_top_w": 105,
+     "sole_y": 1310,
+     "foot_len_px": 12,
+     "hand_dot_px": 20,
+     "leg_stroke_px": 8,
+     "arm_stroke_px": 7,
+     "hand_y": 1013,
+     "eye_left_x": 721,
+     "eye_right_x": 765,
+     "eye_y": 860
+    },
+    {
+     "frame": "frame_120.png",
+     "who": "mom",
+     "view": "back",
+     "pose": "standing on couch",
+     "head_top_y": 579,
+     "chin_y": 757,
+     "head_left_x": 86,
+     "head_right_x": 295,
+     "outline_px": 6,
+     "torso_bottom_y": 956,
+     "torso_left_x": 111,
+     "torso_right_x": 259,
+     "torso_top_w": 122,
+     "sole_y": 1206,
+     "foot_len_px": 10,
+     "hand_dot_px": null,
+     "leg_stroke_px": 10,
+     "arm_stroke_px": 8,
+     "hand_y": null,
+     "eye_left_x": null,
+     "eye_right_x": null,
+     "notes": "back of head; bun top 533"
+    },
+    {
+     "frame": "frame_264.png",
+     "who": "buyer (burglar in beanie)",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 786,
+     "chin_y": 986,
+     "head_left_x": 136,
+     "head_right_x": 393,
+     "outline_px": 5,
+     "torso_bottom_y": 1207,
+     "torso_left_x": 150,
+     "torso_right_x": 350,
+     "torso_top_w": 150,
+     "sole_y": 1550,
+     "foot_len_px": 15,
+     "hand_dot_px": 26,
+     "leg_stroke_px": 11,
+     "arm_stroke_px": 9,
+     "hand_y": 1086,
+     "eye_left_x": 231,
+     "eye_right_x": 289,
+     "eye_y": 879,
+     "notes": "beanie top 757"
+    },
+    {
+     "frame": "frame_264.png",
+     "who": "dad",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 771,
+     "chin_y": 986,
+     "head_left_x": 424,
+     "head_right_x": 669,
+     "outline_px": 6,
+     "torso_bottom_y": 1200,
+     "torso_left_x": 450,
+     "torso_right_x": 624,
+     "torso_top_w": 128,
+     "sole_y": 1536,
+     "foot_len_px": 15,
+     "hand_dot_px": 31,
+     "leg_stroke_px": 11,
+     "arm_stroke_px": 9,
+     "hand_y": 1086,
+     "eye_left_x": 507,
+     "eye_right_x": 571,
+     "eye_y": 871
+    },
+    {
+     "frame": "frame_264.png",
+     "who": "mom",
+     "view": "front",
+     "pose": "standing holding cat",
+     "head_top_y": 779,
+     "chin_y": 986,
+     "head_left_x": 740,
+     "head_right_x": 1007,
+     "outline_px": 6,
+     "torso_bottom_y": 1243,
+     "torso_left_x": 779,
+     "torso_right_x": 1000,
+     "torso_top_w": 180,
+     "sole_y": 1593,
+     "foot_len_px": 15,
+     "hand_dot_px": null,
+     "leg_stroke_px": 11,
+     "arm_stroke_px": 9,
+     "hand_y": null,
+     "eye_left_x": 833,
+     "eye_right_x": 900,
+     "eye_y": 864,
+     "notes": "hair top 743"
+    }
+   ],
+   "notes": "Suburban house. Outlines are dark brown/navy rather than pure black. Night lighting tints everyone blue. Only shoes seen: dad's blue fluffy slippers at night; all other feet are bare stick ends. Cop is the stoutest body (wide barrel torso)."
+  },
+  "The Job Nobody Wants in Japan - Ricks Clips (1080p, h264)": {
+   "frames_looked_at": 50,
+   "cast": [
+    {
+     "role": "boss",
+     "build": "medium",
+     "costume": {
+      "garment": "dark navy suit + white shirt",
+      "main_hex": "#1f2a4a",
+      "second_hex": "#d83a2a (red tie)"
+     },
+     "hat_or_hair": "grey swept hair",
+     "facial_hair_glasses": "none (big toothy grin)",
+     "chest_icon": "red tie",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet (legs cut in most shots)",
+     "skin": "white"
+    },
+    {
+     "role": "salaryman protagonist",
+     "build": "slim",
+     "costume": {
+      "garment": "light blue shirt",
+      "main_hex": "#8ec5ef",
+      "second_hex": "#1e2a4a (navy tie)"
+     },
+     "hat_or_hair": "black hair with side part",
+     "facial_hair_glasses": "none; sunglasses in daydream",
+     "chest_icon": "navy tie + ID badge on lanyard",
+     "pattern": "none",
+     "shoes_or_feet": "stick legs with small dark shoes/feet stubs",
+     "skin": "white"
+    },
+    {
+     "role": "employee in career development room",
+     "build": "medium",
+     "costume": {
+      "garment": "teal shirt",
+      "main_hex": "#1a9a9a",
+      "second_hex": "#8a5030 (brown shoes)"
+     },
+     "hat_or_hair": "brown side-part hair",
+     "facial_hair_glasses": "none",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "brown shoes visible when feet on desk",
+     "skin": "white",
+     "notes": "face looks peach (#ffd685) only inside the yellow sunlight beam; outside the beam it is white"
+    },
+    {
+     "role": "coworker (purple)",
+     "build": "medium",
+     "costume": {
+      "garment": "purple tee",
+      "main_hex": "#8a55e0",
+      "second_hex": "#ffffff"
+     },
+     "hat_or_hair": "black hair",
+     "facial_hair_glasses": "rectangular glasses",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "coworker (yellow)",
+     "build": "medium",
+     "costume": {
+      "garment": "yellow tee",
+      "main_hex": "#ffc020",
+      "second_hex": "#ffffff"
+     },
+     "hat_or_hair": "black hair",
+     "facial_hair_glasses": "none",
+     "chest_icon": "none",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "coworker (white shirt + green tie)",
+     "build": "medium",
+     "costume": {
+      "garment": "white shirt",
+      "main_hex": "#f5f5f5",
+      "second_hex": "#3aa060 (green tie)"
+     },
+     "hat_or_hair": "brown hair",
+     "facial_hair_glasses": "none",
+     "chest_icon": "green tie",
+     "pattern": "none",
+     "shoes_or_feet": "not seen",
+     "skin": "white"
+    },
+    {
+     "role": "other office workers (orange, green, blue shirts)",
+     "build": "medium",
+     "costume": {
+      "garment": "tees/shirts",
+      "main_hex": "#f08030",
+      "second_hex": "#40a050"
+     },
+     "hat_or_hair": "dark hair",
+     "facial_hair_glasses": "one with glasses",
+     "chest_icon": "ID badges",
+     "pattern": "none",
+     "shoes_or_feet": "not seen",
+     "skin": "white"
+    }
+   ],
+   "measures": [
+    {
+     "frame": "frame_138.png",
+     "who": "salaryman (blue shirt)",
+     "view": "3/4",
+     "pose": "standing",
+     "head_top_y": 702,
+     "chin_y": 906,
+     "head_left_x": 56,
+     "head_right_x": 273,
+     "outline_px": 6,
+     "torso_bottom_y": 1112,
+     "torso_left_x": 82,
+     "torso_right_x": 238,
+     "torso_top_w": 123,
+     "sole_y": 1380,
+     "foot_len_px": 35,
+     "hand_dot_px": 19,
+     "leg_stroke_px": 12,
+     "arm_stroke_px": 9,
+     "hand_y": 1010,
+     "eye_left_x": 155,
+     "eye_right_x": 207,
+     "eye_y": 808,
+     "notes": "hair merges with outline on left; feet are short sideways strokes / small dark shoe stubs"
+    },
+    {
+     "frame": "frame_240.png",
+     "who": "coworker (purple, glasses)",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 736,
+     "chin_y": 1067,
+     "head_left_x": 0,
+     "head_right_x": 352,
+     "outline_px": 12,
+     "torso_bottom_y": 1445,
+     "torso_left_x": 26,
+     "torso_right_x": 281,
+     "torso_top_w": 195,
+     "sole_y": 1904,
+     "foot_len_px": 25,
+     "hand_dot_px": 41,
+     "leg_stroke_px": 18,
+     "arm_stroke_px": 15,
+     "hand_y": 1450,
+     "eye_left_x": 97,
+     "eye_right_x": 199,
+     "eye_y": 892,
+     "notes": "close-up; head cut at left frame edge; hands hang at torso bottom"
+    },
+    {
+     "frame": "frame_240.png",
+     "who": "coworker (yellow)",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 705,
+     "chin_y": 1057,
+     "head_left_x": 673,
+     "head_right_x": 1071,
+     "outline_px": 12,
+     "torso_bottom_y": 1445,
+     "torso_left_x": 765,
+     "torso_right_x": 1010,
+     "torso_top_w": 194,
+     "sole_y": 1894,
+     "foot_len_px": 25,
+     "hand_dot_px": 46,
+     "leg_stroke_px": 18,
+     "arm_stroke_px": 15,
+     "hand_y": 1445,
+     "eye_left_x": 835,
+     "eye_right_x": 916,
+     "eye_y": 894,
+     "notes": "hands hang exactly at torso bottom line"
+    }
+   ],
+   "notes": "Japanese office. All skin white; apparent peach face of the teal-shirt guy is the yellow light beam. Role marks: ties (red boss, navy salaryman, green coworker) and ID badges on lanyards. Torso is a tall rounded capsule ~1.1x head height; head ~1/3.5 of total height in close-ups."
+  },
+  "The Pink Prison Cell Experiment - Ricks Clips (1080p, h264)": {
+   "frames_looked_at": 54,
+   "cast": [
+    {
+     "role": "scientist / researcher",
+     "build": "slim",
+     "costume": {
+      "garment": "white shirt (body fill white)",
+      "main_hex": "#ffffff",
+      "second_hex": "#9a5a20 (brown tie with orange diagonal stripes)"
+     },
+     "hat_or_hair": "brown side-swept hair",
+     "facial_hair_glasses": "none",
+     "chest_icon": "striped tie",
+     "pattern": "diagonal stripes on tie",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "prison guards (2-3)",
+     "build": "stout",
+     "costume": {
+      "garment": "navy uniform tunic + belt",
+      "main_hex": "#1e2a50",
+      "second_hex": "#e0b030 (gold star)"
+     },
+     "hat_or_hair": "navy peaked cap with gold star",
+     "facial_hair_glasses": "one bushy mustache; one round glasses",
+     "chest_icon": "gold star badge on chest + square gold belt buckle",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "big prisoner (300 lbs)",
+     "build": "big",
+     "costume": {
+      "garment": "white ribbed tank top + blue briefs",
+      "main_hex": "#f0eef0",
+      "second_hex": "#5a78c0"
+     },
+     "hat_or_hair": "bald with stubble dots",
+     "facial_hair_glasses": "none; blush cheeks",
+     "chest_icon": "navy anchor tattoo on shoulder",
+     "pattern": "vertical ribbing on tank",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "small prisoner",
+     "build": "slim",
+     "costume": {
+      "garment": "light blue prison jumpsuit with buttons",
+      "main_hex": "#7a98d0",
+      "second_hex": "#c8642a (curly ginger hair)"
+     },
+     "hat_or_hair": "curly ginger/orange hair",
+     "facial_hair_glasses": "none (wild eyes)",
+     "chest_icon": "white number patch '4417' on chest",
+     "pattern": "none",
+     "shoes_or_feet": "bare stick feet",
+     "skin": "white"
+    },
+    {
+     "role": "paint-truck / yard staff (tiny)",
+     "build": "n/a",
+     "costume": {
+      "garment": "uniforms",
+      "main_hex": "#1e2a50",
+      "second_hex": "#ffffff"
+     },
+     "hat_or_hair": "caps",
+     "facial_hair_glasses": "n/a",
+     "chest_icon": "n/a",
+     "pattern": "n/a",
+     "shoes_or_feet": "n/a",
+     "skin": "white",
+     "notes": "tiny in aerial shot"
+    }
+   ],
+   "measures": [
+    {
+     "frame": "frame_078.png",
+     "who": "scientist",
+     "view": "front",
+     "pose": "standing, arm raised with stopwatch",
+     "head_top_y": 690,
+     "chin_y": 940,
+     "head_left_x": 500,
+     "head_right_x": 775,
+     "outline_px": 13,
+     "torso_bottom_y": 1180,
+     "torso_left_x": 555,
+     "torso_right_x": 705,
+     "torso_top_w": 125,
+     "sole_y": 1560,
+     "foot_len_px": 20,
+     "hand_dot_px": null,
+     "leg_stroke_px": 10,
+     "arm_stroke_px": 9,
+     "hand_y": null,
+     "eye_left_x": 595,
+     "eye_right_x": 670,
+     "eye_y": 823
+    },
+    {
+     "frame": "frame_126.png",
+     "who": "big prisoner",
+     "view": "front",
+     "pose": "standing, arms out",
+     "head_top_y": 747,
+     "chin_y": 950,
+     "head_left_x": 459,
+     "head_right_x": 672,
+     "outline_px": 9,
+     "torso_bottom_y": 1149,
+     "torso_left_x": 438,
+     "torso_right_x": 693,
+     "torso_top_w": 188,
+     "sole_y": 1497,
+     "foot_len_px": 15,
+     "hand_dot_px": 23,
+     "leg_stroke_px": 14,
+     "arm_stroke_px": 6,
+     "hand_y": 1030,
+     "eye_left_x": 532,
+     "eye_right_x": 588,
+     "eye_y": 829,
+     "notes": "torso wider than head (255 vs 213) - the only body wider than its head in this group; shorts band y1100-1149"
+    },
+    {
+     "frame": "frame_048.png",
+     "who": "scientist (far)",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 821,
+     "chin_y": 963,
+     "head_left_x": 471,
+     "head_right_x": 633,
+     "outline_px": 7,
+     "torso_bottom_y": 1100,
+     "torso_left_x": 507,
+     "torso_right_x": 604,
+     "torso_top_w": 79,
+     "sole_y": 1330,
+     "foot_len_px": 12,
+     "hand_dot_px": 18,
+     "leg_stroke_px": 8,
+     "arm_stroke_px": 7,
+     "hand_y": 1123,
+     "eye_left_x": 527,
+     "eye_right_x": 571,
+     "eye_y": 890
+    },
+    {
+     "frame": "frame_264.png",
+     "who": "guard (mustache, glasses)",
+     "view": "front",
+     "pose": "standing, arms crossed",
+     "head_top_y": 761,
+     "chin_y": 919,
+     "head_left_x": 176,
+     "head_right_x": 372,
+     "outline_px": 11,
+     "torso_bottom_y": 1103,
+     "torso_left_x": 195,
+     "torso_right_x": 322,
+     "torso_top_w": 108,
+     "sole_y": 1343,
+     "foot_len_px": 12,
+     "hand_dot_px": null,
+     "leg_stroke_px": 10,
+     "arm_stroke_px": 8,
+     "hand_y": null,
+     "eye_left_x": 252,
+     "eye_right_x": 296,
+     "eye_y": 837,
+     "notes": "cap top 732, skull estimated 761"
+    }
+   ],
+   "notes": "Prison. Clear body-type range: slim scientist (torso ~0.55x head width), stout guards, big prisoner (torso 1.2x head width, wider than head). Guards wear chest star badge + gold buckle. Prisoner ID number patch on jumpsuit chest. All bare stick feet."
+  },
+  "The Science Behind Slot Machines - Ricks Clips (1080p, h264)": {
+   "frames_looked_at": 25,
+   "cast": [
+    {
+     "role": "gambler (main)",
+     "build": "medium",
+     "costume": {
+      "garment": "short-sleeve Hawaiian shirt",
+      "main_hex": "#1aa5a0",
+      "second_hex": "#f0c020 (yellow leaf print)"
+     },
+     "hat_or_hair": "messy dark brown hair",
+     "facial_hair_glasses": "none",
+     "chest_icon": "red tie + red casino player card/ID badge on lanyard",
+     "pattern": "yellow leaf/banana print",
+     "shoes_or_feet": "not seen (sitting on stool)",
+     "skin": "white"
+    },
+    {
+     "role": "friend",
+     "build": "stout",
+     "costume": {
+      "garment": "white ribbed tank top",
+      "main_hex": "#f0e8e0",
+      "second_hex": "#e03030 (red cap)"
+     },
+     "hat_or_hair": "red baseball cap worn backwards with sunglasses on it",
+     "facial_hair_glasses": "stubble dots",
+     "chest_icon": "gold chain necklace",
+     "pattern": "vertical ribbing on tank",
+     "shoes_or_feet": "not seen",
+     "skin": "white"
+    }
+   ],
+   "measures": [
+    {
+     "frame": "frame_030.png",
+     "who": "gambler",
+     "view": "front",
+     "pose": "sitting on stool",
+     "head_top_y": 781,
+     "chin_y": 985,
+     "head_left_x": 266,
+     "head_right_x": 541,
+     "outline_px": null,
+     "torso_bottom_y": 1281,
+     "torso_left_x": 282,
+     "torso_right_x": 469,
+     "torso_top_w": 150,
+     "sole_y": null,
+     "foot_len_px": null,
+     "hand_dot_px": null,
+     "leg_stroke_px": null,
+     "arm_stroke_px": null,
+     "hand_y": null,
+     "eye_left_x": 378,
+     "eye_right_x": 445,
+     "eye_y": 858,
+     "notes": "no full-body standing shot in this clip; legs hidden by stool/caption; hair top 699"
+    }
+   ],
+   "notes": "Casino. Mostly close-ups and 3D machine internals; no full-body standing frames. Patterned shirt (leaf print) is the notable costume."
+  },
+  "The Scientist's Insane Time Test - Ricks Clips (720p, h264)": {
+   "frames_looked_at": 33,
+   "cast": [
+    {
+     "role": "test subject (dropped from tower)",
+     "build": "medium",
+     "costume": {
+      "garment": "yellow tee under orange safety harness/vest with H straps",
+      "main_hex": "#ffc040",
+      "second_hex": "#f08020"
+     },
+     "hat_or_hair": "red baseball cap (sometimes backwards); brown hair when off",
+     "facial_hair_glasses": "none",
+     "chest_icon": "white square chest buckle of harness",
+     "pattern": "strap lines",
+     "shoes_or_feet": "small dark shoes; legs drawn as outlined tubes",
+     "skin": "white"
+    },
+    {
+     "role": "scientist (Dr. K)",
+     "build": "medium",
+     "costume": {
+      "garment": "white lab coat (knee length)",
+      "main_hex": "#f5f5f0",
+      "second_hex": "#2a2a2a (black hair)"
+     },
+     "hat_or_hair": "black bob hair",
+     "facial_hair_glasses": "round glasses + black mustache",
+     "chest_icon": "pen pocket with blue/red pens; small red tie",
+     "pattern": "none",
+     "shoes_or_feet": "grey trouser tubes + small shoes",
+     "skin": "white"
+    },
+    {
+     "role": "park workers",
+     "build": "medium",
+     "costume": {
+      "garment": "teal shirt + orange hi-vis vest",
+      "main_hex": "#2ab0a0",
+      "second_hex": "#f08020"
+     },
+     "hat_or_hair": "one bald old man with grey side tufts; one dark hair",
+     "facial_hair_glasses": "none",
+     "chest_icon": "white ID badge on vest",
+     "pattern": "vest stripes",
+     "shoes_or_feet": "small black flat shoes",
+     "skin": "white"
+    },
+    {
+     "role": "crash-survivors group members",
+     "build": "medium",
+     "costume": {
+      "garment": "tees (blue, pink, purple, red)",
+      "main_hex": "#3050c0",
+      "second_hex": "#e05090"
+     },
+     "hat_or_hair": "various hair, one headband",
+     "facial_hair_glasses": "none",
+     "chest_icon": "name-tag stickers on chest",
+     "pattern": "none",
+     "shoes_or_feet": "bare/short",
+     "skin": "white"
+    },
+    {
+     "role": "line-up suspects",
+     "build": "medium",
+     "costume": {
+      "garment": "purple or green shirt + orange vest",
+      "main_hex": "#7050c0",
+      "second_hex": "#40a060"
+     },
+     "hat_or_hair": "dark hair / bald tufts",
+     "facial_hair_glasses": "none",
+     "chest_icon": "white badge",
+     "pattern": "none",
+     "shoes_or_feet": "small white shoes",
+     "skin": "white"
+    },
+    {
+     "role": "brain mascot",
+     "build": "n/a",
+     "costume": {
+      "garment": "pink brain",
+      "main_hex": "#f0a0c0",
+      "second_hex": "#ffffff"
+     },
+     "hat_or_hair": "n/a",
+     "facial_hair_glasses": "glasses",
+     "chest_icon": "n/a",
+     "pattern": "n/a",
+     "shoes_or_feet": "stick legs",
+     "skin": "pink"
+    }
+   ],
+   "measures": [
+    {
+     "frame": "frame_078.png",
+     "who": "scientist",
+     "view": "3/4",
+     "pose": "standing",
+     "head_top_y": 594,
+     "chin_y": 867,
+     "head_left_x": 151,
+     "head_right_x": 456,
+     "outline_px": 17,
+     "torso_bottom_y": 1306,
+     "torso_left_x": 176,
+     "torso_right_x": 465,
+     "torso_top_w": 229,
+     "sole_y": 1545,
+     "foot_len_px": 45,
+     "hand_dot_px": 33,
+     "leg_stroke_px": 12,
+     "arm_stroke_px": 12,
+     "hand_y": 1109,
+     "eye_left_x": 306,
+     "eye_right_x": 374,
+     "eye_y": 729,
+     "notes": "lab coat reaches ~1306 so legs only 240px; legs are outlined tubes; hair top 571"
+    },
+    {
+     "frame": "frame_078.png",
+     "who": "test subject",
+     "view": "3/4",
+     "pose": "standing",
+     "head_top_y": 606,
+     "chin_y": 867,
+     "head_left_x": 641,
+     "head_right_x": 894,
+     "outline_px": 19,
+     "torso_bottom_y": 1194,
+     "torso_left_x": 682,
+     "torso_right_x": 894,
+     "torso_top_w": 180,
+     "sole_y": 1545,
+     "foot_len_px": 35,
+     "hand_dot_px": 30,
+     "leg_stroke_px": 12,
+     "arm_stroke_px": 12,
+     "hand_y": 1000,
+     "eye_left_x": 741,
+     "eye_right_x": 824,
+     "eye_y": 729,
+     "notes": "cap top 565"
+    },
+    {
+     "frame": "frame_150.png",
+     "who": "line-up: subject (red cap)",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 1030,
+     "chin_y": 1186,
+     "head_left_x": 417,
+     "head_right_x": 601,
+     "outline_px": 8,
+     "torso_bottom_y": 1333,
+     "torso_left_x": 448,
+     "torso_right_x": 569,
+     "torso_top_w": 100,
+     "sole_y": 1573,
+     "foot_len_px": 32,
+     "hand_dot_px": null,
+     "leg_stroke_px": 11,
+     "arm_stroke_px": null,
+     "hand_y": null,
+     "eye_left_x": null,
+     "eye_right_x": null,
+     "notes": "cap covers eyes"
+    },
+    {
+     "frame": "frame_150.png",
+     "who": "line-up: bald old worker",
+     "view": "front",
+     "pose": "standing",
+     "head_top_y": 994,
+     "chin_y": 1140,
+     "head_left_x": 628,
+     "head_right_x": 780,
+     "outline_px": 6,
+     "torso_bottom_y": 1278,
+     "torso_left_x": 651,
+     "torso_right_x": 757,
+     "torso_top_w": 90,
+     "sole_y": 1466,
+     "foot_len_px": 30,
+     "hand_dot_px": null,
+     "leg_stroke_px": 11,
+     "arm_stroke_px": null,
+     "hand_y": null,
+     "eye_left_x": 674,
+     "eye_right_x": 706,
+     "eye_y": 1062
+    },
+    {
+     "frame": "frame_138.png",
+     "who": "park workers (feet only)",
+     "view": "front",
+     "pose": "standing",
+     "sole_y": 1412,
+     "foot_len_px": 30,
+     "leg_stroke_px": 7,
+     "notes": "flat black shoe strokes 25-38 px long pointing sideways; legs are thin double-outlined tubes"
+    }
+   ],
+   "notes": "720p source upscaled; outlines read thicker (17-19 px on close heads). This episode differs: legs drawn as outlined tubes (trousers) with small flat shoes instead of single black stick legs. Lots of hi-vis vests as role marks."
+  }
+ }
+}

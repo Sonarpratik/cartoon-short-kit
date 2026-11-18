@@ -1,0 +1,32 @@
+{
+ "title": "kit3d proof: real metal, relief, sky, trees",
+ "fps": 30,
+ "size": [
+  1080,
+  1920
+ ],
+ "cast": {},
+ "post": {
+  "dof": 0.4
+ },
+ "places": {
+  "yard": {
+   "set": "pbrtest",
+   "light": "golden",
+   "light_over": {
+    "top": "#2a2148",
+    "hor": "#b0708a",
+    "sun": "#ffc08a",
+    "si": 2.4,
+    "amb": "#8a78b8",
+    "ai": 1.0,
+    "dir": [
+     -8,
+     5,
+     4
+    ]
+   }
+  }
+ },
+ "kit3d": false
+}

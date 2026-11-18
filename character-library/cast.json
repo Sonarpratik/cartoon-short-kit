@@ -1809,6 +1809,2856 @@
         "belt": "#2a2228"
       },
       "accessories": []
+    },
+    {
+      "id": "ricksclips-01-pharaoh",
+      "name": "Pharaoh · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-pharaoh",
+      "seed": 0,
+      "jacket": "#f4efe2",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "pharaoh",
+        "coat": "#f4efe2"
+      }
+    },
+    {
+      "id": "ricksclips-01-queen",
+      "name": "Nile Queen · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-queen",
+      "seed": 0,
+      "jacket": "#f6f1e6",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "queen",
+        "coat": "#f6f1e6"
+      }
+    },
+    {
+      "id": "ricksclips-01-emperor",
+      "name": "Roman Emperor · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-emperor",
+      "seed": 0,
+      "jacket": "#f4f0e6",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "emperor",
+        "coat": "#f4f0e6"
+      }
+    },
+    {
+      "id": "ricksclips-01-centurion",
+      "name": "Centurion · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-centurion",
+      "seed": 0,
+      "jacket": "#c23a2f",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "centurion",
+        "coat": "#c23a2f"
+      }
+    },
+    {
+      "id": "ricksclips-01-philosopher",
+      "name": "Philosopher · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-philosopher",
+      "seed": 0,
+      "jacket": "#f1ede4",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "philosopher",
+        "coat": "#f1ede4"
+      }
+    },
+    {
+      "id": "ricksclips-01-spartan",
+      "name": "Spartan · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-spartan",
+      "seed": 0,
+      "jacket": "#c98a3c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "spartan",
+        "coat": "#c98a3c"
+      }
+    },
+    {
+      "id": "ricksclips-01-viking",
+      "name": "Viking · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-viking",
+      "seed": 0,
+      "jacket": "#7a5a3a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "viking",
+        "coat": "#7a5a3a"
+      }
+    },
+    {
+      "id": "ricksclips-01-gladiator",
+      "name": "Gladiator · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-gladiator",
+      "seed": 0,
+      "jacket": "#c9a26b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "gladiator",
+        "coat": "#c9a26b"
+      }
+    },
+    {
+      "id": "ricksclips-01-mummy",
+      "name": "Mummy · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-mummy",
+      "seed": 0,
+      "jacket": "#e8dcc0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "mummy",
+        "coat": "#e8dcc0"
+      }
+    },
+    {
+      "id": "ricksclips-01-eagle",
+      "name": "Eagle Warrior · RC01",
+      "project": "ricksclips",
+      "identity": "ricksclips-01-eagle",
+      "seed": 0,
+      "jacket": "#8a5a2b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 1,
+        "name": "eagle",
+        "coat": "#8a5a2b"
+      }
+    },
+    {
+      "id": "ricksclips-02-samurai",
+      "name": "Samurai · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-samurai",
+      "seed": 0,
+      "jacket": "#a3302b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "samurai",
+        "coat": "#a3302b"
+      }
+    },
+    {
+      "id": "ricksclips-02-ninja",
+      "name": "Ninja · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-ninja",
+      "seed": 0,
+      "jacket": "#2a2a38",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "ninja",
+        "coat": "#2a2a38"
+      }
+    },
+    {
+      "id": "ricksclips-02-geisha",
+      "name": "Geisha · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-geisha",
+      "seed": 0,
+      "jacket": "#3a6fb0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "geisha",
+        "coat": "#3a6fb0"
+      }
+    },
+    {
+      "id": "ricksclips-02-emperor",
+      "name": "Chinese Emperor · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-emperor",
+      "seed": 0,
+      "jacket": "#f2c230",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "emperor",
+        "coat": "#f2c230"
+      }
+    },
+    {
+      "id": "ricksclips-02-archer",
+      "name": "Mongol Archer · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-archer",
+      "seed": 0,
+      "jacket": "#3d6fa8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "archer",
+        "coat": "#3d6fa8"
+      }
+    },
+    {
+      "id": "ricksclips-02-monk",
+      "name": "Shaolin Monk · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-monk",
+      "seed": 0,
+      "jacket": "#ef8a22",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "monk",
+        "coat": "#ef8a22"
+      }
+    },
+    {
+      "id": "ricksclips-02-sumo",
+      "name": "Sumo · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-sumo",
+      "seed": 0,
+      "jacket": "#f6f1ee",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "sumo",
+        "coat": "#f6f1ee"
+      }
+    },
+    {
+      "id": "ricksclips-02-maharaja",
+      "name": "Maharaja · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-maharaja",
+      "seed": 0,
+      "jacket": "#2d6e6a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "maharaja",
+        "coat": "#2d6e6a"
+      }
+    },
+    {
+      "id": "ricksclips-02-terracotta",
+      "name": "Terracotta Warrior · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-terracotta",
+      "seed": 0,
+      "jacket": "#b9805a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "terracotta",
+        "coat": "#b9805a"
+      }
+    },
+    {
+      "id": "ricksclips-02-scholar",
+      "name": "Joseon Scholar · RC02",
+      "project": "ricksclips",
+      "identity": "ricksclips-02-scholar",
+      "seed": 0,
+      "jacket": "#f5f3ee",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 2,
+        "name": "scholar",
+        "coat": "#f5f3ee"
+      }
+    },
+    {
+      "id": "ricksclips-03-knight",
+      "name": "Knight · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-knight",
+      "seed": 0,
+      "jacket": "#2f5fae",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "knight",
+        "coat": "#2f5fae"
+      }
+    },
+    {
+      "id": "ricksclips-03-king",
+      "name": "King · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-king",
+      "seed": 0,
+      "jacket": "#6b2d7a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "king",
+        "coat": "#6b2d7a"
+      }
+    },
+    {
+      "id": "ricksclips-03-queen",
+      "name": "Renaissance Queen · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-queen",
+      "seed": 0,
+      "jacket": "#1f6f5a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "queen",
+        "coat": "#1f6f5a"
+      }
+    },
+    {
+      "id": "ricksclips-03-princess",
+      "name": "Princess · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-princess",
+      "seed": 0,
+      "jacket": "#f08fb0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "princess",
+        "coat": "#f08fb0"
+      }
+    },
+    {
+      "id": "ricksclips-03-jester",
+      "name": "Jester · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-jester",
+      "seed": 0,
+      "jacket": "#d8473c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "jester",
+        "coat": "#d8473c"
+      }
+    },
+    {
+      "id": "ricksclips-03-monk",
+      "name": "Friar · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-monk",
+      "seed": 0,
+      "jacket": "#7a5236",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "monk",
+        "coat": "#7a5236"
+      }
+    },
+    {
+      "id": "ricksclips-03-witch",
+      "name": "Witch · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-witch",
+      "seed": 0,
+      "jacket": "#3a2a4a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "witch",
+        "coat": "#3a2a4a"
+      }
+    },
+    {
+      "id": "ricksclips-03-blacksmith",
+      "name": "Blacksmith · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-blacksmith",
+      "seed": 0,
+      "jacket": "#4a4652",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "blacksmith",
+        "coat": "#4a4652"
+      }
+    },
+    {
+      "id": "ricksclips-03-plague",
+      "name": "Plague Doctor · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-plague",
+      "seed": 0,
+      "jacket": "#2a2a30",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "plague",
+        "coat": "#2a2a30"
+      }
+    },
+    {
+      "id": "ricksclips-03-outlaw",
+      "name": "Outlaw Archer · RC03",
+      "project": "ricksclips",
+      "identity": "ricksclips-03-outlaw",
+      "seed": 0,
+      "jacket": "#3f8a3a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 3,
+        "name": "outlaw",
+        "coat": "#3f8a3a"
+      }
+    },
+    {
+      "id": "ricksclips-04-napoleon",
+      "name": "Napoleon · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-napoleon",
+      "seed": 0,
+      "jacket": "#2d4a8f",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "napoleon",
+        "coat": "#2d4a8f"
+      }
+    },
+    {
+      "id": "ricksclips-04-einstein",
+      "name": "Albert Einstein · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-einstein",
+      "seed": 0,
+      "jacket": "#827a6e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "einstein",
+        "coat": "#827a6e"
+      }
+    },
+    {
+      "id": "ricksclips-04-lincoln",
+      "name": "Abraham Lincoln · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-lincoln",
+      "seed": 0,
+      "jacket": "#26232c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "lincoln",
+        "coat": "#26232c"
+      }
+    },
+    {
+      "id": "ricksclips-04-leonardo",
+      "name": "Leonardo da Vinci · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-leonardo",
+      "seed": 0,
+      "jacket": "#a5433a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "leonardo",
+        "coat": "#a5433a"
+      }
+    },
+    {
+      "id": "ricksclips-04-shakespeare",
+      "name": "William Shakespeare · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-shakespeare",
+      "seed": 0,
+      "jacket": "#2c2a3c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "shakespeare",
+        "coat": "#2c2a3c"
+      }
+    },
+    {
+      "id": "ricksclips-04-victoria",
+      "name": "Queen Victoria · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-victoria",
+      "seed": 0,
+      "jacket": "#24212b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "victoria",
+        "coat": "#24212b"
+      }
+    },
+    {
+      "id": "ricksclips-04-beethoven",
+      "name": "Ludwig van Beethoven · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-beethoven",
+      "seed": 0,
+      "jacket": "#2f4057",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "beethoven",
+        "coat": "#2f4057"
+      }
+    },
+    {
+      "id": "ricksclips-04-curie",
+      "name": "Marie Curie · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-curie",
+      "seed": 0,
+      "jacket": "#3c3f52",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "curie",
+        "coat": "#3c3f52"
+      }
+    },
+    {
+      "id": "ricksclips-04-tesla",
+      "name": "Nikola Tesla · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-tesla",
+      "seed": 0,
+      "jacket": "#2b2a36",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "tesla",
+        "coat": "#2b2a36"
+      }
+    },
+    {
+      "id": "ricksclips-04-columbus",
+      "name": "Christopher Columbus · RC04",
+      "project": "ricksclips",
+      "identity": "ricksclips-04-columbus",
+      "seed": 0,
+      "jacket": "#2f5590",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 4,
+        "name": "columbus",
+        "coat": "#2f5590"
+      }
+    },
+    {
+      "id": "ricksclips-05-captain",
+      "name": "Pirate Captain · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-captain",
+      "seed": 0,
+      "jacket": "#8a2230",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "captain",
+        "coat": "#8a2230"
+      }
+    },
+    {
+      "id": "ricksclips-05-lass",
+      "name": "Pirate Lass · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-lass",
+      "seed": 0,
+      "jacket": "#2a5f6a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "lass",
+        "coat": "#2a5f6a"
+      }
+    },
+    {
+      "id": "ricksclips-05-sailor",
+      "name": "Sailor · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-sailor",
+      "seed": 0,
+      "jacket": "#f4f2ee",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "sailor",
+        "coat": "#f4f2ee"
+      }
+    },
+    {
+      "id": "ricksclips-05-musketeer",
+      "name": "Musketeer · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-musketeer",
+      "seed": 0,
+      "jacket": "#2f5fae",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "musketeer",
+        "coat": "#2f5fae"
+      }
+    },
+    {
+      "id": "ricksclips-05-redcoat",
+      "name": "Redcoat · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-redcoat",
+      "seed": 0,
+      "jacket": "#c8332b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "redcoat",
+        "coat": "#c8332b"
+      }
+    },
+    {
+      "id": "ricksclips-05-cowboy",
+      "name": "Cowboy · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-cowboy",
+      "seed": 0,
+      "jacket": "#b8423a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "cowboy",
+        "coat": "#b8423a"
+      }
+    },
+    {
+      "id": "ricksclips-05-sheriff",
+      "name": "Sheriff · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-sheriff",
+      "seed": 0,
+      "jacket": "#2e2a33",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "sheriff",
+        "coat": "#2e2a33"
+      }
+    },
+    {
+      "id": "ricksclips-05-outlaw",
+      "name": "Outlaw · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-outlaw",
+      "seed": 0,
+      "jacket": "#4e4458",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "outlaw",
+        "coat": "#4e4458"
+      }
+    },
+    {
+      "id": "ricksclips-05-prospector",
+      "name": "Gold Prospector · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-prospector",
+      "seed": 0,
+      "jacket": "#b04a3c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "prospector",
+        "coat": "#b04a3c"
+      }
+    },
+    {
+      "id": "ricksclips-05-singer",
+      "name": "Saloon Singer · RC05",
+      "project": "ricksclips",
+      "identity": "ricksclips-05-singer",
+      "seed": 0,
+      "jacket": "#c2185b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 5,
+        "name": "singer",
+        "coat": "#c2185b"
+      }
+    },
+    {
+      "id": "ricksclips-06-doctor",
+      "name": "Doctor · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-doctor",
+      "seed": 0,
+      "jacket": "#f6f7f9",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "doctor",
+        "coat": "#f6f7f9"
+      }
+    },
+    {
+      "id": "ricksclips-06-nurse",
+      "name": "Nurse · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-nurse",
+      "seed": 0,
+      "jacket": "#f4a9bd",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "nurse",
+        "coat": "#f4a9bd"
+      }
+    },
+    {
+      "id": "ricksclips-06-chef",
+      "name": "Chef · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-chef",
+      "seed": 0,
+      "jacket": "#f7f5ef",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "chef",
+        "coat": "#f7f5ef"
+      }
+    },
+    {
+      "id": "ricksclips-06-firefighter",
+      "name": "Firefighter · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-firefighter",
+      "seed": 0,
+      "jacket": "#e2a62b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "firefighter",
+        "coat": "#e2a62b"
+      }
+    },
+    {
+      "id": "ricksclips-06-police",
+      "name": "Police Officer · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-police",
+      "seed": 0,
+      "jacket": "#2c3f72",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "police",
+        "coat": "#2c3f72"
+      }
+    },
+    {
+      "id": "ricksclips-06-construction",
+      "name": "Construction Worker · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-construction",
+      "seed": 0,
+      "jacket": "#f3812a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "construction",
+        "coat": "#f3812a"
+      }
+    },
+    {
+      "id": "ricksclips-06-scientist",
+      "name": "Scientist · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-scientist",
+      "seed": 0,
+      "jacket": "#f6f7f9",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "scientist",
+        "coat": "#f6f7f9"
+      }
+    },
+    {
+      "id": "ricksclips-06-teacher",
+      "name": "Teacher · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-teacher",
+      "seed": 0,
+      "jacket": "#8a3f5a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "teacher",
+        "coat": "#8a3f5a"
+      }
+    },
+    {
+      "id": "ricksclips-06-mail",
+      "name": "Mail Carrier · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-mail",
+      "seed": 0,
+      "jacket": "#7aa6d6",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "mail",
+        "coat": "#7aa6d6"
+      }
+    },
+    {
+      "id": "ricksclips-06-farmer",
+      "name": "Farmer · RC06",
+      "project": "ricksclips",
+      "identity": "ricksclips-06-farmer",
+      "seed": 0,
+      "jacket": "#c0453a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 6,
+        "name": "farmer",
+        "coat": "#c0453a"
+      }
+    },
+    {
+      "id": "ricksclips-07-astronaut",
+      "name": "Astronaut · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-astronaut",
+      "seed": 0,
+      "jacket": "#f2f2f4",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "astronaut",
+        "coat": "#f2f2f4"
+      }
+    },
+    {
+      "id": "ricksclips-07-pilot",
+      "name": "Airline Pilot · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-pilot",
+      "seed": 0,
+      "jacket": "#1f2a48",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "pilot",
+        "coat": "#1f2a48"
+      }
+    },
+    {
+      "id": "ricksclips-07-judge",
+      "name": "Judge · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-judge",
+      "seed": 0,
+      "jacket": "#1c1a24",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "judge",
+        "coat": "#1c1a24"
+      }
+    },
+    {
+      "id": "ricksclips-07-business",
+      "name": "Businessman · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-business",
+      "seed": 0,
+      "jacket": "#3a3f4c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "business",
+        "coat": "#3a3f4c"
+      }
+    },
+    {
+      "id": "ricksclips-07-programmer",
+      "name": "Programmer · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-programmer",
+      "seed": 0,
+      "jacket": "#3a3d48",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "programmer",
+        "coat": "#3a3d48"
+      }
+    },
+    {
+      "id": "ricksclips-07-barista",
+      "name": "Barista · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-barista",
+      "seed": 0,
+      "jacket": "#2f2f3a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "barista",
+        "coat": "#2f2f3a"
+      }
+    },
+    {
+      "id": "ricksclips-07-mechanic",
+      "name": "Mechanic · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-mechanic",
+      "seed": 0,
+      "jacket": "#5a6d8a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "mechanic",
+        "coat": "#5a6d8a"
+      }
+    },
+    {
+      "id": "ricksclips-07-plumber",
+      "name": "Plumber · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-plumber",
+      "seed": 0,
+      "jacket": "#e07a2e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "plumber",
+        "coat": "#e07a2e"
+      }
+    },
+    {
+      "id": "ricksclips-07-dentist",
+      "name": "Dentist · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-dentist",
+      "seed": 0,
+      "jacket": "#8fd0d6",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "dentist",
+        "coat": "#8fd0d6"
+      }
+    },
+    {
+      "id": "ricksclips-07-lifeguard",
+      "name": "Lifeguard · RC07",
+      "project": "ricksclips",
+      "identity": "ricksclips-07-lifeguard",
+      "seed": 0,
+      "jacket": "#d8473c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 7,
+        "name": "lifeguard",
+        "coat": "#d8473c"
+      }
+    },
+    {
+      "id": "ricksclips-08-flapper",
+      "name": "1920s Flapper · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-flapper",
+      "seed": 0,
+      "jacket": "#c8304a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "flapper",
+        "coat": "#c8304a"
+      }
+    },
+    {
+      "id": "ricksclips-08-gangster",
+      "name": "1920s Gangster · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-gangster",
+      "seed": 0,
+      "jacket": "#3d4050",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "gangster",
+        "coat": "#3d4050"
+      }
+    },
+    {
+      "id": "ricksclips-08-aviator",
+      "name": "WWII Aviator · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-aviator",
+      "seed": 0,
+      "jacket": "#8a5530",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "aviator",
+        "coat": "#8a5530"
+      }
+    },
+    {
+      "id": "ricksclips-08-greaser",
+      "name": "1950s Greaser · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-greaser",
+      "seed": 0,
+      "jacket": "#26232e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "greaser",
+        "coat": "#26232e"
+      }
+    },
+    {
+      "id": "ricksclips-08-hippie",
+      "name": "1960s Hippie · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-hippie",
+      "seed": 0,
+      "jacket": "#f2c230",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "hippie",
+        "coat": "#f2c230"
+      }
+    },
+    {
+      "id": "ricksclips-08-disco",
+      "name": "1970s Disco · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-disco",
+      "seed": 0,
+      "jacket": "#8a3fc8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "disco",
+        "coat": "#8a3fc8"
+      }
+    },
+    {
+      "id": "ricksclips-08-aerobics",
+      "name": "1980s Aerobics · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-aerobics",
+      "seed": 0,
+      "jacket": "#ff4fa0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "aerobics",
+        "coat": "#ff4fa0"
+      }
+    },
+    {
+      "id": "ricksclips-08-punk",
+      "name": "1980s Punk · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-punk",
+      "seed": 0,
+      "jacket": "#26232e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "punk",
+        "coat": "#26232e"
+      }
+    },
+    {
+      "id": "ricksclips-08-hiphop",
+      "name": "1990s Hip-Hop · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-hiphop",
+      "seed": 0,
+      "jacket": "#6b3fb0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "hiphop",
+        "coat": "#6b3fb0"
+      }
+    },
+    {
+      "id": "ricksclips-08-influencer",
+      "name": "2010s Influencer · RC08",
+      "project": "ricksclips",
+      "identity": "ricksclips-08-influencer",
+      "seed": 0,
+      "jacket": "#f2a7c3",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 8,
+        "name": "influencer",
+        "coat": "#f2a7c3"
+      }
+    },
+    {
+      "id": "ricksclips-09-boxer",
+      "name": "Boxer · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-boxer",
+      "seed": 0,
+      "jacket": "#f4f1f6",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "boxer",
+        "coat": "#f4f1f6"
+      }
+    },
+    {
+      "id": "ricksclips-09-soccer",
+      "name": "Soccer Player · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-soccer",
+      "seed": 0,
+      "jacket": "#2f9a4f",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "soccer",
+        "coat": "#2f9a4f"
+      }
+    },
+    {
+      "id": "ricksclips-09-basketball",
+      "name": "Basketball Player · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-basketball",
+      "seed": 0,
+      "jacket": "#6b3fb0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "basketball",
+        "coat": "#6b3fb0"
+      }
+    },
+    {
+      "id": "ricksclips-09-ballerina",
+      "name": "Ballerina · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-ballerina",
+      "seed": 0,
+      "jacket": "#f6b8cc",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "ballerina",
+        "coat": "#f6b8cc"
+      }
+    },
+    {
+      "id": "ricksclips-09-magician",
+      "name": "Magician · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-magician",
+      "seed": 0,
+      "jacket": "#24222c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "magician",
+        "coat": "#24222c"
+      }
+    },
+    {
+      "id": "ricksclips-09-clown",
+      "name": "Clown · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-clown",
+      "seed": 0,
+      "jacket": "#f2d13a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "clown",
+        "coat": "#f2d13a"
+      }
+    },
+    {
+      "id": "ricksclips-09-rockstar",
+      "name": "Rock Star · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-rockstar",
+      "seed": 0,
+      "jacket": "#2a2733",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "rockstar",
+        "coat": "#2a2733"
+      }
+    },
+    {
+      "id": "ricksclips-09-dj",
+      "name": "DJ · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-dj",
+      "seed": 0,
+      "jacket": "#2a2733",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "dj",
+        "coat": "#2a2733"
+      }
+    },
+    {
+      "id": "ricksclips-09-opera",
+      "name": "Opera Singer · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-opera",
+      "seed": 0,
+      "jacket": "#8f1f33",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "opera",
+        "coat": "#8f1f33"
+      }
+    },
+    {
+      "id": "ricksclips-09-luchador",
+      "name": "Luchador · RC09",
+      "project": "ricksclips",
+      "identity": "ricksclips-09-luchador",
+      "seed": 0,
+      "jacket": "#f4f1f6",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 9,
+        "name": "luchador",
+        "coat": "#f4f1f6"
+      }
+    },
+    {
+      "id": "ricksclips-10-piper",
+      "name": "Highland Piper · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-piper",
+      "seed": 0,
+      "jacket": "#24453a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "piper",
+        "coat": "#24453a"
+      }
+    },
+    {
+      "id": "ricksclips-10-mariachi",
+      "name": "Mariachi · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-mariachi",
+      "seed": 0,
+      "jacket": "#1d1b24",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "mariachi",
+        "coat": "#1d1b24"
+      }
+    },
+    {
+      "id": "ricksclips-10-bavarian",
+      "name": "Bavarian · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-bavarian",
+      "seed": 0,
+      "jacket": "#f6f4ee",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "bavarian",
+        "coat": "#f6f4ee"
+      }
+    },
+    {
+      "id": "ricksclips-10-dutch",
+      "name": "Dutch Girl · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-dutch",
+      "seed": 0,
+      "jacket": "#2f5fae",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "dutch",
+        "coat": "#2f5fae"
+      }
+    },
+    {
+      "id": "ricksclips-10-babushka",
+      "name": "Babushka · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-babushka",
+      "seed": 0,
+      "jacket": "#b8322a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "babushka",
+        "coat": "#b8322a"
+      }
+    },
+    {
+      "id": "ricksclips-10-bedouin",
+      "name": "Desert Traveller · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-bedouin",
+      "seed": 0,
+      "jacket": "#f6f3ec",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "bedouin",
+        "coat": "#f6f3ec"
+      }
+    },
+    {
+      "id": "ricksclips-10-hawaiian",
+      "name": "Hawaiian · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-hawaiian",
+      "seed": 0,
+      "jacket": "#e8743b",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "hawaiian",
+        "coat": "#e8743b"
+      }
+    },
+    {
+      "id": "ricksclips-10-inuit",
+      "name": "Arctic Hunter · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-inuit",
+      "seed": 0,
+      "jacket": "#c49a62",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "inuit",
+        "coat": "#c49a62"
+      }
+    },
+    {
+      "id": "ricksclips-10-bride",
+      "name": "Indian Bride · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-bride",
+      "seed": 0,
+      "jacket": "#c8202f",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "bride",
+        "coat": "#c8202f"
+      }
+    },
+    {
+      "id": "ricksclips-10-fisherman",
+      "name": "Greek Fisherman · RC10",
+      "project": "ricksclips",
+      "identity": "ricksclips-10-fisherman",
+      "seed": 0,
+      "jacket": "#f6f4ee",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 10,
+        "name": "fisherman",
+        "coat": "#f6f4ee"
+      }
+    },
+    {
+      "id": "ricksclips-11-wizard",
+      "name": "Wizard · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-wizard",
+      "seed": 0,
+      "jacket": "#2c3f8f",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "wizard",
+        "coat": "#2c3f8f"
+      }
+    },
+    {
+      "id": "ricksclips-11-vampire",
+      "name": "Vampire · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-vampire",
+      "seed": 0,
+      "jacket": "#1c1a22",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "vampire",
+        "coat": "#1c1a22"
+      }
+    },
+    {
+      "id": "ricksclips-11-zombie",
+      "name": "Zombie · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-zombie",
+      "seed": 0,
+      "jacket": "#7d93b0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "zombie",
+        "coat": "#7d93b0"
+      }
+    },
+    {
+      "id": "ricksclips-11-robot",
+      "name": "Robot Butler · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-robot",
+      "seed": 0,
+      "jacket": "#b9c0cc",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "robot",
+        "coat": "#b9c0cc"
+      }
+    },
+    {
+      "id": "ricksclips-11-alien",
+      "name": "Alien Tourist · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-alien",
+      "seed": 0,
+      "jacket": "#2fb3a8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "alien",
+        "coat": "#2fb3a8"
+      }
+    },
+    {
+      "id": "ricksclips-11-scientist",
+      "name": "Mad Scientist · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-scientist",
+      "seed": 0,
+      "jacket": "#f4f4f0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "scientist",
+        "coat": "#f4f4f0"
+      }
+    },
+    {
+      "id": "ricksclips-11-fairy",
+      "name": "Fairy · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-fairy",
+      "seed": 0,
+      "jacket": "#f29ac8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "fairy",
+        "coat": "#f29ac8"
+      }
+    },
+    {
+      "id": "ricksclips-11-hero",
+      "name": "Superhero · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-hero",
+      "seed": 0,
+      "jacket": "#1f9e8a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "hero",
+        "coat": "#1f9e8a"
+      }
+    },
+    {
+      "id": "ricksclips-11-hacker",
+      "name": "Cyber Hacker · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-hacker",
+      "seed": 0,
+      "jacket": "#2a2740",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "hacker",
+        "coat": "#2a2740"
+      }
+    },
+    {
+      "id": "ricksclips-11-timetraveller",
+      "name": "Time Traveller · RC11",
+      "project": "ricksclips",
+      "identity": "ricksclips-11-timetraveller",
+      "seed": 0,
+      "jacket": "#6e4527",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 11,
+        "name": "timetraveller",
+        "coat": "#6e4527"
+      }
+    },
+    {
+      "id": "ricksclips-12-towelhero",
+      "name": "Towel Hero · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-towelhero",
+      "seed": 0,
+      "jacket": "#3f7fd0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "towelhero",
+        "coat": "#3f7fd0"
+      }
+    },
+    {
+      "id": "ricksclips-12-newborn",
+      "name": "Newborn · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-newborn",
+      "seed": 0,
+      "jacket": "#bfe0f5",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "newborn",
+        "coat": "#bfe0f5"
+      }
+    },
+    {
+      "id": "ricksclips-12-backpack",
+      "name": "First Day of School · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-backpack",
+      "seed": 0,
+      "jacket": "#f4f2ee",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "backpack",
+        "coat": "#f4f2ee"
+      }
+    },
+    {
+      "id": "ricksclips-12-princess",
+      "name": "Toddler Princess · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-princess",
+      "seed": 0,
+      "jacket": "#f6a8c8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "princess",
+        "coat": "#f6a8c8"
+      }
+    },
+    {
+      "id": "ricksclips-12-scout",
+      "name": "Cookie Scout · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-scout",
+      "seed": 0,
+      "jacket": "#4f8a4a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "scout",
+        "coat": "#4f8a4a"
+      }
+    },
+    {
+      "id": "ricksclips-12-tantrum",
+      "name": "Meltdown Toddler · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-tantrum",
+      "seed": 0,
+      "jacket": "#f2c230",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "tantrum",
+        "coat": "#f2c230"
+      }
+    },
+    {
+      "id": "ricksclips-12-jumprope",
+      "name": "Jump Rope Girl · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-jumprope",
+      "seed": 0,
+      "jacket": "#2fb3a8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "jumprope",
+        "coat": "#2fb3a8"
+      }
+    },
+    {
+      "id": "ricksclips-12-rattle",
+      "name": "Rattle Baby · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-rattle",
+      "seed": 0,
+      "jacket": "#f6b3c8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "rattle",
+        "coat": "#f6b3c8"
+      }
+    },
+    {
+      "id": "ricksclips-12-volcano",
+      "name": "Science Fair Kid · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-volcano",
+      "seed": 0,
+      "jacket": "#7a5cc4",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "volcano",
+        "coat": "#7a5cc4"
+      }
+    },
+    {
+      "id": "ricksclips-12-dino",
+      "name": "Dino Toddler · RC12",
+      "project": "ricksclips",
+      "identity": "ricksclips-12-dino",
+      "seed": 0,
+      "jacket": "#6cbf4a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 12,
+        "name": "dino",
+        "coat": "#6cbf4a"
+      }
+    },
+    {
+      "id": "ricksclips-13-gamer",
+      "name": "Gamer · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-gamer",
+      "seed": 0,
+      "jacket": "#34384a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "gamer",
+        "coat": "#34384a"
+      }
+    },
+    {
+      "id": "ricksclips-13-skater",
+      "name": "Skater · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-skater",
+      "seed": 0,
+      "jacket": "#e8a83a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "skater",
+        "coat": "#e8a83a"
+      }
+    },
+    {
+      "id": "ricksclips-13-goth",
+      "name": "Goth Teen · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-goth",
+      "seed": 0,
+      "jacket": "#2a2730",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "goth",
+        "coat": "#2a2730"
+      }
+    },
+    {
+      "id": "ricksclips-13-cheer",
+      "name": "Cheerleader · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-cheer",
+      "seed": 0,
+      "jacket": "#d8473c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "cheer",
+        "coat": "#d8473c"
+      }
+    },
+    {
+      "id": "ricksclips-13-band",
+      "name": "Band Kid · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-band",
+      "seed": 0,
+      "jacket": "#2f4f9a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "band",
+        "coat": "#2f4f9a"
+      }
+    },
+    {
+      "id": "ricksclips-13-bbqdad",
+      "name": "BBQ Dad · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-bbqdad",
+      "seed": 0,
+      "jacket": "#6aa9d8",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "bbqdad",
+        "coat": "#6aa9d8"
+      }
+    },
+    {
+      "id": "ricksclips-13-soccermom",
+      "name": "Soccer Mom · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-soccermom",
+      "seed": 0,
+      "jacket": "#2fa39a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "soccermom",
+        "coat": "#2fa39a"
+      }
+    },
+    {
+      "id": "ricksclips-13-newdad",
+      "name": "New Dad · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-newdad",
+      "seed": 0,
+      "jacket": "#9aa5b4",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "newdad",
+        "coat": "#9aa5b4"
+      }
+    },
+    {
+      "id": "ricksclips-13-knitgran",
+      "name": "Knitting Grandma · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-knitgran",
+      "seed": 0,
+      "jacket": "#d0607e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "knitgran",
+        "coat": "#d0607e"
+      }
+    },
+    {
+      "id": "ricksclips-13-fishgramps",
+      "name": "Fishing Grandpa · RC13",
+      "project": "ricksclips",
+      "identity": "ricksclips-13-fishgramps",
+      "seed": 0,
+      "jacket": "#7d8f4e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 13,
+        "name": "fishgramps",
+        "coat": "#7d8f4e"
+      }
+    },
+    {
+      "id": "ricksclips-14-darklord",
+      "name": "Dark Lord · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-darklord",
+      "seed": 0,
+      "jacket": "#3a3846",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "darklord",
+        "coat": "#3a3846"
+      }
+    },
+    {
+      "id": "ricksclips-14-evilqueen",
+      "name": "Evil Queen · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-evilqueen",
+      "seed": 0,
+      "jacket": "#4a2a6a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "evilqueen",
+        "coat": "#4a2a6a"
+      }
+    },
+    {
+      "id": "ricksclips-14-railway",
+      "name": "Railway Villain · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-railway",
+      "seed": 0,
+      "jacket": "#24222c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "railway",
+        "coat": "#24222c"
+      }
+    },
+    {
+      "id": "ricksclips-14-mobboss",
+      "name": "Mob Boss · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-mobboss",
+      "seed": 0,
+      "jacket": "#3e2a52",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "mobboss",
+        "coat": "#3e2a52"
+      }
+    },
+    {
+      "id": "ricksclips-14-burglar",
+      "name": "Burglar · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-burglar",
+      "seed": 0,
+      "jacket": "#f1eff4",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "burglar",
+        "coat": "#f1eff4"
+      }
+    },
+    {
+      "id": "ricksclips-14-catburglar",
+      "name": "Cat Burglar · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-catburglar",
+      "seed": 0,
+      "jacket": "#25222e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "catburglar",
+        "coat": "#25222e"
+      }
+    },
+    {
+      "id": "ricksclips-14-henchman",
+      "name": "Henchman · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-henchman",
+      "seed": 0,
+      "jacket": "#26242e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "henchman",
+        "coat": "#26242e"
+      }
+    },
+    {
+      "id": "ricksclips-14-sorcerer",
+      "name": "Evil Sorcerer · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-sorcerer",
+      "seed": 0,
+      "jacket": "#2b2238",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "sorcerer",
+        "coat": "#2b2238"
+      }
+    },
+    {
+      "id": "ricksclips-14-swindler",
+      "name": "Snake-Oil Swindler · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-swindler",
+      "seed": 0,
+      "jacket": "#d9b44a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "swindler",
+        "coat": "#d9b44a"
+      }
+    },
+    {
+      "id": "ricksclips-14-robot",
+      "name": "Robot Overlord · RC14",
+      "project": "ricksclips",
+      "identity": "ricksclips-14-robot",
+      "seed": 0,
+      "jacket": "#a7afc0",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 14,
+        "name": "robot",
+        "coat": "#a7afc0"
+      }
+    },
+    {
+      "id": "ricksclips-15-werewolf",
+      "name": "Werewolf · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-werewolf",
+      "seed": 0,
+      "jacket": "#c4473a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "werewolf",
+        "coat": "#c4473a"
+      }
+    },
+    {
+      "id": "ricksclips-15-ghost",
+      "name": "Chained Ghost · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-ghost",
+      "seed": 0,
+      "jacket": "#eef3fb",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "ghost",
+        "coat": "#eef3fb"
+      }
+    },
+    {
+      "id": "ricksclips-15-cyclops",
+      "name": "Cyclops · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-cyclops",
+      "seed": 0,
+      "jacket": "#9b6b3e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "cyclops",
+        "coat": "#9b6b3e"
+      }
+    },
+    {
+      "id": "ricksclips-15-skeleton",
+      "name": "Skeleton · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-skeleton",
+      "seed": 0,
+      "jacket": "#24222c",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "skeleton",
+        "coat": "#24222c"
+      }
+    },
+    {
+      "id": "ricksclips-15-swamp",
+      "name": "Swamp Creature · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-swamp",
+      "seed": 0,
+      "jacket": "#56703f",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "swamp",
+        "coat": "#56703f"
+      }
+    },
+    {
+      "id": "ricksclips-15-yeti",
+      "name": "Yeti · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-yeti",
+      "seed": 0,
+      "jacket": "#f3f1f6",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "yeti",
+        "coat": "#f3f1f6"
+      }
+    },
+    {
+      "id": "ricksclips-15-goblin",
+      "name": "Goblin · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-goblin",
+      "seed": 0,
+      "jacket": "#7a6a3e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "goblin",
+        "coat": "#7a6a3e"
+      }
+    },
+    {
+      "id": "ricksclips-15-patchwork",
+      "name": "Patchwork Creature · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-patchwork",
+      "seed": 0,
+      "jacket": "#6a5c7a",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "patchwork",
+        "coat": "#6a5c7a"
+      }
+    },
+    {
+      "id": "ricksclips-15-imp",
+      "name": "Imp · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-imp",
+      "seed": 0,
+      "jacket": "#c8352e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "imp",
+        "coat": "#c8352e"
+      }
+    },
+    {
+      "id": "ricksclips-15-fisherman",
+      "name": "Sea-Monster Fisherman · RC15",
+      "project": "ricksclips",
+      "identity": "ricksclips-15-fisherman",
+      "seed": 0,
+      "jacket": "#f0c12e",
+      "pants": "#2a1a1f",
+      "boots": "#2a1a1f",
+      "hair": "#2a1a1f",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#ffffff",
+      "rc": {
+        "sheet": 15,
+        "name": "fisherman",
+        "coat": "#f0c12e"
+      }
     }
   ]
 }

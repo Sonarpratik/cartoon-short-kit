@@ -1,0 +1,29 @@
+{
+ "title": "kit3d sky variant night-storm",
+ "fps": 30,
+ "size": [
+  1080,
+  1920
+ ],
+ "cast": {},
+ "post": {
+  "dof": 0.4
+ },
+ "places": {
+  "yard": {
+   "set": "pbrtest",
+   "light": "night",
+   "sky_kind": "night-storm",
+   "flash": {
+    "at": [
+     70,
+     160,
+     150
+    ],
+    "strength": 1.2,
+    "spread": 0.28
+   }
+  }
+ },
+ "kit3d": true
+}

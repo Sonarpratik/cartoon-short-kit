@@ -1,8 +1,12 @@
 import {createServer} from 'node:http';
 import {readFile,writeFile,rename,mkdir,access} from 'node:fs/promises';
 import {stripTypeScriptTypes} from 'node:module';
+import {resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {characterReferencePath,characterRendererPath} from './character-library/paths.mjs';
 const root=new URL('./',import.meta.url),catalog=new URL('character-library/cast.json',root);
+// Ricks Clips vector puppet code (gitignored newZip, personal-use licence), served read-only for the "ricksclips" renderer.
+const rcCode=resolve(fileURLToPath(root),process.env.RC_CHARACTERS||'newZip/RicksClips_Skill_V1.1/templates/vector2d_characters/code');
 const routes={'/':['character-studio/index.html','text/html; charset=utf-8'],'/studio.js':['character-studio/studio.js','text/javascript'],'/character-rig.js':['templates/bridge/character-rig.ts','text/javascript'],'/toon.js':['templates/bridge/toon.ts','text/javascript'],'/style.js':['templates/bridge/style.ts','text/javascript'],'/face-style.js':['templates/bridge/face-style.ts','text/javascript'],'/director.js':['templates/bridge/director.ts','text/javascript']};
 let saveQueue=Promise.resolve();
 function validate(c){
@@ -17,7 +21,8 @@ function validate(c){
  if(c.facing!==undefined&&![-1,0,1].includes(c.facing))throw Error('Invalid facing');
  if(c.light!==undefined&&(!Number.isFinite(c.light)||Math.abs(c.light)>7))throw Error('Invalid light');
  if(c.outfit!==undefined){if(!c.outfit||typeof c.outfit!=='object'||Array.isArray(c.outfit))throw Error('Invalid outfit');for(const [key,value] of Object.entries(c.outfit)){if(!['jacket','pants','boots','hat','belt','buttons','sash','moustache','moustacheStyle','beard','skin','cap','hair','dress','build','hairStyle','rifle','sword','head','labCoat','top','shirt','sleeves','pattern','patternColor','collar','tie','scarf','apron','badge','pocket','buttonCount','hatAccent'].includes(key)||!['string','boolean','number'].includes(typeof value)&&value!==null)throw Error('Invalid outfit field');if(typeof value==='string'&&value.length>60)throw Error('Outfit value too long');}}
- const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build','outfit','accessory','accessories','facing','light'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
+ if(c.rc!==undefined){if(!c.rc||typeof c.rc!=='object'||!Number.isInteger(c.rc.sheet)||c.rc.sheet<1||c.rc.sheet>15||typeof c.rc.name!=='string'||!/^[a-zA-Z0-9_-]{1,60}$/.test(c.rc.name)||c.rc.coat!==undefined&&!/^#[0-9a-f]{6}$/i.test(c.rc.coat))throw Error('Invalid Ricks Clips link');c.rc={sheet:c.rc.sheet,name:c.rc.name,...(c.rc.coat?{coat:c.rc.coat}:{})};}
+ const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build','outfit','accessory','accessories','facing','light','rc'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
 }
 const server=createServer(async(req,res)=>{
  const pathname=new URL(req.url,'http://127.0.0.1').pathname;
@@ -28,6 +33,8 @@ const server=createServer(async(req,res)=>{
   if(sheet&&req.method==='GET'){const data=JSON.parse(await readFile(catalog,'utf8')),character=data.characters.find(c=>c.id===sheet[1]);if(!character||!/^[a-zA-Z0-9_-]+$/.test(character.project)){reply(404,{error:'Unknown character'});return;}const bytes=await readFile(new URL(`${characterReferencePath(character.project)}/turnarounds/${character.id}.${sheet[2]}`,root));reply(200,sheet[2]==='json'?JSON.parse(bytes.toString('utf8')):bytes,sheet[2]==='json'?'application/json':'image/png');return;}
   if(pathname==='/approved-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('projects/bootstrap-paradox/character-references/original/approved-cast.png',root)),'image/png');return;}
   if(pathname==='/studio-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('character-library/shared/studio-cast.png',root)),'image/png');return;}
+  const rc=pathname.match(/^\/vendor\/ricksclips\/((?:sheets\/)?[a-zA-Z0-9_-]+\.mjs)$/);
+  if(rc&&req.method==='GET'){reply(200,await readFile(resolve(rcCode,rc[1]),'utf8'),'text/javascript');return;}
   const renderer=pathname.match(/^\/renderers\/([a-zA-Z0-9_-]+)\/(character-rig|toon|style|face-style|director|hair-3d|angle-designs)\.js$/);
   if(renderer&&req.method==='GET'){
    const folder=characterRendererPath(renderer[1],root)+'/engine/';let own=true;try{await access(new URL(folder+'character-rig.ts',root));}catch{own=false;}

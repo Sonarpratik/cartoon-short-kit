@@ -1,0 +1,1855 @@
+{
+ "title": "S1 THE HOOK: lines 1-3 (the apron, under the wing) [frame check test: in_cowl]",
+ "fps": 30,
+ "size": [
+  1080,
+  1920
+ ],
+ "words": "voice/words.json",
+ "end": {
+  "s": 11.866666666666667
+ },
+ "tween": {
+  "frames": 6,
+  "ease": "out",
+  "face_frames": 0,
+  "ones": true
+ },
+ "auto_view": false,
+ "puppet_pkg": [
+  "cast",
+  "../../../../templates/vector2d_characters/code"
+ ],
+ "camera_idea": {
+  "name": "One take that flies and rests",
+  "why": "CB: longer camera fly and stop then move; no cut inside the stretch",
+  "signature": "from the whole holed bomber down to the rule tip on the one clean spot, and out through one chalk-ringed hole"
+ },
+ "cast": {
+  "mathematician": {
+   "puppet": "cast:armor/mathematician",
+   "height": 1.5,
+   "heads_tall": 3.1,
+   "walk_speed": 99
+  },
+  "chief": {
+   "puppet": "cast:armor/chief",
+   "height": 1.85,
+   "heads_tall": 2.79,
+   "walk_speed": 99
+  },
+  "rivets": {
+   "puppet": "cast:armor/rivets",
+   "height": 1.68,
+   "heads_tall": 3.1,
+   "walk_speed": 99
+  }
+ },
+ "costume_shade": {
+  "amount": 0.45,
+  "start": 0.35,
+  "cool": 0.15
+ },
+ "faces_ep": {
+  "count1": {
+   "eyes": "lid",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "o",
+   "nopop": true
+  },
+  "count2": {
+   "eyes": "lid",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "flat",
+   "nopop": true
+  },
+  "count3": {
+   "eyes": "lid",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "smileSmall",
+   "nopop": true
+  },
+  "slowBlink": {
+   "eyes": "closed",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "lens",
+   "nopop": true
+  },
+  "halfSmile": {
+   "eyes": "lid",
+   "brows": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     6,
+     -2,
+     6
+    ]
+   ],
+   "mouth": "smirk"
+  },
+  "bellyLaugh": {
+   "eyes": "squeeze",
+   "brows": [
+    [
+     12,
+     -4,
+     6
+    ],
+    [
+     12,
+     -4,
+     6
+    ]
+   ],
+   "mouth": "grinXL"
+  },
+  "mugFreeze": {
+   "eyes": "wide",
+   "brows": [
+    [
+     11,
+     -2,
+     6
+    ],
+    [
+     13,
+     -2,
+     7
+    ]
+   ],
+   "mouth": "flat"
+  },
+  "tired": {
+   "eyes": "lidHalf",
+   "brows": [
+    [
+     2,
+     -4,
+     2
+    ],
+    [
+     3,
+     -5,
+     2
+    ]
+   ],
+   "mouth": "flat"
+  },
+  "pencilLick": {
+   "eyes": [
+    "squint",
+    "lid"
+   ],
+   "brows": [
+    [
+     -2,
+     4,
+     0
+    ],
+    [
+     2,
+     2,
+     2
+    ]
+   ],
+   "mouth": "tongueCorner",
+   "side": 1
+  },
+  "glance": {
+   "eyes": "oval",
+   "brows": [
+    [
+     4,
+     -3,
+     3
+    ],
+    [
+     6,
+     -4,
+     3
+    ]
+   ],
+   "mouth": "lens"
+  },
+  "chalkEye": {
+   "eyes": [
+    "squint",
+    "lid"
+   ],
+   "brows": [
+    [
+     -2,
+     4,
+     0
+    ],
+    [
+     3,
+     1,
+     3
+    ]
+   ],
+   "mouth": "flat"
+  },
+  "stare": {
+   "eyes": "wide",
+   "brows": [
+    [
+     9,
+     -2,
+     6
+    ],
+    [
+     11,
+     -2,
+     7
+    ]
+   ],
+   "mouth": "o"
+  },
+  "grinOpen": {
+   "eyes": "lid",
+   "brows": [
+    [
+     5,
+     -2,
+     5
+    ],
+    [
+     7,
+     -2,
+     6
+    ]
+   ],
+   "mouth": "grin"
+  }
+ },
+ "places": {
+  "apron": {
+   "set": "airfield",
+   "light": "golden",
+   "time": "day",
+   "backdrop": 7,
+   "state": {
+    "chalk": 0.9967532467532467,
+    "panel": 0,
+    "patch": 0,
+    "armor_here": 0,
+    "plate_on": 0,
+    "props": 0,
+    "briefcase": [
+     6.52,
+     4.81,
+     0,
+     166
+    ],
+    "bay_doors": 0,
+    "hole_daylight": [
+     7.466,
+     6.554,
+     2.184,
+     0.14
+    ],
+    "panel_rest_local": [
+     0.603,
+     5.73
+    ]
+   },
+   "events": [
+    {
+     "f0": 118,
+     "f1": 148,
+     "obj": "panel",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "f0": 45,
+     "f1": 47,
+     "obj": "chalk_slap",
+     "from": [
+      7.556,
+      6.593,
+      2.184
+     ],
+     "to": [
+      7.556,
+      6.593,
+      2.184
+     ]
+    },
+    {
+     "f0": 105,
+     "f1": 108,
+     "obj": "cowl_glint",
+     "from": 0,
+     "to": 0.8
+    },
+    {
+     "f0": 114,
+     "f1": 117,
+     "obj": "cowl_glint",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "f0": 128,
+     "f1": 131,
+     "obj": "panel_dust",
+     "from": [
+      8.337,
+      5.982,
+      0.02
+     ],
+     "to": [
+      8.337,
+      5.982,
+      0.02
+     ]
+    },
+    {
+     "f0": 138,
+     "f1": 139,
+     "obj": "panel_dust",
+     "from": [
+      8.105,
+      6.023,
+      0.02
+     ],
+     "to": [
+      8.105,
+      6.023,
+      0.02
+     ]
+    },
+    {
+     "f0": 154,
+     "f1": 195,
+     "obj": "chalk",
+     "from": 0.9967532467532467,
+     "to": 1
+    },
+    {
+     "f0": 272,
+     "f1": 274,
+     "obj": "chalk_slap",
+     "from": [
+      7.486,
+      7.255,
+      0.37
+     ],
+     "to": [
+      7.486,
+      7.255,
+      0.37
+     ]
+    },
+    {
+     "f0": 334,
+     "f1": 335,
+     "obj": "patch",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "f0": 333,
+     "f1": 335,
+     "obj": "tire_dust",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "f0": 335,
+     "f1": 349,
+     "obj": "tire_hit",
+     "from": 1,
+     "to": 0
+    }
+   ],
+   "note": "state key briefcase = [x, y, z, yaw_deg]: where the Mathematician's upended briefcase stands (props-hero: sets/extras.js draws buildBriefcase there)",
+   "light_over": {
+    "dir": [
+     -8,
+     4.6,
+     4.5
+    ],
+    "top": "#3684d1",
+    "hor": "#f1e5cc",
+    "sun": "#ffcd86",
+    "si": 4.3,
+    "amb": "#6696fa",
+    "ai": 1.85,
+    "tint": "#fffaf3",
+    "card_gain": 1
+   },
+   "post": {
+    "dust": 0.3,
+    "dust_color": "#ffe0a8",
+    "vignette": 0.65
+   },
+   "fill": 0.46,
+   "fill_color": "#82a6f6",
+   "fg_shade": 0.5,
+   "corner": 0.68,
+   "sky": {
+    "mid": "#8cbcf2"
+   },
+   "veil": 0.085,
+   "veil_color": "#7fa6ff",
+   "rich": 0.7,
+   "shadow_color": "#161c3c"
+  }
+ },
+ "props": {
+  "bomber": {
+   "pos": [
+    3,
+    9,
+    2.6
+   ],
+   "h": 6,
+   "kind": "the whole holed, chalk-ringed bomber"
+  },
+  "clean_cowl": {
+   "pos": [
+    5.946,
+    4.693,
+    1.772
+   ],
+   "h": 1.2,
+   "kind": "the one spotless engine cowl"
+  },
+  "briefcase": {
+   "pos": [
+    6.52,
+    4.81,
+    0
+   ],
+   "h": 0.42,
+   "kind": "the upended briefcase"
+  },
+  "last_ring": {
+   "pos": [
+    7.786,
+    6.244,
+    2.217
+   ],
+   "h": 1,
+   "kind": "the last chalk ring, wing underside"
+  },
+  "wheel": {
+   "pos": [
+    6.608,
+    6.795,
+    0.7
+   ],
+   "h": 1.4,
+   "kind": "the big round main wheel"
+  },
+  "patch": {
+   "pos": [
+    6.988,
+    7.143,
+    0.997
+   ],
+   "h": 0.5,
+   "kind": "the rubber patch on the good tire"
+  },
+  "hole1": {
+   "pos": [
+    7.466,
+    6.554,
+    2.184
+   ],
+   "h": 0.5,
+   "kind": "the big ringed flak hole in the wing underside, the sun through it"
+  },
+  "hole": {
+   "pos": [
+    5.54,
+    11.84,
+    1.91
+   ],
+   "h": 0.5,
+   "kind": "the chalk-ringed flak hole in the body side the take flies into"
+  }
+ },
+ "takes": [
+  {
+   "id": "t_hook",
+   "place": "apron",
+   "stations": [
+    {
+     "at": 0,
+     "pos": [
+      7.25,
+      1.75,
+      0.75
+     ],
+     "aim": [
+      7,
+      5,
+      1.75
+     ],
+     "lens": 24,
+     "subject": "mathematician",
+     "framing": "W",
+     "shows": [
+      "mathematician",
+      "chief",
+      "clean_cowl",
+      "briefcase",
+      "bomber"
+     ],
+     "hold": 0.2,
+     "purpose": "FRAME 0, the hook, close: the little man on his upended briefcase on tiptoe, the rule tip ON the one clean cowl, the Chief with his chalk stick raised and his jaw down, holed and ringed skin over them"
+    },
+    {
+     "at": 47,
+     "pos": [
+      8.5,
+      4.6,
+      0.7
+     ],
+     "aim": [
+      7.75,
+      6.7,
+      1.95
+     ],
+     "lens": 30,
+     "subject": "hole1",
+     "framing": "P",
+     "shows": [
+      "hole1",
+      "bomber"
+     ],
+     "via": [
+      [
+       8.4,
+       -2.4,
+       0.5
+      ]
+     ],
+     "travel": 1.37,
+     "lead": 0,
+     "hold": 0.5,
+     "creep": 0.004,
+     "purpose": "ONE flight (f6-46, fix round 3: the stop on the wide is gone): it sweeps back and out so the bomber is over the three men on \"a bomber\", then in under the wing to LAND close on one bullet hole on \"holes\" (CB: zoom to a hole): ragged metal, the chalk ring, daylight through it, the Chief-s chalk end touching its edge, dust falling"
+    },
+    {
+     "at": 96,
+     "pos": [
+      6.45,
+      2.2,
+      0.8
+     ],
+     "aim": [
+      6.2,
+      5,
+      1.72
+     ],
+     "lens": 40,
+     "subject": "clean_cowl",
+     "framing": "C",
+     "shows": [
+      "clean_cowl",
+      "mathematician"
+     ],
+     "via": [
+      [
+       7.9,
+       3.4,
+       0.9
+      ]
+     ],
+     "travel": 1.1,
+     "lead": 0,
+     "hold": 1.05,
+     "creep": 0.0015,
+     "purpose": "\"the one clean spot\" (CB: zoom to the spot, a double tap): fly out round the front of the little man (not through his slide rule) and LAND close on the spotless cowl, his fist and slide rule in frame: tap on clean (f108), tap on spot (f117), each ON the polished band, a ting glint each"
+    },
+    {
+     "at": 148,
+     "pos": [
+      11.382,
+      4.702,
+      0.12
+     ],
+     "aim": [
+      7.967,
+      6.631,
+      1.7
+     ],
+     "lens": 19,
+     "subject": "chief",
+     "framing": "M",
+     "shows": [
+      "chief",
+      "last_ring"
+     ],
+     "via": [
+      [
+       10.899,
+       4.373,
+       0.3
+      ]
+     ],
+     "travel": 0.73,
+     "lead": 0,
+     "hold": 0.07,
+     "creep": 0,
+     "purpose": "CB round 3b (from down below camera move): the flight from the cowl ends DOWN LOW, near the ground under the wing, looking up at the Chief and the last ring"
+    },
+    {
+     "at": 184,
+     "pos": [
+      10.584,
+      5.125,
+      0.55
+     ],
+     "aim": [
+      7.804,
+      6.276,
+      1.92
+     ],
+     "lens": 68,
+     "subject": "last_ring",
+     "framing": "C",
+     "shows": [
+      "last_ring",
+      "chief"
+     ],
+     "travel": 1.1,
+     "lead": 0,
+     "hold": 0.7,
+     "creep": 0.002,
+     "purpose": "\"has just CHALKED A CIRCLE\" (CB: the chalk mark is at seconds 5-6; zoom and show how he makes the circle under the wing): ONE flight from the cowl (f126-149) that swings out low past the Chief, the loose panel clanging down at his feet on the way (f131; he flinches, the little man does not turn), and LANDS close on his arm, stick and chalk under the wing, his face in the picture. REST: the white line grows round the ragged hole f154-195 and closes on the word circle; the flourish"
+    },
+    {
+     "at": 222,
+     "pos": [
+      10.654,
+      5.756,
+      0.45
+     ],
+     "aim": [
+      7.742,
+      7.099,
+      1.58
+     ],
+     "lens": 14,
+     "subject": "chief",
+     "framing": "W",
+     "shows": [
+      "chief",
+      "mathematician",
+      "rivets",
+      "wheel"
+     ],
+     "travel": 0.53,
+     "lead": 0,
+     "hold": 2,
+     "creep": 0.0012,
+     "purpose": "\"around EVERY HOLE\": PULL BACK with his proud step (f206-221) to the wing ceiling of ringed holes and all three men whole in frame (CB: nobody cut in half), and REST: fist on his hip, chin up; he sees the slide rule counting his rings, the laugh, the knee slap on laughing, Rivets one beat late, the start of the quote"
+    },
+    {
+     "at": 298,
+     "pos": [
+      10.591,
+      4.902,
+      0.95
+     ],
+     "aim": [
+      6.769,
+      6.666,
+      1.1
+     ],
+     "lens": 24,
+     "subject": "chief",
+     "framing": "W",
+     "shows": [
+      "chief",
+      "wheel",
+      "patch",
+      "mathematician"
+     ],
+     "travel": 0.45,
+     "lead": 0,
+     "hold": 1,
+     "creep": 0.001,
+     "purpose": "\"patch the TIRE that isn-t FLAT\": out to the big round tire side-on with both faces whole and REST: the patch held up, the stick points at the wheel, the lick, the wind-up, the slap on the word flat, the dust ring; the little man blinks once"
+    },
+    {
+     "at": 355,
+     "pos": [
+      6.0794,
+      11.5734,
+      1.7611999999999999
+     ],
+     "aim": [
+      4.496,
+      12.356,
+      1.96
+     ],
+     "lens": 24,
+     "subject": "hole",
+     "framing": "P",
+     "shows": [
+      "hole"
+     ],
+     "via": [
+      [
+       10.738,
+       8.09,
+       1.5
+      ]
+     ],
+     "travel": 0.9,
+     "lead": 0,
+     "hold": 0.05,
+     "creep": 0,
+     "purpose": "fly on past them under the wing INTO one chalk-ringed hole in the body side (the next stretch starts inside, looking out). patch_cam.py holds the tire rest to f332 and re-times f332-342 along this same path; f343-355 are untouched"
+    }
+   ]
+  }
+ ],
+ "kicks": [
+  {
+   "at": 108,
+   "amp": 0.3
+  },
+  {
+   "at": 117,
+   "amp": 0.4
+  },
+  {
+   "at": 131,
+   "amp": 1
+  },
+  {
+   "at": 335,
+   "amp": 0.8
+  }
+ ],
+ "transitions": [],
+ "blends": [],
+ "highlights": [],
+ "acts": [
+  {
+   "who": "mathematician",
+   "at": 0,
+   "pos": [
+    5.98,
+    5.3,
+    1.2
+   ],
+   "view": "side",
+   "dir": -1,
+   "pose": "m:../../ep_s1/m_hook+props",
+   "face": "standard",
+   "note": "FRAME CHECK TEST: head inside the bomber cowl"
+  },
+  {
+   "who": "mathematician",
+   "at": 9,
+   "face": "k:think",
+   "note": "a finger to his hat brim: he reads the metal"
+  },
+  {
+   "who": "mathematician",
+   "at": 61,
+   "face": "k:concentrate",
+   "note": "the rule drawn back for the one exact tap: tongue tip out"
+  },
+  {
+   "who": "mathematician",
+   "at": 118,
+   "face": "standard",
+   "note": "TAP on clean (f108), TAP on spot (f117); he does not turn for the panel"
+  },
+  {
+   "who": "mathematician",
+   "at": 121,
+   "face": "k:glance",
+   "note": "one calm glance to the lens"
+  },
+  {
+   "who": "mathematician",
+   "at": 142,
+   "pose": "m:../../ep_s1/m_hop_off+props",
+   "face": "standard",
+   "dir": 1,
+   "note": "hops off the case, turning to the wing"
+  },
+  {
+   "who": "mathematician",
+   "at": 145,
+   "pos": [
+    6.625,
+    5.518,
+    0
+   ],
+   "move_s": 0.26666666666666666,
+   "linear": true
+  },
+  {
+   "who": "mathematician",
+   "at": 159,
+   "pose": "m:../../ep_s1/m_count+props",
+   "face": "k:count1",
+   "note": "counts the holes over his head with the rule tip, lips moving"
+  },
+  {
+   "who": "mathematician",
+   "at": 190,
+   "face": "k:count2"
+  },
+  {
+   "who": "mathematician",
+   "at": 216,
+   "face": "k:count3"
+  },
+  {
+   "who": "mathematician",
+   "at": 240,
+   "face": "k:count1"
+  },
+  {
+   "who": "mathematician",
+   "at": 256,
+   "face": "k:count2",
+   "note": "when laughed at he gets busier"
+  },
+  {
+   "who": "mathematician",
+   "at": 268,
+   "face": "k:count3"
+  },
+  {
+   "who": "mathematician",
+   "at": 280,
+   "face": "k:count1"
+  },
+  {
+   "who": "mathematician",
+   "at": 300,
+   "pose": "m:../../ep_s1/m_face_him+props",
+   "face": "standard",
+   "note": "lowers the rule and turns his flat face to the Chief: mouth closed"
+  },
+  {
+   "who": "mathematician",
+   "at": 337,
+   "face": "k:slowBlink",
+   "note": "the one slow blink instead of an answer"
+  },
+  {
+   "who": "mathematician",
+   "at": 352,
+   "face": "standard"
+  },
+  {
+   "who": "chief",
+   "at": 0,
+   "pos": [
+    8.043,
+    6.795,
+    0
+   ],
+   "view": "side",
+   "dir": -1,
+   "pose": "m:../../ep_s1/c_hook+props",
+   "face": "k:shocked",
+   "note": "FRAME 0: chalk raised to the next hole, stopped in mid-air, jaw down"
+  },
+  {
+   "who": "chief",
+   "at": 25,
+   "face": "k:stare"
+  },
+  {
+   "who": "chief",
+   "at": 38,
+   "face": "k:worried",
+   "note": "his chalk end goes to the nearest hole: but LOOK at these"
+  },
+  {
+   "who": "chief",
+   "at": 62,
+   "face": "k:browUp",
+   "note": "the chalk points at the slide rule: that?!"
+  },
+  {
+   "who": "chief",
+   "at": 108,
+   "face": "k:shocked",
+   "note": "the tap: he jolts back"
+  },
+  {
+   "who": "chief",
+   "at": 131,
+   "face": "k:worried",
+   "note": "CLANG: he flinches"
+  },
+  {
+   "who": "chief",
+   "at": 140,
+   "pose": "m:../../ep_s1/c_ring+props",
+   "face": "standard",
+   "note": "he shakes the clang off: head up to his last hole, the stick goes up"
+  },
+  {
+   "who": "chief",
+   "at": 148,
+   "face": "k:chalkEye",
+   "note": "one eye shut along the stick"
+  },
+  {
+   "who": "chief",
+   "at": 154,
+   "face": "k:concentrate",
+   "note": "the chalk is ON the skin: tongue tip out while the ring grows"
+  },
+  {
+   "who": "chief",
+   "at": 195,
+   "face": "k:proud",
+   "note": "the ring closes on the word circle: flourish"
+  },
+  {
+   "who": "chief",
+   "at": 206,
+   "pose": "m:../../ep_s1/c_proud+props",
+   "pos": [
+    7.566,
+    7.435,
+    0
+   ],
+   "move_s": 0.3333333333333333,
+   "linear": true,
+   "face": "k:proud",
+   "note": "two steps back, fist onto his hip, chin up at his hundred rings"
+  },
+  {
+   "who": "chief",
+   "at": 243,
+   "pose": "m:../../ep_s1/c_laugh+props",
+   "face": "k:browUp",
+   "note": "his eyes come down to the slide rule counting HIS rings"
+  },
+  {
+   "who": "chief",
+   "at": 251,
+   "face": "k:holdBreath",
+   "note": "the laugh starts in his belly"
+  },
+  {
+   "who": "chief",
+   "at": 258,
+   "face": "k:bellyLaugh",
+   "note": "head thrown back: he cannot stop"
+  },
+  {
+   "who": "chief",
+   "at": 283,
+   "pose": "m:../../ep_s1/c_patch+props",
+   "face": "k:smug",
+   "say": [
+    34,
+    41
+   ],
+   "note": "THE QUOTE (his mouth lip-syncs it): up out of the laugh, the patch out of his pocket and held up on patch, the chalk stick points at the wheel on tire, licked, wound up on isn-t, SLAPPED on the good tire on flat"
+  },
+  {
+   "who": "chief",
+   "at": 339,
+   "face": "k:grinOpen",
+   "note": "grin held, palm on the patch"
+  },
+  {
+   "who": "rivets",
+   "at": 0,
+   "pos": [
+    8.883,
+    7.897,
+    0
+   ],
+   "view": "side",
+   "dir": -1,
+   "pose": "m:../../ep_s1/r_watch",
+   "face": "standard",
+   "note": "up on his toes to see"
+  },
+  {
+   "who": "rivets",
+   "at": 139,
+   "pose": "m:../../ep_s1/r_jump",
+   "face": "k:shocked",
+   "note": "jumps at the clang, late"
+  },
+  {
+   "who": "rivets",
+   "at": 160,
+   "face": "standard"
+  },
+  {
+   "who": "rivets",
+   "at": 270,
+   "pose": "m:../../ep_s1/r_laugh",
+   "face": "k:laugh",
+   "note": "laughs one beat late (12 f after the Chief), too big, pointing"
+  },
+  {
+   "who": "rivets",
+   "at": 310,
+   "face": "k:nervousSmile",
+   "note": "and stops dead"
+  }
+ ],
+ "hand_at": [
+  {
+   "who": "mathematician",
+   "f0": 0,
+   "f1": 141,
+   "at": [
+    5.946,
+    4.693,
+    1.772
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 30,
+   "f1": 61,
+   "at": [
+    7.556,
+    6.593,
+    2.184
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 140,
+   "f1": 153,
+   "at": [
+    7.8438,
+    6.0838,
+    2.2292
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 196,
+   "f1": 205,
+   "at": [
+    7.9113,
+    6.1082,
+    2.2275
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 283,
+   "f1": 355,
+   "at": [
+    6.988,
+    7.143,
+    0.997
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 154,
+   "f1": 154,
+   "at": [
+    7.8438,
+    6.0838,
+    2.2292
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 155,
+   "f1": 155,
+   "at": [
+    7.8438,
+    6.0838,
+    2.2292
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 156,
+   "f1": 156,
+   "at": [
+    7.8438,
+    6.0838,
+    2.2292
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 157,
+   "f1": 157,
+   "at": [
+    7.8438,
+    6.0838,
+    2.2292
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 158,
+   "f1": 158,
+   "at": [
+    7.8438,
+    6.0838,
+    2.2292
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 159,
+   "f1": 159,
+   "at": [
+    7.8644,
+    6.0943,
+    2.2283
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 160,
+   "f1": 160,
+   "at": [
+    7.8644,
+    6.0943,
+    2.2283
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 161,
+   "f1": 161,
+   "at": [
+    7.885,
+    6.1048,
+    2.2275
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 162,
+   "f1": 162,
+   "at": [
+    7.9008,
+    6.1209,
+    2.2261
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 163,
+   "f1": 163,
+   "at": [
+    7.9166,
+    6.137,
+    2.2247
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 164,
+   "f1": 164,
+   "at": [
+    7.9269,
+    6.1559,
+    2.223
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 165,
+   "f1": 165,
+   "at": [
+    7.9372,
+    6.1749,
+    2.2213
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 166,
+   "f1": 166,
+   "at": [
+    7.9488,
+    6.2146,
+    2.2178
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 167,
+   "f1": 167,
+   "at": [
+    7.954,
+    6.2551,
+    2.2142
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 168,
+   "f1": 168,
+   "at": [
+    7.952,
+    6.2968,
+    2.2106
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 169,
+   "f1": 169,
+   "at": [
+    7.9398,
+    6.3384,
+    2.2068
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 170,
+   "f1": 170,
+   "at": [
+    7.9143,
+    6.3754,
+    2.2032
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 171,
+   "f1": 171,
+   "at": [
+    7.8768,
+    6.4017,
+    2.2003
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 172,
+   "f1": 172,
+   "at": [
+    7.832,
+    6.414,
+    2.1983
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 173,
+   "f1": 173,
+   "at": [
+    7.7861,
+    6.413,
+    2.1974
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 174,
+   "f1": 174,
+   "at": [
+    7.7218,
+    6.394,
+    2.1977
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 175,
+   "f1": 175,
+   "at": [
+    7.6818,
+    6.3736,
+    2.1987
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 176,
+   "f1": 176,
+   "at": [
+    7.6281,
+    6.3296,
+    2.2017
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 177,
+   "f1": 177,
+   "at": [
+    7.6036,
+    6.2885,
+    2.2052
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 178,
+   "f1": 178,
+   "at": [
+    7.5944,
+    6.242,
+    2.2096
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 179,
+   "f1": 179,
+   "at": [
+    7.602,
+    6.1964,
+    2.2144
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 180,
+   "f1": 180,
+   "at": [
+    7.6234,
+    6.1567,
+    2.2189
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 181,
+   "f1": 181,
+   "at": [
+    7.6533,
+    6.1244,
+    2.2228
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 182,
+   "f1": 182,
+   "at": [
+    7.6883,
+    6.0982,
+    2.226
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 183,
+   "f1": 183,
+   "at": [
+    7.7281,
+    6.0775,
+    2.2287
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 184,
+   "f1": 184,
+   "at": [
+    7.7735,
+    6.0648,
+    2.2305
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 185,
+   "f1": 185,
+   "at": [
+    7.7981,
+    6.0646,
+    2.2308
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 186,
+   "f1": 186,
+   "at": [
+    7.8228,
+    6.0644,
+    2.2311
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 187,
+   "f1": 187,
+   "at": [
+    7.8468,
+    6.0718,
+    2.2306
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 188,
+   "f1": 188,
+   "at": [
+    7.8709,
+    6.0792,
+    2.23
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 189,
+   "f1": 189,
+   "at": [
+    7.8911,
+    6.0937,
+    2.2287
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 190,
+   "f1": 190,
+   "at": [
+    7.8911,
+    6.0937,
+    2.2287
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 191,
+   "f1": 191,
+   "at": [
+    7.9113,
+    6.1082,
+    2.2275
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 192,
+   "f1": 192,
+   "at": [
+    7.9113,
+    6.1082,
+    2.2275
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 193,
+   "f1": 193,
+   "at": [
+    7.9113,
+    6.1082,
+    2.2275
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 194,
+   "f1": 194,
+   "at": [
+    7.9113,
+    6.1082,
+    2.2275
+   ]
+  },
+  {
+   "who": "chief",
+   "f0": 195,
+   "f1": 195,
+   "at": [
+    7.9113,
+    6.1082,
+    2.2275
+   ]
+  }
+ ],
+ "chalk_head": {
+  "f0": 154,
+  "pts": [
+   [
+    7.8438,
+    6.0838,
+    2.2292
+   ],
+   [
+    7.8438,
+    6.0838,
+    2.2292
+   ],
+   [
+    7.8438,
+    6.0838,
+    2.2292
+   ],
+   [
+    7.8438,
+    6.0838,
+    2.2292
+   ],
+   [
+    7.8438,
+    6.0838,
+    2.2292
+   ],
+   [
+    7.8644,
+    6.0943,
+    2.2283
+   ],
+   [
+    7.8644,
+    6.0943,
+    2.2283
+   ],
+   [
+    7.885,
+    6.1048,
+    2.2275
+   ],
+   [
+    7.9008,
+    6.1209,
+    2.2261
+   ],
+   [
+    7.9166,
+    6.137,
+    2.2247
+   ],
+   [
+    7.9269,
+    6.1559,
+    2.223
+   ],
+   [
+    7.9372,
+    6.1749,
+    2.2213
+   ],
+   [
+    7.9488,
+    6.2146,
+    2.2178
+   ],
+   [
+    7.954,
+    6.2551,
+    2.2142
+   ],
+   [
+    7.952,
+    6.2968,
+    2.2106
+   ],
+   [
+    7.9398,
+    6.3384,
+    2.2068
+   ],
+   [
+    7.9143,
+    6.3754,
+    2.2032
+   ],
+   [
+    7.8768,
+    6.4017,
+    2.2003
+   ],
+   [
+    7.832,
+    6.414,
+    2.1983
+   ],
+   [
+    7.7861,
+    6.413,
+    2.1974
+   ],
+   [
+    7.7218,
+    6.394,
+    2.1977
+   ],
+   [
+    7.6818,
+    6.3736,
+    2.1987
+   ],
+   [
+    7.6281,
+    6.3296,
+    2.2017
+   ],
+   [
+    7.6036,
+    6.2885,
+    2.2052
+   ],
+   [
+    7.5944,
+    6.242,
+    2.2096
+   ],
+   [
+    7.602,
+    6.1964,
+    2.2144
+   ],
+   [
+    7.6234,
+    6.1567,
+    2.2189
+   ],
+   [
+    7.6533,
+    6.1244,
+    2.2228
+   ],
+   [
+    7.6883,
+    6.0982,
+    2.226
+   ],
+   [
+    7.7281,
+    6.0775,
+    2.2287
+   ],
+   [
+    7.7735,
+    6.0648,
+    2.2305
+   ],
+   [
+    7.7981,
+    6.0646,
+    2.2308
+   ],
+   [
+    7.8228,
+    6.0644,
+    2.2311
+   ],
+   [
+    7.8468,
+    6.0718,
+    2.2306
+   ],
+   [
+    7.8709,
+    6.0792,
+    2.23
+   ],
+   [
+    7.8911,
+    6.0937,
+    2.2287
+   ],
+   [
+    7.8911,
+    6.0937,
+    2.2287
+   ],
+   [
+    7.9113,
+    6.1082,
+    2.2275
+   ],
+   [
+    7.9113,
+    6.1082,
+    2.2275
+   ],
+   [
+    7.9113,
+    6.1082,
+    2.2275
+   ],
+   [
+    7.9113,
+    6.1082,
+    2.2275
+   ],
+   [
+    7.9113,
+    6.1082,
+    2.2275
+   ]
+  ]
+ },
+ "held3d": [],
+ "sentences": [
+  {
+   "text": "He looked at a bomber full of bullet holes and told them to armor the one clean spot.",
+   "words": [
+    0,
+    17
+   ],
+   "subject": "mathematician",
+   "nouns": [
+    {
+     "word": "bomber",
+     "show": "bomber"
+    },
+    {
+     "word": "holes",
+     "show": "hole1"
+    },
+    {
+     "word": "clean",
+     "show": "clean_cowl"
+    }
+   ]
+  },
+  {
+   "text": "The crew chief has just chalked a circle around every hole, and he can't stop laughing,",
+   "words": [
+    18,
+    33
+   ],
+   "subject": "chief",
+   "nouns": [
+    {
+     "word": "circle",
+     "show": "last_ring"
+    }
+   ]
+  },
+  {
+   "text": "\"So we patch the tire that isn't flat?\"",
+   "words": [
+    34,
+    41
+   ],
+   "subject": "chief",
+   "nouns": [
+    {
+     "word": "tire",
+     "show": "wheel"
+    }
+   ]
+  }
+ ],
+ "fx": [],
+ "chalk_slap_free_above": 1.6,
+ "moods": [],
+ "sound": [
+  {
+   "at": 0,
+   "name": "airfield_wind_engines_ticking"
+  },
+  {
+   "at": 108,
+   "name": "slide_rule_ting_on_metal"
+  },
+  {
+   "at": 117,
+   "name": "slide_rule_ting_on_metal_2"
+  },
+  {
+   "at": 131,
+   "name": "sheet_metal_clang"
+  },
+  {
+   "at": 139,
+   "name": "sheet_metal_second_bounce"
+  },
+  {
+   "at": 154,
+   "name": "chalk_squeak_round"
+  },
+  {
+   "at": 215,
+   "name": "fists_on_hips_slap"
+  },
+  {
+   "at": 258,
+   "name": "belly_laugh"
+  },
+  {
+   "at": 274,
+   "name": "knee_slap"
+  },
+  {
+   "at": 272,
+   "name": "rivets_late_laugh"
+  },
+  {
+   "at": 335,
+   "name": "rubber_slap"
+  },
+  {
+   "at": 337,
+   "name": "tire_thrum"
+  }
+ ],
+ "post": {
+  "dof": 0.25,
+  "dust": 1,
+  "bloom": 1,
+  "vignette": 1
+ }
+}

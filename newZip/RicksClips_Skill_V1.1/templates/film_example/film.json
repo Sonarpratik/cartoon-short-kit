@@ -1,0 +1,711 @@
+{
+ "title": "DEMO: The Station Master Who Stopped Every Clock (pipeline example, not a fact-checked story)",
+ "fps": 30,
+ "size": [
+  1080,
+  1920
+ ],
+ "words": "voice/words.json",
+ "camera_idea": {
+  "name": "The mainspring",
+  "why": "He stops every clock so one clock can run: the camera winds one way round the station master through the trouble like a watch being wound, then lets go on \"You see\" and runs back along the same path to the frame it started on.",
+  "signature": "The unwind: on the last line the camera sweeps back past the spot where the kid laughed (he now stares up at the clock) and comes to rest exactly on frame 0, so the film loops like a watch that was just set."
+ },
+ "cast": {
+  "master": {
+   "puppet": "stationmaster",
+   "height": 1.75,
+   "heads_tall": 2.9
+  },
+  "kid": {
+   "puppet": "form:kid",
+   "height": 1.05,
+   "heads_tall": 2.2
+  },
+  "lady": {
+   "puppet": "form:lady",
+   "height": 1.6,
+   "heads_tall": 2.8
+  }
+ },
+ "places": {
+  "platform": {
+   "set": "platform",
+   "light": "morning",
+   "backdrop": 5.5
+  }
+ },
+ "props": {
+  "clock": {
+   "pos": [
+    1.5,
+    0.6,
+    0
+   ],
+   "kind": "post_clock"
+  },
+  "train": {
+   "pos": [
+    0,
+    4.2,
+    0
+   ],
+   "kind": "train"
+  },
+  "watch": {
+   "held_by": "master"
+  }
+ },
+ "takes": [
+  {
+   "id": "t1",
+   "place": "platform",
+   "stations": [
+    {
+     "at": 0,
+     "pos": [
+      0.8,
+      -1.95,
+      0.9
+     ],
+     "aim": [
+      0.0,
+      0,
+      1.17
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "W",
+     "shows": [
+      "watch"
+     ],
+     "hold": 0.0
+    },
+    {
+     "at": [
+      "stopped",
+      1
+     ],
+     "lead": 3,
+     "pos": [
+      0.17,
+      -1.24,
+      1.15
+     ],
+     "aim": [
+      0,
+      0,
+      1.39
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "M",
+     "shows": [
+      "watch"
+     ],
+     "word": "stopped",
+     "hold": 0.6
+    },
+    {
+     "at": [
+      "trains",
+      1
+     ],
+     "lead": 4,
+     "via": [
+      [
+       0.12,
+       -2.1,
+       0.9
+      ]
+     ],
+     "pos": [
+      0.05,
+      -2.3,
+      0.6
+     ],
+     "aim": [
+      -0.32,
+      0,
+      1.25
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "W",
+     "shows": [
+      "train"
+     ],
+     "word": "trains",
+     "hold": 0.5
+    },
+    {
+     "at": [
+      "own",
+      1
+     ],
+     "lead": 4,
+     "pos": [
+      -1.28,
+      -1.14,
+      0.6
+     ],
+     "aim": [
+      -2.26,
+      -0.01,
+      0.63
+     ],
+     "lens": 24,
+     "subject": "kid",
+     "framing": "W",
+     "shows": [
+      "lady",
+      "watches"
+     ],
+     "word": "own",
+     "hold": 0.4
+    },
+    {
+     "at": [
+      "clock",
+      2
+     ],
+     "lead": 4,
+     "pos": [
+      -0.27,
+      -2.55,
+      0.7
+     ],
+     "aim": [
+      0.62,
+      0.3,
+      1.4
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "W",
+     "shows": [
+      "clock"
+     ],
+     "word": "clock",
+     "hold": 0.4
+    },
+    {
+     "at": [
+      "told",
+      1
+     ],
+     "lead": 4,
+     "pos": [
+      0.0,
+      -1.25,
+      1.15
+     ],
+     "aim": [
+      -0.04,
+      0,
+      1.39
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "M",
+     "word": "told",
+     "hold": 0.4,
+     "travel": 0.8
+    },
+    {
+     "at": [
+      "laughed",
+      1
+     ],
+     "lead": 4,
+     "pos": [
+      -1.84,
+      -2.2,
+      0.45
+     ],
+     "aim": [
+      -0.24,
+      0.1,
+      1.28
+     ],
+     "lens": 24,
+     "subject": "kid",
+     "framing": "W",
+     "shows": [
+      "master",
+      "clock"
+     ],
+     "word": "laughed",
+     "hold": 0.45
+    },
+    {
+     "at": [
+      "see",
+      1
+     ],
+     "lead": 4,
+     "pos": [
+      -0.5,
+      -1.24,
+      0.6
+     ],
+     "aim": [
+      0.23,
+      -0.05,
+      1.36
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "M",
+     "shows": [
+      "clock"
+     ],
+     "word": "see",
+     "travel": 0.5,
+     "hold": 0.5
+    },
+    {
+     "at": [
+      "one",
+      2
+     ],
+     "lead": 4,
+     "pos": [
+      -1.72,
+      -1.98,
+      0.35
+     ],
+     "aim": [
+      -0.42,
+      0.1,
+      1.3
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "W",
+     "shows": [
+      "clock",
+      "kid"
+     ],
+     "word": "one",
+     "hold": 0.45,
+     "travel": 0.6
+    },
+    {
+     "at": [
+      "again",
+      1
+     ],
+     "lead": 0,
+     "pos": [
+      0.928,
+      -2.019,
+      0.886
+     ],
+     "aim": [
+      0.0,
+      0,
+      1.17
+     ],
+     "lens": 24,
+     "subject": "master",
+     "framing": "W",
+     "shows": [
+      "watch"
+     ],
+     "word": "again",
+     "travel": 1.0,
+     "travel_roll": 4,
+     "loop": true
+    }
+   ],
+   "rigs": [
+    {
+     "beat": [
+      "crashing",
+      1
+     ],
+     "action": "crash, impact (heard, not seen: no train moves in this set)",
+     "subject_path": "point: the station master in front of the train face, [0, 0, 1.2]",
+     "recipe": "slow push toward the impact point = the creep of the 'trains' rest; kick 7 f on the word (see kicks, amp 2.0); flash <= 2 f on the word; no pull-out crane, the camera leaves for the town on the next sentence",
+     "note": "If the Blender stage adds a real crash behind him, keep the contact 0-3 f before 'crashing' and stage it above the lens, never across it."
+    }
+   ]
+  }
+ ],
+ "kicks": [
+  {
+   "at": [
+    "crashing",
+    1
+   ],
+   "amp": 2.0
+  }
+ ],
+ "acts": [
+  {
+   "who": "master",
+   "at": 0,
+   "pos": [
+    0,
+    0,
+    0
+   ],
+   "view": "front",
+   "dir": 1,
+   "pose": "hold_watch",
+   "face": "evil",
+   "prop": "watch",
+   "hand": "R"
+  },
+  {
+   "who": "master",
+   "at": [
+    "stopped",
+    1
+   ],
+   "pose": "press_watch",
+   "face": "troll"
+  },
+  {
+   "who": "master",
+   "at": [
+    "purpose",
+    1
+   ],
+   "face": "cool",
+   "punch": true,
+   "punch_s": 0.5
+  },
+  {
+   "who": "master",
+   "at": [
+    "crashing",
+    1
+   ],
+   "face": "terrified",
+   "pose": "flinch"
+  },
+  {
+   "who": "master",
+   "at": [
+    "hung",
+    1
+   ],
+   "face": "strain",
+   "pose": "point_up",
+   "view": "34",
+   "dir": 1
+  },
+  {
+   "who": "master",
+   "at": [
+    "platform",
+    1
+   ],
+   "face": "proud",
+   "pose": "hands_hips"
+  },
+  {
+   "who": "master",
+   "at": [
+    "told",
+    1
+   ],
+   "view": "front",
+   "pose": "point_out",
+   "face": "standard",
+   "say": [
+    34,
+    38
+   ]
+  },
+  {
+   "who": "master",
+   "at": [
+    "laughed",
+    1
+   ],
+   "face": "deadInside",
+   "pose": "stand"
+  },
+  {
+   "who": "master",
+   "at": [
+    "see",
+    1
+   ],
+   "face": "sus",
+   "pose": "finger_up"
+  },
+  {
+   "who": "master",
+   "at": [
+    "shares",
+    1
+   ],
+   "face": "delight",
+   "pose": "hold_watch"
+  },
+  {
+   "who": "master",
+   "at": [
+    "late",
+    1
+   ],
+   "face": "evil",
+   "pose": "hold_watch"
+  },
+  {
+   "who": "kid",
+   "at": 0,
+   "pos": [
+    -2.0,
+    0.0,
+    0
+   ],
+   "view": "34",
+   "dir": 1,
+   "pose": "stand",
+   "face": "confused"
+  },
+  {
+   "who": "kid",
+   "at": [
+    "own",
+    1
+   ],
+   "face": "proud",
+   "pose": "show_wrist",
+   "pos": [
+    -2.0,
+    0.0,
+    0
+   ]
+  },
+  {
+   "who": "kid",
+   "at": [
+    "laughed",
+    1
+   ],
+   "face": "hysterical",
+   "pose": "point_out",
+   "pos": [
+    -1.12,
+    -0.5,
+    0
+   ]
+  },
+  {
+   "who": "kid",
+   "at": [
+    "shares",
+    1
+   ],
+   "face": "starstruck",
+   "pose": "show_wrist"
+  },
+  {
+   "who": "lady",
+   "at": 0,
+   "pos": [
+    -2.55,
+    -0.05,
+    0
+   ],
+   "view": "34",
+   "dir": 1,
+   "pose": "stand",
+   "face": "judging"
+  },
+  {
+   "who": "lady",
+   "at": [
+    "own",
+    1
+   ],
+   "face": "smug",
+   "pose": "show_wrist"
+  },
+  {
+   "who": "lady",
+   "at": [
+    "laughed",
+    1
+   ],
+   "face": "giggle",
+   "pose": "hand_mouth"
+  },
+  {
+   "who": "lady",
+   "at": [
+    "nobody",
+    1
+   ],
+   "face": "happyCry",
+   "pose": "clap"
+  }
+ ],
+ "sentences": [
+  {
+   "text": "This station master stopped every clock in town, on purpose.",
+   "words": [
+    0,
+    9
+   ],
+   "subject": "master",
+   "nouns": [
+    {
+     "word": "clock",
+     "show": "watch"
+    }
+   ]
+  },
+  {
+   "text": "Trains kept crashing, because each town kept its own time.",
+   "words": [
+    10,
+    19
+   ],
+   "subject": "master",
+   "show": [
+    "train"
+   ],
+   "nouns": [
+    {
+     "word": "trains",
+     "show": "train"
+    },
+    {
+     "word": "own",
+     "show": "watches"
+    }
+   ]
+  },
+  {
+   "text": "So he hung one giant clock on the platform, and told the whole town, set your watch to mine.",
+   "words": [
+    20,
+    38
+   ],
+   "subject": "master",
+   "nouns": [
+    {
+     "word": "clock",
+     "n": 2,
+     "show": "clock"
+    }
+   ]
+  },
+  {
+   "text": "They laughed at him.",
+   "words": [
+    39,
+    42
+   ],
+   "subject": "kid"
+  },
+  {
+   "text": "You see, when everybody shares one clock, nobody is ever late again.",
+   "words": [
+    43,
+    54
+   ],
+   "subject": "master",
+   "nouns": [
+    {
+     "word": "clock",
+     "n": 3,
+     "show": "clock"
+    }
+   ]
+  }
+ ],
+ "fx": [
+  {
+   "at": [
+    "stopped",
+    1
+   ],
+   "kind": "stamp_stop",
+   "on": "watch"
+  },
+  {
+   "at": [
+    "crashing",
+    1
+   ],
+   "kind": "dust_hit",
+   "on": "train"
+  },
+  {
+   "at": [
+    "giant",
+    1
+   ],
+   "kind": "glow",
+   "on": "clock"
+  }
+ ],
+ "moods": [
+  {
+   "at": [
+    "crashing",
+    1
+   ],
+   "look": "flash_red"
+  },
+  {
+   "at": [
+    "hung",
+    1
+   ],
+   "look": "warm_up"
+  },
+  {
+   "at": [
+    "see",
+    1
+   ],
+   "look": "spot_hero"
+  }
+ ],
+ "sound": [
+  {
+   "at": [
+    "stopped",
+    1
+   ],
+   "name": "clock_stop_click"
+  },
+  {
+   "at": [
+    "crashing",
+    1
+   ],
+   "name": "train_crash_far"
+  },
+  {
+   "at": [
+    "giant",
+    1
+   ],
+   "name": "bell_big"
+  },
+  {
+   "at": [
+    "laughed",
+    1
+   ],
+   "name": "crowd_laugh_small"
+  },
+  {
+   "at": [
+    "again",
+    1
+   ],
+   "name": "tick_loop"
+  }
+ ]
+}

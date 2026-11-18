@@ -1,0 +1,441 @@
+{
+ "summary": {
+  "film": "<HOME>\\Downloads\\Ricks Clips Animation Skill\\episodes\\armor-no-holes\\final\\armor-s5-payoff_dawn\\film_dawn.json",
+  "frames_in_film": 263,
+  "frames_checked": 69,
+  "rests": [
+   "f22-36",
+   "f56-102",
+   "f146-170",
+   "f181-199",
+   "f238-262"
+  ],
+  "cast": [
+   "mathematician",
+   "chief"
+  ],
+  "fail": 0,
+  "warn": 0,
+  "pass": 21,
+  "seconds": 22.2,
+  "scan_seconds": 8.9,
+  "pose_seconds": 4.2,
+  "moving_exempt": 3,
+  "ms": {
+   "render": 4173.39999961853,
+   "art": 361.2999995946884,
+   "face": 3055.299999833107,
+   "inside": 235.99999964237213,
+   "feet": 813.6000002622604
+  },
+  "settings": {
+   "heldNames": [],
+   "crops": 12,
+   "skipName": "sky|dome|cone|beam|haze|fog|dust|glow|halo|smoke|spark|cloud|backdrop|mote|rain|snow",
+   "headOut": 0.02,
+   "headFull": 0.97,
+   "bodyLo": 0.15,
+   "bodyHi": 0.85,
+   "faceEps": 0.03,
+   "footTol": 0.04,
+   "footReach": 0.25,
+   "footUp": 0.5,
+   "footDown": 3,
+   "moveEps": 0.002,
+   "minBad": 4,
+   "rest_thr": 0.01,
+   "rest_min": 8
+  },
+  "set_meshes": {
+   "apron_dawn": {
+    "solid": 6366,
+    "instances": 34360,
+    "see-through": 284,
+    "small scatter (rivets, grass)": 2,
+    "name": 84
+   }
+  },
+  "notes": [],
+  "page_errors": []
+ },
+ "rows": [
+  {
+   "who": "mathematician",
+   "rest": "f146-170",
+   "check": "body_side",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of width in frame",
+   "frame": 146,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    31,
+    29,
+    162,
+    332
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f146-170",
+   "check": "head_cut",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of head+hat in frame",
+   "frame": 146,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    36,
+    29,
+    145,
+    152
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f146-170",
+   "check": "face_covered",
+   "status": "PASS",
+   "value": 0,
+   "unit": "of 3 face rays blocked",
+   "frame": 146,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    36,
+    29,
+    145,
+    152
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f146-170",
+   "check": "feet",
+   "status": "PASS",
+   "value": 0,
+   "unit": "cm foot above (+) or inside (-) the surface",
+   "frame": 146,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "on step_ladder/step_ladder_step_03 (25 cm to the side)",
+   "mark": [
+    62,
+    322,
+    77,
+    335
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f146-170",
+   "check": "body_side",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of width in frame",
+   "frame": 146,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    143,
+    184,
+    240,
+    383
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f146-170",
+   "check": "head_cut",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of head+hat in frame",
+   "frame": 146,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    161,
+    184,
+    232,
+    260
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f146-170",
+   "check": "face_covered",
+   "status": "PASS",
+   "value": 0,
+   "unit": "of 3 face rays blocked",
+   "frame": 146,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    161,
+    184,
+    232,
+    260
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f146-170",
+   "check": "feet",
+   "status": "PASS",
+   "value": -3.5,
+   "unit": "cm foot above (+) or inside (-) the surface",
+   "frame": 168,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "on briefcase_body/briefcase_pose/briefcase_body",
+   "mark": [
+    200,
+    382,
+    215,
+    395
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f181-199",
+   "check": "head_cut",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of head+hat in frame",
+   "frame": 181,
+   "bad_frames": 0,
+   "frames": 19,
+   "detail": "",
+   "mark": [
+    152,
+    175,
+    257,
+    282
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f181-199",
+   "check": "face_covered",
+   "status": "PASS",
+   "value": 0,
+   "unit": "of 3 face rays blocked",
+   "frame": 181,
+   "bad_frames": 0,
+   "frames": 19,
+   "detail": "",
+   "mark": [
+    152,
+    175,
+    257,
+    282
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f181-199",
+   "check": "body_side",
+   "status": "PASS",
+   "value": 97,
+   "unit": "% of width in frame",
+   "frame": 183,
+   "bad_frames": 0,
+   "frames": 19,
+   "detail": "cut by the right edge",
+   "mark": [
+    102,
+    177,
+    275,
+    470
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f181-199",
+   "check": "body_side",
+   "status": "PASS",
+   "value": 4,
+   "unit": "% of width in frame",
+   "frame": 186,
+   "bad_frames": 0,
+   "frames": 19,
+   "detail": "cut by the right edge",
+   "mark": [
+    247,
+    -409,
+    797,
+    454
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f181-199",
+   "check": "feet",
+   "status": "PASS",
+   "value": 0,
+   "unit": "cm foot above (+) or inside (-) the surface",
+   "frame": 190,
+   "bad_frames": 0,
+   "frames": 19,
+   "detail": "on apron_concrete",
+   "mark": [
+    193,
+    468,
+    208,
+    481
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f238-262",
+   "check": "body_side",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of width in frame",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    133,
+    76,
+    239,
+    319
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f238-262",
+   "check": "head_cut",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of head+hat in frame",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    146,
+    76,
+    233,
+    173
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f238-262",
+   "check": "face_covered",
+   "status": "PASS",
+   "value": 0,
+   "unit": "of 3 face rays blocked",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    146,
+    76,
+    233,
+    173
+   ]
+  },
+  {
+   "who": "mathematician",
+   "rest": "f238-262",
+   "check": "feet",
+   "status": "PASS",
+   "value": 0,
+   "unit": "cm foot above (+) or inside (-) the surface",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "on step_ladder/step_ladder_step_03 (17 cm to the side)",
+   "mark": [
+    179,
+    309,
+    194,
+    322
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f238-262",
+   "check": "body_side",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of width in frame",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    92,
+    225,
+    164,
+    387
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f238-262",
+   "check": "head_cut",
+   "status": "PASS",
+   "value": 100,
+   "unit": "% of head+hat in frame",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    100,
+    225,
+    158,
+    289
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f238-262",
+   "check": "face_covered",
+   "status": "PASS",
+   "value": 0,
+   "unit": "of 3 face rays blocked",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "",
+   "mark": [
+    100,
+    225,
+    158,
+    289
+   ]
+  },
+  {
+   "who": "chief",
+   "rest": "f238-262",
+   "check": "feet",
+   "status": "PASS",
+   "value": 0,
+   "unit": "cm foot above (+) or inside (-) the surface",
+   "frame": 238,
+   "bad_frames": 0,
+   "frames": 25,
+   "detail": "on apron_concrete",
+   "mark": [
+    117,
+    377,
+    132,
+    390
+   ]
+  }
+ ]
+}

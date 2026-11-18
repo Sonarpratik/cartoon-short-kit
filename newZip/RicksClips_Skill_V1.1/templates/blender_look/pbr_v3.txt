@@ -1,0 +1,133 @@
+# ---------------------------------------------------------------- v3: procedural stylised-PBR world (no downloaded textures)
+TOON_KEEP = {"CloudToon", "FlakPuff", "Smoke"}   # stylised on purpose: soft cel-like clouds and smoke
+BEVEL = {"crate", "crateL", "truck", "truckG", "gun", "bombcart", "jerry", "table", "bench", "dugout", "chalkboard", "searchlight"}
+# rough, metal, coat, sheen, height kind, height scale, bump strength, chips, wet share
+PBR = {
+    "Crate": (.68, 0, 0, 0, "img", 1, .55, 0, 0), "Wood": (.62, 0, 0, 0, "grain", 34, .1, 0, 0), "Trunk": (.85, 0, 0, 0, "grain", 4, .8, 0, 0),
+    "Drum": (.42, .35, .2, 0, "paint", 240, .06, .6, 0), "DrumRed": (.36, .25, .4, 0, "paint", 240, .06, .6, 0),
+    "GunMetal": (.34, 1, 0, 0, "paint", 90, .18, 0, 0), "Olive": (.4, 0, .45, 0, "paint", 240, .05, .605, 0), "FieldGrey": (.42, 0, .35, 0, "paint", 240, .05, .605, 0),
+    "Bomb": (.32, .2, .55, 0, "paint", 240, .05, .605, 0), "Brass": (.24, 1, 0, 0, "paint", 90, .12, 0, 0),
+    "Sandbag": (.95, 0, 0, .5, "weave", 150, .75, 0, 0), "Canvas": (.86, 0, 0, .35, "weave", 110, .4, 0, 0), "CanvasGrey": (.86, 0, 0, .35, "weave", 110, .4, 0, 0),
+    "Tarp": (.74, 0, 0, .4, "weave", 150, .3, 0, 0), "RedCloth": (.8, 0, 0, .6, "weave", 200, .25, 0, 0), "BlueCloth": (.8, 0, 0, .6, "weave", 200, .25, 0, 0),
+    "Tyre": (.82, 0, 0, 0, "paint", 180, .4, 0, 0), "Leaf": (.55, 0, 0, .2, "paint", 9, .9, 0, 0), "Leaf2": (.55, 0, 0, .2, "paint", 9, .9, 0, 0), "Pine": (.6, 0, 0, .2, "paint", 12, .9, 0, 0),
+    "Stone": (.78, 0, 0, 0, "paint", 40, .7, 0, 0), "Stone2": (.8, 0, 0, 0, "paint", 40, .7, 0, 0), "Stone3": (.7, 0, 0, 0, "paint", 40, .7, 0, 0),
+    "Blade": (.46, 0, 0, .4, None, 0, 0, 0, 0), "Cat": (.75, 0, 0, 1, "paint", 120, .15, 0, 0), "Board": (.8, 0, 0, 0, "paint", 40, .1, 0, 0),
+    "Ground_grass_tile2.png": (.62, 0, 0, .25, "img+paint", 26, 1.4, 0, .08), "Ground_mud_tile2.png": (.55, 0, 0, 0, "img+paint", 18, 1.8, 0, .4),
+}
+
+def _height(nt, kind, sc, img_out):
+    """returns a socket with a surface height for the Bump node (object-space, procedural)."""
+    L = nt.links.new; tc = nt.nodes.new("ShaderNodeTexCoord").outputs["Object"]
+    def noise(scale, detail=6):
+        n = nt.nodes.new("ShaderNodeTexNoise"); n.inputs["Scale"].default_value = scale; n.inputs["Detail"].default_value = detail; L(tc, n.inputs[0]); return n.outputs[0]
+    def wave(scale, axis):
+        w = nt.nodes.new("ShaderNodeTexWave"); w.bands_direction = axis; w.inputs["Scale"].default_value = scale; w.inputs["Distortion"].default_value = 0.6; L(tc, w.inputs[0]); return w.outputs[1]
+    def add(a, b, k=1.0):
+        m = nt.nodes.new("ShaderNodeMath"); m.operation = "MULTIPLY_ADD"; L(a, m.inputs[0]); m.inputs[1].default_value = k; L(b, m.inputs[2]); return m.outputs[0]
+    if kind == "weave": return add(wave(sc, "X"), wave(sc, "Y"), 1.0)
+    if kind == "grain":
+        w = nt.nodes.new("ShaderNodeTexWave"); w.bands_direction = "Y"; w.inputs["Scale"].default_value = sc; w.inputs["Distortion"].default_value = 3; w.inputs["Detail"].default_value = 4; L(tc, w.inputs[0]); return w.outputs[1]
+    if kind == "img": return img_out
+    if kind == "img+paint": return add(img_out, noise(sc), 1.0)
+    return noise(sc)
+
+def pbr(name, lit, img=None, scale=1.0, flat=False, gain=1.0):
+    rough, metal, coat, sheen, hk, hs, bs, chips, wet = PBR.get(name, (.6, 0, 0, 0, "paint", 40, .15, 0, 0))
+    m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear(); L = nt.links.new
+    out = nt.nodes.new("ShaderNodeOutputMaterial"); b = nt.nodes.new("ShaderNodeBsdfPrincipled")
+    rgb = nt.nodes.new("ShaderNodeRGB"); rgb.outputs[0].default_value = (*lin(lit), 1); col = rgb.outputs[0]; img_out = None
+    if img:
+        tc = nt.nodes.new("ShaderNodeTexCoord"); mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (scale, scale, scale); L(tc.outputs["Object"], mp.inputs[0])
+        it = nt.nodes.new("ShaderNodeTexImage"); it.image = image(img); it.interpolation = "Cubic"
+        if not flat: it.projection = "BOX"; it.projection_blend = 0.25
+        L(mp.outputs[0], it.inputs[0]); img_out = it.outputs[0]
+        sc = nt.nodes.new("ShaderNodeVectorMath"); sc.operation = "SCALE"; sc.inputs[3].default_value = 2.2 * gain; L(_mix(nt, col, img_out).outputs[2], sc.inputs[0]); col = sc.outputs[0]
+    # painted tonal variation: broad + fine
+    tco = nt.nodes.new("ShaderNodeTexCoord").outputs["Object"]
+    nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 2.4; nz.inputs["Detail"].default_value = 5; L(tco, nz.inputs[0])
+    nm = nt.nodes.new("ShaderNodeMapRange"); nm.inputs[3].default_value = 0.68; nm.inputs[4].default_value = 1.3; L(nz.outputs[0], nm.inputs[0])
+    v = nt.nodes.new("ShaderNodeVectorMath"); v.operation = "SCALE"; L(col, v.inputs[0]); L(nm.outputs[0], v.inputs[3]); col = v.outputs[0]
+    if name == "Blade":   # lighter toward the tip
+        g = nt.nodes.new("ShaderNodeTexCoord"); sp = nt.nodes.new("ShaderNodeSeparateXYZ"); L(g.outputs["Generated"], sp.inputs[0])
+        r = nt.nodes.new("ShaderNodeMapRange"); r.inputs[3].default_value = 0.45; r.inputs[4].default_value = 1.5; L(sp.outputs[2], r.inputs[0])
+        t = nt.nodes.new("ShaderNodeVectorMath"); t.operation = "SCALE"; L(col, t.inputs[0]); L(r.outputs[0], t.inputs[3]); col = t.outputs[0]
+    b.inputs["Roughness"].default_value = rough; b.inputs["Metallic"].default_value = metal; b.inputs["Coat Weight"].default_value = coat; b.inputs["Coat Roughness"].default_value = 0.12; b.inputs["Sheen Weight"].default_value = sheen
+    chip_mask = None
+    if chips:   # chipped paint: bare steel shows where the noise breaks the coat, the coat edge is raised in the bump
+        cn = nt.nodes.new("ShaderNodeTexNoise"); cn.inputs["Scale"].default_value = 18; cn.inputs["Detail"].default_value = 9; cn.inputs["Roughness"].default_value = 0.65; L(tco, cn.inputs[0])
+        cm = nt.nodes.new("ShaderNodeMapRange"); cm.inputs[1].default_value = chips; cm.inputs[2].default_value = chips + 0.025; L(cn.outputs[0], cm.inputs[0]); chip_mask = cm.outputs[0]
+        steel = nt.nodes.new("ShaderNodeRGB"); steel.outputs[0].default_value = (.42, .40, .38, 1)
+        mx = nt.nodes.new("ShaderNodeMix"); mx.data_type = "RGBA"; L(chip_mask, mx.inputs[0]); L(col, mx.inputs[6]); L(steel.outputs[0], mx.inputs[7]); col = mx.outputs[2]
+        mm = nt.nodes.new("ShaderNodeMapRange"); mm.inputs[3].default_value = metal; mm.inputs[4].default_value = 1.0; L(chip_mask, mm.inputs[0]); L(mm.outputs[0], b.inputs["Metallic"])
+    wet_mask = None
+    if wet:     # puddles / damp patches: darker, mirror-smooth, flat normal; lanterns and the moon reflect in them
+        wn = nt.nodes.new("ShaderNodeTexNoise"); wn.inputs["Scale"].default_value = 0.42; wn.inputs["Detail"].default_value = 3; L(tco, wn.inputs[0])
+        edge = 0.5 + (0.5 - wet) * 0.35
+        wm = nt.nodes.new("ShaderNodeMapRange"); wm.inputs[1].default_value = edge; wm.inputs[2].default_value = edge + 0.018; L(wn.outputs[0], wm.inputs[0]); wet_mask = wm.outputs[0]
+        rr = nt.nodes.new("ShaderNodeMapRange"); rr.inputs[3].default_value = rough; rr.inputs[4].default_value = 0.035; L(wet_mask, rr.inputs[0]); L(rr.outputs[0], b.inputs["Roughness"])
+        dk = nt.nodes.new("ShaderNodeMapRange"); dk.inputs[3].default_value = 1.0; dk.inputs[4].default_value = 0.22; L(wet_mask, dk.inputs[0])
+        d = nt.nodes.new("ShaderNodeVectorMath"); d.operation = "SCALE"; L(col, d.inputs[0]); L(dk.outputs[0], d.inputs[3]); col = d.outputs[0]
+    L(col, b.inputs["Base Color"])
+    if hk:
+        bp = nt.nodes.new("ShaderNodeBump"); bp.inputs["Distance"].default_value = 0.03; bp.inputs["Strength"].default_value = bs
+        h = _height(nt, hk, hs, img_out); L(h, bp.inputs["Height"])
+        if chip_mask:
+            ad = nt.nodes.new("ShaderNodeMath"); ad.operation = "MULTIPLY_ADD"; L(chip_mask, ad.inputs[0]); ad.inputs[1].default_value = -0.6; L(h, ad.inputs[2]); L(ad.outputs[0], bp.inputs["Height"])
+        if wet_mask:
+            st = nt.nodes.new("ShaderNodeMapRange"); st.inputs[3].default_value = bs; st.inputs[4].default_value = 0.0; L(wet_mask, st.inputs[0]); L(st.outputs[0], bp.inputs["Strength"])
+        L(bp.outputs[0], b.inputs["Normal"])
+    shader = b.outputs[0]
+    # aerial perspective toward the night horizon colour
+    cd = nt.nodes.new("ShaderNodeCameraData"); mr = nt.nodes.new("ShaderNodeMapRange"); mr.inputs[1].default_value = HAZE_START; mr.inputs[2].default_value = HAZE_START + HAZE_DEPTH; mr.inputs[3].default_value = 0; mr.inputs[4].default_value = HAZE_MAX
+    L(cd.outputs["View Distance"], mr.inputs[0]); he = nt.nodes.new("ShaderNodeEmission"); he.inputs[0].default_value = (*HAZE, 1); ms = nt.nodes.new("ShaderNodeMixShader")
+    L(mr.outputs[0], ms.inputs[0]); L(shader, ms.inputs[1]); L(he.outputs[0], ms.inputs[2]); L(ms.outputs[0], out.inputs[0])
+    if name == "Blade": m.use_backface_culling = False
+    return m
+
+def glass_mat():
+    m = bpy.data.materials.new("LampGlass"); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    o = nt.nodes.new("ShaderNodeOutputMaterial"); b = nt.nodes.new("ShaderNodeBsdfPrincipled"); b.inputs["Base Color"].default_value = (.9, .95, 1, 1); b.inputs["Roughness"].default_value = .04; b.inputs["Alpha"].default_value = .22
+    nt.links.new(b.outputs[0], o.inputs[0]); m.surface_render_method = "BLENDED"; return m
+
+def sag_pyr(mb, r, h, mat, n=9, sag=0.16):
+    """tent canvas that really hangs: each side a grid that sags between the seams."""
+    t = bmesh.new(); k = r / math.sqrt(2); apex = Vector((0, 0, h)); cs = [Vector(p) for p in ((k, -k, 0), (k, k, 0), (-k, k, 0), (-k, -k, 0))]
+    for i in range(4):
+        c0, c1 = cs[i], cs[(i + 1) % 4]; nrm = (c1 - c0).cross(apex - c0).normalized(); grid = []
+        for a in range(n + 1):
+            row = []
+            for b_ in range(n + 1):
+                u, v = a / n, b_ / n; p = c0.lerp(c1, u).lerp(apex, v * 0.985) - nrm * sag * math.sin(math.pi * u) * math.sin(math.pi * v)
+                row.append(t.verts.new(p))
+            grid.append(row)
+        for a in range(n):
+            for b_ in range(n): t.faces.new((grid[a][b_], grid[a + 1][b_], grid[a + 1][b_ + 1], grid[a][b_ + 1]))
+    mb._take(t, mat, Matrix.Identity(4))
+
+def upgrade_aircraft():
+    """Po-2s: doped fabric with sheen, plywood grain on the olive skin, painted steel, real metal, glass."""
+    for m in bpy.data.materials:
+        if not m.name.startswith("NW_") or not m.use_nodes: continue
+        nt = m.node_tree; L = nt.links.new; b = next((n for n in nt.nodes if n.type == "BSDF_PRINCIPLED"), None)
+        if b is None: continue
+        key = m.name[3:]; I = b.inputs
+        bp = nt.nodes.new("ShaderNodeBump"); bp.inputs["Distance"].default_value = 0.02
+        if key in ("po2_olive", "po2_under"):
+            I["Roughness"].default_value = .46; I["Sheen Weight"].default_value = .45; I["Coat Weight"].default_value = .22; I["Coat Roughness"].default_value = .25; I["Specular IOR Level"].default_value = .5
+            I["Base Color"].default_value = tuple(min(1, c * 1.5) for c in I["Base Color"].default_value[:3]) + (1,)
+            bp.inputs["Strength"].default_value = .28; L(_height(nt, "grain", 9, None), bp.inputs["Height"])
+        elif key.startswith("metal") or key == "exhaust":
+            I["Metallic"].default_value = 1.0; I["Roughness"].default_value = .36; I["Specular IOR Level"].default_value = .5
+            bp.inputs["Strength"].default_value = .15; L(_height(nt, "paint", 90, None), bp.inputs["Height"])
+        elif key == "wood":
+            I["Roughness"].default_value = .32; I["Coat Weight"].default_value = .6; bp.inputs["Strength"].default_value = .3; L(_height(nt, "grain", 20, None), bp.inputs["Height"])
+        elif key == "bomb":
+            I["Roughness"].default_value = .34; I["Coat Weight"].default_value = .5; bp.inputs["Strength"].default_value = .12; L(_height(nt, "paint", 70, None), bp.inputs["Height"])
+        elif key == "glass":
+            I["Roughness"].default_value = .03; I["Specular IOR Level"].default_value = .8; nt.nodes.remove(bp); continue
+        elif key == "star_red":
+            I["Base Color"].default_value = (*lin((225, 22, 26)), 1); I["Roughness"].default_value = .42; nt.nodes.remove(bp); continue
+        else:
+            nt.nodes.remove(bp); continue
+        L(bp.outputs[0], I["Normal"])
+

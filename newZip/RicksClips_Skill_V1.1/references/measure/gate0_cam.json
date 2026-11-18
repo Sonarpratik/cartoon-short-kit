@@ -1,0 +1,65 @@
+{
+ "The Science Behind Slot Machines - Ricks Clips (1080p, h264).mp4": {
+  "frames": 928,
+  "cut_frames": 0,
+  "hold_pct": 9.2,
+  "drift_pct": 16.3,
+  "move_pct": 74.6,
+  "speed_median": 5.44,
+  "speed_p90": 22.95,
+  "moves_per_10s": 5.5,
+  "move_peak_median": 20.2,
+  "move_peak_p25_p75": [
+   10.4,
+   28.9
+  ],
+  "attack_median_f": 12.0,
+  "release_median_f": 15.0,
+  "quiet_zoom_active_pct": 72.4,
+  "quiet_zoom_pushin_pct": 85.3,
+  "quiet_zoom_rate_median": 0.314,
+  "hf_residual_median_px": 0.211
+ },
+ "How Painkillers Actually Work - Ricks Clips (1080p, h264).mp4": {
+  "frames": 1033,
+  "cut_frames": 0,
+  "hold_pct": 1.2,
+  "drift_pct": 4.1,
+  "move_pct": 94.8,
+  "speed_median": 14.11,
+  "speed_p90": 33.74,
+  "moves_per_10s": 15.1,
+  "move_peak_median": 22.8,
+  "move_peak_p25_p75": [
+   12.9,
+   29.8
+  ],
+  "attack_median_f": 6.0,
+  "release_median_f": 7.0,
+  "quiet_zoom_active_pct": 87.6,
+  "quiet_zoom_pushin_pct": 95.4,
+  "quiet_zoom_rate_median": 0.975,
+  "hf_residual_median_px": 1.019
+ },
+ "Your Brain's Secret Idea Zone - Ricks Clips (1080p, h264).mp4": {
+  "frames": 1172,
+  "cut_frames": 0,
+  "hold_pct": 11.0,
+  "drift_pct": 35.9,
+  "move_pct": 53.1,
+  "speed_median": 2.37,
+  "speed_p90": 19.88,
+  "moves_per_10s": 5.38,
+  "move_peak_median": 11.2,
+  "move_peak_p25_p75": [
+   8.2,
+   30.2
+  ],
+  "attack_median_f": 6.0,
+  "release_median_f": 8.0,
+  "quiet_zoom_active_pct": 61.5,
+  "quiet_zoom_pushin_pct": 86.5,
+  "quiet_zoom_rate_median": 0.19,
+  "hf_residual_median_px": 0.138
+ }
+}

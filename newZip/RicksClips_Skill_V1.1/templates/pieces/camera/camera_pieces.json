@@ -1,0 +1,80 @@
+{
+ "_about": "Camera pieces 9, 10, 11, 12 and 15 as film.json snippets, with the numbers used in 'Armor Where Nobody Shot'. A take is a list of STATIONS inside one place: the camera flies, lands, rests, flies again, no cut. Station keys as read by tools/film_plan.py: at = the frame the camera LANDS (put it on the word, or 2-6 f before); travel = seconds of flight before the landing; hold = seconds of rest after it; creep = slow push per frame during the rest (0 = locked off); drift = [x, y, z] metres the camera slides during the rest; via = points the flight bends through; lens in mm; lead = 0 everywhere in this film. Positions are metres in that film's world and are NOT reusable: every pos, aim and lens below is content. What is reusable is the order of stations and the travel / hold / creep numbers. Always run tools/film_plan.py check and node tools/frame_checks/check.mjs after writing stations.",
+
+ "09_push_in_on_named_thing": {
+  "what": "Inside the running take the camera pushes in on the thing the voice names (0.3-0.5 s), the thing DOES something for about 1 s, then the camera pulls back or tilts to a face.",
+  "armor_main_example": "pins stretch, 'a few SPOTS never get a pin ... all the mathematician STARES at' (film frames; build_film.py lines 76-77 show them 18 higher)",
+  "stations": [
+   {"at": 518, "pos": [-11.5, 36.5, 2.02], "aim": [-11.5, 34.4, 2.04], "lens": 24, "subject": "map_oval", "framing": "O", "travel": 0.45, "lead": 0, "hold": 1.0, "creep": 0.002, "_note": "flight f505-518; the thing's own act starts 2 f AFTER the landing: the bare ovals blink 3 x 9 f from f520 (pin_fire.oval_blink)"},
+   {"at": 562, "pos": [-10.32, 36.42, 1.25], "aim": [-9.72, 34.95, 1.14], "lens": 24, "subject": "mathematician_bare", "framing": "M", "travel": 0.47, "lead": 0, "hold": 0.9, "creep": 0.0015, "_note": "pull back to the face that reacts (he stares, dead still); the realisation move starts at f576"}
+  ],
+  "other_armor_uses": [
+   "S4 f312 the barrel on 'trash': wide station at f297 (hold 0.17), then travel 0.33, hold 0.75, creep 0.003; the lid lifts f304 and the flies burst f306, so the camera DIVES WITH the lid; out to the Chief at f343 in 0.27 s",
+   "S1 f96 the clean cowl: travel 1.1 (it has to fly round the man, via one point), lens 40, hold 1.05, creep 0.0015; the two taps at f108 and f117 are the thing's act; kicks 0.3 and 0.4 on the taps",
+   "S4 f213 the shelf: lens 50, travel 0.33, hold 0.5"
+  ],
+  "rules": ["the thing must DO something during the rest (a blink, a tap, a hit, a hand placing it); a rest over 1.5 s needs a new event about every second", "a hand, tool or face is in the close frame; light and place are the wide's", "creep 0.0015-0.003 keeps a rest alive; 0 only when things in frame move a lot", "after the rest go to a FACE, not to the next thing, unless the story is a list"],
+  "must_change": "the thing and what it does on its word; the direction of the push (from where the character looks at it); how close (the thing at least a third of frame height, or small but marked); the face it returns to and what that face feels"
+ },
+
+ "10_low_angle_closeup_on_a_mark_being_made": {
+  "what": "The camera comes down LOW first, then rises and pushes in with a long lens onto the spot where a hand makes a mark, looking up; the maker's arm, tool and face stay in the picture; the rest lasts as long as the stroke.",
+  "armor_example": "S1 'has just CHALKED A CIRCLE' (build_film.py lines 71-72 and 82-85; CB: 'from down below camera move')",
+  "stations": [
+   {"at": 148, "pos": [11.382, 4.702, 0.12], "aim": [7.967, 6.631, 1.7], "lens": 19, "subject": "chief", "framing": "M", "via": [[10.899, 4.373, 0.3]], "travel": 0.73, "lead": 0, "hold": 0.07, "creep": 0.0, "_note": "camera 0.12 m off the ground, wide lens, looking up at the man and the mark; almost no rest: it is a turning point of the flight"},
+   {"at": 184, "pos": [10.584, 5.125, 0.55], "aim": [7.804, 6.276, 1.92], "lens": 68, "subject": "last_ring", "framing": "C", "travel": 1.1, "lead": 0, "hold": 0.7, "creep": 0.002, "_note": "rise to 0.55 m and push in; the closeness comes from the LENS (19 to 68 mm), not from moving nearer, so the character's hand stays in reach on his card. The stroke runs f154-195: the camera is still arriving while the line grows and lands for its closing"},
+   {"at": 222, "pos": [10.654, 5.756, 0.45], "aim": [7.742, 7.099, 1.58], "lens": 14, "subject": "chief", "framing": "W", "travel": 0.53, "lead": 0, "hold": 2.0, "creep": 0.0012, "_note": "pull back WITH his proud step to all the marks and all the people whole in frame"}
+  ],
+  "rules": ["measure where the mark's points land on the character's card before fixing the camera height: in the armor film a lens at 0.75 m put the ring 114-199 px above the card's zero line, at 1.02 m 143-239 px, and above about 205 px the kit cuts the drawing", "the mark must be large enough to read on a phone at the moment its word is said", "use with moves/stroke_drawn_live.mjs: one hand_at point per frame"],
+  "must_change": "the mark, the surface (overhead here; a wall or a table changes the angle: the piece is 'from the side the mark is NOT hidden by the hand'), the lens pair, and what the wide after it reveals"
+ },
+
+ "11_fly_through_an_object_to_change_place": {
+  "what": "The take ends by flying INTO a small dark or glowing opening of a real object until it fills the lens; the next place opens out of the same kind of opening. The only way two places join, besides an 8-12 f blend.",
+  "armor_example_A_bullet_hole": {
+   "out_of_S1": {"at": 355, "pos": [6.0794, 11.5734, 1.7612], "aim": [4.496, 12.356, 1.96], "lens": 24, "subject": "hole", "framing": "P", "via": [[10.738, 8.09, 1.5]], "travel": 0.9, "lead": 0, "hold": 0.05, "creep": 0.0, "_note": "pos = the hole's centre + 0.62 m along its outward normal; aim = 1.2 m beyond the hole on the inside: the camera stops just short and looks through (build_film.py lines 16, 74, 90-91). Hole radius 0.12 m. The last 13 frames (f343-355) are the join and were never re-rendered in fix rounds: patch_cam.py re-timed f332-342 onto the old path instead"},
+   "into_S2": {"at": 0, "pos": [5.27, 12.9, 1.68], "aim": [5.85, 12.62, 1.66], "lens": 24, "subject": "holes", "framing": "C", "hold": 1.25, "creep": 0.0, "drift": [-0.05, -0.1, 0.0], "_note": "the next stretch starts INSIDE the body looking out through the holes, already drifting, so the motion carries over"}
+  },
+  "armor_example_B_lantern": {
+   "into": {"at": 169, "pos": [17.060312, 6.35764, 1.7], "aim": [19.2974, 6.473, 1.68], "lens": 24, "subject": "lantern", "framing": "O", "travel": 0.2, "lead": 0, "hold": 0.0, "creep": 0.0, "_note": "0.24 m behind the lantern in his raised fist, looking through its glow"},
+   "out": {"at": 170, "pos": [-5.3, 35.66, 1.1], "aim": [-5.3, 35.42, 1.1], "lens": 24, "subject": "stove", "framing": "O", "hold": 0.0, "creep": 0.0, "_note": "0.24 m from the same lantern standing on the stove in the other place; the pull back starts at once"},
+   "blend": {"at": 170, "frames": 10, "through": "the lantern", "_note": "film.json key blends"}
+  },
+  "rules": ["the object is part of the story at that moment (the hole the film is about; the lantern he carries), never a convenient door", "both sides are filled by the same colour and brightness on the join frame", "the join frames are frozen once two stretches are rendered: a later fix re-times the frames before them, never the join", "a set shader that the lens enters must guard pow, sqrt and divisions or the graphics card draws black (CB_RULES section 10)"],
+  "must_change": "the object and why this story passes through it; which way the next place opens (out of the same object, or its twin); the travel time into it (0.2 s for a hand-held lantern, 0.9 s for a flight across a wing)"
+ },
+
+ "12_fly_land_rest": {
+  "what": "How a whole stretch is written: ONE take, 6-17 stations; each station is a flight that lands on a word and a rest in which the acting happens.",
+  "numbers_from_the_armor_film": {
+   "stations_per_stretch": "S1 8 in 11.8 s; pins 15 in 21 s; S4 16 in two takes",
+   "travel_s": "0.17-1.37; a push-in 0.33-0.5; a pull back 0.5-0.8; a flight across the set 0.9-1.4",
+   "hold_s": "a rest with acting 0.9-2.5; a rest on a thing 0.5-1.05; a pass-through point 0.03-0.07 (the camera only turns there)",
+   "creep": "0.0006-0.004 per frame on rests; 0 on pass-through points and on the last station of a take",
+   "drift_m": "0.03-0.1 on long rests (a slow slide sideways)",
+   "lens_mm": "24 by default; 14-19 for a low wide; 40-68 for a close on a small thing; 55-60 through a far door",
+   "kicks": "film.json kicks [{at, amp}]: 0.3-0.5 on a tap or a burst, 0.8 on a slap, 1.0 on a heavy clang"
+  },
+  "example_take": "episodes/armor-no-holes/stretches/armor-s1-hook/build_film.py lines 75-93 (8 stations with the purpose of each written out)",
+  "rules": ["a station's `at` is a plain frame number from words.json, never shifted by a tool", "frame 0 is the approved script's FRAME 0 picture: hold 0.2 s, then fly", "no stop on a wide just to show the wide: fix round 3 of S1 removed it and made one flight f6-46", "check every frame of every rest for a figure cut by the frame edge (node tools/frame_checks/check.mjs)", "floor at most a third of a wide"],
+  "must_change": "everything spatial. Keep only: flight short, rest on the word, something happens in every rest, the camera idea of the film named once (camera_idea in film.json)"
+ },
+
+ "15_the_hundreds_count_closeup": {
+  "what": "'Many of one thing': the camera lands close ON the surface while the things are still arriving, so the count is seen growing: heads fill the frame, every hit flashes, the surface shudders, a light band runs over them, a small counter races; then ONE pull back shows the whole.",
+  "armor_example": "pins stretch 'By Friday there are HUNDREDS' (film frames; build_film.py lines 73-74, 59-60, 167)",
+  "stations": [
+   {"at": 350, "pos": [-11.27, 35.18, 2.04], "aim": [-11.31, 34.4, 2.02], "lens": 24, "subject": "pins", "framing": "O", "travel": 0.5, "lead": 0, "hold": 0.95, "creep": 0.0, "drift": [-0.05, 0.0, 0.0], "_note": "0.78 m from the paper, square on; drift along the row instead of creep"},
+   {"at": 404, "pos": [-11.15, 40.9, 1.45], "aim": [-11.15, 34.4, 1.85], "lens": 24, "subject": "drawing", "framing": "W", "travel": 0.8, "lead": 0, "hold": 0.4, "_note": "the pull back runs WHILE the storm still lands (the last storm hits land at about f390 in film frames) and ends on the full sheet"}
+  ],
+  "with": {
+   "storm": "fx/fly_and_hit.js group {kind: 'storm', f0: 335, f1: 388, waves: 3} in film frames: about 300 things in 1.8 s",
+   "flash": "pin_fire.flash 0.075 m: each head lights up gold on its hit and dies over 8 f",
+   "light_band": "fx/highlight_part.js pinsCloseUp: two sweeps f352-363 and f366-377, band 0.42",
+   "counter": "a small counter plate ON the sheet inside the close frame (pin_fire.counter2, shown f40-566), digits = fly_and_hit.countIn",
+   "head_size": "pin_fire.head_k 1.8: a head is about 20 px at the wide rest"
+  },
+  "reference": "CLOSEUP_STUDY.md section 6: the reference channel reveals 'many of one thing' in under half a second with a hand placing the newest. The armor version has NO hand in the close frame; that is its weak point (see INDEX.md).",
+  "must_change": "the thing counted and what makes its number believable in THIS story (a counter, a tally, a ruler beside them, a stack that grows past something of known size); the surface; whether a hand places the newest; the word the landing sits on"
+ }
+}

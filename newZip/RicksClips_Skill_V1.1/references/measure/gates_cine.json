@@ -1,0 +1,269 @@
+{
+ "_about": "Cinematic look gates (CB 2026-11-10: 'apply all to knowledge'). Bands cut from five of Rick's films measured with tools/measure/cine_look.py's instrument on 2026-11-10 (references/remeasure/compare_2026-11-10/compare.json): Railroads, Roller Coasters, Drivers, Pink Prison, Storm Oil. 'films' keeps their values and our baboon film's so the bands can be re-cut. A FAIL is a value outside all five of his films.",
+ "films": {
+  "order": [
+   "ours_baboon",
+   "railroads",
+   "coasters",
+   "drivers",
+   "pink_prison",
+   "storm_oil"
+  ],
+  "vignette": [
+   0.873,
+   0.755,
+   0.677,
+   0.49,
+   0.681,
+   0.656
+  ],
+  "shadow_b": [
+   -0.8,
+   -0.9,
+   -4.1,
+   -4.65,
+   -13.5,
+   -11.4
+  ],
+  "haze": [
+   -0.55,
+   8.15,
+   10.32,
+   14.17,
+   6.98,
+   6.14
+  ],
+  "top_bot": [
+   0.996,
+   1.348,
+   1.137,
+   1.486,
+   0.96,
+   0.954
+  ],
+  "hf": [
+   0.389,
+   0.51,
+   0.512,
+   0.651,
+   0.383,
+   0.33
+  ],
+  "spec": [
+   0.004,
+   0.011,
+   0.028,
+   0.028,
+   0.006,
+   0.012
+  ],
+  "litC": [
+   41.75,
+   30.1,
+   26.0,
+   19.05,
+   15.6,
+   43.4
+  ],
+  "sharp": [
+   0.645,
+   0.804,
+   1.441,
+   1.22,
+   0.886,
+   0.943
+  ],
+  "L_spread": [
+   8.6,
+   10.64,
+   12.83,
+   12.14,
+   9.21,
+   12.11
+  ],
+  "dark_p90": [
+   0.274,
+   0.456,
+   0.529,
+   0.554,
+   0.145,
+   0.439
+  ],
+  "Ymean": [
+   0.445,
+   0.437,
+   0.451,
+   0.41,
+   0.505,
+   0.395
+  ],
+  "clip": [
+   1.27,
+   0.75,
+   0.38,
+   0.745,
+   1.4,
+   3.43
+  ]
+ },
+ "gate": {
+  "vignette": {
+   "pass": [
+    null,
+    0.78
+   ],
+   "warn": [
+    null,
+    0.84
+   ],
+   "text": "vignette, corner / centre brightness",
+   "target": "0.65-0.75 (Rick 0.49-0.76; MAIN LOOK 0.67)",
+   "fix": "raise the vignette in the grade until the measured value is in range; fit per shot"
+  },
+  "shadow_b": {
+   "pass": [
+    null,
+    -3.0
+   ],
+   "warn": [
+    null,
+    0.5
+   ],
+   "text": "shadow tint b* (minus = blue)",
+   "target": "-4 to -12 (four of his five films; MAIN LOOK -8)",
+   "fix": "blue the fill light and the shadow side of the grade; shadows are never neutral grey or brown"
+  },
+  "haze": {
+   "exterior": true,
+   "pass": [
+    5.0,
+    null
+   ],
+   "warn": [
+    2.0,
+    null
+   ],
+   "text": "haze lift of the distance",
+   "target": "6-14 (Rick 6.1-14.2)",
+   "fix": "pale the sky at the horizon, shorten the haze range so far things lift toward the horizon colour, add mist cards"
+  },
+  "top_bot": {
+   "exterior": true,
+   "pass": [
+    1.08,
+    null
+   ],
+   "warn": [
+    0.0,
+    null
+   ],
+   "text": "top third / bottom brightness (sky against ground)",
+   "target": ">= 1.1 outdoors (his outdoor films 1.14-1.49)",
+   "fix": "the sky is too dark: lighter sky stops toward the horizon, sun glare in frame"
+  },
+  "hf": {
+   "pass": [
+    0.45,
+    null
+   ],
+   "warn": [
+    0.33,
+    null
+   ],
+   "text": "fine surface detail",
+   "target": ">= 0.5 (his outdoor 3D films 0.51-0.65)",
+   "fix": "denser ground cover near the lens (ballast, pebbles, grass), grain on big planes, less blur outdoors"
+  },
+  "spec": {
+   "pass": [
+    0.01,
+    null
+   ],
+   "warn": [
+    0.005,
+    null
+   ],
+   "text": "small glints, share of frame",
+   "target": "0.01-0.03 (Rick 0.006-0.028)",
+   "fix": "gloss and a bright edge on the hero materials (rails, metal, glass, wet ground); a low sun makes them fire"
+  },
+  "litC": {
+   "pass": [
+    null,
+    31.0
+   ],
+   "warn": [
+    null,
+    44.0
+   ],
+   "text": "colour strength of lit surfaces (C*)",
+   "target": "20-30 on the big surfaces, one loud accent (Rick 16-30 in four of five films)",
+   "fix": "calm the big planes (ground, walls, sky) and keep the saturation for one accent colour"
+  },
+  "sharp": {
+   "pass": [
+    0.8,
+    null
+   ],
+   "warn": [
+    0.6,
+    null
+   ],
+   "text": "sharpness of detailed areas",
+   "target": ">= 0.8 (Rick 0.80-1.44)",
+   "fix": "outdoors keep deep focus (depth comes from haze and light); blur only behind close-ups; check motion blur is on travels only"
+  },
+  "L_spread": {
+   "pass": [
+    10.0,
+    null
+   ],
+   "warn": [
+    9.0,
+    null
+   ],
+   "text": "how much the light changes across the film (spread of L)",
+   "target": ">= 10 (Rick 9.2-12.8)",
+   "fix": "the film sits in one light: render the planned moods as real light and grade keys, and give the turn of the story its own light (dusk, night, shade, interior)"
+  },
+  "dark_p90": {
+   "pass": [
+    0.4,
+    null
+   ],
+   "warn": [
+    0.0,
+    null
+   ],
+   "text": "deep shade in the darkest tenth of the film, share of frame",
+   "target": ">= 0.40 (four of his five films 0.44-0.55)",
+   "fix": "let one stretch of the film go dark: night, a shadowed canyon, an interior with one window"
+  },
+  "Ymean": {
+   "pass": [
+    0.38,
+    0.52
+   ],
+   "warn": [
+    0.33,
+    0.56
+   ],
+   "text": "brightness, mean",
+   "target": "0.40-0.51 (Rick)",
+   "fix": "too dark or too bright overall: fit the grade gain"
+  },
+  "clip": {
+   "pass": [
+    null,
+    2.5
+   ],
+   "warn": [
+    null,
+    3.5
+   ],
+   "text": "clipped highlights, %",
+   "target": "<= 2.5 (MAIN LOOK)",
+   "fix": "lower the bloom or the lamp strength"
+  }
+ }
+}

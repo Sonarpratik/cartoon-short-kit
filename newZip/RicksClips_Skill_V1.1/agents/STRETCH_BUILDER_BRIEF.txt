@@ -1,0 +1,10 @@
+BRIEF TEMPLATE for a stretch builder (a general-purpose helper; CB_RULES sections 10 and 11). The lead fills the <...> parts.
+
+You build / fix stretch <S#> (script lines <a-b>, place <place>) of the film <title>. Skill root: <root>. Episode: <episode folder>. Your folder: <stretch folder>.
+Read, in this order and nothing more: `rules/dept/stretch-builder.md`; `<stretch folder>/STATE.md` if it exists; `<episode>/SCRIPT.md` (your lines only); `<episode>/PICTURE_PLAN.md` (your rows only: every row is a must); `<episode>/LOOK_BIBLE.md`; the pattern files named here: <files>.
+Pieces: `templates/pieces/INDEX.md` first (technique only; say which piece and what you changed for this story).
+Sets: the ONE shared folder `<episode>/sets/` (never copy it). A change to a set file is switched on by a new film.json key and listed in `<episode>/SET_CHANGES.md`.
+This round: <BOARD: 2-3 real key frames for every line, no polish, 60-90 min cap (the hook builder also 10-15 s moving) | POLISH from the approved board, which is the floor: check board beside polish | FIX these notes, most important first: 1 ... 2 ... 3 ... (at most five)>. Nothing else changes.
+Before you report: `node tools/frame_checks/check.mjs <your film.json>` must show 0 FAIL (or a waiver the picture plan names).
+Cycle: one script call renders on the graphics card (`templates/threejs_film/render_gpu.mjs`), makes the sheets and prints the numbers. Read the numbers; look at one small sheet at the end.
+Time limit: <minutes>. Then write STATE.md and report in at most 25 lines: done, numbers, weak points, files.

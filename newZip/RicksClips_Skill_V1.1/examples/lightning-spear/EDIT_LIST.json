@@ -1,0 +1,101 @@
+{
+ "fps": 30,
+ "total_frames": 2140,
+ "blend_frames": 10,
+ "handles": 12,
+ "segments": [
+  {
+   "seg": 1,
+   "stretch": "S1",
+   "first_words": "he nailed",
+   "start": 0,
+   "end": 270
+  },
+  {
+   "seg": 2,
+   "stretch": "S2",
+   "first_words": "the fat priest",
+   "start": 270,
+   "end": 461
+  },
+  {
+   "seg": 3,
+   "stretch": "S3",
+   "first_words": "on the other hill",
+   "start": 461,
+   "end": 661
+  },
+  {
+   "seg": 4,
+   "stretch": "S4",
+   "first_words": "the whole market",
+   "start": 661,
+   "end": 937
+  },
+  {
+   "seg": 5,
+   "stretch": "S2",
+   "first_words": "the big bell",
+   "start": 937,
+   "end": 1087
+  },
+  {
+   "seg": 6,
+   "stretch": "S4",
+   "first_words": "in summer",
+   "start": 1087,
+   "end": 1187
+  },
+  {
+   "seg": 7,
+   "stretch": "S3",
+   "first_words": "and the bell ringer",
+   "start": 1187,
+   "end": 1272
+  },
+  {
+   "seg": 8,
+   "stretch": "S4",
+   "first_words": "one autumn night",
+   "start": 1272,
+   "end": 1338
+  },
+  {
+   "seg": 9,
+   "stretch": "S3",
+   "first_words": "the ringer dropped",
+   "start": 1338,
+   "end": 1400
+  },
+  {
+   "seg": 10,
+   "stretch": "S5",
+   "first_words": "you see",
+   "start": 1400,
+   "end": 1747
+  },
+  {
+   "seg": 11,
+   "stretch": "S3",
+   "first_words": "the other found",
+   "start": 1747,
+   "end": 1840
+  },
+  {
+   "seg": 12,
+   "stretch": "S5",
+   "first_words": "and the perfect",
+   "start": 1840,
+   "end": 1909
+  },
+  {
+   "seg": 13,
+   "stretch": "S6",
+   "first_words": "and the priest",
+   "start": 1909,
+   "end": 2140
+  }
+ ],
+ "_note": "Film frames at 30 fps from voice/words.json (take 2). Each stretch renders its segments in FILM frame numbers, each with 12 handle frames before and after (clamped to 0..total) for the 10-frame blends at the joins. Segment 1 starts on frame 0 = the hook; segment 13 ends on the loop frame (the tilt up to the spear and storm wall that matches frame 0).",
+ "_ending": "v2 (CB: 'the endframe is so unclear no landing'): f2036-2070 the Mason's smug look held; f2070-2108 one smooth flight up the wall and wire; f2108-2140 the camera LANDS and RESTS (dead still apart from air, rain specks and cloud drift) on a clear close of the big spear tip on the roof peak with its cold glint, the wire running down out of frame and the purple storm wall behind; the last 8 frames blend into film frame 0."
+}

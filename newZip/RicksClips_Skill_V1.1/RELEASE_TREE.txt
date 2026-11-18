@@ -1,0 +1,20 @@
+RicksClips_Skill_V1.1/
+  CB_RULES.md
+  CHANGELOG.md
+  CINEMATOGRAPHY.md
+  DENSITY_RULES.md
+  FILE_GUIDE.md
+  INSTALL.md
+  LICENSE.txt
+  README.md
+  SKILL.md
+  START_HERE.md
+  WORKFLOW.md
+  agents/
+  examples/
+  install.py
+  library/
+  references/
+  rules/
+  templates/
+  tools/

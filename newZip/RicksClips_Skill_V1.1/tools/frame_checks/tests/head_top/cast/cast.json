@@ -1,0 +1,248 @@
+{
+ "_note": "character-artist 2026-11-13. Copy puppet_pkg, cast and faces_ep into episodes/armor-no-holes/film.json as they are. Height = ground to the top of the bare head (hats stand above it). mathematician_bare and colonel_bare are the approved hat-off variants: a cast entry cannot change puppet inside a film, so stage the hat-on entry in the outdoor places and the bare entry in the places named in cast/PRESETS.md (give each act its place, or keep the other one off stage).",
+ "puppet_pkg": [
+  "cast",
+  "../../templates/vector2d_characters/code"
+ ],
+ "cast": {
+  "mathematician": {
+   "puppet": "cast:armor/mathematician",
+   "height": 1.5,
+   "heads_tall": 3.1
+  },
+  "mathematician_bare": {
+   "puppet": "cast:armor/mathematician_bare",
+   "height": 1.5,
+   "heads_tall": 3.1
+  },
+  "chief": {
+   "puppet": "cast:armor/chief",
+   "height": 1.85,
+   "heads_tall": 2.79
+  },
+  "rivets": {
+   "puppet": "cast:armor/rivets",
+   "height": 1.68,
+   "heads_tall": 3.1
+  },
+  "ladder": {
+   "puppet": "cast:armor/ladder",
+   "height": 1.8,
+   "heads_tall": 2.93
+  },
+  "colonel": {
+   "puppet": "cast:armor/colonel",
+   "height": 1.82,
+   "heads_tall": 2.93
+  },
+  "colonel_bare": {
+   "puppet": "cast:armor/colonel_bare",
+   "height": 1.82,
+   "heads_tall": 2.93
+  },
+  "adjutant": {
+   "puppet": "cast:armor/adjutant",
+   "height": 1.72,
+   "heads_tall": 3.1
+  },
+  "flyer1": {
+   "puppet": "cast:armor/flyer1",
+   "height": 1.78,
+   "heads_tall": 2.93
+  },
+  "flyer2": {
+   "puppet": "cast:armor/flyer2",
+   "height": 1.85,
+   "heads_tall": 2.79
+  },
+  "flyer3": {
+   "puppet": "cast:armor/flyer3",
+   "height": 1.72,
+   "heads_tall": 3.1
+  },
+  "flyer4": {
+   "puppet": "cast:armor/flyer4",
+   "height": 1.8,
+   "heads_tall": 2.93
+  },
+  "flyer5": {
+   "puppet": "cast:armor/flyer5",
+   "height": 1.83,
+   "heads_tall": 2.79
+  },
+  "flyer6": {
+   "puppet": "cast:armor/flyer6",
+   "height": 1.76,
+   "heads_tall": 2.93
+  },
+  "flyer7": {
+   "puppet": "cast:armor/flyer7",
+   "height": 1.82,
+   "heads_tall": 2.93
+  },
+  "flyer8": {
+   "puppet": "cast:armor/flyer8",
+   "height": 1.7,
+   "heads_tall": 3.1
+  }
+ },
+ "costume_shade": {
+  "amount": 0.45,
+  "start": 0.35,
+  "cool": 0.15
+ },
+ "faces_ep": {
+  "count1": {
+   "eyes": "lid",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "o",
+   "nopop": true
+  },
+  "count2": {
+   "eyes": "lid",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "flat",
+   "nopop": true
+  },
+  "count3": {
+   "eyes": "lid",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "smileSmall",
+   "nopop": true
+  },
+  "slowBlink": {
+   "eyes": "closed",
+   "brows": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     4,
+     -1.5,
+     5
+    ]
+   ],
+   "mouth": "lens",
+   "nopop": true
+  },
+  "halfSmile": {
+   "eyes": "lid",
+   "brows": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     6,
+     -2,
+     6
+    ]
+   ],
+   "mouth": "smirk"
+  },
+  "bellyLaugh": {
+   "eyes": "squeeze",
+   "brows": [
+    [
+     12,
+     -4,
+     6
+    ],
+    [
+     12,
+     -4,
+     6
+    ]
+   ],
+   "mouth": "grinXL"
+  },
+  "mugFreeze": {
+   "eyes": "wide",
+   "brows": [
+    [
+     11,
+     -2,
+     6
+    ],
+    [
+     13,
+     -2,
+     7
+    ]
+   ],
+   "mouth": "flat"
+  },
+  "tired": {
+   "eyes": "lidHalf",
+   "brows": [
+    [
+     2,
+     -4,
+     2
+    ],
+    [
+     3,
+     -5,
+     2
+    ]
+   ],
+   "mouth": "flat"
+  },
+  "pencilLick": {
+   "eyes": [
+    "squint",
+    "lid"
+   ],
+   "brows": [
+    [
+     -2,
+     4,
+     0
+    ],
+    [
+     2,
+     2,
+     2
+    ]
+   ],
+   "mouth": "tongueCorner",
+   "side": 1
+  }
+ }
+}

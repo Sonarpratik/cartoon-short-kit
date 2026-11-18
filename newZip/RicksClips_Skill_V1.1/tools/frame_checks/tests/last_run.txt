@@ -1,0 +1,20 @@
+head_top baked 356 frames -> <SKILL_ROOT>\tools\frame_checks\tests\head_top\out\plan 
+side_half baked 356 frames -> <SKILL_ROOT>\tools\frame_checks\tests\side_half\out\plan 
+in_cowl baked 356 frames -> <SKILL_ROOT>\tools\frame_checks\tests\in_cowl\out\plan 
+CAUGHT  head_top: exit 1, 55 s, chief head_cut 23 at f330 in f298-331, 34/34 frames, cut by the right+top edge
+        also FAIL: chief f298-331 body_side 59 (cut by the right edge)
+        also FAIL: chief f184-205 body_side 50 (cut by the right edge)
+        also FAIL: chief f184-205 head_cut 30 (cut by the right edge)
+        also FAIL: chief f47-62 body_side 80 (cut by the right edge)
+CAUGHT  side_half: exit 1, 45 s, chief body_side 49 at f244 in f222-283, 62/62 frames, cut by the right edge
+        also FAIL: chief f222-283 head_cut 13 (cut by the right edge)
+        also FAIL: chief f184-205 body_side 50 (cut by the right edge)
+        also FAIL: chief f184-205 head_cut 30 (cut by the right edge)
+        also FAIL: chief f47-62 body_side 80 (cut by the right edge)
+CAUGHT  in_cowl: exit 1, 47 s, mathematician face_covered 3 at f107 in f96-127, 32/32 frames, head centre INSIDE bomber_old_faithful/bomber_airframe/engine_push_rod_21; in front: bomber_old_faithful/bomber_airframe/engine_ignition_ring_03
+        also FAIL: mathematician f96-127 feet -46.2 (2 of 2 feet sunk, nearest bomber_old_faithful/bomber_airframe/cowl_rear_03)
+        also FAIL: chief f184-205 body_side 50 (cut by the right edge)
+        also FAIL: chief f184-205 head_cut 30 (cut by the right edge)
+        also FAIL: chief f47-62 body_side 80 (cut by the right edge)
+        also FAIL: mathematician f0 (first) face_covered 3 (head centre INSIDE bomber_old_faithful/bomber_airframe/engine_cylinder_21; in front: bomber_old_faithful/bomber_airframe/cowl_polished_band_03)
+        also FAIL: mathematician f0 (first) feet -46.3 (2 of 2 feet sunk, nearest bomber_old_faithful/bomber_airframe/cowl_rear_03)

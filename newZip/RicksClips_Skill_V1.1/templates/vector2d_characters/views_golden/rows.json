@@ -1,0 +1,65 @@
+{
+ "approved": "CB 2026-11-11 22:28 Bangkok on sheet v8 (monkey turns, lady hair, back outfits, tail): \"Perfect. Now lock it.\" Sheet: APPROVED_character_views_v8.png. Earlier: v7 (22:09), v6 (21:40), v5 (2026-11-10 03:32).",
+ "max_diff_pct": 0.05,
+ "characters": [
+  {
+   "name": "stationmaster",
+   "puppet": "stationmaster"
+  },
+  {
+   "name": "inspector",
+   "puppet": "cast:railway",
+   "allow_pct": 0.12,
+   "note": "his face has the lettering heh. in a system font: 0.07 % differs between the PC and the cloud"
+  },
+  {
+   "name": "lady",
+   "puppet": "form:lady"
+  },
+  {
+   "name": "dad",
+   "puppet": "form:dad"
+  },
+  {
+   "name": "jack",
+   "puppet": "cast:jack",
+   "sheet": "episodes/baboon-signalman/cast/sheets/jack.mjs"
+  },
+  {
+   "name": "goldrush_shopkeeper",
+   "puppet": "cast:shopkeeper",
+   "sheet": "episodes/goldrush/cast/sheets/goldrush.mjs",
+   "note": "CHAR_GR_001, CB 2026-11-14 \"Approve\" on SHOPKEEPER_VIEWS.png v2 (stovepipe, black stock, side whiskers)"
+  },
+  {
+   "name": "goldrush_clerk",
+   "puppet": "cast:clerk",
+   "sheet": "episodes/goldrush/cast/sheets/goldrush2.mjs",
+   "note": "CHAR_GR_002, CB 2026-11-14 Approve on CLERK_VIEWS.png (1840s clerk: centrePart1840, clerk1840, earPencil behind his right ear, crimson price tag on his left apron string)"
+  },
+  {
+   "name": "goldrush_miner",
+   "puppet": "cast:miner",
+   "sheet": "episodes/goldrush/cast/sheets/goldrush2.mjs",
+   "note": "CHAR_GR_003, CB 2026-11-14 Approve on MINER_VIEWS.png (1849 forty-niner: slouch hat with the front brim notch, miner1849, full beard, tin cup)"
+  },
+  {
+   "name": "goldrush_rival",
+   "puppet": "cast:rival",
+   "sheet": "episodes/goldrush/cast/sheets/goldrush2.mjs",
+   "note": "CHAR_GR_004, CB 2026-11-14 Approve on RIVAL_VIEWS.png (1840s rival seller pulled out of bed: nightcap folding to his left, ginger curls, nightshirt1840, left brace hanging at his left hip)"
+  },
+  {
+   "name": "goldrush_chipseller",
+   "puppet": "cast:chipseller",
+   "sheet": "episodes/goldrush/cast/sheets/goldrush_today.mjs",
+   "note": "CHAR_GR_005, CB 2026-11-14 Approve on CHIPSELLER_VIEWS.png (line 17 today: black leather jacket over a dark tee, grey-black swept-back hair, glasses, zipped pocket on his left; no logo, no lettering)"
+  },
+  {
+   "name": "goldrush_customer",
+   "puppet": "cast:customer",
+   "sheet": "episodes/goldrush/cast/sheets/goldrush_today.mjs",
+   "note": "CHAR_GR_006, CB 2026-11-14 Approve on CUSTOMER_VIEWS.png (line 17 today: lady form, sleek bob, jade barrette on her left, cardiganTote with crossbody tote; kit normal face set)"
+  }
+ ]
+}

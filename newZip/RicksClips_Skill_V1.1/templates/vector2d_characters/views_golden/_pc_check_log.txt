@@ -1,0 +1,21 @@
+  ok   stationmaster_front.png      differs 0.000 %
+  ok   stationmaster_34.png         differs 0.000 %
+  ok   stationmaster_side.png       differs 0.000 %
+  ok   stationmaster_back.png       differs 0.000 %
+  ok   inspector_front.png          differs 0.065 %  in box 542,506,623,559
+  ok   inspector_34.png             differs 0.071 %  in box 553,504,629,555
+  ok   inspector_side.png           differs 0.066 %  in box 554,505,623,554
+  ok   inspector_back.png           differs 0.000 %
+  ok   lady_front.png               differs 0.000 %
+  ok   lady_34.png                  differs 0.000 %
+  ok   lady_side.png                differs 0.000 %
+  ok   lady_back.png                differs 0.000 %
+  ok   dad_front.png                differs 0.000 %
+  ok   dad_34.png                   differs 0.000 %
+  ok   dad_side.png                 differs 0.000 %
+  ok   dad_back.png                 differs 0.000 %
+  ok   jack_front.png               differs 0.000 %
+  ok   jack_34.png                  differs 0.000 %
+  ok   jack_side.png                differs 0.000 %
+  ok   jack_back.png                differs 0.000 %
+RESULT: PASS, all views match the sheet CB approved (5 characters x 4 views).

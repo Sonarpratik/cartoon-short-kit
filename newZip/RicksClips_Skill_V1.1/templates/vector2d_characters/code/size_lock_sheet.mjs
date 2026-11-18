@@ -1,0 +1,16 @@
+import { buildChar } from './castkit.mjs'; import { drawCharacter } from './char2d.mjs'; import { withHair } from './hair_lib.mjs';
+import { createRequire } from 'module'; const require = createRequire(import.meta.url); const { chromium } = require('playwright');
+const sizes = ['thin', 'standard', 'fat'], KK = { thin: 1, standard: 1.56, fat: 2.05 }, NAMES = { thin: 'thin (old standard)', standard: 'standard (old fat)', fat: 'fat (old extreme fat)' }, views = ['front', '34', 'side', 'back'], tw = 360, th = 600, O = JSON.parse(process.argv[3] || '{}');
+const dd = t => t.replace(/<[a-zA-Z][^>]*>/g, tag => { const seen = new Set(); return tag.replace(/\s([a-zA-Z:-]+)="[^"]*"/g, (m, k) => seen.has(k) ? '' : (seen.add(k), m)); });
+import { FORMS } from './bodies.mjs'; const LONG = O.long ?? 45;
+let h = '';
+views.forEach((v, r) => { const Y = r * (th + 8) + 44;
+  h += `<div style="position:absolute;left:8px;top:${Y + th / 2 - 10}px;width:54px;font:bold 17px sans-serif;color:#1d2f6f">${v === '34' ? '3/4' : v}</div>`;
+  sizes.forEach((sz, j) => { let spec = { name: sz, form: 'standard', coat: O.coat || '#5f7fa6', face: 'standard', size: O.lock ? sz : KK[sz], ...(O.outfit ? { outfit: O.outfit[j] } : {}) }; if (O.hair) spec = withHair(spec, O.hair);
+    if (!O.lock) FORMS.standard.S.bodyBot = 640 + +(Array.isArray(LONG) ? LONG[j] : LONG); if (O.head) FORMS.standard.S.headK = O.head[j]; const S = buildChar(spec, 300); S.view = v; S.dir = 1; const d = drawCharacter(S);
+    const svg = dd(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -70 720 ${720 * th / tw}" width="${tw}" height="${th}"><defs>${d.defs}</defs>${d.body}</svg>`);
+    if (!r) h += `<div style="position:absolute;left:${66 + j * (tw + 6)}px;top:10px;width:${tw}px;text-align:center;font:bold 20px sans-serif;color:#1d2f6f">${j + 1}. ${NAMES[sz] || sz}</div>`;
+    h += `<div style="position:absolute;left:${66 + j * (tw + 6)}px;top:${Y}px;width:${tw}px;height:${th}px;background:#fff;border:1px solid #c5cddb"><img width="${tw}" height="${th}" src="data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}"></div>`; }); });
+const W = 66 + 3 * (tw + 6) + 6, H = 4 * (th + 8) + 50;
+const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1.5 });
+await pg.setContent(`<html><body style="margin:0;background:#e4e9f1;position:relative">${h}</body></html>`); await pg.screenshot({ path: process.argv[2] }); await b.close(); console.log('ok');
