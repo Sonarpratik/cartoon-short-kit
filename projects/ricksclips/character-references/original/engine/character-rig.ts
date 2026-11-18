@@ -31,9 +31,11 @@ export function rcSpec(design){
  return spec;
 }
 
-// Their frame: character centred at x=300, ground at y=1010. Shown through this viewBox, the feet
-// land at y~973 of the Studio's 1000-unit canvas and tall hats keep ~70 units of headroom.
-const VB='-30 -70 660 1110';
+// Their frame: character centred at x=300, ground at y=1010. Painted extents of all 150 characters
+// (4 views each, measured 2026-11-18): top -330 (musketeer plume, Lincoln top hat), x -86..684
+// (jump rope), bottom 1040. One fixed viewBox for everyone keeps a common scale; the feet land at
+// y~971 of the Studio's 1000-unit canvas, matching our rig's ~975.
+const VB='-117 -340 834 1390';
 export function rcSvg(design,yaw=0){
  const [view,dir]=rcView(yaw),S=buildChar(rcSpec(design),300);
  if(design.jacket&&design.rc?.coat&&design.jacket.toLowerCase()!==design.rc.coat.toLowerCase())S.coat=design.jacket;

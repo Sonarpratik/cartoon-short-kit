@@ -1,7 +1,9 @@
 import {drawCharacter as sharedDrawCharacter,VIEWS,ACTIONS,EXPRESSIONS} from '/character-rig.js';
 import {WARDROBE,castDistinctness} from '/director.js';
 let drawCharacter=sharedDrawCharacter,rendererRequest=0;
-async function useRenderer(character){const request=++rendererRequest;const module=await import('/renderers/'+encodeURIComponent(character.project)+'/character-rig.js');if(request===rendererRequest)drawCharacter=module.drawCharacter;}
+// A project renderer that fails to load must never fall back silently to the previous rig (that drew Ricks Clips
+// characters as our bean recoloured with their coat): draw the error on the canvas and in the status line instead.
+async function useRenderer(character){const request=++rendererRequest;let module;try{module=await import('/renderers/'+encodeURIComponent(character.project)+'/character-rig.js');}catch(e){module={drawCharacter:(g)=>{g.fillStyle='#b3261e';g.font='28px sans-serif';g.textAlign='center';g.fillText('Renderer for "'+character.project+'" failed to load.',300,460);g.fillText('Restart the Character Studio server.',300,500);}};const s=document.getElementById('status');if(s)s.textContent='Renderer for '+character.project+' failed to load: '+e.message;}if(request===rendererRequest)drawCharacter=module.drawCharacter;}
 const $=id=>document.getElementById(id),params=new URLSearchParams(location.search);let cast=(await fetch('/api/cast').then(r=>r.json())).characters,selected=cast.find(c=>c.id===params.get('character'))||cast[0],time=0,paused=false,rotate=false,atlas=false,previous;
 let draft=structuredClone(selected);
 for(const [id,values] of [['action',ACTIONS],['expression',EXPRESSIONS]])for(const v of values)$(id).add(new Option(v,v));
