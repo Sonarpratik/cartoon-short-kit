@@ -1,18 +1,22 @@
 /** The approved video cast, animated through the original toon/CharacterPen renderer.
  * Design space 600x1000, feet y975. Yaw 0 front, 90 right, 180 back, 270 left.
  */
-import {bodyFront,upperBodyRotations,headBlob,blobPts,mix,type Outfit,type Expr} from './toon.js';
+import {bodyFront,upperBodyRotations,headBlob,blobPts,mix,rickHeadOf,type Outfit,type Expr} from './toon.js';
 import {CharacterPen} from './face-style.js';
 import {angleDesign,type AngleDesign} from './angle-designs.js';
 export type Accessory='glasses'|'sunglasses'|'eyepatch'|'freckles'|'blush'|'stubble'|'scar'|'burns'|'bandages'|'oldburns'|'blood';
 export const ACCESSORIES:Accessory[]=['glasses','sunglasses','eyepatch','freckles','blush','stubble','scar','burns','bandages','oldburns','blood'];
-export type CharacterDesign={id:string;name:string;project:string;identity:string;seed:number;jacket:string;pants:string;boots:string;hair:string;hairStyle:string;coat:boolean;skin:string;build?:string;outfit?:Outfit;accessory?:'researcher'|'archivist'|'official'|'investigator';accessories?:Accessory[];facing?:-1|0|1;light?:number};
+export type CharacterDesign={id:string;name:string;project:string;identity:string;seed:number;jacket:string;pants:string;boots:string;hair:string;hairStyle:string;coat:boolean;skin:string;build?:string;outfit?:Outfit;accessory?:'researcher'|'archivist'|'official'|'investigator';accessories?:Accessory[];facing?:-1|0|1;light?:number;
+ /** 'rick' (default): round cartoon head, big lidded eyes, brush brows, effect marks; 'classic': the older bean head and small face. */
+ faceStyle?:'rick'|'classic'};
 export type RigPose={yaw?:number;pitch?:number;time?:number;action?:string;expression?:string;micro?:boolean;fromExpression?:string;expressionAge?:number;light?:number;
  /** Right-hand target in design space (600x1000). Overrides the action's right arm; scenes project world contact points onto the card. */
  hand?:[number,number]};
 export const VIEWS=Array.from({length:12},(_,i)=>i*30);
 export const ACTIONS=['idle','walk','run','sit','bend','reach','hammer','drill','wave','talk'];
-export const EXPRESSIONS=['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick','nervous_grin','terrified'];
+export const EXPRESSIONS=['neutral','stern','grin','laugh','whistle','nervous','shock','relief','relief_open','dazed','pained','smile','smile_closed','lick','nervous_grin','terrified',
+ // added with the 'rick' face style (the classic face draws its nearest match)
+ 'happy','angry','furious','sad','crying','surprised','smug','scared','confused','sleepy','excited','worried'];
 const rad=Math.PI/180;
 const FLOWING=new Set(['long','bob','curls','tail','bun','pom','knot','braid']);
 const JAW:Record<string,[number,number,number]>={neutral:[0,0,0],stern:[1,-1,0],grin:[3,-2,0],laugh:[4,5,.5],whistle:[-2,1,0],nervous:[1,1,1.2],shock:[-4,6,0],relief:[2,0,0],relief_open:[3,3,0],dazed:[1,1,1],pained:[2,-2,-1],smile:[2,-1,0],smile_closed:[2,-1,0],lick:[1,1,.6],nervous_grin:[2,-1,1.2],terrified:[-4,7,.8]};
@@ -125,11 +129,11 @@ class TurnPen extends CharacterPen{
 export function drawCharacter(g:CanvasRenderingContext2D,d:CharacterDesign,o:RigPose={}){
  g.save();
  const t=o.time??0,micro=o.micro!==false,action=o.action??'idle',yaw=((o.yaw??0)%360+360)%360,pitch=(o.pitch??0)*rad,turn=yaw*rad,back=Math.cos(turn)<-.001;
- const facing=d.facing??(d.hairStyle==='spiky'?-1:1),light=o.light??d.light??-2.2,build=d.build==='kid'?'kid':d.build==='stout'?'stout':'adult',H=headBlob(d.seed,build==='kid'?112:118,facing),HH=2*H.b,torso=build==='kid'?.85:build==='stout'?1.15:1.1,legs=build==='kid'?1:build==='stout'?1.32:1.4;
+ const facing=d.facing??(d.hairStyle==='spiky'?-1:1),light=o.light??d.light??-2.2,build=d.build==='kid'?'kid':d.build==='stout'?'stout':'adult',H={...headBlob(d.seed,build==='kid'?112:118,facing),...(d.faceStyle!=='classic'?{rick:rickHeadOf(d.seed)}:{})},HH=2*H.b,torso=build==='kid'?.85:build==='stout'?1.15:1.1,legs=build==='kid'?1:build==='stout'?1.32:1.4;
  const phase=t*(action==='run'?2.3:1.4),walking=action==='walk'||action==='run';
  const gait=walking?walkCycle(phase,(legs+.12)*HH-4*HH/100,action==='run'?.65:.45,action==='run'?65:40):undefined;
  const bottom=gait?gait.hipY+.12*HH:action==='sit'?975-.2*HH:975-legs*HH,chin=bottom-torso*HH,hc=chin-H.b,hip=bottom-.12*HH;
- const outfit:Outfit={hat:'hair',buttons:d.outfit?d.outfit.buttons:'#d4b57d',...d.outfit,jacket:d.jacket,pants:d.pants,boots:d.boots,skin:d.skin,hair:d.hair,hairStyle:d.hairStyle as Outfit['hairStyle'],labCoat:d.coat,build,viewYaw:yaw,viewPitch:o.pitch??0,angleHair:true};
+ const outfit:Outfit={hat:'hair',buttons:d.outfit?d.outfit.buttons:'#d4b57d',...d.outfit,jacket:d.jacket,pants:d.pants,boots:d.boots,skin:d.skin,hair:d.hair,hairStyle:d.hairStyle as Outfit['hairStyle'],labCoat:d.coat,build,viewYaw:yaw,viewPitch:o.pitch??0,angleHair:true,faceStyle:d.faceStyle==='classic'?'classic':'rick'};
  if(isBackView(yaw)){backLog.push({id:d.id,yaw});if(backLog.length>500)backLog.shift();}
  const pen=new TurnPen(g,turn,pitch,hc,H.b,H.a,chin,hip,t,micro,action==='bend');
  pen.breath=micro&&!walking?breath(t,d.seed)*(action==='sit'?.6:1):0;

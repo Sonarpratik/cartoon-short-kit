@@ -8,7 +8,7 @@ const root=new URL('./',import.meta.url),catalog=new URL('character-library/cast
 // Ricks Clips puppet and motion code (gitignored newZip, personal-use licence), served read-only for the "ricksclips"
 // renderer: /vendor/rc/vector2d_characters/code/** (characters) and /vendor/rc/motion_styles/** (moves). Only .mjs files.
 const rcTemplates=resolve(fileURLToPath(root),process.env.RC_TEMPLATES||'newZip/RicksClips_Skill_V1.1/templates');
-const routes={'/':['character-studio/index.html','text/html; charset=utf-8'],'/studio.js':['character-studio/studio.js','text/javascript'],'/character-rig.js':['templates/bridge/character-rig.ts','text/javascript'],'/toon.js':['templates/bridge/toon.ts','text/javascript'],'/style.js':['templates/bridge/style.ts','text/javascript'],'/face-style.js':['templates/bridge/face-style.ts','text/javascript'],'/director.js':['templates/bridge/director.ts','text/javascript']};
+const routes={'/':['character-studio/index.html','text/html; charset=utf-8'],'/studio.js':['character-studio/studio.js','text/javascript'],'/character-rig.js':['templates/bridge/character-rig.ts','text/javascript'],'/toon.js':['templates/bridge/toon.ts','text/javascript'],'/style.js':['templates/bridge/style.ts','text/javascript'],'/face-style.js':['templates/bridge/face-style.ts','text/javascript'],'/director.js':['templates/bridge/director.ts','text/javascript'],'/puppet.js':['templates/bridge/puppet.ts','text/javascript']};
 let saveQueue=Promise.resolve();
 function validate(c){
  if(!c||typeof c!=='object')throw Error('Expected a character object');
@@ -23,7 +23,18 @@ function validate(c){
  if(c.light!==undefined&&(!Number.isFinite(c.light)||Math.abs(c.light)>7))throw Error('Invalid light');
  if(c.outfit!==undefined){if(!c.outfit||typeof c.outfit!=='object'||Array.isArray(c.outfit))throw Error('Invalid outfit');for(const [key,value] of Object.entries(c.outfit)){if(!['jacket','pants','boots','hat','belt','buttons','sash','moustache','moustacheStyle','beard','skin','cap','hair','dress','build','hairStyle','rifle','sword','head','labCoat','top','shirt','sleeves','pattern','patternColor','collar','tie','scarf','apron','badge','pocket','buttonCount','hatAccent'].includes(key)||!['string','boolean','number'].includes(typeof value)&&value!==null)throw Error('Invalid outfit field');if(typeof value==='string'&&value.length>60)throw Error('Outfit value too long');}}
  if(c.rc!==undefined){if(!c.rc||typeof c.rc!=='object'||!Number.isInteger(c.rc.sheet)||c.rc.sheet<1||c.rc.sheet>15||typeof c.rc.name!=='string'||!/^[a-zA-Z0-9_-]{1,60}$/.test(c.rc.name)||c.rc.coat!==undefined&&!/^#[0-9a-f]{6}$/i.test(c.rc.coat))throw Error('Invalid Ricks Clips link');c.rc={sheet:c.rc.sheet,name:c.rc.name,...(c.rc.coat?{coat:c.rc.coat}:{})};}
- const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build','outfit','accessory','accessories','facing','light','rc'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
+ // Ricks look: one of our characters drawn with the Ricks Clips puppet; rcLook holds RC library keys (or 'none') per part.
+ if(c.look!==undefined&&c.look!=='ricks')throw Error('Unknown look');
+ if(c.faceStyle!==undefined&&!['rick','classic'].includes(c.faceStyle))throw Error('Unknown face style');
+ if(c.props!==undefined&&(!Array.isArray(c.props)||c.props.length>20||c.props.some(p=>typeof p!=='string'||!/^[a-zA-Z0-9:_-]{1,80}$/.test(p))))throw Error('Invalid props');
+ if(c.noParts!==undefined&&(!Array.isArray(c.noParts)||c.noParts.some(p=>!['hat','headBack','faceTop','behind','backOver','props','over','details'].includes(p))))throw Error('Invalid removed parts');
+ if(c.faceCat!==undefined&&(typeof c.faceCat!=='string'||!/^[a-zA-Z0-9]{1,30}$/.test(c.faceCat)))throw Error('Invalid face category');
+ // figure (puppet engine): body form / head shape keys, and S..XXXL size steps
+ if(c.figure!==undefined){if(!c.figure||typeof c.figure!=='object'||Array.isArray(c.figure))throw Error('Invalid figure');for(const [key,value] of Object.entries(c.figure)){const sizes=['S','M','L','XL','XXL','XXXL'];
+  if(['headSize','bodySize','legs','limbs','arms'].includes(key)){if(!sizes.includes(value))throw Error('Invalid figure size '+key);}
+  else if(['form','headShape'].includes(key)){if(typeof value!=='string'||!/^[a-zA-Z0-9]{1,30}$/.test(value))throw Error('Invalid figure '+key);}else throw Error('Unknown figure field '+key);}}
+ if(c.rcLook!==undefined){if(!c.rcLook||typeof c.rcLook!=='object'||Array.isArray(c.rcLook))throw Error('Invalid Ricks look');for(const [key,value] of Object.entries(c.rcLook))if(!['form','size','hair','hat','piece','outfit','beard','stache','acc'].includes(key)||typeof value!=='string'||!/^[a-zA-Z0-9]{1,40}$/.test(value))throw Error('Invalid Ricks look field '+key);}
+ const keys=['id','name','project','identity','seed','jacket','pants','boots','hair','hairStyle','coat','skin','build','outfit','accessory','accessories','facing','light','rc','look','rcLook','faceStyle','figure','faceCat','props','noParts'];return Object.fromEntries(keys.filter(k=>c[k]!==undefined).map(k=>[k,c[k]]));
 }
 const server=createServer(async(req,res)=>{
  const pathname=new URL(req.url,'http://127.0.0.1').pathname;

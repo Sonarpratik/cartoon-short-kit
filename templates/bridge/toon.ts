@@ -26,6 +26,8 @@ export type Outfit = {
   tie?: string; scarf?: string; apron?: string; badge?: string; pocket?: boolean; buttonCount?: number;
   /** pom-pom, badge, helmet stripe, cockade */
   hatAccent?: string;
+  /** 'rick' (default): round cartoon head, big lidded eyes, brush brows, effect marks. 'classic': the older bean head + small face. */
+  faceStyle?: "rick" | "classic";
 };
 export type Garment = "jacket" | "shirt" | "sweater" | "vest" | "hoodie" | "coat" | "overalls" | "apron";
 export type Pattern = "none" | "stripes" | "hstripes" | "plaid" | "knit" | "dots";
@@ -207,13 +209,32 @@ const taper = (p: Pen, a: P2, b: P2, wa: number, wb: number, col = INK) => {
 };
 
 // ---------------- contours ----------------
-export type Blob = { a: number; b: number; nTop: number; nBot: number; egg: number; asym: number; rot: number; noise: number; seed: number };
+export type Blob = { a: number; b: number; nTop: number; nBot: number; egg: number; asym: number; rot: number; noise: number; seed: number;
+  /** 1-4 = the round cartoon head (egg crown-to-jaw, a few soft lumps, a small tilt) used by the 'rick' face style */
+  rick?: number };
+/** Round cartoon heads for the 'rick' face style: egg (+ = fuller jaw), aspect, tilt (deg), soft lumps [harmonic, amount, phase]. */
+const RICK_HEADS = [
+  { egg: .085, aspect: 1.0, tilt: -7, lumps: [[2, .022, .4], [3, .03, 1.9], [5, .012, 3.1]] },
+  { egg: .06, aspect: 1.04, tilt: 9, lumps: [[2, .035, 2.2], [3, .025, .3], [4, .015, 1.2]] },
+  { egg: .12, aspect: 1.06, tilt: -4, lumps: [[2, .02, 1.1], [3, .022, 2.6], [5, .01, .2]] },
+  { egg: -.05, aspect: .97, tilt: 6, lumps: [[2, .02, 2.9], [3, .028, .9], [4, .012, 2.0]] },
+] as const;
 
 /** superellipse "bean": separate crown / jaw exponents, egg taper (neg = narrower chin), one-side bulge, soft noise.
  *  Points run right -> down -> left -> up (clockwise on screen). */
 export const blobPts = (cx: number, cy: number, B: Blob, n = 72): P2[] => {
-  const ph = [rnd(B.seed, 11), rnd(B.seed, 12), rnd(B.seed, 13)].map((v) => v * Math.PI * 2);
   const pts: P2[] = [];
+  if (B.rick) {   // round cartoon head, mirrored to the facing side (asym sign), same point order as the bean
+    const R = RICK_HEADS[(B.rick - 1) % RICK_HEADS.length], m = B.asym < 0 ? -1 : 1, tl = rad(R.tilt * m) + B.rot;
+    for (let i = 0; i < n; i++) {
+      const t = (i / n) * Math.PI * 2, s = Math.sin(t);
+      let r = 1 + R.egg * s; for (const [h, amt, ph] of R.lumps) r += amt * Math.sin(h * (m > 0 ? t : Math.PI - t) + ph);
+      const x = Math.cos(t) * r * R.aspect * B.a, y = (s * r * .97 - R.egg * .35) * B.b;
+      pts.push([cx + x * Math.cos(tl) - y * Math.sin(tl), cy + x * Math.sin(tl) + y * Math.cos(tl)]);
+    }
+    return pts;
+  }
+  const ph = [rnd(B.seed, 11), rnd(B.seed, 12), rnd(B.seed, 13)].map((v) => v * Math.PI * 2);
   for (let i = 0; i < n; i++) {
     const t = (i / n) * Math.PI * 2, c = Math.cos(t), s = Math.sin(t), e = 2 / (s < 0 ? B.nTop : B.nBot);
     let X = Math.sign(c) * Math.abs(c) ** e;
@@ -235,13 +256,18 @@ export const headBlob = (seed: number, a = 118, facing = 0): Blob => ({
   rot: rad(STYLE.character.tiltDegrees * (rnd(seed, 7) - 0.5)), noise: 0.008, seed,
 });
 
+/** Which round head (1-4) a seed gets in the 'rick' face style; the shared rig uses the same pick for hair clipping. */
+export const rickHeadOf = (seed: number) => 1 + Math.floor(rnd(seed, 30) * RICK_HEADS.length);
+
 /** thickest outline direction: away from the light, pulled toward the ground (64 deg measured for upper-left light) */
 export const thickAngle = (light: number) => Math.atan2(-Math.sin(light) + 0.8, -Math.cos(light));
 const DEF_LIGHT = rad(-120);
 
 // ---------------- faces ----------------
 export type Expr = "neutral" | "stern" | "grin" | "laugh" | "whistle" | "nervous" | "shock" | "relief" | "relief_open" | "dazed"
-  | "pained" | "smile" | "smile_closed" | "lick" | "nervous_grin" | "terrified";
+  | "pained" | "smile" | "smile_closed" | "lick" | "nervous_grin" | "terrified"
+  // added with the 'rick' face style (the classic face draws its nearest match)
+  | "happy" | "angry" | "furious" | "sad" | "crying" | "surprised" | "smug" | "scared" | "confused" | "sleepy" | "excited" | "worried";
 type EyeK = "dot" | "small" | "lid" | "slit" | "happy" | "dash" | "squeeze" | "shock" | "shockHalf" | "spiral" | "worry" | "pin" | "calm";
 type MouthK = "dash" | "frown" | "smirk" | "smile" | "smileWide" | "grin" | "laugh" | "o" | "O" | "wave" | "teeth" | "lick"
   | "waveWide" | "grimace" | "Otall" | "scream" | "exhale" | "sigh";
@@ -267,6 +293,19 @@ const FACE: Record<Expr, { eye: [EyeK, EyeK]; brow: [number, number]; mouth: Mou
   smile: { eye: ["lid", "lid"], brow: [-1, -1], mouth: "smirk" },
   smile_closed: { eye: ["lid", "lid"], brow: [-1, -2], mouth: "smile" },
   lick: { eye: ["dot", "dot"], brow: [0, -1], mouth: "lick" },
+  // nearest classic faces for the expressions added with the 'rick' style
+  happy: { eye: ["happy", "happy"], brow: [-2, -2], mouth: "smileWide" },
+  angry: { eye: ["lid", "lid"], brow: [4, -3], mouth: "teeth" },
+  furious: { eye: ["slit", "slit"], brow: [5, -4], mouth: "grimace" },
+  sad: { eye: ["lid", "lid"], brow: [-5, 2], mouth: "frown" },
+  crying: { eye: ["squeeze", "squeeze"], brow: [-6, 3], mouth: "frown" },
+  surprised: { eye: ["shock", "shock"], brow: [-7, -6], mouth: "O" },
+  smug: { eye: ["slit", "slit"], brow: [1, -3], mouth: "smirk" },
+  scared: { eye: ["pin", "pin"], brow: [-8, 2], mouth: "waveWide" },
+  confused: { eye: ["dot", "lid"], brow: [-4, 3], mouth: "wave" },
+  sleepy: { eye: ["calm", "calm"], brow: [0, 0], mouth: "o" },
+  excited: { eye: ["shock", "shock"], brow: [-6, -6], mouth: "laugh" },
+  worried: { eye: ["worry", "worry"], brow: [-7, 3], mouth: "wave" },
 };
 const halfLid = (k: EyeK): EyeK => (k === "dot" || k === "small" ? "lid" : k === "lid" || k === "worry" ? "slit" : k === "shock" || k === "pin" ? "shockHalf" : k);
 const eyeKind = (k: EyeK, lid: number): EyeK =>
@@ -433,6 +472,169 @@ const faceFront = (p: Pen, cx: number, cy: number, W: number, expr: Expr, facing
     p.stroke(curve([mx - 13 * u, cy + 12.4 * u], [mx - 6 * u, cy + 11.3 * u], [mx - 1 * u, cy + 12 * u]), 1.1 * u, "rgba(255,255,255,.28)");
   } else if (moustache) for (const s of [-1, 1])
     taper(p, [mx + s * 1.5 * u, cy + 12.5 * u], [mx + s * (stout ? 19 : 15) * u, cy + (stout ? 10.5 : 15) * u], stout ? 5.5 * u : 4.5 * u, 1.6 * u, moustache);
+};
+
+// ---------------- 'rick' face style ----------------
+// Big cartoon face on the round head: a lid line with the pupil hanging under it, thick tapered brush brows (one
+// flatter, one higher and arched), a small lens mouth low on the face, features ~1.3x the classic size, and effect marks
+// (veins, sweat, shake lines, tears, steam) for the loud expressions. Units: u = 1 % of the head width; k = one
+// face-design unit (the brow / eye / mouth numbers below are in k).
+type RBrow = [number, number, number, number?];   // raise, tilt (+ = inner end down), arch, weight
+type RFace = { eyes: string | [string, string]; brows: [RBrow, RBrow] | null; mouth: string; fx?: string[]; lidTilt?: number; w?: number };
+const RICK_FACE: Record<Expr, RFace> = {
+  neutral: { eyes: "lid", brows: [[0, 1, 1], [4, -1.5, 5]], mouth: "lens" },
+  stern: { eyes: "lid", brows: [[-3, 7, 0], [-2, 6, 1]], mouth: "flat", lidTilt: 3 },
+  grin: { eyes: "happy", brows: [[5, -2, 5], [7, -2, 6]], mouth: "grin" },
+  laugh: { eyes: "squeeze", brows: [[12, -4, 6], [12, -4, 6]], mouth: "grinXL", fx: ["joyTears"] },
+  whistle: { eyes: "closed", brows: [[6, -3, 5], [8, -3, 5]], mouth: "o" },
+  nervous: { eyes: "dot", brows: [[8, -8, 3], [8, -8, 3]], mouth: "wavy", w: 26, fx: ["sweat", "gloom"] },
+  nervous_grin: { eyes: "dot", brows: [[7, -8, 3], [9, -8, 3]], mouth: "teeth", w: 30, fx: ["sweat"] },
+  shock: { eyes: "shock", brows: [[22, -1, 9, 1.1], [22, -1, 9, 1.1]], mouth: "gaspXL", fx: ["shockLines", "sweat"] },
+  terrified: { eyes: "shock", brows: [[14, -9, 4], [14, -9, 4]], mouth: "wavyOpen", w: 26, fx: ["gloom", "sweat", "shockLines"] },
+  relief: { eyes: "closed", brows: [[6, -6, 3], [6, -6, 3]], mouth: "smileSmall", fx: ["puff"] },
+  relief_open: { eyes: "lidHalf", brows: [[6, -6, 3], [6, -6, 3]], mouth: "o", fx: ["puff"] },
+  dazed: { eyes: ["spiral", "x"], brows: null, mouth: "wavy", w: 18, fx: ["stars"] },
+  pained: { eyes: ["squeeze", "lid"], brows: [[-3, 9, 0, 1.1], [2, 6, 1]], mouth: "teeth", w: 24 },
+  smile: { eyes: "lid", brows: [[-1, 2, 1], [7, -3, 6]], mouth: "smirk" },
+  smile_closed: { eyes: "happy", brows: [[5, -2, 5], [7, -2, 6]], mouth: "smile" },
+  lick: { eyes: "oval", brows: [[2, 0, 3], [5, -1, 5]], mouth: "tongue" },
+  happy: { eyes: "happyXL", brows: [[10, -3, 7], [12, -3, 8]], mouth: "smileXL" },
+  angry: { eyes: "angry", brows: [[-6, 12, -2, 1.25], [-6, 12, -2, 1.25]], mouth: "teeth", w: 24, fx: ["vein"] },
+  furious: { eyes: "squeeze", brows: [[-8, 15, -2, 1.35], [-8, 15, -2, 1.35]], mouth: "shout", fx: ["steam", "vein"] },
+  sad: { eyes: "bigOval", brows: [[8, -13, 2, 1.1], [8, -13, 2, 1.1]], mouth: "frownXL", fx: ["gloom"] },
+  crying: { eyes: "closed", brows: [[8, -11, 2], [8, -11, 2]], mouth: "wail", fx: ["tears"] },
+  surprised: { eyes: "wideXL", brows: [[18, -2, 9, 1.1], [20, -2, 9, 1.1]], mouth: "gaspXL", fx: ["exclaim"] },
+  smug: { eyes: "lidHalf", brows: [[-3, 3, 1, 1.15], [15, -5, 9, 1.15]], mouth: "smirkXL" },
+  scared: { eyes: "shock", brows: [[14, -9, 4], [14, -9, 4]], mouth: "wavy", w: 26, fx: ["gloom", "sweat"] },
+  confused: { eyes: ["dot", "oval"], brows: [[12, -4, 6], [-2, 6, 0]], mouth: "wavy", w: 14, fx: ["question"] },
+  sleepy: { eyes: "closed", brows: [[-2, 0, 1], [-2, 0, 1]], mouth: "o", fx: ["zzz"] },
+  excited: { eyes: "sparkle", brows: [[14, -3, 8], [14, -3, 8]], mouth: "grinXL", fx: ["sparkles"] },
+  worried: { eyes: "bigOval", brows: [[12, -12, 3, 1.1], [12, -12, 3, 1.1]], mouth: "wavy", w: 26, fx: ["sweat"] },
+};
+const PINK = "#e8697a", TEAR = "#7cc4f0", VEIN = "#d8333a";
+const qpt = (a: P2, c: P2, b: P2, t: number): P2 => [(1 - t) ** 2 * a[0] + 2 * (1 - t) * t * c[0] + t * t * b[0], (1 - t) ** 2 * a[1] + 2 * (1 - t) * t * c[1] + t * t * b[1]];
+/** tapered brush stroke along a quadratic curve: fattest at `bias` along the stroke, `tip` = end width share */
+const brushQ = (p: Pen, a: P2, c: P2, b: P2, w: number, tip = .3, bias = .5, col = INK) => {
+  const n = 16, L: P2[] = [], R: P2[] = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n, q = qpt(a, c, b, t), d = qpt(a, c, b, Math.min(1, t + .01)), e = qpt(a, c, b, Math.max(0, t - .01));
+    const tx = d[0] - e[0], ty = d[1] - e[1], l = Math.hypot(tx, ty) || 1, s = t < bias ? .5 * t / bias : .5 + .5 * (t - bias) / (1 - bias);
+    const h = w * (tip + (1 - tip) * Math.sin(Math.PI * s)) / 2; L.push([q[0] - ty / l * h, q[1] + tx / l * h]); R.push([q[0] + ty / l * h, q[1] - tx / l * h]);
+  }
+  p.poly([...L, ...R.reverse()], col, 0);
+};
+const lensPts = (a: P2, top: P2, b: P2, bot: P2): P2[] => [...Array.from({ length: 11 }, (_, i) => qpt(a, top, b, i / 10)), ...Array.from({ length: 11 }, (_, i) => qpt(b, bot, a, i / 10))];
+const rEye = (p: Pen, kind: string, ex: number, ey: number, k: number, s: number, look: number, F: RFace) => {
+  const lx = ex + look * 3.2 * k, lw = 4.6 * k;
+  switch (kind) {
+    case "lid": case "lidHalf": {
+      const half = kind === "lidHalf", ly = ey + (half ? 1 : -3) * k, pr = (half ? 7.2 : 7.6) * k, tilt = (F.lidTilt ?? 0) * k;
+      p.clip([[ex - 20 * k, ly - .5 * k], [ex + 20 * k, ly - .5 * k], [ex + 20 * k, ly + 20 * k], [ex - 20 * k, ly + 20 * k]], () => p.ell(lx, ly, pr, (half ? 7 : 10.5) * k, INK, 0));
+      const hw = (half ? 15 : 14) * k; brushQ(p, [ex - s * hw, ly + tilt], [ex, ly - 1.4 * k + tilt * .4], [ex + s * hw, ly], half ? 4.8 * k : lw, .45); break;
+    }
+    case "happy": brushQ(p, [ex - 10 * k, ey + 4 * k], [ex, ey - 13 * k], [ex + 10 * k, ey + 4 * k], 5.5 * k, .5); break;
+    case "happyXL": brushQ(p, [ex - 15 * k, ey + 6 * k], [ex, ey - 17 * k], [ex + 15 * k, ey + 6 * k], 7 * k, .45); break;
+    case "closed": brushQ(p, [ex - 13 * k, ey], [ex, ey + 6 * k], [ex + 13 * k, ey], 5.4 * k, .45); break;
+    case "squeeze": brushQ(p, [ex - s * 12 * k, ey - 10 * k], [ex + s * 3 * k, ey - 3 * k], [ex + s * 12 * k, ey + 1 * k], 6 * k, .4);
+      brushQ(p, [ex + s * 12 * k, ey + 1 * k], [ex + s * 3 * k, ey + 5 * k], [ex - s * 12 * k, ey + 10 * k], 6 * k, .4); break;
+    case "oval": p.ell(ex + look * 2 * k, ey, 7.8 * k, 11 * k, INK, 0); p.ell(ex + look * 2 * k - 2.5 * k, ey - 4.5 * k, 2.4 * k, 2.8 * k, WHITE, 0); break;
+    case "bigOval": p.ell(lx, ey, 10.5 * k, 15 * k, INK, 0); p.ell(lx - 3 * k, ey - 6 * k, 3 * k, 3.6 * k, WHITE, 0); p.ell(lx + 3 * k, ey + 5 * k, 1.6 * k, 1.8 * k, WHITE, 0); break;
+    case "sparkle": p.ell(ex, ey, 12.5 * k, 17 * k, INK, 0); p.ell(ex - 4 * k, ey - 6 * k, 4.6 * k, 5.4 * k, WHITE, 0); p.ell(ex + 4 * k, ey + 6 * k, 2.2 * k, 2.4 * k, WHITE, 0); break;
+    case "wideXL": p.ell(ex, ey, 17 * k, 19 * k, WHITE, 4.6 * k); p.ell(lx, ey + k, 5.8 * k, 6.4 * k, INK, 0); break;
+    case "shock": p.ell(ex, ey - 2 * k, 19 * k, 22 * k, WHITE, 4.8 * k); p.dot(ex + EYE_FX.tremble * k, ey - k, 2.8 * k); break;
+    case "dot": p.ell(lx + EYE_FX.dart * 2.5 * k, ey + k, 5.6 * k, 6.4 * k, INK, 0); break;
+    case "angry": {   // pupil cut by a lid that slants down to the nose
+      const ly = ey - 2 * k, inner: P2 = [ex - s * 15 * k, ly + 7 * k], outer: P2 = [ex + s * 15 * k, ly - 5 * k];
+      p.clip([inner, outer, [outer[0], ey + 20 * k], [inner[0], ey + 20 * k]], () => p.ell(lx, ey + 2 * k, 8.6 * k, 10 * k, INK, 0));
+      brushQ(p, inner, [ex, (inner[1] + outer[1]) / 2], outer, 5 * k, .4); break;
+    }
+    case "spiral": { const pts: P2[] = []; for (let a = 0; a < Math.PI * 5; a += .3) pts.push([ex + Math.cos(a) * 1.3 * a * k, ey + Math.sin(a) * 1.3 * a * k]); p.stroke(pts, 3 * k); break; }
+    case "x": p.stroke([[ex - 10 * k, ey - 10 * k], [ex + 10 * k, ey + 10 * k]], 5 * k); p.stroke([[ex + 10 * k, ey - 10 * k], [ex - 10 * k, ey + 10 * k]], 5 * k); break;
+    default: p.ell(lx, ey, 7.8 * k, 11 * k, INK, 0);
+  }
+};
+const rMouth = (p: Pen, F: RFace, mx: number, my: number, k: number) => {
+  const m = F.mouth, W = F.w ?? 24;
+  const dark = (pts: P2[], tongue = 0, teeth = 0) => {   // open mouth: dark fill, optional top teeth band and tongue
+    p.poly(pts, MOUTH, 2.5 * k);
+    p.clip(pts, () => { const ys = pts.map(q => q[1]), y0 = Math.min(...ys), y1 = Math.max(...ys), xs = pts.map(q => q[0]), x0 = Math.min(...xs), x1 = Math.max(...xs);
+      if (teeth) p.poly([[x0, y0 - k], [x1, y0 - k], [x1, y0 + teeth], [x0, y0 + teeth]], WHITE, 0);
+      if (tongue) p.ell((x0 + x1) / 2, y1, (x1 - x0) * .3, tongue, PINK, 0); });
+  };
+  switch (m) {
+    case "lens": p.poly(lensPts([mx - 8 * k, my + 1.5 * k], [mx, my - 4 * k], [mx + 8 * k, my + 1.5 * k], [mx, my + 4 * k]), INK, 0); break;
+    case "smirk": brushQ(p, [mx - 9 * k, my], [mx + k, my + 6 * k], [mx + 11 * k, my - 5 * k], 4.6 * k, .4, .6); break;
+    case "smirkXL": brushQ(p, [mx - 13 * k, my], [mx + 2 * k, my + 9 * k], [mx + 16 * k, my - 8 * k], 6 * k, .4, .6); break;
+    case "flat": brushQ(p, [mx - 8 * k, my + k], [mx, my - k], [mx + 8 * k, my + k], 4.4 * k, .45); break;
+    case "frown": brushQ(p, [mx - 9 * k, my + 3 * k], [mx, my - 6 * k], [mx + 9 * k, my + 3 * k], 4.4 * k, .4); break;
+    case "frownXL": brushQ(p, [mx - 14 * k, my + 5 * k], [mx, my - 9 * k], [mx + 14 * k, my + 5 * k], 6 * k, .4); break;
+    case "smile": brushQ(p, [mx - 10 * k, my - 3 * k], [mx, my + 8 * k], [mx + 10 * k, my - 3 * k], 4.6 * k, .4); break;
+    case "smileSmall": brushQ(p, [mx - 7 * k, my - 2 * k], [mx, my + 5 * k], [mx + 7 * k, my - 2 * k], 4 * k, .4); break;
+    case "smileXL": dark(lensPts([mx - 20 * k, my - 6 * k], [mx, my - 2 * k], [mx + 20 * k, my - 6 * k], [mx, my + 24 * k]), 7 * k); break;
+    case "o": p.ell(mx, my + 2 * k, 6 * k, 7.5 * k, MOUTH, 2.4 * k); break;
+    case "gaspXL": dark(ellPts(mx, my + 6 * k, 13 * k, 19 * k, 0, 360, 0), 7 * k); break;
+    case "grin": dark(lensPts([mx - 22 * k, my - 6 * k], [mx, my - k], [mx + 22 * k, my - 6 * k], [mx, my + 26 * k]), 0, 7 * k);
+      for (const x of [-8.5, 0, 8.5]) p.stroke([[mx + x * k, my - 3 * k], [mx + x * k, my + 3 * k]], 1.8 * k); break;
+    case "grinXL": dark(lensPts([mx - 26 * k, my - 8 * k], [mx, my - 2 * k], [mx + 26 * k, my - 8 * k], [mx, my + 36 * k]), 8 * k, 8 * k); break;
+    case "teeth": { const hw = W / 2 * k, hh = 6 * k, box: P2[] = [[mx - hw, my - hh], [mx + hw, my - hh], [mx + hw, my + hh], [mx - hw, my + hh]];
+      p.poly(box, WHITE, 3 * k); p.stroke([[mx - hw, my], [mx + hw, my]], 1.8 * k); for (let x = -hw + 6 * k; x < hw - 2 * k; x += 6 * k) p.stroke([[mx + x, my - hh], [mx + x, my + hh]], 1.6 * k); break; }
+    case "shout": dark([[mx - 18 * k, my - 8 * k], [mx + 18 * k, my - 8 * k], [mx + 13 * k, my + 18 * k], [mx - 13 * k, my + 18 * k]], 6 * k, 6 * k); break;
+    case "wail": dark([[mx - 16 * k, my - 2 * k], [mx - 6 * k, my - 7 * k], [mx + 6 * k, my - 7 * k], [mx + 16 * k, my - 2 * k], [mx + 11 * k, my + 18 * k], [mx - 11 * k, my + 18 * k]], 6 * k); break;
+    case "wavy": case "wavyOpen": { const hw = W / 2 * k, pts: P2[] = Array.from({ length: 13 }, (_, i) => [mx - hw + 2 * hw * i / 12, my + 3 * k * Math.sin(i / 12 * Math.PI * 4)] as P2);
+      if (m === "wavyOpen") dark([...pts, [mx + hw * .8, my + 14 * k], [mx - hw * .8, my + 14 * k]]); else p.stroke(pts, 4.2 * k); break; }
+    case "tongue": p.poly(lensPts([mx - 8 * k, my + 1.5 * k], [mx, my - 4 * k], [mx + 8 * k, my + 1.5 * k], [mx, my + 4 * k]), INK, 0); p.ell(mx + 6 * k, my + 6 * k, 4.5 * k, 6 * k, PINK, 2 * k); break;
+    default: p.poly(lensPts([mx - 8 * k, my + 1.5 * k], [mx, my - 4 * k], [mx + 8 * k, my + 1.5 * k], [mx, my + 4 * k]), INK, 0);
+  }
+};
+const rFx = (p: Pen, fx: string, cx: number, ey: number, my: number, k: number, u: number, side: number) => {
+  const { t, live } = faceClock(p), g = p.g, sd = side || 1;
+  const surf = p.surface;
+  switch (fx) {
+    case "sweat": { const ph = live ? (t % 1.6) / 1.6 : .3; g.save(); g.globalAlpha *= 1 - Math.max(0, ph - .75) * 4; sweat(p, cx - sd * 40 * u, ey - 10 * u + ph * 12 * u, u, 1.2); g.restore(); break; }
+    case "gloom": g.save(); g.globalAlpha *= .7; for (const j of [-1, 0, 1]) p.stroke([[cx + j * 8 * u, ey - 30 * u], [cx + j * 8 * u, ey - 21 * u + (j ? 0 : 2) * u]], 2 * u, "#6f86c9"); g.restore(); break;
+    case "vein": { const vx = cx + sd * 30 * u, vy = ey - 26 * u; for (const [a, b] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) p.arc(vx + a * 3 * u, vy + b * 3 * u, 3 * u, 3 * u, a > 0 ? (b > 0 ? 180 : 90) : (b > 0 ? 270 : 0), a > 0 ? (b > 0 ? 270 : 180) : (b > 0 ? 360 : 90), 1.8 * u, VEIN); break; }
+    case "shockLines": p.surface = "body"; for (const s of [-1, 1]) for (const kk of [0, 1]) p.arc(cx + s * (58 + kk * 7) * u, ey, 5 * u, (9 - kk * 3) * u, s > 0 ? -45 : 135, s > 0 ? 45 : 225, 2.4 * u); p.surface = surf; break;
+    case "joyTears": for (const s of [-1, 1]) p.ell(cx + s * 30 * u, ey + 3 * u, 2.6 * u, 3.6 * u, TEAR, 1 * u); break;
+    case "tears": { const ph = live ? (t % 1) : .5; for (const s of [-1, 1]) { p.stroke([[cx + s * 18 * u, ey + 2 * u], [cx + s * 20 * u, my + 6 * u]], 4 * u, TEAR); p.ell(cx + s * 20 * u, my + (6 + ph * 6) * u, 2.4 * u, 3 * u, TEAR, 0); } break; }
+    case "puff": { const ph = live ? (t % 1.8) / 1.8 : .4; g.save(); g.globalAlpha *= 1 - ph * ph; puff(p, cx + sd * (44 + 14 * ph) * u, my - (2 + 10 * ph) * u, u, .8 + .6 * ph, sd); g.restore(); break; }
+    case "steam": { const ph = live ? (t % 1.2) / 1.2 : .4; g.save(); g.globalAlpha *= 1 - ph; for (const s of [-1, 1]) puff(p, cx + s * (52 + 10 * ph) * u, ey - (22 + 14 * ph) * u, u, .7 + .5 * ph, s); g.restore(); break; }
+    case "stars": p.surface = "body"; for (const [dx, dy] of [[-30, -34], [0, -42], [30, -34]]) { const x = cx + dx * u, y = ey + dy * u; p.stroke([[x - 4 * u, y], [x + 4 * u, y]], 1.6 * u, "#e8c45a"); p.stroke([[x, y - 4 * u], [x, y + 4 * u]], 1.6 * u, "#e8c45a"); } p.surface = surf; break;
+    case "sparkles": for (const s of [-1, 1]) { const x = cx + s * 44 * u, y = ey - 24 * u; p.stroke([[x - 4 * u, y], [x + 4 * u, y]], 1.6 * u, "#e8c45a"); p.stroke([[x, y - 5 * u], [x, y + 5 * u]], 1.6 * u, "#e8c45a"); } break;
+    case "exclaim": p.surface = "body"; { const x = cx + sd * 44 * u, y = ey - 46 * u; p.poly([[x - 2.5 * u, y], [x + 2.5 * u, y], [x + 1.3 * u, y + 11 * u], [x - 1.3 * u, y + 11 * u]], VEIN, 1.4 * u); p.ell(x, y + 15 * u, 1.9 * u, 1.9 * u, VEIN, 1.2 * u); } p.surface = surf; break;
+    case "question": p.surface = "body"; { const x = cx + sd * 42 * u, y = ey - 46 * u; p.stroke([...ellPts(x, y + 4 * u, 5 * u, 5 * u, 200, 400, 0), [x, y + 12 * u]], 2.2 * u); p.dot(x, y + 16 * u, 1.4 * u); } p.surface = surf; break;
+    case "zzz": p.surface = "body"; for (const [i, z] of [5, 7, 9].entries()) { const x = cx + sd * (36 + i * 9) * u, y = ey - (30 + i * 10) * u, h = z / 2 * u; p.stroke([[x - h, y - h], [x + h, y - h], [x - h, y + h], [x + h, y + h]], 1.6 * u); } p.surface = surf; break;
+  }
+};
+/** 'rick' style face, same signature as faceFront (beard and moustache kept from our classic kit). */
+const rickFace = (p: Pen, cx: number, cy: number, W: number, expr: Expr, facing: number, look: number, lid: number, brim: boolean,
+  skin: string, moustache?: string, stout = false, beard?: string, mStyle?: string) => {
+  // eye line a little above the head centre, brows close over the eyes so caps and fringes (which end ~21u above the
+  // centre) never hide them, mouth low on the face
+  const u = W / 100, k = .68 * u, F = RICK_FACE[expr] ?? RICK_FACE.neutral, fx = cx + 6 * u * facing, ey = cy - 1 * u, my = cy + 19 * u, mx = fx + 2 * u * facing;
+  if (beard) {
+    const points: P2[] = [[-36, 9], [-33, 30], [-24, 41], [-10, 47], [0, 49], [16, 44], [30, 32], [35, 10], [24, 15], [17, 29], [-17, 29], [-25, 15]].map(([x, y]) => [cx + x * u, cy + y * u]);
+    p.poly(points, beard, 1.2 * u);
+    for (const x of [-19, -8, 6, 18]) p.stroke([[cx + x * u, cy + 33 * u], [cx + (x + 2) * u, cy + 40 * u]], .7 * u, shade(beard, .7));
+  }
+  setEyeFx(p, expr === "nervous" || expr === "nervous_grin" || expr === "shock" || expr === "terrified" ? expr : "neutral");
+  for (const [i, s] of [[0, -1], [1, 1]] as const) {
+    const ex = fx + s * 18 * u;
+    let kind = Array.isArray(F.eyes) ? F.eyes[i] : F.eyes;
+    if (lid >= 1 && !["happy", "happyXL", "closed", "squeeze", "spiral", "x"].includes(kind)) kind = "closed";
+    else if (lid > 0 && ["lid", "oval", "bigOval", "dot", "angry"].includes(kind)) kind = "lidHalf";
+    rEye(p, kind, ex, ey, k, s, look, F);
+    const B = F.brows?.[i];
+    if (B) { const [raise, tilt, arch, bw = 1] = B, by = ey - (17 + raise * .7) * k, L = 13 * k * (bw > 1 ? 1.12 : 1);
+      const xi = ex - s * L, xo = ex + s * L, yi = by + tilt * k, yo = by - tilt * .4 * k;
+      brushQ(p, [xi, yi], [ex + s * 2 * k, (yi + yo) / 2 - arch * k], [xo, yo], 7.2 * k * bw, .3, .4); }
+  }
+  rMouth(p, F, mx, my, k);
+  for (const f of F.fx ?? []) rFx(p, f, fx, ey, my, k, u, facing);
+  if (moustache && mStyle === "bold") {
+    const half: [number, number][] = [[.5, 10.6], [8, 10], [15, 11.4], [19.2, 14.8], [20.6, 20.8], [17.2, 18], [11, 16.2], [4, 16.6], [.5, 15.6]];
+    p.poly([...half.map(([x, y]) => [mx + x * u, cy + (y + 1) * u] as P2), ...[...half].reverse().map(([x, y]) => [mx - x * u, cy + (y + 1) * u] as P2)], moustache, 1.3 * u);
+  } else if (moustache) for (const s of [-1, 1])
+    taper(p, [mx + s * 1.5 * u, cy + 12 * u], [mx + s * (stout ? 19 : 15) * u, cy + (stout ? 10 : 14.5) * u], stout ? 5.5 * u : 4.5 * u, 1.6 * u, moustache);
 };
 
 /** profile face (facing screen-right): one eye, brow, nose tick, mouth near the front edge; no skin bump nose, no ear */
@@ -713,6 +915,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
     light = DEF_LIGHT, facing = 0, seed = 1 } = opts;
   const Bd = BUILD[o.build ?? "adult"], skin = o.skin ?? SKIN, two = Math.PI * 2, lid = lidOf(blink);
   const H = headBlob(seed, Bd.a, facing), W = 2 * H.a, HH = 2 * H.b, u = W / 100;
+  if (o.faceStyle !== "classic") H.rick = rickHeadOf(seed);
   const tall = (1 + Bd.torso + Bd.legs) * HH, sole = 975;
   // body bob 5 % (march) / 3 % (stroll) of the height, lowest at contact (phase 0 and 0.5)
   const bob = mode === "march" ? 0.025 * tall * Math.cos(2 * two * phase) : mode === "stroll" ? 0.015 * tall * Math.cos(2 * two * phase) : 0;
@@ -931,7 +1134,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   p.g.restore();
   const brim = !!o.hat && o.hat !== "hair" && o.hat !== "bonnet" && o.hat !== "cap" && o.hat !== "headband";
   p.surface='feature';
-  if(!(opts.faceBack??opts.back))faceFront(p, 300, hc, W, expr, facing, look, lid, brim, skin, o.moustache, o.build === "stout",o.beard,o.moustacheStyle);
+  if(!(opts.faceBack??opts.back))(o.faceStyle === "classic" ? faceFront : rickFace)(p, 300, hc, W, expr, facing, look, lid, brim, skin, o.moustache, o.build === "stout",o.beard,o.moustacheStyle);
   p.surface='body';
   p.rot = null;
 };

@@ -13,7 +13,10 @@ const status = document.querySelector<HTMLParagraphElement>('#status')!;
 const slider = document.querySelector<HTMLInputElement>('#frame')!;
 const play = document.querySelector<HTMLButtonElement>('#play')!;
 const output = document.querySelector<HTMLOutputElement>('#time')!;
-const api = window as unknown as { ready: boolean; renderFrame: (f: number) => void; totalFrames: number; fps: number };
+const api = window as unknown as { ready: boolean; renderFrame: (f: number) => void | Promise<void>; totalFrames: number; fps: number };
+// Puppet-engine casts (character-draw.ts) register a settle hook: the frame is redrawn until its character images have
+// decoded, and renderFrame returns that promise, so capture scripts that await renderFrame get a finished frame.
+const settleHook = () => (globalThis as unknown as { __puppetSettle?: (redraw: () => void) => Promise<void> }).__puppetSettle;
 api.ready = false;
 const scale = Number(new URLSearchParams(location.search).get('scale') || 0.5);
 if (!Number.isFinite(scale) || scale <= 0 || scale > 2) throw new Error('Scale must be greater than 0 and at most 2.');
@@ -46,7 +49,8 @@ async function init() {
   screen.append(flash);
   const forward = new THREE.Vector3(), focus = new THREE.Vector3();
   let frame = 0, playing = false, start = 0, startFrame = 0;
-  api.renderFrame = (f) => {
+  api.renderFrame = (f) => { drawFrame(f); const settle = settleHook(); return settle ? settle(() => drawFrame(f)) : undefined; };
+  function drawFrame(f: number) {
     if (!Number.isInteger(f) || f < 0 || f >= TOTAL) throw new Error('Frame out of range: ' + f);
     frame = f;
     const layers = layersAt(f);
@@ -67,7 +71,7 @@ async function init() {
     });
     flash.style.opacity = String(f >= FLASH_AT && f < FLASH_AT + 4 ? [1, .75, .45, .2][f - FLASH_AT] : 0);
     slider.value = String(f); output.value = f + ' · ' + (f / FPS).toFixed(2) + 's';
-  };
+  }
   function pause() { playing = false; play.textContent = 'Play'; }
   play.onclick = () => {
     if (playing) return pause();

@@ -13,7 +13,8 @@
       "hair": "#634331",
       "hairStyle": "sidepart",
       "coat": false,
-      "skin": "#faf9f5"
+      "skin": "#faf9f5",
+      "look": "ricks"
     },
     {
       "id": "bootstrap-future",
@@ -27,7 +28,8 @@
       "hair": "#b9d9ef",
       "hairStyle": "spiky",
       "coat": true,
-      "skin": "#faf9f5"
+      "skin": "#faf9f5",
+      "look": "ricks"
     },
     {
       "id": "bootstrap-middle",
@@ -41,7 +43,8 @@
       "hair": "#a9b2b1",
       "hairStyle": "receding",
       "coat": false,
-      "skin": "#faf9f5"
+      "skin": "#faf9f5",
+      "look": "ricks"
     },
     {
       "id": "mkultra-civilian",
@@ -65,7 +68,8 @@
         "hat": "cap",
         "cap": "#425b72",
         "skin": "#faf9f5"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "mkultra-researcher",
@@ -92,7 +96,8 @@
         "moustache": "#756b60",
         "skin": "#faf9f5"
       },
-      "accessory": "researcher"
+      "accessory": "researcher",
+      "look": "ricks"
     },
     {
       "id": "mkultra-official",
@@ -119,7 +124,8 @@
         "moustache": "#8d8b83",
         "skin": "#faf9f5"
       },
-      "accessory": "official"
+      "accessory": "official",
+      "look": "ricks"
     },
     {
       "id": "mkultra-investigator",
@@ -145,7 +151,8 @@
         "moustache": "#3e302c",
         "skin": "#faf9f5"
       },
-      "accessory": "investigator"
+      "accessory": "investigator",
+      "look": "ricks"
     },
     {
       "id": "mkultra-archivist",
@@ -171,7 +178,8 @@
         "hairStyle": "bob",
         "skin": "#faf9f5"
       },
-      "accessory": "archivist"
+      "accessory": "archivist",
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman",
@@ -192,7 +200,9 @@
         "hat": "cap",
         "cap": "#273b59",
         "buttons": "#dabf79"
-      }
+      },
+      "look": "ricks",
+      "faceCat": "child"
     },
     {
       "project": "flying-dutchman",
@@ -212,7 +222,8 @@
         "hat": "cap",
         "cap": "#eee6ce",
         "buttons": "#506579"
-      }
+      },
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman",
@@ -233,7 +244,8 @@
         "cap": "#23384a",
         "moustache": "#684735",
         "buttons": "#d9b875"
-      }
+      },
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman",
@@ -253,7 +265,8 @@
         "hat": "cap",
         "cap": "#23384a",
         "buttons": "#d9b875"
-      }
+      },
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman-v2",
@@ -275,7 +288,9 @@
         "buttons": "#d8b060",
         "belt": "#eee4c9",
         "sash": "#bb744f"
-      }
+      },
+      "look": "ricks",
+      "faceCat": "child"
     },
     {
       "project": "flying-dutchman-v2",
@@ -297,7 +312,8 @@
         "buttons": "#514b42",
         "beard": "#8e482c",
         "moustache": "#8e482c"
-      }
+      },
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman-v2",
@@ -319,7 +335,8 @@
         "belt": "#aa8546",
         "moustache": "#a2a79d",
         "sash": "#b8644d"
-      }
+      },
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman-v2",
@@ -340,7 +357,8 @@
         "hat": "hair",
         "buttons": "#e1c5a1",
         "moustache": "#3b2c31"
-      }
+      },
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman-current",
@@ -363,7 +381,9 @@
         "belt": "#eee4c9",
         "sash": "#bb744f"
       },
-      "facing": 1
+      "facing": 1,
+      "look": "ricks",
+      "faceCat": "child"
     },
     {
       "project": "flying-dutchman-current",
@@ -386,7 +406,8 @@
         "beard": "#8e482c",
         "moustache": "#8e482c"
       },
-      "facing": 1
+      "facing": 1,
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman-current",
@@ -409,7 +430,8 @@
         "moustache": "#a2a79d",
         "sash": "#b8644d"
       },
-      "facing": 1
+      "facing": 1,
+      "look": "ricks"
     },
     {
       "project": "flying-dutchman-current",
@@ -431,7 +453,8 @@
         "buttons": "#e1c5a1",
         "moustache": "#3b2c31"
       },
-      "facing": 1
+      "facing": 1,
+      "look": "ricks"
     },
     {
       "id": "wish-sam-young",
@@ -450,7 +473,8 @@
         "top": "hoodie",
         "pocket": true,
         "sleeves": "#b9822c"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "wish-sam-rich",
@@ -472,7 +496,8 @@
         "tie": "#c8423b",
         "pocket": true,
         "buttonCount": 2
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "wish-sam-famous",
@@ -496,7 +521,8 @@
       },
       "accessories": [
         "sunglasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "wish-sam-old",
@@ -521,7 +547,8 @@
       },
       "accessories": [
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "wish-fan-cap",
@@ -542,7 +569,8 @@
         "top": "shirt",
         "pattern": "hstripes",
         "patternColor": "#f4efe0"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "wish-fan-bob",
@@ -562,7 +590,8 @@
       },
       "accessories": [
         "blush"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "wish-fan-afro",
@@ -584,7 +613,8 @@
       },
       "accessories": [
         "sunglasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "wish-fan-beanie",
@@ -609,7 +639,8 @@
       },
       "accessories": [
         "freckles"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "wish-park-dad",
@@ -629,7 +660,8 @@
         "pattern": "plaid",
         "patternColor": "#9cc3e6",
         "collar": "shirt"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "wish-park-mum",
@@ -650,7 +682,8 @@
       },
       "accessories": [
         "blush"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "wish-park-kid",
@@ -674,7 +707,9 @@
       },
       "accessories": [
         "freckles"
-      ]
+      ],
+      "look": "ricks",
+      "faceCat": "child"
     },
     {
       "id": "zs-host",
@@ -703,7 +738,8 @@
       "accessories": [
         "stubble",
         "scar"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-bitten",
@@ -726,7 +762,8 @@
       },
       "accessories": [
         "freckles"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-neighbour",
@@ -751,7 +788,8 @@
       },
       "accessories": [
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-office",
@@ -772,7 +810,8 @@
         "collar": "shirt",
         "tie": "#8a2f2f",
         "buttonCount": 2
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-worker",
@@ -792,7 +831,8 @@
         "cap": "#e8b93c",
         "top": "overalls",
         "shirt": "#b65a3a"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-hoodie",
@@ -811,7 +851,8 @@
         "top": "hoodie",
         "pocket": true,
         "sleeves": "#6a4bb3"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-stranger",
@@ -835,7 +876,8 @@
         "scarf": "#5a1f24",
         "beard": "#2a211d",
         "hatAccent": "#3a2a30"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-crowd-mum",
@@ -858,7 +900,8 @@
       },
       "accessories": [
         "blush"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-crowd-teen",
@@ -879,7 +922,8 @@
         "hatAccent": "#f4efe0",
         "top": "hoodie",
         "pocket": true
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-crowd-granny",
@@ -903,7 +947,8 @@
       },
       "accessories": [
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-crowd-clerk",
@@ -928,7 +973,8 @@
       },
       "accessories": [
         "freckles"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-crowd-cop",
@@ -955,7 +1001,8 @@
         "pocket": true,
         "belt": "#1f1c22",
         "moustache": "#2a211d"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-nurse",
@@ -974,7 +1021,8 @@
         "top": "shirt",
         "collar": "vneck",
         "pocket": true
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-tourist",
@@ -997,7 +1045,8 @@
       },
       "accessories": [
         "sunglasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-granny",
@@ -1018,7 +1067,8 @@
         "collar": "shirt",
         "buttonCount": 0,
         "scarf": "#c9a77c"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-jogger",
@@ -1040,7 +1090,8 @@
         "shirt": "#3d7cc0",
         "pattern": "hstripes",
         "patternColor": "#f4efe0"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zs-zombie-chef",
@@ -1062,7 +1113,8 @@
         "patternColor": "#d4cbb8",
         "scarf": "#c8423b"
       },
-      "build": "stout"
+      "build": "stout",
+      "look": "ricks"
     },
     {
       "id": "zs-neighbour-turned",
@@ -1087,7 +1139,8 @@
       },
       "accessories": [
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-bitten-turned",
@@ -1110,7 +1163,8 @@
       },
       "accessories": [
         "freckles"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zs-host-sheriff",
@@ -1142,7 +1196,8 @@
       "accessories": [
         "stubble",
         "scar"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zh-milo",
@@ -1164,7 +1219,8 @@
       },
       "accessories": [
         "freckles"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zh-tina",
@@ -1187,7 +1243,8 @@
       },
       "accessories": [
         "blush"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zh-raider-helmet",
@@ -1210,7 +1267,8 @@
       },
       "accessories": [
         "sunglasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zh-raider-beanie",
@@ -1233,7 +1291,8 @@
         "pattern": "plaid",
         "patternColor": "#5a1f1f",
         "beard": "#634331"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "zh-raider-mohawk",
@@ -1255,7 +1314,8 @@
       },
       "accessories": [
         "eyepatch"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zh-brock",
@@ -1284,7 +1344,8 @@
       },
       "accessories": [
         "stubble"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zh-slade",
@@ -1313,7 +1374,8 @@
       "accessories": [
         "eyepatch",
         "scar"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "zh-raider-cap",
@@ -1340,7 +1402,8 @@
       "accessories": [
         "stubble",
         "scar"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ty-young",
@@ -1364,7 +1427,8 @@
       },
       "accessories": [
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ty-colleague",
@@ -1386,7 +1450,8 @@
       },
       "accessories": [
         "blush"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ty-aud-student",
@@ -1407,7 +1472,9 @@
       },
       "accessories": [
         "freckles"
-      ]
+      ],
+      "look": "ricks",
+      "faceCat": "child"
     },
     {
       "id": "ty-aud-woman",
@@ -1428,7 +1495,8 @@
         "patternColor": "#e8a090",
         "collar": "shirt",
         "shirt": "#f2efe6"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "ty-aud-man",
@@ -1452,7 +1520,8 @@
       },
       "accessories": [
         "stubble"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ty-aud-elder",
@@ -1473,7 +1542,8 @@
         "top": "coat",
         "collar": "turtleneck",
         "scarf": "#e8b93c"
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "ty-boss-b",
@@ -1497,7 +1567,8 @@
         "moustache": "#2a2628",
         "moustacheStyle": "bold",
         "pocket": true
-      }
+      },
+      "look": "ricks"
     },
     {
       "id": "ty-burned-d",
@@ -1525,7 +1596,8 @@
         "burns",
         "bandages",
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ty-old-b",
@@ -1549,7 +1621,8 @@
       "accessories": [
         "oldburns",
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ty-bloody",
@@ -1575,7 +1648,8 @@
         "burns",
         "blood",
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ty-burned-blood",
@@ -1604,7 +1678,8 @@
         "bandages",
         "blood",
         "glasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ba-goofy",
@@ -1632,7 +1707,8 @@
       "accessories": [
         "freckles",
         "blush"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ba-painter",
@@ -1661,7 +1737,8 @@
       },
       "accessories": [
         "stubble"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ba-sound",
@@ -1685,7 +1762,8 @@
       },
       "accessories": [
         "sunglasses"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ba-radio",
@@ -1708,7 +1786,8 @@
         "buttonCount": 4,
         "pocket": true
       },
-      "accessories": []
+      "accessories": [],
+      "look": "ricks"
     },
     {
       "id": "ba-guard",
@@ -1733,7 +1812,8 @@
       },
       "accessories": [
         "stubble"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ba-driver",
@@ -1756,7 +1836,8 @@
       },
       "accessories": [
         "stubble"
-      ]
+      ],
+      "look": "ricks"
     },
     {
       "id": "ba-scout",
@@ -1780,7 +1861,8 @@
         "shirt": "#8a8e80",
         "belt": "#2a2228"
       },
-      "accessories": []
+      "accessories": [],
+      "look": "ricks"
     },
     {
       "id": "ba-officer",
@@ -1808,7 +1890,8 @@
         "moustacheStyle": "bold",
         "belt": "#2a2228"
       },
-      "accessories": []
+      "accessories": [],
+      "look": "ricks"
     },
     {
       "id": "ricksclips-01-pharaoh",
