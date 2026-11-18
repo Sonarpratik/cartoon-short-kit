@@ -35,7 +35,7 @@ Private study only. Videos: vids/ (720p, original EN audio), transcripts: tx/, p
 
 ## Camera / editing (measured)
 - **Hard cuts almost never**: 0-1 per video in 12/20 videos; most "cuts" detected are 4-frame flash effects.
-- Camera holds ~80% of frames (moves < 0.5 px/frame); moves are **ease-out bursts**: peak speed at the first frame of the move,
+- ~~Camera holds ~80% of frames~~ **Superseded (2026-11-18):** re-measured with captions masked and zoom counted, the reference camera rests on only ~9 % of frames and moves on ~2/3; see camera-guide.md. The old reading: moves are ease-out bursts, peak speed at the first frame,
   decaying over ~8-10 frames (720p px/frame e.g. 6, 26, 12, 14, 6, 5, 2, 1).
 - Transitions = continuous camera moves: follow an object (bullet, oil stream, ball) from one subject to the next,
   whip pans with motion blur, fly-through (window/porthole), or a 6-8 frame crossfade dissolve when changing place.

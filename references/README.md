@@ -8,8 +8,10 @@ All reference images and videos here are **private study material**. Never deliv
 |---|---|
 | [character-design.md](character-design.md) | Designing a distinct cast: wardrobe options, distinctness test, no-backs rule, micro-motion, expression-change reaction (jaw squash/woggle, §6) |
 | [scene-design.md](scene-design.md) | World concept, location list, set density, ambient life, lighting by story beat |
-| [camera-guide.md](camera-guide.md) | Camera grammar: which move for which beat, speeds, easing, cuts vs travel |
-| [lighting-guide.md](lighting-guide.md) | Light sources per location, face/hair/clothing highlights, window light |
+| [camera-guide.md](camera-guide.md) | The reference camera approach: camera idea, always-moving takes, push-in per shot, joins instead of cuts, camera height, camera report |
+| [lighting-guide.md](lighting-guide.md) | Our default light scheme: light sources per location, face/hair/clothing highlights, window light |
+| [rick-light-scheme.md](rick-light-scheme.md) | Optional Rick light scheme and shaders (ask the user per short): light kinds per chapter, PBR metal, relief surfaces, painted sky, bright soft grade |
+| [prop-detailing.md](prop-detailing.md) | Prop detailing: hero object first, real parts in the geometry, materials, story marks and lettering, held props |
 | [physical-staging.md](physical-staging.md) | Enclosed rooms, connected roads, crowds, believable scale |
 | [character-motion.md](character-motion.md) | Turn/walk rig details and the face style |
 | [caption-guide.md](caption-guide.md) | **Default place / date / year card** (typewriter title + small date line + rule); code in templates/overlays/doc-caption.ts |

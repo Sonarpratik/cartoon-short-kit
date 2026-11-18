@@ -5,8 +5,9 @@ import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {characterReferencePath,characterRendererPath} from './character-library/paths.mjs';
 const root=new URL('./',import.meta.url),catalog=new URL('character-library/cast.json',root);
-// Ricks Clips vector puppet code (gitignored newZip, personal-use licence), served read-only for the "ricksclips" renderer.
-const rcCode=resolve(fileURLToPath(root),process.env.RC_CHARACTERS||'newZip/RicksClips_Skill_V1.1/templates/vector2d_characters/code');
+// Ricks Clips puppet and motion code (gitignored newZip, personal-use licence), served read-only for the "ricksclips"
+// renderer: /vendor/rc/vector2d_characters/code/** (characters) and /vendor/rc/motion_styles/** (moves). Only .mjs files.
+const rcTemplates=resolve(fileURLToPath(root),process.env.RC_TEMPLATES||'newZip/RicksClips_Skill_V1.1/templates');
 const routes={'/':['character-studio/index.html','text/html; charset=utf-8'],'/studio.js':['character-studio/studio.js','text/javascript'],'/character-rig.js':['templates/bridge/character-rig.ts','text/javascript'],'/toon.js':['templates/bridge/toon.ts','text/javascript'],'/style.js':['templates/bridge/style.ts','text/javascript'],'/face-style.js':['templates/bridge/face-style.ts','text/javascript'],'/director.js':['templates/bridge/director.ts','text/javascript']};
 let saveQueue=Promise.resolve();
 function validate(c){
@@ -33,8 +34,8 @@ const server=createServer(async(req,res)=>{
   if(sheet&&req.method==='GET'){const data=JSON.parse(await readFile(catalog,'utf8')),character=data.characters.find(c=>c.id===sheet[1]);if(!character||!/^[a-zA-Z0-9_-]+$/.test(character.project)){reply(404,{error:'Unknown character'});return;}const bytes=await readFile(new URL(`${characterReferencePath(character.project)}/turnarounds/${character.id}.${sheet[2]}`,root));reply(200,sheet[2]==='json'?JSON.parse(bytes.toString('utf8')):bytes,sheet[2]==='json'?'application/json':'image/png');return;}
   if(pathname==='/approved-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('projects/bootstrap-paradox/character-references/original/approved-cast.png',root)),'image/png');return;}
   if(pathname==='/studio-cast.png'&&req.method==='GET'){reply(200,await readFile(new URL('character-library/shared/studio-cast.png',root)),'image/png');return;}
-  const rc=pathname.match(/^\/vendor\/ricksclips\/((?:sheets\/)?[a-zA-Z0-9_-]+\.mjs)$/);
-  if(rc&&req.method==='GET'){reply(200,await readFile(resolve(rcCode,rc[1]),'utf8'),'text/javascript');return;}
+  const rc=pathname.match(/^\/vendor\/rc\/((?:vector2d_characters\/code(?:\/sheets)?|motion_styles(?:\/moves)?)\/[a-zA-Z0-9_-]+\.mjs)$/);
+  if(rc&&req.method==='GET'){reply(200,await readFile(resolve(rcTemplates,rc[1]),'utf8'),'text/javascript');return;}
   const renderer=pathname.match(/^\/renderers\/([a-zA-Z0-9_-]+)\/(character-rig|toon|style|face-style|director|hair-3d|angle-designs)\.js$/);
   if(renderer&&req.method==='GET'){
    const folder=characterRendererPath(renderer[1],root)+'/engine/';let own=true;try{await access(new URL(folder+'character-rig.ts',root));}catch{own=false;}

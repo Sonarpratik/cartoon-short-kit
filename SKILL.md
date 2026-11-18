@@ -11,13 +11,14 @@ Read [references/README.md](references/README.md) first: it says which reference
 
 ## Priorities (highest first)
 
-1. **Workflow gate.** Show scene frames, accept corrections, stop. Render the full video only when the user explicitly says generate, render, make the video or go. Corrections touch only the named scenes.
+1. **Workflow gate.** The cast is picked or created and approved by the user BEFORE any scene is built (§2b). Then show each version's scene clips and frames, accept corrections, stop. Render the full video only when the user explicitly says generate, render, make the video or go. Corrections touch only the named scenes.
 2. **Faces to camera.** No back views and no over-the-shoulder shots. Characters stay within ±60° of facing the camera (±90° hard limit). Use `frontSafeYaw()`. The stills capture fails on back views. → [character-design.md](references/character-design.md)
 3. **Distinct, dressed cast.** Design each story's cast from `WARDROBE` (10 hair styles, 9 headwear, 8 garments, 5 patterns, collars/ties/scarves/badges, face accessories). Run `castDistinctness()` and fix every clash. Costume shows job, era and status. → [character-design.md](references/character-design.md)
 4. **A world, not a room.** Write a world concept: a signature set-piece, at least 3 distinct locations, a scale ladder (aerial wide → action → prop macro) and a light arc across the story. → [scene-design.md](references/scene-design.md)
 5. **Alive in every shot.** Keep the rig's micro-motion on (breathing, weight shift, saccades, irregular blinks, hair follow-through). Add expression changes on cues, reactions from listeners, and at least two moving ambient elements per shot. → [scene-design.md](references/scene-design.md)
-6. **Camera by beat.** Hook = fast burst then hold; setting = slow glide; escalation = short bursts between holds; mystery = slow creep; explanation = holds and drift; payoff = snap then still hold. About 80% of frames are holds. Prefer travel and motivated transitions over hard cuts. → [camera-guide.md](references/camera-guide.md)
-7. **Lighting and detail.** Motivated sources per location, readable faces, grounded shadows, detailed midground dressing, clear action area. → [lighting-guide.md](references/lighting-guide.md), [physical-staging.md](references/physical-staging.md)
+6. **Camera: the reference approach.** One camera idea per film, taken from the story's own mechanism. The camera moves nearly all the time; a rest is a slow push that lands on the narrated word, never a frozen frame. Every shot pushes in 30–100 % (pull back only for reveals). Scenes join with a move (`whip`, `push`, `blend` in `transitions.ts`), at most one deliberate hard cut per short. With a character in frame the lens sits between chest and eye, at most 10° looking down; high and top-down views only with no character in frame, craning down as one enters. Check with `camera-report.mjs` before review. → [camera-guide.md](references/camera-guide.md)
+7. **Lighting and detail.** Motivated sources per location, readable faces, grounded shadows, detailed midground dressing, clear action area. **Ask the user which light scheme the short uses** before building sets: ours (default: current lighting, shaders and the dark cinematic grade) or the Rick scheme ([rick-light-scheme.md](references/rick-light-scheme.md)). Never mix them in one short. → [lighting-guide.md](references/lighting-guide.md), [physical-staging.md](references/physical-staging.md)
+8. **Props with real detail.** Build the hero object first, alone, with real parts in the geometry (count the parts, five details per main object), real materials, a readable story mark and story lettering. Held props are real 3D objects gripped by the round fist. → [prop-detailing.md](references/prop-detailing.md)
 
 ## Never
 
@@ -26,13 +27,24 @@ Read [references/README.md](references/README.md) first: it says which reference
 - Start a cast from the legacy `CHARACTER_ARCHETYPES` office set.
 - Reuse one room, shelf, desk or wall layout across locations, or default to front-on desk framing.
 - Leave a shot with nothing moving in the background, or a character frozen for more than ~2 s.
-- Glide the camera continuously through every shot with symmetric easing, or orbit/wobble for no reason.
+- Freeze the camera, hard-cut between scenes (one deliberate cut per short at most), look down more than 10° at a character, or orbit/wobble for no reason.
+- Build a prop as a plain box with a pattern on it, draw a held prop inside the character card, or fill a sign with filler words.
 - Clutter the action area: faces, acting hands and the hero prop stay unobstructed.
 - Copy reference characters, stories, shots or text, or deliver reference images. Use no real living people, brand mascots or logos as characters.
 - Add captions unless asked (then use the karaoke style in [karaoke-guide.md](references/karaoke-guide.md)). In-world signs must read correctly.
 
 Place, date and year cards are not captions: use the user-approved documentary card (typewriter title, small date line above, rule) from [caption-guide.md](references/caption-guide.md) / `templates/overlays/doc-caption.ts`.
 - Render the full video without an explicit instruction.
+
+## Acting and story rules (one line each)
+
+- **No teleport, no morphing.** A character or prop changes place only by a move the viewer sees (walk, climb, carried, pushed) or across a scene join; nothing pops, slides or fades to a new spot inside a shot. Check every place change in the preview and name the move.
+- **One motivated habit per significant action:** tongue out of one mouth corner while concentrating, one eye squinted while aiming, head tilt while thinking. It comes from what the character is thinking, never a random add-on.
+- **Gags from the situation.** In every scene look for a visual joke in the character's goal, props or place, without waiting for the script to ask: the same action is played by feeling (a proud walk struts, a scared climb hugs the ladder).
+- **One signature detail per character:** a small, fixed, odd detail (a patch on one sleeve, a bent hat brim, one odd button), written in the cast table and present in every scene, so drift is easy to spot.
+- **The ending is the hero's punchline face** (smug, arms crossed) in front of the result. No moral or trivia after the reveal.
+- **Big beats change the world:** the big word gets an effect that alters the scene (the ground cracks, rain falls in sheets, the sky fills with smoke trails), not only a small overlay.
+- **Crowds and sides:** each side of a conflict has its own colours and a banner symbol, so the viewer knows who is who without words.
 
 ## Persistent visual style
 
@@ -63,7 +75,9 @@ The 3D preview is at http://127.0.0.1:8788. Set CHROME_PATH to use an existing C
 
 | File | Responsibility |
 |---|---|
-| templates/bridge/director.ts | WARDROBE, castDistinctness, camera helpers, CAMERA_PACE, easing |
+| templates/bridge/director.ts | WARDROBE, castDistinctness, camera helpers (pushIn, eyeLevelPose, craneDown), CAMERA_PACE, easing |
+| templates/bridge/transitions.ts | Scene joins (whip, push, blend), JoinCompositor, camera probe and camera report |
+| templates/scripts/camera-report.mjs | Camera numbers for a whole short from poses only: hard cuts, push-in per shot, look-down at characters |
 | templates/bridge/character-rig.ts | drawCharacter, 12-angle views, micro-motion, accessories, frontSafeYaw |
 | templates/bridge/toon.ts | Pen API, bodies, garments/patterns, faces, expressions, fx sprites |
 | templates/bridge/angle-designs.ts | Hair and headwear per view angle |
@@ -87,10 +101,26 @@ Script formula (STYLE_BIBLE.md): paradox hook in sentence one → 1–2 lines of
 Write `work/PLAN.md` before coding:
 
 1. **World concept** (scene-design.md): set-piece, location list, scale ladder, light arc.
-2. **Cast table** (character-design.md): each character's hair/hat, garment, pattern, accents and why, plus the `castDistinctness()` result.
-3. **One row per scene**: S01 etc., global start/end frames, spoken words, location, camera beat type and move, characters with front-safe headings and actions, hero prop, midground dressing, two ambient-life elements, light source/direction/colour/time, sound cue.
+2. **Light scheme** (ask the user: ours or Rick). With the Rick scheme, add its light table: one named light kind per chapter with key, fill and notes, the signature constant light, the palette and its one story accent (rick-light-scheme.md §2).
+3. **Camera idea and hero moments** (camera-guide.md §2): one camera idea from the story's mechanism, why it fits, its signature move, and the camera event on the hook, the turn and the payoff.
+4. **Hero object sheet** (prop-detailing.md): the hero object and 2-3 supporting props, five details each, materials per part, the story mark, the lettering; every held prop and who holds it.
+5. **Cast table** (character-design.md): each character's hair/hat, garment, pattern, accents, signature detail and why, plus the `castDistinctness()` result.
+6. **One row per scene**: S01 etc., global start/end frames, spoken words, location, camera move and the word it lands on, the push-in, the join into the next scene (whip, push or blend), characters with front-safe headings and actions, hero prop, midground dressing, two ambient-life elements, light kind (or source/direction/colour/time), sound cue.
 
 Infer props from the narration; ask only about ambiguous story-critical details. Plan each distinct room or outdoor place separately, and verify each through its final camera.
+
+## 2b. Cast gate: pick or create the characters, then stop
+
+No scene module, set or review frame is built before the user approves the cast.
+
+1. **List the roles** from the script: every character who appears, with their job in the story, era, age and build, and the feeling they mostly play.
+2. **Ask the user, per role: create or pick?**
+   - **Create new** (the default): design it in Character Studio from `WARDROBE`, saved to `character-library/cast.json` under this project.
+   - **Pick an existing character:** only one the user names (stored characters are opt-in, never suggested by default). This includes the Ricks Clips library characters (project `ricksclips` in the Studio, with their sit, kneel, dig and other moves); say clearly that using one in scenes first needs the ricksclips renderer wired into this project, which is not done yet.
+3. **Design or load each character** in Character Studio (`npm.cmd run characters`, http://127.0.0.1:8787; restart a stale server first). For each: costume that shows job, era and status, the signature detail, and the "why" from the cast table. Run `castDistinctness()` and fix every clash.
+4. **Cast review folder** `review/v0_CAST/`: one cast sheet with everyone side by side at on-screen size, each character's turnaround (`node character-studio/save-turnarounds.mjs`) and a short action strip (walk, the main action of their role, two expressions). `CAST.md` lists each character: role, design choices, signature detail, created or picked, and my suggestions (numbered, not applied).
+5. **Stop.** Deliver the folder and wait. Change only the characters the user names, save a new cast version (`v1_CAST`...), and stop again.
+6. **After approval:** snapshot exactly the approved IDs into the project (`node character-library/snapshot.mjs projects/<story> <id> ...`). Only then start §3.
 
 ## 3. Timing and scene implementation
 
@@ -100,19 +130,28 @@ Infer props from the narration; ask only about ambiguous story-critical details.
 - **Expression-change reaction (jaw woggle).** Every expression change plays the Second Draw beat automatically from the shared rig (`reactionBlink` + `reactionSquash` in `character-rig.ts`): 2-frame eye squeeze, 2–3-frame head squash with the jaw spreading wide, a slight tall overshoot, then a ~4-frame settle (done by 0.6 s). Always pass `fromExpression` and `expressionAge` so it fires; change expressions on story beats, not every few frames. Check it with a 16-frame strip around one change before generating. See character-design.md §6.
 - Do not claim caching or resume unless implemented and verified in that project.
 
-## 4. Review frames, then stop
+## 4. Review a version, then stop
 
-Start the preview server and capture each scene's first, middle and last frames plus key action frames:
+Each review round is ONE version folder, `review/v1_ALL_SCENES/` first, then `v2`, `v3`... It holds scene-by-scene animation clips, the review frames and sheets, and `REVIEW.md` with my suggestions. The user reviews it; nothing moves to the next version without the user's reply.
+
+**No loops on my own.** Before a version is sent, fix only what is broken (a crash, missing frames, a failing check below, a camera-report FAIL). Do not run judge or fix rounds, re-render a version, or "improve" scenes between the user's reviews: put every idea in REVIEW.md as a suggestion instead.
+
+1. **Camera numbers** (camera-guide.md §6): `node templates/scripts/camera-report.mjs <previewUrl> work/camera-report.json`. Fix every FAIL or write the scene's reason in `work/PLAN.md`.
+2. **Scene clips:** one MP4 per scene with its slice of the narration, half size: `node templates/scripts/scene-clips.mjs review/v1_ALL_SCENES/clips --audio input/<voice>.wav` (PREVIEW_URL set to the project's preview). This is a review render; the final video still waits for "generate".
+3. **Frames:** start the preview server and capture each scene's first, middle and last frames plus key action frames:
 
 ```powershell
-npm.cmd run stills -- review/S03/f 120,150,179 1
+npm.cmd run stills -- review/v1_ALL_SCENES/S03/f 120,150,179 1
 ```
 
 Frame arguments are global frame numbers. A non-zero exit with `*back-views.json` means a character was drawn from behind: restage before review.
 
 Before sending, check: faces visible and front-facing; cast readable as different people; each scene in a visibly different place or composition from the previous one; something moving in the background; hand/prop contact; floating feet; mirrored signs; camera collisions; excessive blur; clipped colour. Compare against `references/sheets/` locally (never include reference images in deliveries).
 
-Make labelled review sheets (e.g. `review/S03_v1.jpg`), track scene range, words, version and status in `work/REVIEW.md`, deliver the sheets, explain how to request corrections by scene, and stop. Apply corrections only to named scenes, save a new sheet version, and stop again.
+4. **REVIEW.md** in the version folder: an overview sheet, then one row per scene with its frame range, words, clip, sheet and status, and **my suggested changes** for that scene, numbered (`S03.1`, `S03.2`), one line each with the reason. Suggestions are not applied.
+5. **Deliver and stop:** give the folder path, list the suggestions, explain how to reply per scene (approve, a change in their own words, or "do S03.2"), and stop.
+
+**Next version (v2, v3 ...) only after the user's reply:** apply exactly what the user named (their own notes plus the suggestions they accepted), only to the named scenes. Re-render clips and frames for the changed scenes into the new folder and copy the unchanged scenes' clips and frames across, marked unchanged in REVIEW.md, so every version folder is complete. Then stop again.
 
 ## 5. Generate after explicit instruction
 
