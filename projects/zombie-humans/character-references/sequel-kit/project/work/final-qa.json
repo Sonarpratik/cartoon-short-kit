@@ -1,0 +1,215 @@
+{
+  "file": "out/final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "decodedFrames": 2711,
+  "videoDuration": 90.36666666666666,
+  "narrationDuration": 90.3575625,
+  "durationDifferenceSeconds": 0.009104166666659808,
+  "integratedLUFS": -14.92,
+  "truePeakDbTP": -1.4,
+  "finalCommonAudioAdjustmentDb": -0.77,
+  "blackFrames": [
+    1295,
+    1296,
+    1297,
+    1298,
+    1299,
+    1300,
+    1301,
+    1302,
+    1303,
+    1304,
+    1305,
+    1306,
+    1307,
+    1308,
+    1309,
+    1310,
+    1311,
+    1312,
+    1313,
+    1314,
+    1315,
+    1316,
+    1317,
+    1318,
+    1319,
+    1320,
+    1321
+  ],
+  "whiteFrames": [],
+  "freezeDetectorEvents": [
+    "[Parsed_freezedetect_1 @ 000001fc8db27e40] lavfi.freezedetect.freeze_start: 34.066667",
+    "[Parsed_freezedetect_1 @ 000001fc8db27e40] lavfi.freezedetect.freeze_duration: 0.733333",
+    "[Parsed_freezedetect_1 @ 000001fc8db27e40] lavfi.freezedetect.freeze_end: 34.8",
+    "[Parsed_freezedetect_1 @ 000001fc8db27e40] lavfi.freezedetect.freeze_start: 43.166667",
+    "[Parsed_freezedetect_1 @ 000001fc8db27e40] lavfi.freezedetect.freeze_duration: 0.9",
+    "[Parsed_freezedetect_1 @ 000001fc8db27e40] lavfi.freezedetect.freeze_end: 44.066667"
+  ],
+  "unplannedLargeChanges": [
+    1322,
+    1513,
+    1716,
+    2391
+  ],
+  "reviewComparisons": [
+    {
+      "scene": "S01",
+      "frame": 30,
+      "meanPixelDifferenceVsApprovedReview": 4.69175910949707
+    },
+    {
+      "scene": "S02",
+      "frame": 175,
+      "meanPixelDifferenceVsApprovedReview": 5.386898040771484
+    },
+    {
+      "scene": "S03",
+      "frame": 352,
+      "meanPixelDifferenceVsApprovedReview": 6.021944522857666
+    },
+    {
+      "scene": "S04",
+      "frame": 440,
+      "meanPixelDifferenceVsApprovedReview": 4.63895845413208
+    },
+    {
+      "scene": "S05",
+      "frame": 545,
+      "meanPixelDifferenceVsApprovedReview": 5.233078479766846
+    },
+    {
+      "scene": "S06",
+      "frame": 664,
+      "meanPixelDifferenceVsApprovedReview": 6.088611125946045
+    },
+    {
+      "scene": "S07",
+      "frame": 845,
+      "meanPixelDifferenceVsApprovedReview": 4.4109721183776855
+    },
+    {
+      "scene": "S08",
+      "frame": 1020,
+      "meanPixelDifferenceVsApprovedReview": 5.01303243637085
+    },
+    {
+      "scene": "S09",
+      "frame": 1065,
+      "meanPixelDifferenceVsApprovedReview": 4.092268466949463
+    },
+    {
+      "scene": "S10",
+      "frame": 1104,
+      "meanPixelDifferenceVsApprovedReview": 6.612847328186035
+    },
+    {
+      "scene": "S11",
+      "frame": 1175,
+      "meanPixelDifferenceVsApprovedReview": 4.400995254516602
+    },
+    {
+      "scene": "S12",
+      "frame": 1250,
+      "meanPixelDifferenceVsApprovedReview": 4.68189811706543
+    },
+    {
+      "scene": "S13",
+      "frame": 1323,
+      "meanPixelDifferenceVsApprovedReview": 5.098958492279053
+    },
+    {
+      "scene": "S14",
+      "frame": 1490,
+      "meanPixelDifferenceVsApprovedReview": 7.392384052276611
+    },
+    {
+      "scene": "S15",
+      "frame": 1630,
+      "meanPixelDifferenceVsApprovedReview": 4.688541889190674
+    },
+    {
+      "scene": "S16",
+      "frame": 1840,
+      "meanPixelDifferenceVsApprovedReview": 5.234490871429443
+    },
+    {
+      "scene": "S17",
+      "frame": 1920,
+      "meanPixelDifferenceVsApprovedReview": 4.540671348571777
+    },
+    {
+      "scene": "S18",
+      "frame": 2020,
+      "meanPixelDifferenceVsApprovedReview": 5.108935356140137
+    },
+    {
+      "scene": "S19",
+      "frame": 2130,
+      "meanPixelDifferenceVsApprovedReview": 4.733541488647461
+    },
+    {
+      "scene": "S20",
+      "frame": 2250,
+      "meanPixelDifferenceVsApprovedReview": 5.643125057220459
+    },
+    {
+      "scene": "S21",
+      "frame": 2340,
+      "meanPixelDifferenceVsApprovedReview": 4.382916450500488
+    },
+    {
+      "scene": "S22",
+      "frame": 2500,
+      "meanPixelDifferenceVsApprovedReview": 4.431272983551025
+    },
+    {
+      "scene": "S23",
+      "frame": 2635,
+      "meanPixelDifferenceVsApprovedReview": 4.730810165405273
+    }
+  ],
+  "fileBytes": 75084387,
+  "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "checkedSnaps": [
+    1322,
+    1513,
+    1716,
+    2391
+  ],
+  "plannedBlack": [
+    1295,
+    1296,
+    1297,
+    1298,
+    1299,
+    1300,
+    1301,
+    1302,
+    1303,
+    1304,
+    1305,
+    1306,
+    1307,
+    1308,
+    1309,
+    1310,
+    1311,
+    1312,
+    1313,
+    1314,
+    1315,
+    1316,
+    1317,
+    1318,
+    1319,
+    1320,
+    1321
+  ],
+  "plannedWhite": [],
+  "unplannedBlack": [],
+  "unplannedWhite": [],
+  "unplannedFreeze": []
+}

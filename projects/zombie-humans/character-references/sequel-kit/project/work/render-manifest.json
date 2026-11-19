@@ -1,0 +1,429 @@
+{
+  "settings": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "jpegQuality": 0.95,
+    "angle": "d3d11"
+  },
+  "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "total": 2711,
+  "elapsedSeconds": 722.824,
+  "sequence": "frames/all-5a7ee24bb822",
+  "scenes": [
+    {
+      "id": "S01",
+      "f0": 0,
+      "f1": 126,
+      "hash": "84dc28b2abe44bc779b387ce969183f9f1422f73efd2fbc728938ad77444b777",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S01/84dc28b2abe4",
+      "captured": 126,
+      "reused": 0
+    },
+    {
+      "id": "S02",
+      "f0": 126,
+      "f1": 326,
+      "hash": "a04b7a2bc5dfbf8e9f137e1f3bf4a4c778a2fbd389c4836b73de07ea10a7e13c",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S02/a04b7a2bc5df",
+      "captured": 200,
+      "reused": 0
+    },
+    {
+      "id": "S03",
+      "f0": 326,
+      "f1": 418,
+      "hash": "d2a51d3a774cf29d409a73f4e8314054c0758e7f0756d552ae9f75a52dea8523",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S03/d2a51d3a774c",
+      "captured": 92,
+      "reused": 0
+    },
+    {
+      "id": "S04",
+      "f0": 418,
+      "f1": 518,
+      "hash": "75d9aa5ac8e4a6954f9ef6179f00117db165c0301817b4a721d658bbc3c440bd",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S04/75d9aa5ac8e4",
+      "captured": 100,
+      "reused": 0
+    },
+    {
+      "id": "S05",
+      "f0": 518,
+      "f1": 655,
+      "hash": "1540083f11137fb89efb6b8d485fe0a10a93d06bca87eeed7e2ccbdff6f89597",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S05/1540083f1113",
+      "captured": 137,
+      "reused": 0
+    },
+    {
+      "id": "S06",
+      "f0": 655,
+      "f1": 814,
+      "hash": "3b267d7f268c6f57a1e3515bc1a36cde2daf7b2e068995f0f74c1326827b8f6d",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S06/3b267d7f268c",
+      "captured": 159,
+      "reused": 0
+    },
+    {
+      "id": "S07",
+      "f0": 814,
+      "f1": 1008,
+      "hash": "79b0f476789f770cac937f9d6bce3cdaf938687d079b6309a4626c1c0508f230",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S07/79b0f476789f",
+      "captured": 194,
+      "reused": 0
+    },
+    {
+      "id": "S08",
+      "f0": 1008,
+      "f1": 1051,
+      "hash": "87e9640648260d1271be389ab60346818406da271b9357893f96b90a642e93a1",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S08/87e964064826",
+      "captured": 43,
+      "reused": 0
+    },
+    {
+      "id": "S09",
+      "f0": 1051,
+      "f1": 1089,
+      "hash": "96d96b54de0c7ce46c9efcea752b571d43ac12079ca84d4a1b3835d9fb0ce154",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S09/96d96b54de0c",
+      "captured": 38,
+      "reused": 0
+    },
+    {
+      "id": "S10",
+      "f0": 1089,
+      "f1": 1157,
+      "hash": "ec45f884289146690d79fe985df5333b049cb8823ae2ebc717781e05b91b5102",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S10/ec45f8842891",
+      "captured": 68,
+      "reused": 0
+    },
+    {
+      "id": "S11",
+      "f0": 1157,
+      "f1": 1231,
+      "hash": "a972e1ca460c160e82f039af13f94bdb9aca7901219dff78cfe3bccd18aa215f",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S11/a972e1ca460c",
+      "captured": 74,
+      "reused": 0
+    },
+    {
+      "id": "S12",
+      "f0": 1231,
+      "f1": 1295,
+      "hash": "ecaabb64007024f3be850ca0d544e29dac91e2b6875af81efbe3e8a32d3f71cd",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S12/ecaabb640070",
+      "captured": 64,
+      "reused": 0
+    },
+    {
+      "id": "S13",
+      "f0": 1295,
+      "f1": 1462,
+      "hash": "c0d4fbc5c2ec9ef2e50e9b9844f72164878017195fe7b0a6d5507b4ff8912fc2",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S13/c0d4fbc5c2ec",
+      "captured": 167,
+      "reused": 0
+    },
+    {
+      "id": "S14",
+      "f0": 1462,
+      "f1": 1586,
+      "hash": "f1e76b2ec12ac15286e45da58951308f1aa1788902c86019033344d9302a59a8",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S14/f1e76b2ec12a",
+      "captured": 124,
+      "reused": 0
+    },
+    {
+      "id": "S15",
+      "f0": 1586,
+      "f1": 1821,
+      "hash": "6eba5940ea1acb3707d49785be616e80fdc0906b93a9dc852a02bd1ce8dcb2e2",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S15/6eba5940ea1a",
+      "captured": 235,
+      "reused": 0
+    },
+    {
+      "id": "S16",
+      "f0": 1821,
+      "f1": 1896,
+      "hash": "2d4dfb2577948462b637eac4a00596ea52bf61c417f4402fb413170ea82a4f94",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S16/2d4dfb257794",
+      "captured": 75,
+      "reused": 0
+    },
+    {
+      "id": "S17",
+      "f0": 1896,
+      "f1": 1998,
+      "hash": "747c26f9c40ba00c39b9e40691e75548fab76f6929528a84de3469c906129bb9",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S17/747c26f9c40b",
+      "captured": 102,
+      "reused": 0
+    },
+    {
+      "id": "S18",
+      "f0": 1998,
+      "f1": 2101,
+      "hash": "127c749c00f1e6f5b4a9335002616b8c99bda2130907abad489a02e975a9d769",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S18/127c749c00f1",
+      "captured": 103,
+      "reused": 0
+    },
+    {
+      "id": "S19",
+      "f0": 2101,
+      "f1": 2228,
+      "hash": "48ba7735016c81937d62487af33280a9a7554326f76cdafc896192a271cdf51a",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S19/48ba7735016c",
+      "captured": 127,
+      "reused": 0
+    },
+    {
+      "id": "S20",
+      "f0": 2228,
+      "f1": 2321,
+      "hash": "cdaf09c3d144f43429543e6e4cace2f4c588731230cb4507e8cf0eb477c36021",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S20/cdaf09c3d144",
+      "captured": 93,
+      "reused": 0
+    },
+    {
+      "id": "S21",
+      "f0": 2321,
+      "f1": 2474,
+      "hash": "feeafbf3804d409f83354c98b6ac41a230a28285c6500b45e83e5bda97a9b30c",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S21/feeafbf3804d",
+      "captured": 153,
+      "reused": 0
+    },
+    {
+      "id": "S22",
+      "f0": 2474,
+      "f1": 2617,
+      "hash": "3649dfacbd9c248a2bfd2008bca9d71ae96b85bf92c4b00a407508cda95546b3",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S22/3649dfacbd9c",
+      "captured": 143,
+      "reused": 0
+    },
+    {
+      "id": "S23",
+      "f0": 2617,
+      "f1": 2711,
+      "hash": "d378ac04fd59fc93af653e6b9b2477b130f6e1d7603e21bc13e744a0305912b2",
+      "settings": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "jpegQuality": 0.95,
+        "angle": "d3d11"
+      },
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "complete": true,
+      "folder": "frames/S23/d378ac04fd59",
+      "captured": 94,
+      "reused": 0
+    }
+  ]
+}

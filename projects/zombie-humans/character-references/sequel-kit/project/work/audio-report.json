@@ -1,0 +1,14 @@
+{
+  "sampleRate": 48000,
+  "duration": 90.3575625,
+  "voiceGatedRMS": 0.11411214796838852,
+  "musicVsVoiceDb": -6.020599913279624,
+  "sfxVsVoiceDb": -14.270960767037057,
+  "sfxPeakVsVoicePeak": 0.7,
+  "commonMasterGainDb": 3.370000000000001,
+  "measuredMasterLUFS": -14.1,
+  "measuredMasterTruePeakDbTP": -1.21,
+  "voiceTreatment": "Decoded unchanged; one common linear gain and a final peak limiter. No time edits or ducking.",
+  "music": "Original synthesized score: D-minor pulse, warm D-major safe beat, dark drones, hits on the freeze / headlights / ten men / trust, menace drums, raider toms.",
+  "mastering": "Common linear gain targets -14 LUFS followed by one 4x-oversampled look-ahead peak limiter."
+}

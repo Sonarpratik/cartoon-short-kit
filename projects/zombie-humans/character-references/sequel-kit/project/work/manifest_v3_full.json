@@ -1,0 +1,631 @@
+[
+  {
+    "id": "S01",
+    "f0": 0,
+    "f1": 126,
+    "title": "Weapon, camp, alone",
+    "words": "You've got your weapon. You've got your camp. But you can't survive alone.",
+    "review": [
+      0,
+      30,
+      60,
+      90,
+      110,
+      125
+    ],
+    "paths": [
+      "review/S01_v2/f0000.jpg",
+      "review/S01_v2/f0030.jpg",
+      "review/S01_v2/f0060.jpg",
+      "review/S01_v2/f0090.jpg",
+      "review/S01_v2/f0110.jpg",
+      "review/S01_v2/f0125.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "68bd3b6309a3c36e9830b47a2b08160072fb54ef0a8aa2f9170a3c3924682cdc",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S02",
+    "f0": 126,
+    "f1": 326,
+    "title": "Form a group",
+    "words": "So you form a group, your best friend, a nurse who knows first aid, and a mechanic who can fix anything.",
+    "review": [
+      126,
+      175,
+      215,
+      240,
+      270,
+      300,
+      325
+    ],
+    "paths": [
+      "review/S02_v2/f0126.jpg",
+      "review/S02_v2/f0175.jpg",
+      "review/S02_v2/f0215.jpg",
+      "review/S02_v2/f0240.jpg",
+      "review/S02_v2/f0270.jpg",
+      "review/S02_v2/f0300.jpg",
+      "review/S02_v2/f0325.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "3d48a529bf037399e12e5785f89763b41337bcb5a3f247e1f25340ad3897d9b0",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S03",
+    "f0": 326,
+    "f1": 418,
+    "title": "Four people, one goal",
+    "words": "Four people. One goal. Survive.",
+    "review": [
+      326,
+      352,
+      380,
+      392,
+      417
+    ],
+    "paths": [
+      "review/S03_v2/f0326.jpg",
+      "review/S03_v2/f0352.jpg",
+      "review/S03_v2/f0380.jpg",
+      "review/S03_v2/f0392.jpg",
+      "review/S03_v2/f0417.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "babe247bea09646c4357e4803ff1ea3c0077008a117893cc08d7b9e6bb36ffdf",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S04",
+    "f0": 418,
+    "f1": 518,
+    "title": "Day 1 \u00b7 lock the gates",
+    "words": "Day 1. You lock the school gates.",
+    "review": [
+      418,
+      440,
+      460,
+      478,
+      490,
+      517
+    ],
+    "paths": [
+      "review/S04_v3/f0418.jpg",
+      "review/S04_v3/f0440.jpg",
+      "review/S04_v3/f0460.jpg",
+      "review/S04_v3/f0478.jpg",
+      "review/S04_v3/f0490.jpg",
+      "review/S04_v3/f0517.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "b19d85e9d5e0e306c3588dcd690ee377bc24780d004e5da35c31c675ae6150de",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S05",
+    "f0": 518,
+    "f1": 655,
+    "title": "Day 10 \u00b7 supplies",
+    "words": "Day 10. You've got rice, canned food, water, medicine,",
+    "review": [
+      518,
+      545,
+      578,
+      604,
+      626,
+      645,
+      654
+    ],
+    "paths": [
+      "review/S05_v2/f0518.jpg",
+      "review/S05_v2/f0545.jpg",
+      "review/S05_v2/f0578.jpg",
+      "review/S05_v2/f0604.jpg",
+      "review/S05_v2/f0626.jpg",
+      "review/S05_v2/f0645.jpg",
+      "review/S05_v2/f0654.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "43b8df46cbf2d8794848812c932b4a415d21c9a517a8905a2f91c60b1682b671",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S06",
+    "f0": 655,
+    "f1": 814,
+    "title": "Generator \u00b7 feel safe",
+    "words": "even a generator. For the first time, you feel safe.",
+    "review": [
+      655,
+      664,
+      672,
+      700,
+      740,
+      770,
+      813
+    ],
+    "paths": [
+      "review/S06_v2/f0655.jpg",
+      "review/S06_v2/f0664.jpg",
+      "review/S06_v2/f0672.jpg",
+      "review/S06_v2/f0700.jpg",
+      "review/S06_v2/f0740.jpg",
+      "review/S06_v2/f0770.jpg",
+      "review/S06_v2/f0813.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "8923d78b15ec9f2b78c7868ed86c5c748afc1c1475b5d0a160f92897cea2de87",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S07",
+    "f0": 814,
+    "f1": 1008,
+    "title": "Day 20 \u00b7 the knock",
+    "words": "Day 20. A man knocks on the gate. He's hurt. He's hungry. He's begging for help.",
+    "review": [
+      814,
+      845,
+      870,
+      900,
+      925,
+      955,
+      985,
+      1007
+    ],
+    "paths": [
+      "review/S07_v3/f0814.jpg",
+      "review/S07_v3/f0845.jpg",
+      "review/S07_v3/f0870.jpg",
+      "review/S07_v3/f0900.jpg",
+      "review/S07_v3/f0925.jpg",
+      "review/S07_v3/f0955.jpg",
+      "review/S07_v3/f0985.jpg",
+      "review/S07_v3/f1007.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "1262941e5aee9c30137d4b49fe5433100911f24c2d26508fbbf0e89e59d57386",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S08",
+    "f0": 1008,
+    "f1": 1051,
+    "title": "Freeze \u00b7 would you let him in?",
+    "words": "What would you do?",
+    "review": [
+      1008,
+      1020,
+      1035,
+      1050
+    ],
+    "paths": [
+      "review/S08_v2/f1008.jpg",
+      "review/S08_v2/f1020.jpg",
+      "review/S08_v2/f1035.jpg",
+      "review/S08_v2/f1050.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "9b9b4e21547922b1f046fd9f2f8001c9a9da304f903caba63685ecd290d3211b",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S09",
+    "f0": 1051,
+    "f1": 1089,
+    "title": "Let him in",
+    "words": "You let him in.",
+    "review": [
+      1051,
+      1065,
+      1078,
+      1088
+    ],
+    "paths": [
+      "review/S09_v2/f1051.jpg",
+      "review/S09_v2/f1065.jpg",
+      "review/S09_v2/f1078.jpg",
+      "review/S09_v2/f1088.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "df84543aae90c6d3af55d2667c5504ea49b783f1e9e929dfca77bed852c20cab",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S10",
+    "f0": 1089,
+    "f1": 1157,
+    "title": "Food, water, a bed",
+    "words": "You give him food, water, a bed.",
+    "review": [
+      1089,
+      1104,
+      1124,
+      1140,
+      1156
+    ],
+    "paths": [
+      "review/S10_v2/f1089.jpg",
+      "review/S10_v2/f1104.jpg",
+      "review/S10_v2/f1124.jpg",
+      "review/S10_v2/f1140.jpg",
+      "review/S10_v2/f1156.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "9821123ddb1cb2a791148871c428004aa8d3eccc7bb9225831aa5ef8ed8e1760",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S11",
+    "f0": 1157,
+    "f1": 1231,
+    "title": "Counts your supplies",
+    "words": "He looks around, counts your supplies.",
+    "review": [
+      1157,
+      1175,
+      1190,
+      1200,
+      1230
+    ],
+    "paths": [
+      "review/S11_v2/f1157.jpg",
+      "review/S11_v2/f1175.jpg",
+      "review/S11_v2/f1190.jpg",
+      "review/S11_v2/f1200.jpg",
+      "review/S11_v2/f1230.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "4f8eb92973ae0b3defad1a68464d60043db90bf49384418518ff0a090580a0aa",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S12",
+    "f0": 1231,
+    "f1": 1295,
+    "title": "Next morning, he's gone",
+    "words": "And the next morning, he's gone.",
+    "review": [
+      1231,
+      1250,
+      1265,
+      1272,
+      1294
+    ],
+    "paths": [
+      "review/S12_v3/f1231.jpg",
+      "review/S12_v3/f1250.jpg",
+      "review/S12_v3/f1265.jpg",
+      "review/S12_v3/f1272.jpg",
+      "review/S12_v3/f1294.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "ccacc1e11ba710662adec9805ce70aeba156d3f51a6fc335340a591a152a48a5",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S13",
+    "f0": 1295,
+    "f1": 1462,
+    "title": "Headlights \u00b7 ten men",
+    "words": "Two nights later, headlights, engines, ten men at your gate. And he's standing in front of them.",
+    "review": [
+      1300,
+      1323,
+      1330,
+      1345,
+      1366,
+      1372,
+      1395,
+      1418,
+      1440,
+      1461
+    ],
+    "paths": [
+      "review/S13_v2/f1300.jpg",
+      "review/S13_v2/f1323.jpg",
+      "review/S13_v2/f1330.jpg",
+      "review/S13_v2/f1345.jpg",
+      "review/S13_v2/f1366.jpg",
+      "review/S13_v2/f1372.jpg",
+      "review/S13_v2/f1395.jpg",
+      "review/S13_v2/f1418.jpg",
+      "review/S13_v2/f1440.jpg",
+      "review/S13_v2/f1461.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "6a4999f6cbe9e1bef7366b4131c3033cf576f7c48fdb89702afd50b15d0d3273",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S14",
+    "f0": 1462,
+    "f1": 1586,
+    "title": "Zombies want flesh",
+    "words": "Because here's the truth. Zombies only want your flesh.",
+    "review": [
+      1462,
+      1490,
+      1520,
+      1540,
+      1560,
+      1585
+    ],
+    "paths": [
+      "review/S14_v2/f1462.jpg",
+      "review/S14_v2/f1490.jpg",
+      "review/S14_v2/f1520.jpg",
+      "review/S14_v2/f1540.jpg",
+      "review/S14_v2/f1560.jpg",
+      "review/S14_v2/f1585.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "adad2d19929a9545ce9be1b73b3d129d5ffa35e5138a15c2913cec1bc374a8a2",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S15",
+    "f0": 1586,
+    "f1": 1821,
+    "title": "Humans want everything",
+    "words": "But humans want everything you have. Your food, your water, your weapons, your camp.",
+    "review": [
+      1586,
+      1630,
+      1670,
+      1695,
+      1725,
+      1752,
+      1796,
+      1820
+    ],
+    "paths": [
+      "review/S15_v3/f1586.jpg",
+      "review/S15_v3/f1630.jpg",
+      "review/S15_v3/f1670.jpg",
+      "review/S15_v3/f1695.jpg",
+      "review/S15_v3/f1725.jpg",
+      "review/S15_v3/f1752.jpg",
+      "review/S15_v3/f1796.jpg",
+      "review/S15_v3/f1820.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "305fc5ea5531c240e42846be286c59a164cf739f6fe52799dcd9f8316208c666",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S16",
+    "f0": 1821,
+    "f1": 1896,
+    "title": "Three rules",
+    "words": "And so remember three rules.",
+    "review": [
+      1821,
+      1840,
+      1855,
+      1875,
+      1895
+    ],
+    "paths": [
+      "review/S16_v2/f1821.jpg",
+      "review/S16_v2/f1840.jpg",
+      "review/S16_v2/f1855.jpg",
+      "review/S16_v2/f1875.jpg",
+      "review/S16_v2/f1895.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "75a399c1eeb637139d607b657d5722e46e1f8b6a3a39a697e3bf643979b72f84",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S17",
+    "f0": 1896,
+    "f1": 1998,
+    "title": "Rule 1",
+    "words": "Rule 1. Never show strangers your supplies.",
+    "review": [
+      1896,
+      1920,
+      1945,
+      1962,
+      1975,
+      1997
+    ],
+    "paths": [
+      "review/S17_v2/f1896.jpg",
+      "review/S17_v2/f1920.jpg",
+      "review/S17_v2/f1945.jpg",
+      "review/S17_v2/f1962.jpg",
+      "review/S17_v2/f1975.jpg",
+      "review/S17_v2/f1997.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "8042c14288f5369af926c780d19451e7a39d6ce50ffe56f0b8d37b1704770b5e",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S18",
+    "f0": 1998,
+    "f1": 2101,
+    "title": "Rule 2",
+    "words": "Rule 2. Hide your stash in more than one place.",
+    "review": [
+      1998,
+      2020,
+      2038,
+      2060,
+      2078,
+      2100
+    ],
+    "paths": [
+      "review/S18_v2/f1998.jpg",
+      "review/S18_v2/f2020.jpg",
+      "review/S18_v2/f2038.jpg",
+      "review/S18_v2/f2060.jpg",
+      "review/S18_v2/f2078.jpg",
+      "review/S18_v2/f2100.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "cae38331836b329a804625ad4371312ba21209de3ea4d1a0d3ded3a3a0351e89",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S19",
+    "f0": 2101,
+    "f1": 2228,
+    "title": "Rule 3",
+    "words": "Rule 3. Someone stays awake every single night.",
+    "review": [
+      2101,
+      2130,
+      2150,
+      2170,
+      2195,
+      2227
+    ],
+    "paths": [
+      "review/S19_v3/f2101.jpg",
+      "review/S19_v3/f2130.jpg",
+      "review/S19_v3/f2150.jpg",
+      "review/S19_v3/f2170.jpg",
+      "review/S19_v3/f2195.jpg",
+      "review/S19_v3/f2227.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "d73d778580421be2140d6219889bce6fc97f85d768fb31c666937b116477e77c",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S20",
+    "f0": 2228,
+    "f1": 2321,
+    "title": "Slow and dumb",
+    "words": "Zombies are slow and dumb.",
+    "review": [
+      2228,
+      2250,
+      2270,
+      2280,
+      2300,
+      2320
+    ],
+    "paths": [
+      "review/S20_v2/f2228.jpg",
+      "review/S20_v2/f2250.jpg",
+      "review/S20_v2/f2270.jpg",
+      "review/S20_v2/f2280.jpg",
+      "review/S20_v2/f2300.jpg",
+      "review/S20_v2/f2320.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "6140bf00edfcac209af244a7278e4e9968e04eb2e246b7199953e92306aeae8a",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S21",
+    "f0": 2321,
+    "f1": 2474,
+    "title": "Humans think, plan, never stop",
+    "words": "Humans think. Humans plan. And humans never stop.",
+    "review": [
+      2321,
+      2340,
+      2362,
+      2385,
+      2400,
+      2410,
+      2440,
+      2473
+    ],
+    "paths": [
+      "review/S21_v3/f2321.jpg",
+      "review/S21_v3/f2340.jpg",
+      "review/S21_v3/f2362.jpg",
+      "review/S21_v3/f2385.jpg",
+      "review/S21_v3/f2400.jpg",
+      "review/S21_v3/f2410.jpg",
+      "review/S21_v3/f2440.jpg",
+      "review/S21_v3/f2473.jpg"
+    ],
+    "version": "v3",
+    "sourceHash": "9228cac508d8e191dc61686ca142080484cbd320f34af352dddc7d1c045422d5",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S22",
+    "f0": 2474,
+    "f1": 2617,
+    "title": "Can you trust them?",
+    "words": "But here's the real question. What about the people inside your group? Can you really trust them?",
+    "review": [
+      2474,
+      2500,
+      2540,
+      2560,
+      2582,
+      2598,
+      2616
+    ],
+    "paths": [
+      "review/S22_v2/f2474.jpg",
+      "review/S22_v2/f2500.jpg",
+      "review/S22_v2/f2540.jpg",
+      "review/S22_v2/f2560.jpg",
+      "review/S22_v2/f2582.jpg",
+      "review/S22_v2/f2598.jpg",
+      "review/S22_v2/f2616.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "71ab2a6c692b769718b2419b6ef57071e9725c80526f15f08a035457b64753e3",
+    "scale": 0.5,
+    "status": "to check"
+  },
+  {
+    "id": "S23",
+    "f0": 2617,
+    "f1": 2711,
+    "title": "Part 4 \u00b7 subscribe",
+    "words": "Find out in Part 4. Subscribe so you don't miss it.",
+    "review": [
+      2617,
+      2635,
+      2655,
+      2680,
+      2710
+    ],
+    "paths": [
+      "review/S23_v2/f2617.jpg",
+      "review/S23_v2/f2635.jpg",
+      "review/S23_v2/f2655.jpg",
+      "review/S23_v2/f2680.jpg",
+      "review/S23_v2/f2710.jpg"
+    ],
+    "version": "v2",
+    "sourceHash": "8a94325b96c6f09579aa2b94317cf3d931526027de0f1480b48ba94164795695",
+    "scale": 0.5,
+    "status": "to check"
+  }
+]
