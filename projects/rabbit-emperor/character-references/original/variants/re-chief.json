@@ -1,0 +1,38 @@
+{
+  "id": "re-chief",
+  "name": "Chief of staff · organiser (Rabbit Emperor)",
+  "project": "rabbit-emperor",
+  "identity": "re-chief",
+  "seed": 412,
+  "jacket": "#2e7d5b",
+  "pants": "#f1ede4",
+  "boots": "#2a1f1c",
+  "hair": "#8a4f2c",
+  "hairStyle": "curly",
+  "coat": true,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "coat",
+    "shirt": "#f4efe2",
+    "sash": "#e8c45a",
+    "badge": "#e8c45a"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "piece": "earPencil"
+  },
+  "figure": {
+    "form": "standard",
+    "headShape": "egg",
+    "headSize": "M",
+    "bodySize": "S",
+    "legs": "XL",
+    "limbs": "S",
+    "arms": "L"
+  },
+  "faceCat": "male",
+  "props": [
+    "our:body:sash",
+    "our:body:badge"
+  ]
+}

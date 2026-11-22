@@ -4742,6 +4742,531 @@
         "name": "fisherman",
         "coat": "#f0c12e"
       }
+    },
+    {
+      "id": "zd-jack-sheriff",
+      "name": "Jack · leader (Part 3 face, sheriff)",
+      "project": "zombie-devil",
+      "identity": "zd-jack-sheriff",
+      "seed": 6,
+      "jacket": "#6f7d3c",
+      "pants": "#3b4152",
+      "boots": "#4a3326",
+      "hair": "#3a2a22",
+      "hairStyle": "braid",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "sheriff",
+        "cap": "#d9bf8a",
+        "top": "vest",
+        "shirt": "#e8dcc0",
+        "collar": "shirt",
+        "scarf": "#e8833a",
+        "pocket": true,
+        "badge": "#e8b93c",
+        "belt": "#5a3b2a",
+        "hatAccent": "#e8c45a",
+        "moustache": "#1f1a1e",
+        "moustacheStyle": "bold"
+      },
+      "accessories": [
+        "stubble",
+        "scar"
+      ],
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "L",
+        "arms": "L"
+      }
+    },
+    {
+      "id": "zd-milo-p3",
+      "name": "Milo · best friend (Part 3 face, woman)",
+      "project": "zombie-devil",
+      "identity": "zd-milo-p3",
+      "seed": 81,
+      "jacket": "#c8423b",
+      "pants": "#2b3448",
+      "boots": "#f1ede4",
+      "hair": "#c58a3c",
+      "hairStyle": "spiky",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "hoodie",
+        "pocket": true,
+        "sleeves": "#a83530"
+      },
+      "accessories": [
+        "freckles"
+      ],
+      "look": "ricks",
+      "faceCat": "female",
+      "figure": {
+        "form": "standard",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "M"
+      }
+    },
+    {
+      "id": "zd-tina-p3",
+      "name": "Tina · medic (Part 3 face)",
+      "project": "zombie-devil",
+      "identity": "zd-tina-p3",
+      "seed": 86,
+      "jacket": "#7fb7d9",
+      "pants": "#7fb7d9",
+      "boots": "#f1ede4",
+      "hair": "#2a211d",
+      "hairStyle": "bun",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "shirt",
+        "collar": "vneck",
+        "pocket": true,
+        "badge": "#d8363a"
+      },
+      "accessories": [
+        "blush"
+      ],
+      "look": "ricks",
+      "faceCat": "female",
+      "figure": {
+        "form": "standard",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "M",
+        "limbs": "M"
+      }
+    },
+    {
+      "id": "zd-brock-p3",
+      "name": "Brock · mechanic (Part 3 face)",
+      "project": "zombie-devil",
+      "identity": "zd-brock-p3",
+      "seed": 92,
+      "jacket": "#35507a",
+      "pants": "#35507a",
+      "boots": "#3a2c2a",
+      "hair": "#5b3a26",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "build": "stout",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#e8833a",
+        "hatAccent": "#2b2b33",
+        "top": "overalls",
+        "shirt": "#b0703f",
+        "pattern": "plaid",
+        "patternColor": "#7a4a2a",
+        "beard": "#5b3a26",
+        "belt": "#2b2b33"
+      },
+      "accessories": [
+        "stubble"
+      ],
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "XL",
+        "bodySize": "XXL",
+        "legs": "M",
+        "limbs": "XL"
+      }
+    },
+    {
+      "id": "zd-troy-p3",
+      "name": "Troy · traitor (Part 3 face)",
+      "project": "zombie-devil",
+      "identity": "zd-troy-p3",
+      "seed": 21,
+      "jacket": "#2b2b33",
+      "pants": "#24232a",
+      "boots": "#1a181d",
+      "hair": "#1f1c22",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "beanie",
+        "cap": "#1f1c22",
+        "top": "coat",
+        "shirt": "#1f1c22",
+        "collar": "turtleneck",
+        "scarf": "#5a1f24",
+        "beard": "#2a211d",
+        "hatAccent": "#3a2a30"
+      },
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "M",
+        "bodySize": "S",
+        "legs": "XL",
+        "limbs": "M"
+      }
+    },
+    {
+      "id": "zd-slade-p3",
+      "name": "Slade · raider boss (Part 3 face)",
+      "project": "zombie-devil",
+      "identity": "zd-slade-p3",
+      "seed": 97,
+      "jacket": "#5a3b2a",
+      "pants": "#26242b",
+      "boots": "#1a181d",
+      "hair": "#1f1c22",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "bandana",
+        "cap": "#7a1f24",
+        "top": "jacket",
+        "shirt": "#2b2b33",
+        "collar": "none",
+        "belt": "#1a181d",
+        "moustache": "#1f1c22",
+        "moustacheStyle": "bold",
+        "buttonCount": 0
+      },
+      "accessories": [
+        "eyepatch",
+        "scar"
+      ],
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "XL",
+        "limbs": "L"
+      }
+    },
+    {
+      "id": "zd-raider-helmet-p3",
+      "name": "Raider · biker (Part 3)",
+      "project": "zombie-devil",
+      "identity": "zd-raider-helmet-p3",
+      "seed": 101,
+      "jacket": "#4a4d57",
+      "pants": "#2e3340",
+      "boots": "#1f1c22",
+      "hair": "#2c2321",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "helmet",
+        "cap": "#2b2b33",
+        "top": "hoodie",
+        "pocket": true
+      },
+      "accessories": [
+        "sunglasses"
+      ],
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "L",
+        "bodySize": "XXL",
+        "legs": "L",
+        "limbs": "XL"
+      }
+    },
+    {
+      "id": "zd-raider-beanie-p3",
+      "name": "Raider · beanie (Part 3)",
+      "project": "zombie-devil",
+      "identity": "zd-raider-beanie-p3",
+      "seed": 104,
+      "jacket": "#6b5a3a",
+      "pants": "#3a3f4f",
+      "boots": "#3a2c2a",
+      "hair": "#634331",
+      "hairStyle": "long",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "beanie",
+        "cap": "#b88a2e",
+        "top": "vest",
+        "shirt": "#8a2f2f",
+        "pattern": "plaid",
+        "patternColor": "#5a1f1f",
+        "beard": "#634331"
+      },
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "XL",
+        "bodySize": "XL",
+        "legs": "M",
+        "limbs": "L"
+      }
+    },
+    {
+      "id": "zd-raider-cap-p3",
+      "name": "Raider · camo cap (Part 3)",
+      "project": "zombie-devil",
+      "identity": "zd-raider-cap-p3",
+      "seed": 109,
+      "jacket": "#5d6b3a",
+      "pants": "#4a4535",
+      "boots": "#2a2830",
+      "hair": "#2a211d",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "hat": "cap",
+        "cap": "#3a4528",
+        "top": "jacket",
+        "pattern": "dots",
+        "patternColor": "#7d8a52",
+        "shirt": "#d9d6c4",
+        "collar": "shirt"
+      },
+      "accessories": [
+        "stubble",
+        "scar"
+      ],
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "XL",
+        "limbs": "L"
+      }
+    },
+    {
+      "id": "zd-raider-mohawk-p3",
+      "name": "Raider · spikes (Part 3)",
+      "project": "zombie-devil",
+      "identity": "zd-raider-mohawk-p3",
+      "seed": 113,
+      "jacket": "#2b2b33",
+      "pants": "#5b4a6a",
+      "boots": "#1a181d",
+      "hair": "#c8423b",
+      "hairStyle": "spiky",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "vest",
+        "shirt": "#4a4d57",
+        "scarf": "#2b2b33"
+      },
+      "accessories": [
+        "eyepatch"
+      ],
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headSize": "M",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "M"
+      }
+    },
+    {
+      "id": "re-napoleon",
+      "name": "Napoleon · emperor (Rabbit Emperor)",
+      "project": "rabbit-emperor",
+      "identity": "re-napoleon",
+      "seed": 1807,
+      "jacket": "#24345e",
+      "pants": "#f1ede4",
+      "boots": "#1d1a22",
+      "hair": "#3a2a22",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "jacket",
+        "shirt": "#f4efe2",
+        "sash": "#c8323a",
+        "buttonCount": 3
+      },
+      "look": "ricks",
+      "figure": {
+        "form": "standard",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "S",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "male",
+      "props": [
+        "rc:4:napoleon:hat",
+        "our:body:sash"
+      ]
+    },
+    {
+      "id": "re-chief",
+      "name": "Chief of staff · organiser (Rabbit Emperor)",
+      "project": "rabbit-emperor",
+      "identity": "re-chief",
+      "seed": 412,
+      "jacket": "#2e7d5b",
+      "pants": "#f1ede4",
+      "boots": "#2a1f1c",
+      "hair": "#8a4f2c",
+      "hairStyle": "curly",
+      "coat": true,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "coat",
+        "shirt": "#f4efe2",
+        "sash": "#e8c45a",
+        "badge": "#e8c45a"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "piece": "earPencil"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "egg",
+        "headSize": "M",
+        "bodySize": "S",
+        "legs": "XL",
+        "limbs": "S",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": [
+        "our:body:sash",
+        "our:body:badge"
+      ]
+    },
+    {
+      "id": "re-gen-rouge",
+      "name": "General Rouge · stout general (Rabbit Emperor)",
+      "project": "rabbit-emperor",
+      "identity": "re-gen-rouge",
+      "seed": 233,
+      "jacket": "#b8323a",
+      "pants": "#2b3448",
+      "boots": "#1d1a22",
+      "hair": "#6b4a35",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "jacket",
+        "sash": "#f4efe2",
+        "badge": "#e8c45a",
+        "moustache": "#6b4a35",
+        "moustacheStyle": "bold"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "beard": "muttonChops",
+        "stache": "walrus"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "round",
+        "headSize": "M",
+        "bodySize": "XL",
+        "legs": "M",
+        "limbs": "L",
+        "arms": "M"
+      },
+      "faceCat": "male",
+      "props": [
+        "our:body:sash",
+        "our:body:badge"
+      ]
+    },
+    {
+      "id": "re-gen-plume",
+      "name": "General Plume · lanky general (Rabbit Emperor)",
+      "project": "rabbit-emperor",
+      "identity": "re-gen-plume",
+      "seed": 587,
+      "jacket": "#5b3a6e",
+      "pants": "#f1ede4",
+      "boots": "#1d1a22",
+      "hair": "#d9d4cc",
+      "hairStyle": "ponytail",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "jacket",
+        "scarf": "#f4efe2",
+        "moustache": "#d9d4cc"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "hair": "queue",
+        "stache": "handlebar"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "potato",
+        "headSize": "M",
+        "bodySize": "S",
+        "legs": "L",
+        "limbs": "S",
+        "arms": "L"
+      },
+      "faceCat": "elder",
+      "props": [
+        "our:body:scarf"
+      ]
+    },
+    {
+      "id": "re-farmer",
+      "name": "Farmer · tame rabbits (Rabbit Emperor)",
+      "project": "rabbit-emperor",
+      "identity": "re-farmer",
+      "seed": 95,
+      "jacket": "#7a5434",
+      "pants": "#5a4a3a",
+      "boots": "#3a2c22",
+      "hair": "#bdb6ac",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "vest",
+        "shirt": "#efe4c8",
+        "scarf": "#c8323a",
+        "beard": "#bdb6ac"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "hat": "farmStraw",
+        "beard": "short"
+      },
+      "figure": {
+        "form": "dad",
+        "headShape": "potato",
+        "headSize": "M",
+        "bodySize": "L",
+        "legs": "M",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "elder",
+      "props": [
+        "our:body:scarf"
+      ]
     }
   ]
 }

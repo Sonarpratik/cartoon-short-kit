@@ -1,0 +1,35 @@
+{
+  "id": "zd-raider-cap-p3",
+  "name": "Raider · camo cap (Part 3)",
+  "project": "zombie-devil",
+  "identity": "zd-raider-cap-p3",
+  "seed": 109,
+  "jacket": "#5d6b3a",
+  "pants": "#4a4535",
+  "boots": "#2a2830",
+  "hair": "#2a211d",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "hat": "cap",
+    "cap": "#3a4528",
+    "top": "jacket",
+    "pattern": "dots",
+    "patternColor": "#7d8a52",
+    "shirt": "#d9d6c4",
+    "collar": "shirt"
+  },
+  "accessories": [
+    "stubble",
+    "scar"
+  ],
+  "look": "ricks",
+  "figure": {
+    "form": "standard",
+    "headSize": "L",
+    "bodySize": "L",
+    "legs": "XL",
+    "limbs": "L"
+  }
+}

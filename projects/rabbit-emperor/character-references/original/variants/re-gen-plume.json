@@ -1,0 +1,37 @@
+{
+  "id": "re-gen-plume",
+  "name": "General Plume · lanky general (Rabbit Emperor)",
+  "project": "rabbit-emperor",
+  "identity": "re-gen-plume",
+  "seed": 587,
+  "jacket": "#5b3a6e",
+  "pants": "#f1ede4",
+  "boots": "#1d1a22",
+  "hair": "#d9d4cc",
+  "hairStyle": "ponytail",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "jacket",
+    "scarf": "#f4efe2",
+    "moustache": "#d9d4cc"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "hair": "queue",
+    "stache": "handlebar"
+  },
+  "figure": {
+    "form": "standard",
+    "headShape": "potato",
+    "headSize": "M",
+    "bodySize": "S",
+    "legs": "L",
+    "limbs": "S",
+    "arms": "L"
+  },
+  "faceCat": "elder",
+  "props": [
+    "our:body:scarf"
+  ]
+}

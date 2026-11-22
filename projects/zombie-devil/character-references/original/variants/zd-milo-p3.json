@@ -1,0 +1,31 @@
+{
+  "id": "zd-milo-p3",
+  "name": "Milo · best friend (Part 3 face, woman)",
+  "project": "zombie-devil",
+  "identity": "zd-milo-p3",
+  "seed": 81,
+  "jacket": "#c8423b",
+  "pants": "#2b3448",
+  "boots": "#f1ede4",
+  "hair": "#c58a3c",
+  "hairStyle": "spiky",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "hoodie",
+    "pocket": true,
+    "sleeves": "#a83530"
+  },
+  "accessories": [
+    "freckles"
+  ],
+  "look": "ricks",
+  "faceCat": "female",
+  "figure": {
+    "form": "standard",
+    "headSize": "L",
+    "bodySize": "M",
+    "legs": "L",
+    "limbs": "M"
+  }
+}

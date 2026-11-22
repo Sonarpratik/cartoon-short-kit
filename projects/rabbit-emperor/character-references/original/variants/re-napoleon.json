@@ -1,0 +1,35 @@
+{
+  "id": "re-napoleon",
+  "name": "Napoleon · emperor (Rabbit Emperor)",
+  "project": "rabbit-emperor",
+  "identity": "re-napoleon",
+  "seed": 1807,
+  "jacket": "#24345e",
+  "pants": "#f1ede4",
+  "boots": "#1d1a22",
+  "hair": "#3a2a22",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "jacket",
+    "shirt": "#f4efe2",
+    "sash": "#c8323a",
+    "buttonCount": 3
+  },
+  "look": "ricks",
+  "figure": {
+    "form": "standard",
+    "headShape": "round",
+    "headSize": "L",
+    "bodySize": "M",
+    "legs": "S",
+    "limbs": "M",
+    "arms": "M"
+  },
+  "faceCat": "male",
+  "props": [
+    "rc:4:napoleon:hat",
+    "our:body:sash"
+  ]
+}

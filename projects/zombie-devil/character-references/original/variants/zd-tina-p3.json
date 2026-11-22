@@ -1,0 +1,32 @@
+{
+  "id": "zd-tina-p3",
+  "name": "Tina · medic (Part 3 face)",
+  "project": "zombie-devil",
+  "identity": "zd-tina-p3",
+  "seed": 86,
+  "jacket": "#7fb7d9",
+  "pants": "#7fb7d9",
+  "boots": "#f1ede4",
+  "hair": "#2a211d",
+  "hairStyle": "bun",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "shirt",
+    "collar": "vneck",
+    "pocket": true,
+    "badge": "#d8363a"
+  },
+  "accessories": [
+    "blush"
+  ],
+  "look": "ricks",
+  "faceCat": "female",
+  "figure": {
+    "form": "standard",
+    "headSize": "L",
+    "bodySize": "M",
+    "legs": "M",
+    "limbs": "M"
+  }
+}

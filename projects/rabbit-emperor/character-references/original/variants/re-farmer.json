@@ -1,0 +1,38 @@
+{
+  "id": "re-farmer",
+  "name": "Farmer · tame rabbits (Rabbit Emperor)",
+  "project": "rabbit-emperor",
+  "identity": "re-farmer",
+  "seed": 95,
+  "jacket": "#7a5434",
+  "pants": "#5a4a3a",
+  "boots": "#3a2c22",
+  "hair": "#bdb6ac",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "vest",
+    "shirt": "#efe4c8",
+    "scarf": "#c8323a",
+    "beard": "#bdb6ac"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "hat": "farmStraw",
+    "beard": "short"
+  },
+  "figure": {
+    "form": "dad",
+    "headShape": "potato",
+    "headSize": "M",
+    "bodySize": "L",
+    "legs": "M",
+    "limbs": "M",
+    "arms": "M"
+  },
+  "faceCat": "elder",
+  "props": [
+    "our:body:scarf"
+  ]
+}

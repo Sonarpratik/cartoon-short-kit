@@ -1,0 +1,40 @@
+{
+  "id": "re-gen-rouge",
+  "name": "General Rouge · stout general (Rabbit Emperor)",
+  "project": "rabbit-emperor",
+  "identity": "re-gen-rouge",
+  "seed": 233,
+  "jacket": "#b8323a",
+  "pants": "#2b3448",
+  "boots": "#1d1a22",
+  "hair": "#6b4a35",
+  "hairStyle": "receding",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "jacket",
+    "sash": "#f4efe2",
+    "badge": "#e8c45a",
+    "moustache": "#6b4a35",
+    "moustacheStyle": "bold"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "beard": "muttonChops",
+    "stache": "walrus"
+  },
+  "figure": {
+    "form": "standard",
+    "headShape": "round",
+    "headSize": "M",
+    "bodySize": "XL",
+    "legs": "M",
+    "limbs": "L",
+    "arms": "M"
+  },
+  "faceCat": "male",
+  "props": [
+    "our:body:sash",
+    "our:body:badge"
+  ]
+}
