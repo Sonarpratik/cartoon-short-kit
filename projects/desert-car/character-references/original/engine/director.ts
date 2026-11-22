@@ -51,17 +51,36 @@ export function easeOutBurst(u:number){const t=Math.max(0,Math.min(1,u));return 
 export const linearProgress=(u:number)=>Math.max(0,Math.min(1,u));
 export const EASE={inOut:motionProgress,burst:easeOutBurst,creep:linearProgress} as const;
 
-/** Camera grammar by story beat (frames at 30 fps). See references/camera-guide.md for when to use each. */
+/** Camera grammar by story beat (frames at 30 fps), the reference approach (references/camera-guide.md): the camera
+ * moves nearly all the time, every shot pushes in 30-100 %, rests are slow pushes that land on the narrated word,
+ * scenes join with a move (transitions.ts). `rest` = what the camera does while "resting" (never frozen). */
 export const CAMERA_PACE = {
- hook:        {ease:'burst', moveFrames:[6,10],   hold:true,  note:'fast punch-in or whip into the paradox, then hold on the face/prop'},
- setting:     {ease:'inOut', moveFrames:[60,120], hold:false, note:'slow establishing glide or aerial descent that shows geography'},
- escalation:  {ease:'burst', moveFrames:[8,14],   hold:true,  note:'short burst reframes between holds; low angles; dutch tilt on shocks'},
- mystery:     {ease:'creep', moveFrames:[45,90],  hold:false, note:'very slow push-in on one face'},
- explanation: {ease:'inOut', moveFrames:[60,150], hold:true,  note:'mostly holds and slow drift; insert close-ups of the mechanism'},
- payoff:      {ease:'burst', moveFrames:[4,8],    hold:true,  note:'snap zoom or impact kick, then a still hold to the last word'},
+ hook:        {ease:'burst', moveFrames:[6,10],   rest:'push', note:'open moving on the strange act (first face < 1.5 s); punch in and land on the hook word'},
+ setting:     {ease:'inOut', moveFrames:[90,210], rest:'push', note:'one 3-7 s journey: start on a detail and rise or pull back until the place towers (or the reverse)'},
+ escalation:  {ease:'inOut', moveFrames:[30,60],  rest:'push', note:'1-2 s hops between faces landing on each noun; low angle looking up for power; roll 4-6 deg only inside a travel'},
+ mystery:     {ease:'creep', moveFrames:[45,90],  rest:'push', note:'slow push on one face'},
+ explanation: {ease:'inOut', moveFrames:[90,210], rest:'push', note:'follow the force through the mechanism in one move (hand, lever, rod, signal)'},
+ payoff:      {ease:'burst', moveFrames:[4,8],    rest:'push', note:'very close after a wide, or the object comes to the lens; land on the last word'},
 } as const;
-/** Peak screen speed limits at 1080 px width, measured from the reference channel. */
-export const CAMERA_SPEED_PX_PER_FRAME = {hold:.5,slow:3,medium:12,fast:35,whip:80} as const;
+/** Peak screen speed limits at 1080 px width. Ordinary moves p90 about 37 px/f (25 at 720p); only whips go faster, <= 10 f. */
+export const CAMERA_SPEED_PX_PER_FRAME = {rest:1.8,slow:6,medium:20,ordinaryP90:37,whip:90} as const;
+
+/** Pose that makes the subject at the look target `grow` bigger on screen (0.45 = 45 %), counting a lens change:
+ * the lens slides along its aim. Use for the end key of a shot (rule: 30-100 % per shot). */
+export function pushIn(from:CameraPose,grow:number,toFov=from.fov??39):CameraPose{
+ const d=from.position.map((v,i)=>v-from.target[i]) as V3,dist=Math.hypot(...d),t=(f:number)=>Math.tan(f*Math.PI/360);
+ const want=dist*t(from.fov??39)/((1+grow)*t(toFov)),k=want/(dist||1);
+ return {...from,fov:toFov,position:from.target.map((v,i)=>v+d[i]*k) as V3};
+}
+/** Lens at character height looking at a character standing at `subject` (feet): chest about 0.9 m, eyes about 1.45 m.
+ * yaw = degrees around the character from straight in front (+z). Keeps the look-down to the chest under 10 deg. */
+export function eyeLevelPose(subject:V3,{distance=5,yaw=0,height=1.3,aim=1.3,fov=39}:{distance?:number;yaw?:number;height?:number;aim?:number;fov?:number}={}):CameraPose{
+ const r=yaw*Math.PI/180;
+ return {position:[subject[0]+Math.sin(r)*distance,subject[1]+height,subject[2]+Math.cos(r)*distance],target:[subject[0],subject[1]+aim,subject[2]],fov};
+}
+/** Crane from a high view down to character height (u 0..1). Start it before the character enters the frame:
+ * high and top-down views are only for places and objects with no character in frame. */
+export const craneDown=(u:number,high:CameraPose,eye:CameraPose)=>glideCamera(u,high,eye,motionProgress);
 
 /** Deterministic C1 camera path: position, aim, focus and lens travel together; no hidden cuts.
  * `ease` picks the speed profile: EASE.inOut (default glide), EASE.burst (punch), EASE.creep (slow push). */

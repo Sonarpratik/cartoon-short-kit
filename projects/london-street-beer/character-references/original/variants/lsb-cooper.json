@@ -1,0 +1,39 @@
+{
+  "id": "lsb-cooper",
+  "name": "Brewery worker · cooper (London Street Beer)",
+  "project": "london-street-beer",
+  "identity": "lsb-cooper",
+  "seed": 417,
+  "jacket": "#7a4a2a",
+  "pants": "#4a4038",
+  "boots": "#2a1f1c",
+  "hair": "#c0632e",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "build": "stout",
+  "outfit": {
+    "top": "apron",
+    "apron": "#5a3b28",
+    "shirt": "#efe6d2",
+    "hat": "cap",
+    "cap": "#5d6650"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "blacksmith",
+    "hat": "flatcap",
+    "beard": "muttonChops"
+  },
+  "figure": {
+    "form": "standard",
+    "headShape": "potato",
+    "headSize": "M",
+    "bodySize": "XL",
+    "legs": "M",
+    "limbs": "L",
+    "arms": "M"
+  },
+  "faceCat": "male",
+  "props": []
+}

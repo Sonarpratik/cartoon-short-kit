@@ -1,0 +1,37 @@
+{
+  "id": "lsb-kid",
+  "name": "Street kid · washtub sailor (London Street Beer)",
+  "project": "london-street-beer",
+  "identity": "lsb-kid",
+  "seed": 77,
+  "jacket": "#5d8a3a",
+  "pants": "#6b5a48",
+  "boots": "#3a2e26",
+  "hair": "#3a2a22",
+  "hairStyle": "curly",
+  "coat": false,
+  "skin": "#faf9f5",
+  "build": "kid",
+  "outfit": {
+    "top": "vest"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "newsboy",
+    "hair": "moptop",
+    "acc": "plaster"
+  },
+  "figure": {
+    "form": "kid",
+    "headShape": "bun",
+    "headSize": "L",
+    "bodySize": "S",
+    "legs": "S",
+    "limbs": "S",
+    "arms": "M"
+  },
+  "faceCat": "child",
+  "props": [
+    "our:face:freckles"
+  ]
+}

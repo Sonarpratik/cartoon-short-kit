@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "project": "london-street-beer",
+  "archivedAt": "2026-11-22T13:19:43.096Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/london-street-beer/characters",
+    "scene": "projects/london-street-beer/src"
+  },
+  "characters": [
+    "lsb-clerk",
+    "lsb-cooper",
+    "lsb-washerwoman",
+    "lsb-kid"
+  ],
+  "files": {
+    "engine/angle-designs.ts": "3126e03141795aa6",
+    "cast.json": "99a9b9b22bf228d5",
+    "engine/character-rig.ts": "31b5349e625953c7",
+    "engine/director.ts": "d39d6c7d3793fe87",
+    "engine/face-style.ts": "64a8060afa172850",
+    "engine/hair-3d.ts": "4172330993389164",
+    "engine/style.ts": "db0add7cfefacb39",
+    "engine/toon.ts": "b0a0c9d52dd332d0",
+    "scene/actor.ts": "ccdb5790c786b22d",
+    "scene/engine/puppet.ts": "a9303600f9420be7",
+    "scene/engine/character-draw.ts": "1470a4b18719dfc6"
+  }
+}

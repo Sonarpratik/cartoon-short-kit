@@ -2,208 +2,165 @@
   "schemaVersion": 1,
   "characters": [
     {
-      "id": "ba-goofy",
-      "name": "Private Goofy",
+      "id": "ba2-pilot",
+      "name": "Recon pilot · the spy in the sky (Balloon Army 2026)",
       "project": "balloon-army",
-      "identity": "ba-goofy",
-      "seed": 211,
-      "jacket": "#8a8a52",
-      "pants": "#5a5638",
-      "boots": "#3a2c22",
-      "hair": "#a5512f",
-      "hairStyle": "curly",
-      "coat": false,
-      "skin": "#faf9f5",
-      "outfit": {
-        "hat": "helmet",
-        "cap": "#6b7045",
-        "hatAccent": "#565a36",
-        "top": "jacket",
-        "shirt": "#c9b98a",
-        "collar": "shirt",
-        "pocket": true,
-        "buttonCount": 3
-      },
-      "accessories": [
-        "freckles",
-        "blush"
-      ]
-    },
-    {
-      "id": "ba-painter",
-      "name": "Painter Â· the winker",
-      "project": "balloon-army",
-      "identity": "ba-painter",
-      "seed": 223,
-      "jacket": "#d9cdb0",
-      "pants": "#5a5638",
-      "boots": "#3a2c22",
-      "hair": "#2a211d",
+      "identity": "ba2-pilot",
+      "seed": 1944,
+      "jacket": "#7a4e2e",
+      "pants": "#4a5260",
+      "boots": "#1d1a22",
+      "hair": "#5a3a24",
       "hairStyle": "sidepart",
       "coat": false,
       "skin": "#faf9f5",
       "outfit": {
-        "hat": "beret",
-        "cap": "#2b2a3a",
-        "hatAccent": "#1d1c28",
-        "top": "apron",
-        "pattern": "dots",
-        "patternColor": "#c8423b",
-        "shirt": "#6b6e48",
-        "collar": "shirt",
-        "moustache": "#2a211d",
-        "scarf": "#c8423b"
+        "top": "jacket",
+        "shirt": "#f4efe2",
+        "scarf": "#f6f3ea"
       },
-      "accessories": [
-        "stubble"
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "bomberPilot",
+        "hair": "slickBack",
+        "acc": "plaster"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "egg",
+        "headSize": "M",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "S",
+        "arms": "M"
+      },
+      "faceCat": "male",
+      "props": [
+        "our:body:scarf"
       ]
     },
     {
-      "id": "ba-sound",
-      "name": "Sound man",
+      "id": "ba2-general",
+      "name": "General · turns the guns (Balloon Army 2026)",
       "project": "balloon-army",
-      "identity": "ba-sound",
-      "seed": 229,
-      "jacket": "#4f6a5a",
-      "pants": "#4a4a3a",
-      "boots": "#3a2c22",
-      "hair": "#6a3420",
+      "identity": "ba2-general",
+      "seed": 1890,
+      "jacket": "#5b6b80",
+      "pants": "#3c4656",
+      "boots": "#141218",
+      "hair": "#c9c4bc",
+      "hairStyle": "receding",
+      "coat": true,
+      "skin": "#faf9f5",
+      "build": "stout",
+      "outfit": {
+        "top": "coat",
+        "shirt": "#e8e2d4",
+        "hat": "peaked",
+        "cap": "#4e5d72",
+        "hatAccent": "#d8b24a",
+        "buttonCount": 4,
+        "badge": "#d8b24a"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "armyOfficer",
+        "stache": "walrus",
+        "acc": "monocle"
+      },
+      "figure": {
+        "form": "dad",
+        "headShape": "potato",
+        "headSize": "M",
+        "bodySize": "XL",
+        "legs": "S",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "elder",
+      "props": [
+        "our:hat:peaked"
+      ]
+    },
+    {
+      "id": "ba2-hero",
+      "name": "Art-student soldier · the hero (Balloon Army 2026)",
+      "project": "balloon-army",
+      "identity": "ba2-hero",
+      "seed": 23,
+      "jacket": "#6b7a3e",
+      "pants": "#5c6436",
+      "boots": "#3a2a1e",
+      "hair": "#7a4a28",
       "hairStyle": "curly",
       "coat": false,
       "skin": "#faf9f5",
       "outfit": {
-        "top": "sweater",
-        "pattern": "knit",
-        "patternColor": "#3f5a4a",
-        "collar": "shirt",
-        "shirt": "#c9b98a"
+        "top": "jacket",
+        "shirt": "#d9cf9e",
+        "hat": "helmet",
+        "cap": "#5f6b36",
+        "pattern": "dots",
+        "patternColor": "#f2c84b"
       },
-      "accessories": [
-        "sunglasses"
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "workShirt",
+        "acc": "roundGlasses",
+        "piece": "earPencil"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "M",
+        "limbs": "S",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": [
+        "our:hat:helmet"
       ]
     },
     {
-      "id": "ba-radio",
-      "name": "Radio man",
+      "id": "ba2-sound",
+      "name": "Art-student soldier · bulldozer and speakers (Balloon Army 2026)",
       "project": "balloon-army",
-      "identity": "ba-radio",
-      "seed": 233,
-      "jacket": "#b08a50",
-      "pants": "#5a5638",
-      "boots": "#3a2c22",
-      "hair": "#2a211d",
+      "identity": "ba2-sound",
+      "seed": 1100,
+      "jacket": "#55663f",
+      "pants": "#55663f",
+      "boots": "#2a221c",
+      "hair": "#2e2622",
       "hairStyle": "buzz",
-      "coat": false,
-      "skin": "#faf9f5",
-      "outfit": {
-        "top": "vest",
-        "shirt": "#d9cfae",
-        "collar": "shirt",
-        "tie": "#5a4a30",
-        "buttonCount": 4,
-        "pocket": true
-      },
-      "accessories": []
-    },
-    {
-      "id": "ba-guard",
-      "name": "Lonely Guard",
-      "project": "balloon-army",
-      "identity": "ba-guard",
-      "seed": 239,
-      "jacket": "#6b5236",
-      "pants": "#4a4433",
-      "boots": "#2a2228",
-      "hair": "#5b3a26",
-      "hairStyle": "buzz",
-      "coat": false,
-      "skin": "#faf9f5",
-      "outfit": {
-        "hat": "beanie",
-        "cap": "#5d6340",
-        "hatAccent": "#4d5233",
-        "top": "coat",
-        "collar": "turtleneck",
-        "scarf": "#8a2f2f"
-      },
-      "accessories": [
-        "stubble"
-      ]
-    },
-    {
-      "id": "ba-driver",
-      "name": "Truck driver",
-      "project": "balloon-army",
-      "identity": "ba-driver",
-      "seed": 241,
-      "jacket": "#4a5a6e",
-      "pants": "#3a4250",
-      "boots": "#2a2228",
-      "hair": "#3a2a24",
-      "hairStyle": "receding",
       "coat": false,
       "skin": "#faf9f5",
       "outfit": {
         "top": "overalls",
-        "shirt": "#c9b98a",
-        "collar": "shirt",
-        "sleeves": "#c9b98a"
+        "shirt": "#f0e8d8",
+        "pattern": "hstripes",
+        "patternColor": "#e8893a",
+        "hat": "beanie",
+        "cap": "#3f4a30"
       },
-      "accessories": [
-        "stubble"
-      ]
-    },
-    {
-      "id": "ba-scout",
-      "name": "German scout",
-      "project": "balloon-army",
-      "identity": "ba-scout",
-      "seed": 251,
-      "jacket": "#6a7262",
-      "pants": "#555b50",
-      "boots": "#1e1a20",
-      "hair": "#d9b45a",
-      "hairStyle": "buzz",
-      "coat": false,
-      "skin": "#faf9f5",
-      "outfit": {
-        "hat": "helmet",
-        "cap": "#585d5a",
-        "hatAccent": "#4a4e4c",
-        "top": "coat",
-        "collar": "shirt",
-        "shirt": "#8a8e80",
-        "belt": "#2a2228"
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "mechanic",
+        "hat": "beanie",
+        "piece": "headphones"
       },
-      "accessories": []
-    },
-    {
-      "id": "ba-officer",
-      "name": "German officer",
-      "project": "balloon-army",
-      "identity": "ba-officer",
-      "seed": 257,
-      "jacket": "#6a705e",
-      "pants": "#3a3a40",
-      "boots": "#1e1a20",
-      "hair": "#8d8780",
-      "hairStyle": "sidepart",
-      "coat": false,
-      "skin": "#faf9f5",
-      "build": "stout",
-      "outfit": {
-        "hat": "peaked",
-        "cap": "#5f675a",
-        "hatAccent": "#c9ccd2",
-        "top": "jacket",
-        "shirt": "#d9d6cc",
-        "collar": "shirt",
-        "tie": "#2a2a30",
-        "moustache": "#6a645c",
-        "moustacheStyle": "bold",
-        "belt": "#2a2228"
+      "figure": {
+        "form": "noodle",
+        "headShape": "egg",
+        "headSize": "S",
+        "bodySize": "S",
+        "legs": "XL",
+        "limbs": "S",
+        "arms": "L"
       },
-      "accessories": []
+      "faceCat": "male",
+      "props": []
     }
   ]
 }

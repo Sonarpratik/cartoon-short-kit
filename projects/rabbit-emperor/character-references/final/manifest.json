@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "project": "rabbit-emperor",
+  "archivedAt": "2026-11-22T12:00:19.976Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/rabbit-emperor/characters",
+    "scene": "projects/rabbit-emperor/src"
+  },
+  "characters": [
+    "re-napoleon",
+    "re-chief",
+    "re-gen-rouge",
+    "re-gen-plume",
+    "re-farmer"
+  ],
+  "files": {
+    "engine/angle-designs.ts": "3126e03141795aa6",
+    "cast.json": "de455ec1025aa622",
+    "engine/character-rig.ts": "31b5349e625953c7",
+    "engine/director.ts": "d39d6c7d3793fe87",
+    "engine/face-style.ts": "64a8060afa172850",
+    "engine/hair-3d.ts": "4172330993389164",
+    "engine/style.ts": "db0add7cfefacb39",
+    "engine/toon.ts": "b0a0c9d52dd332d0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "lsb-washerwoman",
+  "name": "Washerwoman · St Giles (London Street Beer)",
+  "project": "london-street-beer",
+  "identity": "lsb-washerwoman",
+  "seed": 903,
+  "jacket": "#a8505e",
+  "pants": "#5a4a5e",
+  "boots": "#2a2228",
+  "hair": "#7a6a62",
+  "hairStyle": "bun",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "apron",
+    "apron": "#f1ebdd",
+    "cap": "#c0566a",
+    "hat": "bandana",
+    "pattern": "dots"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "smockFrock",
+    "hat": "headscarf",
+    "acc": "mole"
+  },
+  "figure": {
+    "form": "lady",
+    "headShape": "round",
+    "headSize": "M",
+    "bodySize": "L",
+    "legs": "S",
+    "limbs": "M",
+    "arms": "M"
+  },
+  "faceCat": "female",
+  "props": []
+}

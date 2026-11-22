@@ -241,6 +241,7 @@ export const FACE_CATS: Record<string, Cat> = {
   goblin: { label: 'Goblin', group: 'Creatures', eyes: 'glow', fx: ['fangs'], tint: '#a9d98b' },
   werewolf: { label: 'Werewolf', group: 'Creatures', eyes: 'glow', fx: ['fur', 'fangs'], tint: '#e8d2b6', brow: 1.3 },
   robot: { label: 'Robot', group: 'Creatures', eyes: 'bolt', fx: ['antenna'], tint: '#d6dde6' },
+  vulture: { label: 'Vulture (bald bird)', group: 'Creatures', fx: ['bags'], tint: '#eeb0a4', brow: 1.15 },
   clown: { label: 'Clown', group: 'Special eyes', fx: ['clownNose', 'cheeks'] },
   sick: { label: 'Sick', group: 'Special eyes', eyes: 'droopy', fx: ['bags'], tint: '#cfe8b4' },
 };
@@ -548,6 +549,32 @@ const HELD_ITEMS: Record<string, [string, (B: any) => string[]]> = {
   sword: ['Sword', B => { const [x, y] = B.hdR || [B.cx + 140, B.bot]; return [pth(`M${x - 7},${y - 30} L${x + 7},${y - 30} L${x + 6},${y - 250} L${x},${y - 272} L${x - 6},${y - 250} Z`, '#c9d1dc', 4), pth(`M${x - 34},${y - 30} L${x + 34},${y - 30} L${x + 34},${y - 18} L${x - 34},${y - 18} Z`, '#e8c45a', 4), pth(`M${x - 6},${y - 18} L${x + 6},${y - 18} L${x + 6},${y + 24} L${x - 6},${y + 24} Z`, '#6b4a2e', 4), elp(x, y, 15, 15, INK)]; }],
 };
 for (const [k, [label, draw]] of Object.entries(HELD_ITEMS)) addProp({ id: 'our:held:' + k, label: 'Our ' + label.toLowerCase(), group: 'Held', slot: 'over', fn: () => B => draw(B) });
+// Bird parts (2026-11-22, Desert Car vulture): hooked beak (face), feather ruff and napkin bib (body), folded wings (back).
+// Colours: outfit.beak, outfit.ruff, outfit.wing, outfit.bib (+ outfit.bibCheck).
+const BIRD_INK = '#241c22';
+function birdBeak(H: any, col: string) {
+  const { cx, hy } = H, v = H.view || 'front', s = H.dir || 1;
+  if (v === 'back') return [];
+  if (v === 'front') return [pth(`M${cx - 20},${hy - 8} Q${cx},${hy - 22} ${cx + 20},${hy - 8} Q${cx + 22},${hy + 14} ${cx + 8},${hy + 30} Q${cx},${hy + 42} ${cx - 8},${hy + 30} Q${cx - 22},${hy + 14} ${cx - 20},${hy - 8} Z`, col, 5),
+    pth(`M${cx - 8},${hy + 24} Q${cx},${hy + 44} ${cx + 8},${hy + 24} Q${cx},${hy + 30} ${cx - 8},${hy + 24} Z`, BIRD_INK, 0), elp(cx - 7, hy - 4, 3, 2.4, BIRD_INK), elp(cx + 7, hy - 4, 3, 2.4, BIRD_INK)];
+  const bx = cx + s * (v === 'side' ? 52 : 34), tip = bx + s * (v === 'side' ? 74 : 60), y = H.hy + (v === 'side' ? 4 : 14);
+  return [pth(`M${bx},${y - 16} Q${(bx + tip) / 2},${y - 22} ${tip},${y + 2} Q${tip + s * 6},${y + 18} ${tip - s * 6},${y + 30} Q${tip - s * 12},${y + 18} ${tip - s * 20},${y + 14} L${bx},${y + 16} Z`, col, 5),
+    pth(`M${tip - s * 2},${y + 10} Q${tip + s * 4},${y + 20} ${tip - s * 6},${y + 30} Q${tip - s * 8},${y + 20} ${tip - s * 2},${y + 10} Z`, BIRD_INK, 0), elp(bx + s * 16, y - 4, 3, 2.4, BIRD_INK)];
+}
+addProp({ id: 'our:face:beak', label: 'Our hooked beak (bird)', group: 'Face', slot: 'faceTop', fn: d => H => birdBeak(H, d.outfit?.beak ?? '#e6d29a') });
+addProp({ id: 'our:body:ruff', label: 'Our feather ruff (bird)', group: 'Body', slot: 'details', fn: d => B => { const c = d.outfit?.ruff ?? '#efe7d8', t = B.turn || 0;
+  return [...Array(9)].map((_, k) => elp(B.cx + (k - 4) * 30 + t * 30, B.top + 14 + Math.abs(k - 4) * -2 + (k % 2) * 8, 28, 24, c, 4)); } });
+addProp({ id: 'our:body:bib', label: 'Our napkin bib (checked)', group: 'Body', slot: 'details', fn: d => B => { if (B.view === 'back') return [];
+  const c = d.outfit?.bib ?? '#fbf8f1', ck = d.outfit?.bibCheck ?? '#d0413c', x = B.cx + (B.turn || 0) * 36, y = B.top + 30, w = B.view === 'side' ? 50 : 82;
+  const tri = `M${x - w},${y} L${x + w},${y} L${x},${y + 150} Z`, lines: string[] = [];
+  for (let i = 1; i < 5; i++) { const yy = y + i * 28, hw = w * (1 - i * 28 / 150); lines.push(`M${f1(x - hw)},${yy} L${f1(x + hw)},${yy}`); }
+  for (let i = -2; i <= 2; i++) lines.push(`M${f1(x + i * w * .36)},${y} L${f1(x + i * w * .36 * .2)},${y + 120}`);
+  return [pth(tri, c, 5), `<path d="${lines.join(' ')}" stroke="${ck}" stroke-width="7" fill="none" opacity=".85"/>`, pth(tri, 'none', 5), elp(x - w + 6, y + 2, 12, 9, c, 4), elp(x + w - 6, y + 2, 12, 9, c, 4)]; } });
+addProp({ id: 'our:back:wings', label: 'Our folded wings (bird)', group: 'Back', slot: 'behind', fn: d => B => { const c = d.outfit?.wing ?? '#3b3038', hi = mixc(c, '#ffffff', .25), o: string[] = [], { cx, top } = B;
+  for (const s of [-1, 1]) {
+    const w = `M${cx + s * 60},${top + 20} Q${cx + s * 200},${top + 10} ${cx + s * 210},${top + 160} Q${cx + s * 214},${top + 300} ${cx + s * 170},${top + 420} L${cx + s * 150},${top + 380} L${cx + s * 130},${top + 430} L${cx + s * 108},${top + 380} L${cx + s * 86},${top + 420} Q${cx + s * 70},${top + 250} ${cx + s * 60},${top + 20} Z`;
+    o.push(pth(w, c, 6), `<path d="M${cx + s * 90},${top + 70} Q${cx + s * 170},${top + 90} ${cx + s * 186},${top + 200} M${cx + s * 100},${top + 160} Q${cx + s * 160},${top + 190} ${cx + s * 176},${top + 300} M${cx + s * 105},${top + 260} Q${cx + s * 140},${top + 300} ${cx + s * 150},${top + 370}" stroke="${hi}" stroke-width="5" fill="none" stroke-linecap="round"/>`); }
+  return o; } });
 // Ricks Clips character parts: one prop per part slot of each of the 150 characters
 // What each Ricks Clips back / held prop really is (named from contact sheets, 2026-11-19).
 const PROP_NAMES: Record<string, string> = {

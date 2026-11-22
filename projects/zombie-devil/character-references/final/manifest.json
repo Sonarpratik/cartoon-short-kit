@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "project": "zombie-devil",
+  "archivedAt": "2026-11-22T12:00:19.985Z",
+  "reuse": "explicit-only",
+  "note": "Archived final character code for this story. Do NOT use in a new project unless the user explicitly asks for these characters.",
+  "sources": {
+    "engine": "projects/zombie-devil/characters",
+    "scene": "projects/zombie-devil/src"
+  },
+  "characters": [
+    "zd-jack-sheriff",
+    "zd-milo-p3",
+    "zd-tina-p3",
+    "zd-brock-p3",
+    "zd-troy-p3",
+    "zd-slade-p3",
+    "zd-raider-helmet-p3",
+    "zd-raider-beanie-p3",
+    "zd-raider-cap-p3",
+    "zd-raider-mohawk-p3"
+  ],
+  "files": {
+    "cast.json": "3c4572a8b5d2c563"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "lsb-clerk",
+  "name": "Clerk · fix it later (London Street Beer)",
+  "project": "london-street-beer",
+  "identity": "lsb-clerk",
+  "seed": 1814,
+  "jacket": "#2f6f8f",
+  "pants": "#3a3640",
+  "boots": "#1d1a22",
+  "hair": "#4a3324",
+  "hairStyle": "sidepart",
+  "coat": true,
+  "skin": "#faf9f5",
+  "outfit": {
+    "top": "coat",
+    "shirt": "#f4efe2"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "clerk1840",
+    "hair": "centrePart1840",
+    "stache": "pencil",
+    "piece": "earPencil",
+    "acc": "roundGlasses"
+  },
+  "figure": {
+    "form": "standard",
+    "headShape": "egg",
+    "headSize": "M",
+    "bodySize": "S",
+    "legs": "XL",
+    "limbs": "S",
+    "arms": "L"
+  },
+  "faceCat": "male",
+  "props": []
+}
