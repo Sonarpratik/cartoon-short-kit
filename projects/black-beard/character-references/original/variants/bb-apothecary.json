@@ -1,0 +1,33 @@
+{
+  "id": "bb-apothecary",
+  "name": "Apothecary · packs the medicine chest (Black Beard)",
+  "project": "black-beard",
+  "identity": "bb-apothecary",
+  "seed": 1722,
+  "jacket": "#7a5a3c",
+  "pants": "#4a4038",
+  "boots": "#2a2224",
+  "hair": "#d8d2c8",
+  "hairStyle": "receding",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {},
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "clerk1840",
+    "hair": "baldTufts",
+    "acc": "roundGlasses",
+    "piece": "earPencil"
+  },
+  "figure": {
+    "form": "elder",
+    "headShape": "bun",
+    "headSize": "L",
+    "bodySize": "M",
+    "legs": "S",
+    "limbs": "S",
+    "arms": "M"
+  },
+  "faceCat": "elder",
+  "props": []
+}

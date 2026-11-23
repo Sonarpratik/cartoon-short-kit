@@ -1,0 +1,33 @@
+{
+  "id": "bb-son",
+  "name": "Councillor's son · the small hostage (Black Beard)",
+  "project": "black-beard",
+  "identity": "bb-son",
+  "seed": 1721,
+  "jacket": "#b5413a",
+  "pants": "#efe6d2",
+  "boots": "#3a2a22",
+  "hair": "#8a5a32",
+  "hairStyle": "bob",
+  "coat": false,
+  "skin": "#faf9f5",
+  "build": "kid",
+  "outfit": {},
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "colonial",
+    "hair": "bowlCut",
+    "acc": "freckles"
+  },
+  "figure": {
+    "form": "kid",
+    "headShape": "round",
+    "headSize": "L",
+    "bodySize": "S",
+    "legs": "S",
+    "limbs": "S",
+    "arms": "S"
+  },
+  "faceCat": "child",
+  "props": []
+}

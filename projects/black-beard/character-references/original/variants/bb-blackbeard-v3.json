@@ -1,0 +1,46 @@
+{
+  "id": "bb-blackbeard-v3",
+  "name": "Blackbeard · taller pot belly, open shirt, peg leg (Black Beard)",
+  "project": "black-beard",
+  "identity": "bb-blackbeard-v3",
+  "seed": 1718,
+  "jacket": "#6a1f27",
+  "pants": "#2a2228",
+  "boots": "#141218",
+  "hair": "#17151b",
+  "hairStyle": "long",
+  "coat": true,
+  "skin": "#faf9f5",
+  "outfit": {
+    "cap": "#1c191f",
+    "hatAccent": "#c9a24a",
+    "beard": "#17151b",
+    "ribbon": "#c8302f",
+    "ribbonOdd": "#f0c43a",
+    "sling": "#a3242c",
+    "shirt": "#d6bf92"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "hat": "tricorn",
+    "hair": "longWild",
+    "beard": "long"
+  },
+  "figure": {
+    "form": "potbelly",
+    "headShape": "potato",
+    "headSize": "L",
+    "bodySize": "L",
+    "legs": "M",
+    "limbs": "L",
+    "arms": "XL"
+  },
+  "faceCat": "villain",
+  "props": [
+    "our:body:bellyShirt",
+    "our:face:beardRibbons",
+    "our:hat:fuses",
+    "our:body:pistols",
+    "our:body:pegLeg"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "characters": [
+    {
+      "id": "dc-driver",
+      "name": "Driver · stranded businessman (Desert Car)",
+      "project": "desert-car",
+      "identity": "dc-driver",
+      "seed": 2211,
+      "jacket": "#dbe7f2",
+      "pants": "#3a3e4b",
+      "boots": "#2a2224",
+      "hair": "#4a3326",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "shirt",
+        "shirt": "#dbe7f2",
+        "collar": true,
+        "tie": "#c8423b"
+      },
+      "look": "ricks",
+      "figure": {
+        "form": "dad",
+        "headShape": "potato",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "M",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "male",
+      "props": [
+        "our:body:tie",
+        "our:face:stubble"
+      ]
+    },
+    {
+      "id": "dc-pilot",
+      "name": "Pilot · rescue helicopter (Desert Car)",
+      "project": "desert-car",
+      "identity": "dc-pilot",
+      "seed": 2212,
+      "jacket": "#e8742c",
+      "pants": "#e8742c",
+      "boots": "#3a2f2a",
+      "hair": "#2b2a30",
+      "hairStyle": "ponytail",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "jacket",
+        "cap": "#f2f0ea",
+        "hatAccent": "#d0413c",
+        "badge": "#e8c45a"
+      },
+      "look": "ricks",
+      "figure": {
+        "form": "lady",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "M",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "female",
+      "props": [
+        "rc:8:aviator:hat",
+        "our:body:badge"
+      ]
+    },
+    {
+      "id": "dc-vulture",
+      "name": "Vulture · the patient diner (Desert Car)",
+      "project": "desert-car",
+      "identity": "dc-vulture",
+      "seed": 2213,
+      "jacket": "#3b3038",
+      "pants": "#3b3038",
+      "boots": "#c7a25a",
+      "hair": "#efe7d8",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "top": "jacket",
+        "beak": "#e6d29a",
+        "ruff": "#efe7d8",
+        "wing": "#3b3038",
+        "bib": "#fbf8f1",
+        "bibCheck": "#d0413c"
+      },
+      "look": "ricks",
+      "figure": {
+        "form": "noodle",
+        "headShape": "egg",
+        "headSize": "M",
+        "bodySize": "M",
+        "legs": "S",
+        "limbs": "S",
+        "arms": "S"
+      },
+      "faceCat": "vulture",
+      "props": [
+        "our:face:beak",
+        "our:body:ruff",
+        "our:back:wings",
+        "our:body:bib"
+      ],
+      "rcLook": {
+        "hair": "baldTufts"
+      }
+    }
+  ]
+}

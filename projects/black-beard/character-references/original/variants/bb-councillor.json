@@ -1,0 +1,31 @@
+{
+  "id": "bb-councillor",
+  "name": "Councillor · the hostage (Black Beard)",
+  "project": "black-beard",
+  "identity": "bb-councillor",
+  "seed": 1720,
+  "jacket": "#3f6b45",
+  "pants": "#e9e2d0",
+  "boots": "#1d1a22",
+  "hair": "#eeeae2",
+  "hairStyle": "curly",
+  "coat": true,
+  "skin": "#faf9f5",
+  "outfit": {},
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "colonial",
+    "hair": "powderWig"
+  },
+  "figure": {
+    "form": "noodle",
+    "headShape": "egg",
+    "headSize": "M",
+    "bodySize": "M",
+    "legs": "XL",
+    "limbs": "S",
+    "arms": "L"
+  },
+  "faceCat": "male",
+  "props": []
+}

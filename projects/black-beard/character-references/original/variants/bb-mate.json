@@ -1,0 +1,35 @@
+{
+  "id": "bb-mate",
+  "name": "Pirate mate · scared of his own captain (Black Beard)",
+  "project": "black-beard",
+  "identity": "bb-mate",
+  "seed": 1723,
+  "jacket": "#e9e2d0",
+  "pants": "#3a3236",
+  "boots": "#2a2224",
+  "hair": "#4a3020",
+  "hairStyle": "curly",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "cap": "#b23a32"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "pirateSailor",
+    "hat": "pirateBandana",
+    "hair": "curlyCrop",
+    "acc": "hoop"
+  },
+  "figure": {
+    "form": "noodle",
+    "headShape": "potato",
+    "headSize": "M",
+    "bodySize": "S",
+    "legs": "L",
+    "limbs": "S",
+    "arms": "L"
+  },
+  "faceCat": "male",
+  "props": []
+}

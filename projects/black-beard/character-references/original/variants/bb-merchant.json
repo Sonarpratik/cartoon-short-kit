@@ -1,0 +1,36 @@
+{
+  "id": "bb-merchant",
+  "name": "Merchant captain · gives up at a glance (Black Beard)",
+  "project": "black-beard",
+  "identity": "bb-merchant",
+  "seed": 1719,
+  "jacket": "#2f4a6e",
+  "pants": "#e9e2d0",
+  "boots": "#2a2224",
+  "hair": "#c9c4bc",
+  "hairStyle": "ponytail",
+  "coat": true,
+  "skin": "#faf9f5",
+  "outfit": {
+    "moustache": "#9a948c"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "exciseCoat1780",
+    "hair": "queue",
+    "stache": "walrus"
+  },
+  "figure": {
+    "form": "dad",
+    "headShape": "round",
+    "headSize": "L",
+    "bodySize": "XL",
+    "legs": "S",
+    "limbs": "M",
+    "arms": "M"
+  },
+  "faceCat": "male",
+  "props": [
+    "rc:4:columbus:over"
+  ]
+}

@@ -25,7 +25,11 @@ import { wear, HATS2, PIECES2 } from '/vendor/rc/vector2d_characters/code/head_w
 import { withGear, HELMETS } from '/vendor/rc/vector2d_characters/code/head_gear.mjs';
 import { withFace, BEARDS, STACHES, ACCESSORIES as FACE_ACC } from '/vendor/rc/vector2d_characters/code/face_gear.mjs';
 import { OUTFITS } from '/vendor/rc/vector2d_characters/code/outfit_lib.mjs';
-import { FORMS } from '/vendor/rc/vector2d_characters/code/bodies.mjs';
+import { FORMS, prof } from '/vendor/rc/vector2d_characters/code/bodies.mjs';
+// Pot belly (2026-11-23, Black Beard): the dad bod with a much rounder, wider gut. bodyPts sets the silhouette directly
+// (half-widths at 8 heights; belly = extra bulge forward in profile); wTop / wBot place the arms clear of the gut.
+FORMS.potbelly = { label: 'pot belly', S: { ...FORMS.dad.S, details: undefined, bodyTop: 300, bodyBot: 690, hipW: 46, stance: 30, wTop: 70, wBot: 128,
+  bodyPts: prof([0, 62, 118, 190, 246, 262, 236, 130], { belly: [0, 4, 30, 86, 136, 148, 104, 14], sk: .74 }) } };
 import { INK, headPts, smooth } from '/vendor/rc/vector2d_characters/code/char2d.mjs';
 import { angleDesign } from './angle-designs.js';   // OUR hair and hat shapes per view (templates/bridge/angle-designs.ts)
 import * as S01 from '/vendor/rc/vector2d_characters/code/sheets/sheet01.mjs';
@@ -173,7 +177,10 @@ for (const k of PRESETS) {
  *  the rest are the Ricks Clips presets. 'neutral' is kept as an alias of 'own'. */
 export const EXPRESSIONS = ['own', 'move', ...PRESETS];
 /** Library entry for an action id: feelings it fits, energy 1-3, views it exists in. */
-export const moveInfo = (id: string) => OWN_MOVES[id]?.info ?? LIB.find((s: any) => s.id === id);
+/** A move id may end in '!bare': the same move without the props it draws (the mug in the hand, the crate it sits on, its
+ *  back / front prop layers), so a scene can use its own real 3D props instead. */
+const bareOf = (id: string) => id.endsWith('!bare') ? id.slice(0, -5) : id;
+export const moveInfo = (id: string) => { const b = bareOf(id); return OWN_MOVES[b]?.info ?? LIB.find((s: any) => s.id === b); };
 const isOwn = (e?: string) => !e || e === 'own' || e === 'neutral' || e === 'move' || !FACES[e];
 
 // ---------- FACE CATEGORIES x EMOTIONS ----------
@@ -194,6 +201,8 @@ Object.assign(EXT_EYE, {
   socket: ({ ex, ey, k, look }: any) => [elp(ex, ey, 14 * k, 16, '#1d1620'), elp(ex + look * .6, ey + 1, 3, 3.4, '#ffffff')],
   glow: ({ ex, ey, k, look }: any) => [elp(ex, ey, 12 * k, 13, '#f7d64a', 4.2), elp(ex + look * .6, ey, 2.4, 9, INK)],
   glowRed: ({ ex, ey, k, look }: any) => [elp(ex, ey, 12 * k, 13, '#e2443d', 4.2), elp(ex + look * .6, ey, 2.4, 9, INK)],
+  // small glowing red ember dots (2026-11-23, Black Beard S02/S03): a soft red halo, the red dot (#ff2a1b), a white-hot core
+  emberDot: ({ ex, ey, k, look }: any) => { const x = ex + look * .5; return [elp(x, ey, 15 * k, 13, '#ff3a20', 0).replace('/>', ' opacity=".28"/>'), elp(x, ey, 7.5 * k, 7, '#ff2a1b', 0), elp(x - .6, ey - .6, 3 * k, 2.8, '#fff2e0', 0)]; },
   hollow: ({ ex, ey, k }: any) => [elp(ex, ey + 2, 10 * k, 15, INK)],
   droopy: ({ ex, ey, k, look }: any) => [elp(ex + look * .6, ey + 2, 6.5 * k, 7, INK), `<path d="M${f1(ex - 12 * k)},${f1(ey - 2)} Q${f1(ex)},${f1(ey - 6)} ${f1(ex + 12 * k)},${f1(ey + 1)}" fill="none" stroke="${INK}" stroke-width="4.4" stroke-linecap="round"/>`],
   bolt: ({ ex, ey, k }: any) => [`<rect x="${f1(ex - 12 * k)}" y="${f1(ey - 9)}" width="${f1(24 * k)}" height="18" rx="4" fill="#9fe3ff" stroke="${INK}" stroke-width="4"/>`, elp(ex, ey, 4, 4, INK)],
@@ -244,6 +253,7 @@ export const FACE_CATS: Record<string, Cat> = {
   vulture: { label: 'Vulture (bald bird)', group: 'Creatures', fx: ['bags'], tint: '#eeb0a4', brow: 1.15 },
   clown: { label: 'Clown', group: 'Special eyes', fx: ['clownNose', 'cheeks'] },
   sick: { label: 'Sick', group: 'Special eyes', eyes: 'droopy', fx: ['bags'], tint: '#cfe8b4' },
+  emberEyes: { label: 'Ember eyes (red dots)', group: 'Special eyes', eyes: 'emberDot' },
 };
 EXT_FX.shadesFx = ({ fx, ey, dx }: any) => [-1, 1].map(s => pth(`M${f1(fx + s * 4)},${f1(ey - 12)} L${f1(fx + s * (dx + 20))},${f1(ey - 14)} Q${f1(fx + s * (dx + 20))},${f1(ey + 14)} ${f1(fx + s * (dx + 2))},${f1(ey + 12)} Q${f1(fx + s * 4)},${f1(ey + 10)} ${f1(fx + s * 4)},${f1(ey - 12)} Z`, '#1f1c26', 4)).concat([`<path d="M${f1(fx - 6)},${f1(ey - 10)} L${f1(fx + 6)},${f1(ey - 10)}" stroke="${INK}" stroke-width="4"/>`]);
 const CLOSED_EYES = new Set(['happy', 'happyXL', 'closed', 'squeeze', 'cry', 'shut', 'x', 'spiral']);
@@ -575,6 +585,86 @@ addProp({ id: 'our:back:wings', label: 'Our folded wings (bird)', group: 'Back',
     const w = `M${cx + s * 60},${top + 20} Q${cx + s * 200},${top + 10} ${cx + s * 210},${top + 160} Q${cx + s * 214},${top + 300} ${cx + s * 170},${top + 420} L${cx + s * 150},${top + 380} L${cx + s * 130},${top + 430} L${cx + s * 108},${top + 380} L${cx + s * 86},${top + 420} Q${cx + s * 70},${top + 250} ${cx + s * 60},${top + 20} Z`;
     o.push(pth(w, c, 6), `<path d="M${cx + s * 90},${top + 70} Q${cx + s * 170},${top + 90} ${cx + s * 186},${top + 200} M${cx + s * 100},${top + 160} Q${cx + s * 160},${top + 190} ${cx + s * 176},${top + 300} M${cx + s * 105},${top + 260} Q${cx + s * 140},${top + 300} ${cx + s * 150},${top + 370}" stroke="${hi}" stroke-width="5" fill="none" stroke-linecap="round"/>`); }
   return o; } });
+// Pirate parts (2026-11-23, Black Beard): ribbon bows on the braided beard's two braids, slow-match fuses under the hat
+// brim (static cords + embers; scenes add the moving smoke), three pairs of pistols on two crossed silk slings.
+// Colours: outfit.ribbon (bows), outfit.ribbonOdd (the one odd bow, on the left braid), outfit.sling.
+const bow = (x: number, y: number, c: string) => [pth(`M${x},${y} L${x - 22},${y - 12} L${x - 20},${y + 12} Z M${x},${y} L${x + 22},${y - 12} L${x + 20},${y + 12} Z`, c, 4),
+  pth(`M${x - 3},${y + 2} L${x - 9},${y + 26} L${x - 2},${y + 22} Z M${x + 3},${y + 2} L${x + 9},${y + 28} L${x + 2},${y + 22} Z`, c, 3.5), elp(x, y, 6, 6, mixc(c, '#000000', .2), 3.5)];
+addProp({ id: 'our:face:beardRibbons', label: 'Our beard ribbons (braids)', group: 'Face', slot: 'faceTop', fn: d => H => {
+  const v = H.view || 'front', s = H.dir || 1, c = d.outfit?.ribbon ?? '#c8302f', odd = d.outfit?.ribbonOdd ?? '#f0c43a';
+  if (v === 'back') return [];
+  if (d.rcLook?.beard === 'braided') {   // one bow at the end of each braid
+    if (v === 'side') return bow(H.cx + s * 52, H.hy + 206, c);
+    return [...bow(H.cx - 26, H.hy + 206, odd), ...bow(H.cx + 26, H.hy + 206, c)]; }
+  // a big loose beard: ribbons tied into tufts all over it (the first one is the odd colour)
+  const spots = v === 'side' ? [[34, 128, 1], [52, 176, 0], [40, 214, 0]] : [[-34, 126, 1], [30, 138, 0], [-12, 178, 0], [18, 212, 0]];
+  return spots.flatMap(([x, y, o]) => bow(H.cx + (v === 'side' ? s * x : x), H.hy + y, o ? odd : c)); } });
+// Belly shirt: a light shirt stretched over a big gut between open coat fronts, straining buttons, belt under the belly.
+// Colour: outfit.shirt.
+addProp({ id: 'our:body:bellyShirt', label: 'Our belly shirt (open coat)', group: 'Body', slot: 'details', fn: d => B => {
+  if (B.view === 'back') return [];
+  const c = d.outfit?.shirt ?? '#efe6d2', t = B.turn || 0, top = B.top, bot = B.bot, h = bot - top, side = B.view === 'side', s = B.dir || 1;
+  const cx = side ? B.cx + s * 70 : B.cx + t * 40, rx = side ? 90 : 150 - Math.abs(t) * 30, cy = top + h * .64, ry = h * .4;
+  const out = [elp(cx, cy, rx, ry, c, 5), `<path d="M${f1(cx - rx * .55)},${f1(cy - ry * .2)} Q${f1(cx - rx * .2)},${f1(cy + ry * .35)} ${f1(cx + rx * .1)},${f1(cy + ry * .55)}" stroke="${mixc(c, '#000000', .18)}" stroke-width="5" fill="none" stroke-linecap="round"/>`];
+  // open at the top: a deep V of bare chest with a few hair curls (outfit.chestHair)
+  const sk = d.skin ?? '#faf9f5', hc = d.outfit?.chestHair ?? d.outfit?.beard ?? '#17151b', vy = cy - ry, vd = ry * 1.55, vw = side ? rx * .35 : rx * .78;
+  const vx = side ? cx + s * rx * .35 : cx;
+  out.push(pth(`M${f1(vx - vw)},${f1(vy + 6)} Q${f1(vx - vw * .4)},${f1(vy + vd * .6)} ${f1(vx)},${f1(vy + vd)} Q${f1(vx + vw * .4)},${f1(vy + vd * .6)} ${f1(vx + vw)},${f1(vy + 6)} Z`, sk, 4.5));
+  for (const [u, v] of [[-.5, .3], [.46, .32], [-.34, .44], [.3, .46], [-.18, .56], [.2, .6], [-.05, .7], [.08, .78], [0, .88]]) { const x = vx + u * vw, y = vy + v * vd;
+    out.push(`<path d="M${f1(x - 6)},${f1(y)} q4,-7 8,0 q4,7 8,0" stroke="${hc}" stroke-width="3.2" fill="none" stroke-linecap="round"/>`); }
+  if (!side) for (const k of [.88]) { const y = cy + ry * k, x = cx + Math.sin(k * 2) * 6; out.push(`<path d="M${f1(x - 16)},${f1(y - 6)} Q${f1(x)},${f1(y + 2)} ${f1(x + 16)},${f1(y - 6)}" stroke="${INK}" stroke-width="3" fill="none"/>`, elp(x, y + 6, 6, 6, '#d8b24a', 3)); }
+  out.push(pth(`M${f1(cx - rx * 1.05)},${f1(cy + ry * .78)} Q${f1(cx)},${f1(cy + ry * 1.02)} ${f1(cx + rx * 1.05)},${f1(cy + ry * .78)} L${f1(cx + rx * 1.05)},${f1(cy + ry * .98)} Q${f1(cx)},${f1(cy + ry * 1.22)} ${f1(cx - rx * 1.05)},${f1(cy + ry * .98)} Z`, '#2a1e1c', 4),
+    pth(`M${f1(cx - 20)},${f1(cy + ry * .86)} L${f1(cx + 20)},${f1(cy + ry * .86)} L${f1(cx + 20)},${f1(cy + ry * 1.14)} L${f1(cx - 20)},${f1(cy + ry * 1.14)} Z`, '#d8b24a', 4));
+  return out; } });
+// Peg leg: the figure's second leg becomes a wooden peg from the knee down (no foot). Done on the finished SVG (static
+// pose and every move frame), because the rig draws legs itself: each leg is two strokes with the same path
+// (ink outline, then the inner line), "M hip C .. [knee C ..] ankle L foot".
+addProp({ id: 'our:body:pegLeg', label: 'Our wooden peg leg', group: 'Body', slot: 'pegLeg', fn: () => () => [] });
+const hasPeg = (d: any) => (d.props || []).includes('our:body:pegLeg');
+function pegLeg(svg: string) {
+  const re = /<path d="(M[^"]*?C[^"]*? L[-\d.]+,[-\d.]+)" fill="none" stroke="([^"]+)" stroke-width="([\d.]+)"[^>]*\/>\s*<path d="\1" fill="none" stroke="[^"]+" stroke-width="([\d.]+)"[^>]*\/>/g;
+  let n = 0;
+  return svg.replace(re, (all, dd: string, ink: string, wOut: string) => {
+    if (n++ !== 1) return all;   // the second leg only
+    const nums = (dd.match(/-?[\d.]+/g) || []).map(Number), P: number[][] = []; for (let i = 0; i < nums.length; i += 2) P.push([nums[i], nums[i + 1]]);
+    const foot = P[P.length - 1], ankle = P[P.length - 2], hip = P[0]; let thigh: string, knee: number[];
+    if (P.length >= 8) { knee = P[3]; thigh = `M${f1(hip[0])},${f1(hip[1])} C${P[1].map(f1)} ${P[2].map(f1)} ${knee.map(f1)}`; }
+    else { const [p0, p1, p2, p3] = [hip, P[1], P[2], ankle], mid = (a: number[], b: number[]) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+      const a = mid(p0, p1), b = mid(p1, p2), c = mid(p2, p3), ab = mid(a, b), bc = mid(b, c); knee = mid(ab, bc);
+      thigh = `M${f1(p0[0])},${f1(p0[1])} C${a.map(f1)} ${ab.map(f1)} ${knee.map(f1)}`; }
+    const W = Number(wOut), bot = [ankle[0], Math.max(ankle[1], foot[1])], dx = bot[0] - knee[0], dy = bot[1] - knee[1], L = Math.hypot(dx, dy) || 1, nx = -dy / L, ny = dx / L;
+    const w1 = W * .95, w2 = W * .5, q = (p: number[], w: number, s: number) => `${f1(p[0] + nx * w * s)},${f1(p[1] + ny * w * s)}`;
+    const top = [knee[0] + dx / L * 6, knee[1] + dy / L * 6];
+    return `<path d="${thigh}" fill="none" stroke="${ink}" stroke-width="${W}" stroke-linecap="round"/>`
+      + `<path d="M${q(top, w1, 1)} L${q(bot, w2, 1)} L${q(bot, w2, -1)} L${q(top, w1, -1)} Z" fill="#94623a" stroke="${ink}" stroke-width="4.5" stroke-linejoin="round"/>`
+      + `<path d="M${q(top, w1 * .3, 1)} L${q(bot, w2 * .3, 1)}" stroke="#b98a5a" stroke-width="3" fill="none" stroke-linecap="round"/>`
+      + `<ellipse cx="${f1(knee[0])}" cy="${f1(knee[1] + 4)}" rx="${f1(w1 * 1.25)}" ry="${f1(W * .55)}" fill="#5a3a24" stroke="${ink}" stroke-width="4"/>`
+      + `<ellipse cx="${f1(bot[0])}" cy="${f1(bot[1] - 2)}" rx="${f1(w2 * 1.2)}" ry="${f1(W * .3)}" fill="#3a2a22" stroke="${ink}" stroke-width="3.5"/>`;
+  });
+}
+const ember = (x: number, y: number) => [elp(x, y, 15, 15, '#ff7a1a', 0).replace('/>', ' opacity=".35"/>'), elp(x, y, 7, 7, '#ff8a2a', 3), elp(x - 1, y - 1, 3, 3, '#fff0b0')];
+addProp({ id: 'our:hat:fuses', label: 'Our smoking fuses (under the hat)', group: 'Head', slot: 'hat', fn: d => H => {
+  const v = H.view || 'front', s = H.dir || 1, by = H.hy - 52, out: string[] = [];
+  const cord = (x0: number, x1: number, y1: number, k: number) => { const p = `M${x0},${by} Q${x0 + k},${(by + y1) / 2} ${x1},${y1}`;
+    out.push(`<path d="${p}" stroke="${INK}" stroke-width="11" fill="none" stroke-linecap="round"/>`, `<path d="${p}" stroke="#9a7444" stroke-width="5.5" fill="none" stroke-linecap="round"/>`,
+      `<path d="M${x1},${y1 - 10} q${-8 * Math.sign(k || 1)},-16 0,-30 q8,-14 -2,-28" stroke="#d9d4cc" stroke-width="5" fill="none" stroke-linecap="round" opacity=".55"/>`, ...ember(x1, y1)); };
+  if (v === 'back') { cord(H.cx - 90, H.cx - 112, by + 52, -14); cord(H.cx + 90, H.cx + 112, by + 52, 14); return out; }
+  if (v === 'side') { cord(H.cx - s * 40, H.cx - s * 62, by + 58, -s * 14); cord(H.cx - s * 74, H.cx - s * 98, by + 40, -s * 10); cord(H.cx + s * 66, H.cx + s * 84, by + 30, s * 12); return out; }
+  cord(H.cx - 84, H.cx - 112, by + 62, -16); cord(H.cx - 104, H.cx - 136, by + 30, -12); cord(H.cx + 84, H.cx + 112, by + 62, 16); cord(H.cx + 104, H.cx + 136, by + 30, 12);
+  return out; } });
+const pistol = (x: number, y: number, a: number, k = 1) => `<g transform="translate(${f1(x)} ${f1(y)}) rotate(${f1(a)}) scale(${k})">${[
+  pth('M-2,-7 L72,-6 L72,6 L-2,7 Z', '#8d96a3', 4), pth('M66,-8 L76,-8 L76,8 L66,8 Z', '#c9a24a', 3.5),
+  pth('M2,-9 L-16,-9 Q-34,4 -42,24 Q-46,36 -32,38 L-24,36 Q-18,18 -2,8 Z', '#6b4329', 4.5), elp(-37, 32, 9, 7, '#d4a948', 3.5),
+  pth('M-8,-15 L4,-15 L4,-8 L-8,-8 Z', '#c9a24a', 3), `<path d="M4,7 Q12,20 -2,22" stroke="${INK}" stroke-width="3.5" fill="none"/>`].join('')}</g>`;
+addProp({ id: 'our:body:pistols', label: 'Our pistol slings (3 pairs)', group: 'Body', slot: 'details', fn: d => B => {
+  const c = d.outfit?.sling ?? '#a3242c', v = B.view, t = B.turn || 0, cx = B.cx + t * 30, top = B.top, bot = B.bot, out: string[] = [];
+  if (v === 'back') return [pth(`M${cx - 120},${top + 10} L${cx - 92},${top} L${cx + 130},${bot - 50} L${cx + 104},${bot - 30} Z`, c, 5), pth(`M${cx + 120},${top + 10} L${cx + 92},${top} L${cx - 130},${bot - 50} L${cx - 104},${bot - 30} Z`, c, 5)];
+  const sides = v === 'side' ? [B.dir || 1] : [-1, 1];
+  const wide = d.figure?.form === 'potbelly';
+  for (const s of sides) { const x0 = cx + s * (wide ? 150 : 118), y0 = top + 6, x1 = wide ? cx + s * 205 : cx - s * 112, y1 = bot - 40;
+    out.push(pth(`M${x0 - s * 14},${y0 + 8} L${x0 + s * 12},${y0} L${x1 + s * 12},${y1 + 8} L${x1 - s * 14},${y1 + 18} Z`, c, 5));
+    for (const u of wide ? [.4, .6, .8] : [.46, .66, .86]) out.push(pistol(x0 + (x1 - x0) * u - s * 6, y0 + (y1 - y0) * u + 4, wide ? (s > 0 ? 75 : 105) : s > 0 ? 118 : 62, 1.08)); }
+  return out; } });
 // Ricks Clips character parts: one prop per part slot of each of the 150 characters
 // What each Ricks Clips back / held prop really is (named from contact sheets, 2026-11-19).
 const PROP_NAMES: Record<string, string> = {
@@ -842,10 +932,19 @@ export const PROP_GROUPS = ['Head', 'Face', 'Back', 'Body', 'Held'].map(g => ({ 
 /** Adds the design's props to a spec: each prop's hook is chained after the character's own one in the same slot. */
 function withProps(spec: any, d: any) {
   const ids: string[] = (d.props || []).filter((id: string) => PROPS[id]); if (!ids.length) return spec;
-  const out = { ...spec }, shape = buildChar({ ...spec }, 0).head || 'rick';
-  for (const id of ids) { const p = PROPS[id], fn = p.fn(d, shape), prev = out[p.slot];
-    out[p.slot] = prev ? (x: any) => [...prev(x), ...fn(x)] : fn;
+  const out = { ...spec }, shape = buildChar({ ...spec }, 0).head || 'rick', body: any[] = [];
+  // body items get the torso as top / bot (the rig passes bodyTop / bodyBot)
+  const torso = (x: any) => ({ ...x, top: x.top ?? x.bodyTop, bot: x.bot ?? x.bodyBot });
+  for (const id of ids) { const p = PROPS[id], fn = p.fn(d, shape);
+    if (p.slot === 'details' && spec.outfit) { body.push(fn); continue; }
+    const prev = out[p.slot], f = p.slot === 'details' ? (x: any) => fn(torso(x)) : fn;
+    out[p.slot] = prev ? (x: any) => [...prev(x), ...f(x)] : f;
     if (p.slot === 'hat' || p.slot === 'faceTop') out.views = out.views ?? true; }
+  // a library outfit replaces the body details when it is put on: add ours on top of it afterwards (castkit's dress hook)
+  if (body.length) { const prevDress = out.dress;
+    out.dress = (S: any) => { prevDress?.(S); const front = S.details, back = S.backDetails;
+      S.details = (x: any) => [...(front ? front(x) : []), ...body.flatMap(fn => fn(torso(x)))];
+      S.backDetails = (x: any) => [...(back ? back(x) : []), ...body.flatMap(fn => fn(torso(x)))]; }; }
   return out;
 }
 const ourSpecs = new Map<string, any>();
@@ -936,13 +1035,14 @@ export function rcSvg(design: any, yaw = 0, face?: string, fam?: any) {
   const S = buildChar(fam ? { ...spec, face: fam } : ownMeme ? spec : { ...spec, face: 'standard' }, 300);
   if (!fam && !ownMeme) S.face = { expr: face };
   S.view = view; S.dir = dir;
-  const r = drawSvg(S);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1000" viewBox="${VB}"><defs>${r.defs}</defs>${r.body}</svg>`;
+  const r = drawSvg(S), body = hasPeg(design) ? pegLeg(r.body) : r.body;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1000" viewBox="${VB}"><defs>${r.defs}</defs>${body}</svg>`;
 }
 
 // ---------- moves ----------
 const modules = new Map<string, any>(), loading = new Set<string>();
-function moveOf(id: string) {
+function moveOf(id: string): any {
+  if (id.endsWith('!bare')) { const m = moveOf(bareOf(id)); return m ? { ...m, bare: true } : undefined; }
   if (OWN_MOVES[id]) return OWN_MOVES[id];
   const s = moveInfo(id); if (!s) return undefined;
   const [file, exp = 'default'] = s.module.split('#'), mod = modules.get(file);
@@ -965,13 +1065,13 @@ function moveParts(ch: any, m: any, t: number, face?: string, view?: string) {
   if (m.st.viewPose) view = undefined;
   const defs: string[] = [], body = poses.map((P: any, i: number) => {
     // face: a FACES key ('k:' kit face) or 'meme:<name>' (a signature meme face kept through the move)
-    const Q = { ...P, ...(face ? { face: face.startsWith('meme:') ? face.slice(5) : 'k:' + face } : {}), ...(view ? { view } : {}) };
+    const Q = { ...P, ...(face ? { face: face.startsWith('meme:') ? face.slice(5) : 'k:' + face } : {}), ...(view ? { view } : {}), ...(m.bare ? { held: [] } : {}) };
     const r = drawPose(ch, Q), pre = `m${i}_`;
     defs.push(r.defs.replace(/id="([gc]\d+)"/g, (_: string, k: string) => `id="${pre}${k}"`));
     return r.svg.replace(/url\(#([gc]\d+)\)/g, (_: string, k: string) => `url(#${pre}${k})`);
   }).join('');
   const cam = m.st.cam ? m.st.cam(tt, out) : (out.cam ?? 0), camY = out.camY ?? -260, H = out.camH || 1500;
-  return { defs: defs.join(''), body, back: out.back || '', front: out.front || '', cam, camY, H };
+  return { defs: defs.join(''), body, back: m.bare ? '' : out.back || '', front: m.bare ? '' : out.front || '', cam, camY, H };
 }
 
 // Frame fitting: the union, over the whole move, of everything drawn (relative to the library's follow camera),
@@ -1015,7 +1115,7 @@ function fitOf(key: string, ch: any, m: any, view?: string) {
 export function rcMoveSvg(design: any, id: string, t: number, face?: string, view?: string) {
   const m = moveOf(id); if (!m) return undefined;
   const ch = charOf(design), p = moveParts(ch, m, t, face, view), f = fitOf(`${specKey(design)}|${id}|${view ?? 'own'}`, ch, m, view);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1000" viewBox="${p.cam + f.x0} ${f.y0} ${f.w} ${f.h}"><defs>${p.defs}</defs>${p.back}${p.body}${p.front}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1000" viewBox="${p.cam + f.x0} ${f.y0} ${f.w} ${f.h}"><defs>${p.defs}</defs>${p.back}${hasPeg(design) ? pegLeg(p.body) : p.body}${p.front}</svg>`;
 }
 
 // ---------- drawing ----------

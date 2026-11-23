@@ -1,0 +1,44 @@
+{
+  "id": "bb-blackbeard",
+  "name": "Blackbeard · the costume pirate (Black Beard)",
+  "project": "black-beard",
+  "identity": "bb-blackbeard",
+  "seed": 1718,
+  "jacket": "#6a1f27",
+  "pants": "#2a2228",
+  "boots": "#141218",
+  "hair": "#17151b",
+  "hairStyle": "long",
+  "coat": true,
+  "skin": "#faf9f5",
+  "outfit": {
+    "cap": "#1c191f",
+    "hatAccent": "#c9a24a",
+    "beard": "#17151b",
+    "ribbon": "#c8302f",
+    "ribbonOdd": "#f0c43a",
+    "sling": "#a3242c"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "pirateCaptain",
+    "hat": "tricorn",
+    "hair": "longWild",
+    "beard": "braided"
+  },
+  "figure": {
+    "form": "brute",
+    "headShape": "potato",
+    "headSize": "L",
+    "bodySize": "XL",
+    "legs": "M",
+    "limbs": "L",
+    "arms": "L"
+  },
+  "faceCat": "villain",
+  "props": [
+    "our:face:beardRibbons",
+    "our:hat:fuses",
+    "our:body:pistols"
+  ]
+}
