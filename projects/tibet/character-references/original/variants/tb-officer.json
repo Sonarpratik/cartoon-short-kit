@@ -1,0 +1,36 @@
+{
+  "id": "tb-officer",
+  "name": "British survey officer · trains the pace (Tibet)",
+  "project": "tibet",
+  "identity": "tb-officer",
+  "seed": 4102,
+  "jacket": "#b8a27a",
+  "pants": "#e9e2d0",
+  "boots": "#3a2620",
+  "hair": "#c86a2e",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "moustache": "#c86a2e"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "victorianGent",
+    "hair": "sidePart",
+    "hat": "pith",
+    "beard": "muttonChops",
+    "acc": "monocle"
+  },
+  "figure": {
+    "form": "chad",
+    "headShape": "rick",
+    "headSize": "M",
+    "bodySize": "L",
+    "legs": "L",
+    "limbs": "M",
+    "arms": "M"
+  },
+  "faceCat": "male",
+  "props": []
+}

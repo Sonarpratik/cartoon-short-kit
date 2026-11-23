@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "characters": [
+    {
+      "id": "tb-nain",
+      "name": "Nain Singh Rawat · pundit disguised as a pilgrim (Tibet)",
+      "project": "tibet",
+      "identity": "tb-nain",
+      "seed": 4101,
+      "jacket": "#8e2a2a",
+      "pants": "#6b4a2e",
+      "boots": "#3a2a20",
+      "hair": "#1c1614",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "moustache": "#1c1614"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "tibetChuba",
+        "hair": "buzz",
+        "hat": "slouch",
+        "stache": "chevron"
+      },
+      "figure": {
+        "form": "noodle",
+        "headShape": "egg",
+        "headSize": "M",
+        "bodySize": "M",
+        "legs": "XL",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "tb-officer",
+      "name": "British survey officer · trains the pace (Tibet)",
+      "project": "tibet",
+      "identity": "tb-officer",
+      "seed": 4102,
+      "jacket": "#b8a27a",
+      "pants": "#e9e2d0",
+      "boots": "#3a2620",
+      "hair": "#c86a2e",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "moustache": "#c86a2e"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "victorianGent",
+        "hair": "sidePart",
+        "hat": "pith",
+        "beard": "muttonChops",
+        "acc": "monocle"
+      },
+      "figure": {
+        "form": "chad",
+        "headShape": "rick",
+        "headSize": "M",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "tb-guard",
+      "name": "Tibetan border guard · Tibet is closed (Tibet)",
+      "project": "tibet",
+      "identity": "tb-guard",
+      "seed": 4103,
+      "jacket": "#3f5e4a",
+      "pants": "#5a3e2a",
+      "boots": "#2a1e18",
+      "hair": "#1a1412",
+      "hairStyle": "braid",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {},
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "mongol",
+        "hair": "mongolBraids",
+        "hat": "furHat",
+        "stache": "fuManchu"
+      },
+      "figure": {
+        "form": "brute",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "S",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "villain",
+      "props": []
+    },
+    {
+      "id": "tb-presenter",
+      "name": "Medal presenter · Royal Geographical Society (Tibet)",
+      "project": "tibet",
+      "identity": "tb-presenter",
+      "seed": 4104,
+      "jacket": "#1e2230",
+      "pants": "#2a2a30",
+      "boots": "#141418",
+      "hair": "#d8d4cc",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5",
+      "outfit": {
+        "moustache": "#d8d4cc"
+      },
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "victorianGent",
+        "hair": "baldTufts",
+        "hat": "stovepipe",
+        "beard": "sideWhiskers",
+        "stache": "walrus"
+      },
+      "figure": {
+        "form": "dad",
+        "headShape": "potato",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "S",
+        "limbs": "M",
+        "arms": "S"
+      },
+      "faceCat": "elder",
+      "props": []
+    }
+  ]
+}

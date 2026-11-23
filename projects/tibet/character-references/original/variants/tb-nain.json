@@ -1,0 +1,35 @@
+{
+  "id": "tb-nain",
+  "name": "Nain Singh Rawat · pundit disguised as a pilgrim (Tibet)",
+  "project": "tibet",
+  "identity": "tb-nain",
+  "seed": 4101,
+  "jacket": "#8e2a2a",
+  "pants": "#6b4a2e",
+  "boots": "#3a2a20",
+  "hair": "#1c1614",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "moustache": "#1c1614"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "tibetChuba",
+    "hair": "buzz",
+    "hat": "slouch",
+    "stache": "chevron"
+  },
+  "figure": {
+    "form": "noodle",
+    "headShape": "egg",
+    "headSize": "M",
+    "bodySize": "M",
+    "legs": "XL",
+    "limbs": "M",
+    "arms": "M"
+  },
+  "faceCat": "male",
+  "props": []
+}

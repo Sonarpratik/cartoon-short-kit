@@ -24,8 +24,13 @@ import { HAIR_STYLES } from '/vendor/rc/vector2d_characters/code/hair_lib.mjs';
 import { wear, HATS2, PIECES2 } from '/vendor/rc/vector2d_characters/code/head_wear.mjs';
 import { withGear, HELMETS } from '/vendor/rc/vector2d_characters/code/head_gear.mjs';
 import { withFace, BEARDS, STACHES, ACCESSORIES as FACE_ACC } from '/vendor/rc/vector2d_characters/code/face_gear.mjs';
-import { OUTFITS } from '/vendor/rc/vector2d_characters/code/outfit_lib.mjs';
+import { OUTFITS, O, SK } from '/vendor/rc/vector2d_characters/code/outfit_lib.mjs';
 import { FORMS, prof } from '/vendor/rc/vector2d_characters/code/bodies.mjs';
+// Tibet (2026-11-23): a Tibetan chuba (crossover robe, sash, bead mala) for a Buddhist pilgrim (the library monk wears a
+// cross), and a fur hat without the ushanka's red Soviet star.
+if (!OUTFITS.tibetChuba) O('tibetChuba', 'Tibetan chuba (pilgrim robe)', 'Asia', 'm', ['#8e2a2a', '#d9a441', '#6b3a22'],
+  [['wrap', 'b', '#d9a441'], ['obi', 'b', 'c', .58], ['necklace', 'c', 'circle', 'b']], { skirt: (P: any) => SK('ankle', P.a, { folds: 4 }) });
+if (!HATS2.furHat) HATS2.furHat = Object.assign((PP: any) => HATS2.ushanka(PP).filter((s: string) => !String(s).includes('#d8473c')), HATS2.ushanka, { label: 'Fur hat (no badge)', era: 'Tibet, Mongolia, winter' });
 // Pot belly (2026-11-23, Black Beard): the dad bod with a much rounder, wider gut. bodyPts sets the silhouette directly
 // (half-widths at 8 heights; belly = extra bulge forward in profile); wTop / wBot place the arms clear of the gut.
 FORMS.potbelly = { label: 'pot belly', S: { ...FORMS.dad.S, details: undefined, bodyTop: 300, bodyBot: 690, hipW: 46, stance: 30, wTop: 70, wBot: 128,

@@ -1,0 +1,36 @@
+{
+  "id": "tb-presenter",
+  "name": "Medal presenter · Royal Geographical Society (Tibet)",
+  "project": "tibet",
+  "identity": "tb-presenter",
+  "seed": 4104,
+  "jacket": "#1e2230",
+  "pants": "#2a2a30",
+  "boots": "#141418",
+  "hair": "#d8d4cc",
+  "hairStyle": "receding",
+  "coat": false,
+  "skin": "#faf9f5",
+  "outfit": {
+    "moustache": "#d8d4cc"
+  },
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "victorianGent",
+    "hair": "baldTufts",
+    "hat": "stovepipe",
+    "beard": "sideWhiskers",
+    "stache": "walrus"
+  },
+  "figure": {
+    "form": "dad",
+    "headShape": "potato",
+    "headSize": "L",
+    "bodySize": "XL",
+    "legs": "S",
+    "limbs": "M",
+    "arms": "S"
+  },
+  "faceCat": "elder",
+  "props": []
+}
