@@ -1,0 +1,31 @@
+{
+  "id": "ab-manager",
+  "name": "Airport Manager · hero (Airport baggage)",
+  "project": "airport-bagage",
+  "identity": "ab-manager",
+  "seed": 2081,
+  "jacket": "#1f8a83",
+  "pants": "#26344a",
+  "boots": "#1a1a1f",
+  "hair": "#3a2a22",
+  "hairStyle": "sidepart",
+  "coat": false,
+  "skin": "#faf9f5",
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "abManager",
+    "hair": "slickBack",
+    "piece": "earPencil"
+  },
+  "figure": {
+    "form": "standard",
+    "headShape": "egg",
+    "headSize": "L",
+    "bodySize": "L",
+    "legs": "L",
+    "limbs": "L",
+    "arms": "L"
+  },
+  "faceCat": "male",
+  "props": []
+}

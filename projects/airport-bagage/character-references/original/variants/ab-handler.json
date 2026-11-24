@@ -1,0 +1,32 @@
+{
+  "id": "ab-handler",
+  "name": "Baggage Handler · new hire (Airport baggage)",
+  "project": "airport-bagage",
+  "identity": "ab-handler",
+  "seed": 2084,
+  "jacket": "#ff8f1f",
+  "pants": "#24365e",
+  "boots": "#1a1a1f",
+  "hair": "#2a1e18",
+  "hairStyle": "buzz",
+  "coat": false,
+  "skin": "#faf9f5",
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "abHandler",
+    "hair": "buzz",
+    "beard": "short",
+    "piece": "headphones"
+  },
+  "figure": {
+    "form": "brute",
+    "headShape": "rick",
+    "headSize": "L",
+    "bodySize": "XL",
+    "legs": "L",
+    "limbs": "XL",
+    "arms": "XL"
+  },
+  "faceCat": "male",
+  "props": []
+}

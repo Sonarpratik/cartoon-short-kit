@@ -1,0 +1,32 @@
+{
+  "id": "ab-commuter",
+  "name": "Grumpy Passenger · complainer (Airport baggage)",
+  "project": "airport-bagage",
+  "identity": "ab-commuter",
+  "seed": 2082,
+  "jacket": "#4b3a6e",
+  "pants": "#4b3a6e",
+  "boots": "#2a1e16",
+  "hair": "#9a948c",
+  "hairStyle": "receding",
+  "coat": false,
+  "skin": "#faf9f5",
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "abCommuter",
+    "hair": "combOver",
+    "stache": "walrus",
+    "acc": "squareGlasses"
+  },
+  "figure": {
+    "form": "potbelly",
+    "headShape": "potato",
+    "headSize": "L",
+    "bodySize": "XL",
+    "legs": "M",
+    "limbs": "L",
+    "arms": "L"
+  },
+  "faceCat": "male",
+  "props": []
+}

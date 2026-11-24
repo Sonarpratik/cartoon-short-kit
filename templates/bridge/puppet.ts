@@ -24,7 +24,7 @@ import { HAIR_STYLES } from '/vendor/rc/vector2d_characters/code/hair_lib.mjs';
 import { wear, HATS2, PIECES2 } from '/vendor/rc/vector2d_characters/code/head_wear.mjs';
 import { withGear, HELMETS } from '/vendor/rc/vector2d_characters/code/head_gear.mjs';
 import { withFace, BEARDS, STACHES, ACCESSORIES as FACE_ACC } from '/vendor/rc/vector2d_characters/code/face_gear.mjs';
-import { OUTFITS, O, SK } from '/vendor/rc/vector2d_characters/code/outfit_lib.mjs';
+import { OUTFITS, O, SK, PART } from '/vendor/rc/vector2d_characters/code/outfit_lib.mjs';
 import { FORMS, prof } from '/vendor/rc/vector2d_characters/code/bodies.mjs';
 // Tibet (2026-11-23): a Tibetan chuba (crossover robe, sash, bead mala) for a Buddhist pilgrim (the library monk wears a
 // cross), and a fur hat without the ushanka's red Soviet star.
@@ -35,6 +35,90 @@ if (!HATS2.furHat) HATS2.furHat = Object.assign((PP: any) => HATS2.ushanka(PP).f
 // (half-widths at 8 heights; belly = extra bulge forward in profile); wTop / wBot place the arms clear of the gut.
 FORMS.potbelly = { label: 'pot belly', S: { ...FORMS.dad.S, details: undefined, bodyTop: 300, bodyBot: 690, hipW: 46, stance: 30, wTop: 70, wBot: 128,
   bodyPts: prof([0, 62, 118, 190, 246, 262, 236, 130], { belly: [0, 4, 30, 86, 136, 148, 104, 14], sk: .74 }) } };
+// Plane hijack (2026-11-23): 1980s airline crew with rank shoulder boards (4 bars captain, 3 first officer), a crooked
+// tie clip, a headset worn round the neck, a worn frayed jacket, a fighter pilot's flight suit with harness, and a
+// cabin-crew suit. Parts use body space: X(u) -1..1 of the half width, Y(v) 0..1 of the visible body height.
+{
+  const n1 = (v: number) => v.toFixed(1), INKC = '#292333';
+  const fill = (d: string, c: string, sw = 3) => `<path d="${d}" fill="${c}" stroke="${INKC}" stroke-width="${sw}" stroke-linejoin="round"/>`;
+  const line = (d: string, c: string, w: number, o = 1) => `<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-opacity="${o}" stroke-linecap="round" stroke-linejoin="round"/>`;
+  if (!PART.rankBoards) PART.rankBoards = (A: any, n = 4, board = '#141b33', bar = '#e8b830') => (A.side ? [A.dir || 1] : [-1, 1]).flatMap((s: number) => {
+    const x0 = A.X(s * .4), x1 = A.X(s * .9), y0 = A.Y(.17), y1 = A.Y(.27), out = [fill(`M${n1(x0)},${n1(y0)} L${n1(x1)},${n1(y0 + 3)} L${n1(x1)},${n1(y1)} L${n1(x0)},${n1(y1 - 1)} Z`, board, 2.6)];
+    for (let i = 0; i < n; i++) { const x = x0 + (x1 - x0) * (.4 + i * .15); out.push(`<rect x="${n1(x - 3.4)}" y="${n1(y0 + 3.5)}" width="6.8" height="${n1(y1 - y0 - 7)}" fill="${bar}" stroke="${INKC}" stroke-width="1.3"/>`); }
+    return out; });
+  if (!PART.tieClip) PART.tieClip = (A: any, c = '#e8b830', ang = -16) => A.back || A.side ? [] :
+    [`<rect x="-16" y="-3.6" width="32" height="7.2" rx="2.5" fill="${c}" stroke="${INKC}" stroke-width="1.8" transform="translate(${n1(A.cx + 3)} ${n1(A.Y(.37))}) rotate(${ang})"/>`];
+  if (!PART.neckHeadset) PART.neckHeadset = (A: any, band = '#3a3d46', cup = '#1f2026') => { const yb = A.Y(.05), yd = A.Y(.2);
+    const arc = `M${n1(A.X(-.6))},${n1(yb)} Q${n1(A.cx)},${n1(yd + 22)} ${n1(A.X(.6))},${n1(yb)}`;
+    if (A.back) return [line(arc, INKC, 12), line(arc, band, 7)];
+    return [line(arc, INKC, 12), line(arc, band, 7), ...[-1, 1].flatMap(s => [`<ellipse cx="${n1(A.X(s * .62))}" cy="${n1(yb + 4)}" rx="15" ry="19" fill="${cup}" stroke="${INKC}" stroke-width="3"/>`, `<ellipse cx="${n1(A.X(s * .62) - 4)}" cy="${n1(yb)}" rx="5" ry="7" fill="#ffffff" opacity=".35"/>`]),
+      line(`M${n1(A.X(.62))},${n1(yb + 18)} Q${n1(A.X(.45))},${n1(A.Y(.2))} ${n1(A.X(.18))},${n1(A.Y(.19))}`, INKC, 4.5), `<circle cx="${n1(A.X(.16))}" cy="${n1(A.Y(.19))}" r="6" fill="${cup}" stroke="${INKC}" stroke-width="2"/>`]; };
+  if (!PART.fray) PART.fray = (A: any, c = '#d9c7a0') => { const y = A.Y(.985), ticks: string[] = [];   // frayed hem threads + a darned patch and scuffs
+    for (let i = 0, x = A.X(-.95); x < A.X(.95); i++, x += 13) ticks.push(`M${n1(x)},${n1(y)} l${i % 2 ? 3 : -2},${i % 3 ? 9 : 15}`);
+    const out = [line(ticks.join(' '), c, 2.4, .85)];
+    if (!A.back && !A.side) out.push(fill(`M${n1(A.X(-.7))},${n1(A.Y(.42))} l34,-4 l3,30 l-33,4 Z`, '#7e5a38', 2.2), line(`M${n1(A.X(-.7) + 4)},${n1(A.Y(.42) + 3)} l28,-3 m-27,10 l27,-3 m-26,10 l27,-3`, '#d9c7a0', 1.6, .7));
+    out.push(line(`M${n1(A.X(.25))},${n1(A.Y(.5))} q14,6 26,-2 M${n1(A.X(-.2))},${n1(A.Y(.78))} q10,5 22,0`, '#ffffff', 3, .25));
+    return out; };
+  if (!PART.harness) PART.harness = (A: any, c = '#2f3424', m = '#b9c0cc') => { const st = (d: string) => [line(d, INKC, 13), line(d, c, 8)];
+    if (A.back) return [...st(`M${n1(A.X(-.45))},${n1(A.Y(0))} L${n1(A.X(.45))},${n1(A.Y(.9))}`), ...st(`M${n1(A.X(.45))},${n1(A.Y(0))} L${n1(A.X(-.45))},${n1(A.Y(.9))}`)];
+    return [...st(`M${n1(A.X(-.48))},${n1(A.Y(0))} L${n1(A.X(-.4))},${n1(A.Y(.95))}`), ...st(`M${n1(A.X(.48))},${n1(A.Y(0))} L${n1(A.X(.4))},${n1(A.Y(.95))}`), ...st(`M${n1(A.X(-.44))},${n1(A.Y(.44))} L${n1(A.X(.44))},${n1(A.Y(.44))}`),
+      ...[-1, 1].map(s => `<rect x="${n1(A.X(s * .44) - 9)}" y="${n1(A.Y(.44) - 9)}" width="18" height="18" rx="3" fill="${m}" stroke="${INKC}" stroke-width="2.4"/>`), `<circle cx="${n1(A.cx)}" cy="${n1(A.Y(.82))}" r="13" fill="${m}" stroke="${INKC}" stroke-width="2.6"/>`]; };
+  // a plain work cap (the library baseball cap carries an "R" logo) and a white jet helmet with its dark visor raised
+  if (!HATS2.plainCap) HATS2.plainCap = Object.assign((PP: any) => HATS2.baseball(PP).filter((s: string) => !String(s).includes('>R</text>') && !String(s).includes('r="15.0"')), HATS2.baseball, { label: 'Plain cap (no logo)', era: 'today: worker' });
+  if (!HELMETS.jet) {
+    const W = '#f2f2ee', V = '#262a36', G = '#9aa2b2', S = '#5c6680';
+    const p = (d: string, c: string, sw = 7) => `<path d="${d}" fill="${c}" stroke="${INKC}" stroke-width="${sw}" stroke-linejoin="round" stroke-linecap="round"/>`;
+    const glint = (d: string) => `<path d="${d}" fill="none" stroke="#ffffff" stroke-width="6" stroke-opacity=".75" stroke-linecap="round"/>`;
+    HELMETS.jet = Object.assign((PP: any) => { const v = PP.view;
+      if (v === 'back') return [p('M-114,66 C-132,-158 132,-158 114,66 Q0,104 -114,66 Z', W, 8), p('M-13,-150 L13,-150 L11,90 L-11,90 Z', S, 4.5), glint('M-90,0 Q-100,-80 -52,-124')];
+      if (v === 'side') return [p('M30,-128 C-156,-140 -136,64 -66,96 L-6,100 L10,44 C-2,12 8,-22 32,-42 L80,-60 C74,-96 62,-118 30,-128 Z', W, 8),
+        p('M84,-62 C66,-120 -10,-148 -84,-118 L-70,-96 C-10,-122 52,-104 70,-50 Z', V, 6), `<circle cx="-30" cy="-58" r="11" fill="${G}" stroke="${INKC}" stroke-width="4"/>`,
+        p('M-120,-10 Q-60,-50 10,-132', 'none', 0) + `<path d="M-118,-8 Q-56,-48 6,-128" fill="none" stroke="${S}" stroke-width="9"/>`, glint('M-60,-118 Q-104,-90 -116,-30')];
+      return [p('M-110,40 C-126,-152 126,-152 110,40 L98,96 L72,104 L68,40 C72,-10 52,-46 0,-50 C-52,-46 -72,-10 -68,40 L-72,104 L-98,96 Z', W, 8),
+        p('M-14,-148 L14,-148 L12,-96 L-12,-96 Z', S, 4.5),
+        p('M-96,-62 C-64,-122 64,-122 96,-62 L88,-44 C52,-90 -52,-90 -88,-44 Z', V, 6), glint('M-60,-92 Q-30,-108 4,-108'),
+        ...[-1, 1].map(s => `<circle cx="${s * 98}" cy="-34" r="11" fill="${G}" stroke="${INKC}" stroke-width="4"/>`),
+        ...[-1, 1].map(s => `<path d="M${s * 84},20 q${s * 6},30 0,62" fill="none" stroke="${G}" stroke-width="4"/>`), glint('M-92,10 Q-102,-50 -76,-96')]; }, { covers: true, label: 'Jet helmet, visor up' });
+  }
+  if (!OUTFITS.phCaptain) O('phCaptain', 'Airline captain, 1980s (4 bars)', 'Jobs', 'm', ['#1d2747', '#e8b830', '#ffffff'],
+    [['lapels', '#26315a', '#f4f2ec', 'tie', '#151b33'], ['buttons', 3, 'b', .58, .9], ['rankBoards', 4], ['tieClip', 'b', -17], ['badge', 'circle', 'b', -.48, .36, 9], ['pocket', .52, .44, { c: '#26315a' }], ['hem', '#151b33', .04]], {});
+  if (!OUTFITS.phFirstOfficer) O('phFirstOfficer', 'Airline first officer, shirt sleeves (3 bars)', 'Jobs', 'm', ['#eef0f2', '#e8b830', '#1d2747'],
+    [['shirtCollar', '#f6f7f8'], ['buttons', 5, '#d8dbe2', .3, .92], ['pocket', .46, .34, { c: '#e2e5ea', pens: 1 }], ['badge', 'circle', 'b', -.48, .3, 8], ['rankBoards', 3, '#1d2747'], ['neckHeadset']], {});
+  if (!OUTFITS.phWornJacket) O('phWornJacket', 'Worn brown work jacket (frayed)', '1970-today', 'm', ['#6b4a2e', '#3a2a1e', '#d9c7a0'],
+    [['shirtCollar', '#5a3d25'], ['zip', '#9a9488', .16], ['pocket', -.55, .66, { c: '#5e4027', flap: 1 }], ['pocket', .55, .66, { c: '#5e4027', flap: 1 }], ['hem', 'b', .06], ['fray', 'c']], {});
+  if (!OUTFITS.phFlightSuit) O('phFlightSuit', 'Fighter pilot flight suit + harness', 'Jobs', 'm', ['#5d6b3c', '#2f3424', '#e8b830'],
+    [['mandarin', 'a'], ['zip', '#b9c0cc', .12], ['pocket', -.5, .26, { c: '#66764a', flap: 1 }], ['pocket', .5, .26, { c: '#66764a', flap: 1 }], ['harness', 'b'], ['badge', 'star', 'c', .5, .62, 10]], {});
+  if (!OUTFITS.phCabinCrew) O('phCabinCrew', 'Cabin crew suit, 1980s (teal scarf)', 'Jobs', 'f', ['#1f3550', '#f4f2ec', '#2fa39a'],
+    [['shirtCollar', 'b'], ['scarf', 'c', '#1f7f78'], ['buttons', 3, '#e8b830', .5, .85], ['badge', 'circle', '#e8b830', -.48, .36, 8], ['hem', '#18293f', .04]], { skirt: (P: any) => SK('knee', P.a) });
+  // Airport baggage (2026-11-24): a boarding pass poking out of a breast pocket (drawn before the pocket so the pocket
+  // covers its foot), and a compact camera on a neck strap.
+  if (!PART.boardingPass) PART.boardingPass = (A: any, u = .5, v = .27) => A.back || A.side ? [] : [
+    `<g transform="translate(${n1(A.X(u))} ${n1(A.Y(v))}) rotate(14)"><rect x="-17" y="-6" width="34" height="58" rx="3" fill="#f4f7fb" stroke="${INKC}" stroke-width="2.4"/>` +
+    `<rect x="-17" y="-6" width="34" height="13" rx="3" fill="#3a7bd5" stroke="${INKC}" stroke-width="2.4"/><path d="M-11,16 h22 M-11,24 h15 M-11,32 h19" stroke="#8a93a6" stroke-width="2.6" stroke-linecap="round"/></g>`];
+  if (!PART.neckCamera) PART.neckCamera = (A: any, body = '#2a2d36', strap = '#3a3d46') => { if (A.back) return [line(`M${n1(A.X(-.45))},${n1(A.Y(.05))} Q${n1(A.cx)},${n1(A.Y(.16))} ${n1(A.X(.45))},${n1(A.Y(.05))}`, strap, 6)];
+    const x = A.cx, y = A.Y(.44);
+    return [line(`M${n1(A.X(-.5))},${n1(A.Y(.03))} L${n1(x - 30)},${n1(y - 10)} M${n1(A.X(.5))},${n1(A.Y(.03))} L${n1(x + 30)},${n1(y - 10)}`, INKC, 8), line(`M${n1(A.X(-.5))},${n1(A.Y(.03))} L${n1(x - 30)},${n1(y - 10)} M${n1(A.X(.5))},${n1(A.Y(.03))} L${n1(x + 30)},${n1(y - 10)}`, strap, 4.5),
+      `<rect x="${n1(x - 36)}" y="${n1(y - 22)}" width="72" height="46" rx="8" fill="${body}" stroke="${INKC}" stroke-width="3"/>`, `<rect x="${n1(x - 30)}" y="${n1(y - 30)}" width="20" height="10" rx="3" fill="${body}" stroke="${INKC}" stroke-width="2.4"/>`,
+      `<circle cx="${n1(x + 4)}" cy="${n1(y + 1)}" r="16" fill="#5c6680" stroke="${INKC}" stroke-width="3"/>`, `<circle cx="${n1(x + 4)}" cy="${n1(y + 1)}" r="8" fill="#1a1c22"/>`, `<circle cx="${n1(x)}" cy="${n1(y - 3)}" r="3.5" fill="#ffffff" opacity=".8"/>`]; };
+  if (!OUTFITS.abManager) O('abManager', 'Airport manager: teal blazer, lanyard', 'Jobs', 'm', ['#1f8a83', '#f6f7f8', '#e2a72e'],
+    [['lapels', '#18716b', '#f6f7f8', 'tie', 'c'], ['buttons', 2, '#14312f', .66, .82], ['lanyard', '#e2a72e'], ['pocket', .5, .44, { c: '#18716b', pens: 1 }], ['pocket', -.56, .72, { c: '#18716b', flap: 1 }], ['hem', '#145e59', .04]], {});
+  // a role name tag on the chest (2026-11-24, user: "a tag on his chest that says MANAGER"). The plate carries
+  // data-tag so a project's actor-draw can re-letter it upright (mirrored views flip the whole drawing); the SVG
+  // letters it only when not mirrored, so the Studio shows it too.
+  if (!PART.roleTag) PART.roleTag = (A: any, text = 'MANAGER', u = -.5, v = .3, plate = '#f6f2e4') => { if (A.back || A.side) return [];
+    const w = 128, h = 39, x = A.X(u) - w / 2, y = A.Y(v);
+    return [`<rect data-tag="${text}" x="${n1(x)}" y="${n1(y)}" width="${w}" height="${h}" rx="6" fill="${plate}" stroke="${INKC}" stroke-width="3"/>`,
+      `<rect x="${n1(x)}" y="${n1(y)}" width="${w}" height="9" rx="4" fill="#1f8a83"/>`,
+      ...((A.dir ?? 1) < 0 ? [] : [`<text x="${n1(x + w / 2)}" y="${n1(y + 31)}" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="20" fill="${INKC}">${text}</text>`])]; };
+  if (!OUTFITS.abManager2) O('abManager2', 'Airport manager + MANAGER chest tag', 'Jobs', 'm', ['#1f8a83', '#f6f7f8', '#e2a72e'],
+    [['lapels', '#18716b', '#f6f7f8', 'tie', 'c'], ['buttons', 2, '#14312f', .66, .82], ['lanyard', '#e2a72e'], ['pocket', .5, .44, { c: '#18716b', pens: 1 }], ['pocket', -.56, .72, { c: '#18716b', flap: 1 }], ['hem', '#145e59', .04], ['roleTag', 'MANAGER', -.52, .29]], {});
+  if (!OUTFITS.abCommuter) O('abCommuter', 'Commuter: aubergine suit, boarding pass', '1970-today', 'm', ['#4b3a6e', '#f6f7f8', '#d9a12a'],
+    [['lapels', '#5a4880', '#f6f7f8', 'tie', 'c'], ['buttons', 2, '#1b1b22', .68, .84], ['boardingPass', .5, .27], ['pocket', .5, .4, { c: '#5a4880' }], ['pocket', -.56, .72, { c: '#5a4880', flap: 1 }], ['hem', '#3a2c57', .04]], {});
+  if (!OUTFITS.abTourist) O('abTourist', 'Tourist: pink floral shirt, neck camera', '1970-today', 'f', ['#ef6aa6', '#ffe36a', '#7fd36a'],
+    [['floral', '#ffffff', 'b'], ['shirtCollar', 'a'], ['vneck', '#faf9f5', .3], ['buttons', 4, '#ffffff', .42, .9], ['neckCamera'], ['hem', '#d4528d', .04]], {});
+  if (!OUTFITS.abHandler) O('abHandler', 'Baggage handler: hi-vis vest over navy', 'Jobs', 'm', ['#ff8f1f', '#e6eaf0', '#24365e'],
+    [['hiVis', 'b'], ['vneck', 'c', .34], ['zip', '#c9ccd6', .34], ['nameTag', -.5, .2], ['pocket', .52, .5, { c: '#ffa448', flap: 1 }], ['hem', '#d9741a', .04]], {});
+}
 import { INK, headPts, smooth } from '/vendor/rc/vector2d_characters/code/char2d.mjs';
 import { angleDesign } from './angle-designs.js';   // OUR hair and hat shapes per view (templates/bridge/angle-designs.ts)
 import * as S01 from '/vendor/rc/vector2d_characters/code/sheets/sheet01.mjs';

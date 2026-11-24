@@ -6180,6 +6180,484 @@
       },
       "faceCat": "elder",
       "props": []
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-captain",
+      "id": "ph-captain",
+      "name": "Captain · flies the jet (Plane hijack)",
+      "seed": 3751,
+      "jacket": "#1d2747",
+      "pants": "#1d2747",
+      "boots": "#141418",
+      "hair": "#8a857e",
+      "hairStyle": "sidepart",
+      "outfit": {
+        "cap": "#1d2747",
+        "hatAccent": "#e8b830"
+      },
+      "rcLook": {
+        "outfit": "phCaptain",
+        "hair": "sidePart",
+        "hat": "police"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "rick",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [
+        "our:body:tie"
+      ],
+      "identity": "ph-firstofficer",
+      "id": "ph-firstofficer",
+      "name": "Co-pilot · first officer (Plane hijack)",
+      "seed": 3752,
+      "jacket": "#eef0f2",
+      "pants": "#1d2747",
+      "boots": "#141418",
+      "hair": "#2a211c",
+      "hairStyle": "buzz",
+      "outfit": {
+        "tie": "#1d2747"
+      },
+      "rcLook": {
+        "outfit": "phFirstOfficer",
+        "hair": "texturedCrop"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "egg",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "M",
+        "arms": "L"
+      },
+      "faceCat": "male"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-hijacker",
+      "id": "ph-hijacker",
+      "name": "Hijacker · worn jacket, cap low (Plane hijack)",
+      "seed": 3753,
+      "jacket": "#6b4a2e",
+      "pants": "#3d4350",
+      "boots": "#2a221c",
+      "hair": "#1f1a1e",
+      "hairStyle": "buzz",
+      "outfit": {
+        "cap": "#4a4f44"
+      },
+      "rcLook": {
+        "outfit": "phWornJacket",
+        "hair": "buzz",
+        "hat": "plainCap",
+        "beard": "stubble"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "potato",
+        "headSize": "M",
+        "bodySize": "S",
+        "legs": "L",
+        "limbs": "M",
+        "arms": "L"
+      },
+      "faceCat": "male"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-fighterpilot",
+      "id": "ph-fighterpilot",
+      "name": "Fighter pilot · seen in his canopy (Plane hijack)",
+      "seed": 3754,
+      "jacket": "#5d6b3c",
+      "pants": "#5d6b3c",
+      "boots": "#1d1d20",
+      "hair": "#eeeeea",
+      "hairStyle": "buzz",
+      "rcLook": {
+        "outfit": "phFlightSuit",
+        "hair": "buzz",
+        "hat": "jet"
+      },
+      "figure": {
+        "form": "chad",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-attendant",
+      "id": "ph-attendant",
+      "name": "Flight attendant · teal scarf (Plane hijack)",
+      "seed": 3755,
+      "jacket": "#1f3550",
+      "pants": "#1f3550",
+      "boots": "#141418",
+      "hair": "#3a2418",
+      "hairStyle": "bun",
+      "rcLook": {
+        "outfit": "phCabinCrew",
+        "hair": "lowBun"
+      },
+      "figure": {
+        "form": "lady",
+        "headShape": "egg",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "M",
+        "arms": "L"
+      },
+      "faceCat": "female"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-pass-business",
+      "id": "ph-pass-business",
+      "name": "Passenger · businessman (Plane hijack)",
+      "seed": 3756,
+      "jacket": "#5a6270",
+      "pants": "#3a3f4a",
+      "boots": "#2a1f1a",
+      "hair": "#4a3a30",
+      "hairStyle": "receding",
+      "rcLook": {
+        "outfit": "suit",
+        "hair": "combOver",
+        "acc": "squareGlasses"
+      },
+      "figure": {
+        "form": "dad",
+        "headShape": "potato",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "S",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "male"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-pass-tourist",
+      "id": "ph-pass-tourist",
+      "name": "Passenger · tourist, floral shirt (Plane hijack)",
+      "seed": 3757,
+      "jacket": "#e8466a",
+      "pants": "#c9b88f",
+      "boots": "#6b4a2e",
+      "hair": "#c86a2e",
+      "hairStyle": "curly",
+      "rcLook": {
+        "outfit": "hawaiian",
+        "hair": "curlyCrop",
+        "stache": "horseshoe"
+      },
+      "figure": {
+        "form": "noodle",
+        "headShape": "bun",
+        "headSize": "M",
+        "bodySize": "M",
+        "legs": "XL",
+        "limbs": "S",
+        "arms": "L"
+      },
+      "faceCat": "male"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-pass-woman",
+      "id": "ph-pass-woman",
+      "name": "Passenger · young woman (Plane hijack)",
+      "seed": 3758,
+      "jacket": "#d9a43a",
+      "pants": "#3a4a6a",
+      "boots": "#7a3a2a",
+      "hair": "#1a1416",
+      "hairStyle": "afro",
+      "rcLook": {
+        "outfit": "tshirt",
+        "hair": "afroPuffs",
+        "acc": "hoop"
+      },
+      "figure": {
+        "form": "lady",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "M",
+        "arms": "L"
+      },
+      "faceCat": "female"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-pass-elder",
+      "id": "ph-pass-elder",
+      "name": "Passenger · grandmother (Plane hijack)",
+      "seed": 3759,
+      "jacket": "#7a4a6a",
+      "pants": "#4a3a4a",
+      "boots": "#2a1f22",
+      "hair": "#d8d4cc",
+      "hairStyle": "bun",
+      "rcLook": {
+        "outfit": "suit",
+        "hair": "grannyBun",
+        "acc": "roundGlasses"
+      },
+      "figure": {
+        "form": "elder",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "S",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "elder"
+    },
+    {
+      "project": "plane-hijack",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "props": [],
+      "identity": "ph-pass-teen",
+      "id": "ph-pass-teen",
+      "name": "Passenger · teen in 80s tracksuit (Plane hijack)",
+      "seed": 3760,
+      "jacket": "#2f6fd0",
+      "pants": "#2f6fd0",
+      "boots": "#f4f2ec",
+      "hair": "#6a4a2a",
+      "hairStyle": "long",
+      "rcLook": {
+        "outfit": "tracksuit",
+        "hair": "mullet"
+      },
+      "figure": {
+        "form": "teen",
+        "headShape": "egg",
+        "headSize": "L",
+        "bodySize": "S",
+        "legs": "L",
+        "limbs": "S",
+        "arms": "L"
+      },
+      "faceCat": "male"
+    },
+    {
+      "id": "ab-manager",
+      "name": "Airport Manager · hero (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-manager",
+      "seed": 2081,
+      "jacket": "#1f8a83",
+      "pants": "#26344a",
+      "boots": "#1a1a1f",
+      "hair": "#3a2a22",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abManager",
+        "hair": "slickBack",
+        "piece": "earPencil"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "egg",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "ab-commuter",
+      "name": "Grumpy Passenger · complainer (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-commuter",
+      "seed": 2082,
+      "jacket": "#4b3a6e",
+      "pants": "#4b3a6e",
+      "boots": "#2a1e16",
+      "hair": "#9a948c",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abCommuter",
+        "hair": "combOver",
+        "stache": "walrus",
+        "acc": "squareGlasses"
+      },
+      "figure": {
+        "form": "potbelly",
+        "headShape": "potato",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "M",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "ab-tourist",
+      "name": "Tourist · second passenger (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-tourist",
+      "seed": 2083,
+      "jacket": "#ef6aa6",
+      "pants": "#f2ead6",
+      "boots": "#c98a4a",
+      "hair": "#7a4a2a",
+      "hairStyle": "long",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abTourist",
+        "hair": "beachWaves",
+        "hat": "sunHat",
+        "acc": "catEye"
+      },
+      "figure": {
+        "form": "lady",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "female",
+      "props": []
+    },
+    {
+      "id": "ab-handler",
+      "name": "Baggage Handler · new hire (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-handler",
+      "seed": 2084,
+      "jacket": "#ff8f1f",
+      "pants": "#24365e",
+      "boots": "#1a1a1f",
+      "hair": "#2a1e18",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abHandler",
+        "hair": "buzz",
+        "beard": "short",
+        "piece": "headphones"
+      },
+      "figure": {
+        "form": "brute",
+        "headShape": "rick",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "L",
+        "limbs": "XL",
+        "arms": "XL"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "ab-manager-v2",
+      "name": "Airport Manager · hero, MANAGER chest tag (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-manager-v2",
+      "seed": 2081,
+      "jacket": "#1f8a83",
+      "pants": "#26344a",
+      "boots": "#1a1a1f",
+      "hair": "#3a2a22",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abManager2",
+        "hair": "slickBack",
+        "piece": "earPencil"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "egg",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": []
     }
   ]
 }

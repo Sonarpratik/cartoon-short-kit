@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "characters": [
+    {
+      "id": "ab-manager",
+      "name": "Airport Manager · hero (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-manager",
+      "seed": 2081,
+      "jacket": "#1f8a83",
+      "pants": "#26344a",
+      "boots": "#1a1a1f",
+      "hair": "#3a2a22",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abManager",
+        "hair": "slickBack",
+        "piece": "earPencil"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "egg",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "ab-commuter",
+      "name": "Grumpy Passenger · complainer (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-commuter",
+      "seed": 2082,
+      "jacket": "#4b3a6e",
+      "pants": "#4b3a6e",
+      "boots": "#2a1e16",
+      "hair": "#9a948c",
+      "hairStyle": "receding",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abCommuter",
+        "hair": "combOver",
+        "stache": "walrus",
+        "acc": "squareGlasses"
+      },
+      "figure": {
+        "form": "potbelly",
+        "headShape": "potato",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "M",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "ab-tourist",
+      "name": "Tourist · second passenger (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-tourist",
+      "seed": 2083,
+      "jacket": "#ef6aa6",
+      "pants": "#f2ead6",
+      "boots": "#c98a4a",
+      "hair": "#7a4a2a",
+      "hairStyle": "long",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abTourist",
+        "hair": "beachWaves",
+        "hat": "sunHat",
+        "acc": "catEye"
+      },
+      "figure": {
+        "form": "lady",
+        "headShape": "round",
+        "headSize": "L",
+        "bodySize": "M",
+        "legs": "L",
+        "limbs": "M",
+        "arms": "M"
+      },
+      "faceCat": "female",
+      "props": []
+    },
+    {
+      "id": "ab-handler",
+      "name": "Baggage Handler · new hire (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-handler",
+      "seed": 2084,
+      "jacket": "#ff8f1f",
+      "pants": "#24365e",
+      "boots": "#1a1a1f",
+      "hair": "#2a1e18",
+      "hairStyle": "buzz",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abHandler",
+        "hair": "buzz",
+        "beard": "short",
+        "piece": "headphones"
+      },
+      "figure": {
+        "form": "brute",
+        "headShape": "rick",
+        "headSize": "L",
+        "bodySize": "XL",
+        "legs": "L",
+        "limbs": "XL",
+        "arms": "XL"
+      },
+      "faceCat": "male",
+      "props": []
+    },
+    {
+      "id": "ab-manager-v2",
+      "name": "Airport Manager · hero, MANAGER chest tag (Airport baggage)",
+      "project": "airport-bagage",
+      "identity": "ab-manager-v2",
+      "seed": 2081,
+      "jacket": "#1f8a83",
+      "pants": "#26344a",
+      "boots": "#1a1a1f",
+      "hair": "#3a2a22",
+      "hairStyle": "sidepart",
+      "coat": false,
+      "skin": "#faf9f5",
+      "look": "ricks",
+      "rcLook": {
+        "outfit": "abManager2",
+        "hair": "slickBack",
+        "piece": "earPencil"
+      },
+      "figure": {
+        "form": "standard",
+        "headShape": "egg",
+        "headSize": "L",
+        "bodySize": "L",
+        "legs": "L",
+        "limbs": "L",
+        "arms": "L"
+      },
+      "faceCat": "male",
+      "props": []
+    }
+  ]
+}

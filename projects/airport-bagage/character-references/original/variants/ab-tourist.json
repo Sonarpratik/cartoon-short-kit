@@ -1,0 +1,32 @@
+{
+  "id": "ab-tourist",
+  "name": "Tourist · second passenger (Airport baggage)",
+  "project": "airport-bagage",
+  "identity": "ab-tourist",
+  "seed": 2083,
+  "jacket": "#ef6aa6",
+  "pants": "#f2ead6",
+  "boots": "#c98a4a",
+  "hair": "#7a4a2a",
+  "hairStyle": "long",
+  "coat": false,
+  "skin": "#faf9f5",
+  "look": "ricks",
+  "rcLook": {
+    "outfit": "abTourist",
+    "hair": "beachWaves",
+    "hat": "sunHat",
+    "acc": "catEye"
+  },
+  "figure": {
+    "form": "lady",
+    "headShape": "round",
+    "headSize": "L",
+    "bodySize": "M",
+    "legs": "L",
+    "limbs": "M",
+    "arms": "M"
+  },
+  "faceCat": "female",
+  "props": []
+}
